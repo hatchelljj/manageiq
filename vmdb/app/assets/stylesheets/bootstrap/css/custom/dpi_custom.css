@@ -1,0 +1,9 @@
+#dashboard_login-bg { 
+  min-height: 800px;
+  background-color: #FFFF00;
+  background-image: url('/assets/layout/login-screen-background.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}

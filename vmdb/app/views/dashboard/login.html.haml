@@ -1,58 +1,72 @@
-#login-screen{:class =>"#{get_vmdb_config[:server][:custom_login_logo] ? 'whitelabel' : ''}"}
-  %img#logo{:src => "#{session[:custom_logo] ? '/upload/custom_logo.png' : image_path("layout/login-screen-logo.png")}"}
-  .form
+#dashboard_login-bg
+  .row
+    .col-xs-12
+      &nbsp;
+  .row
+    .col-xs-10
+      &nbsp;
+    %img.col-xs-2#logo{:src => "#{session[:custom_logo] ? '/upload/custom_logo.png' : image_path("layout/login-screen-logo.png")}"}
+  %form.form-horizontal
     = render(:partial=>"layouts/spinner", :locals=>{:login=>true}) 
     #flash_div{:style =>"#{flash[:notice] ? "" : "display:none"}"}
       #{flash[:notice]}
     %fieldset
       %legend
         %img{:src=>image_path("layout/product-name.png")}
-      #login_div
-        %p
-          %label Username
-          = text_field_tag('user_name', @user_name,:onkeypress=>"if(miqEnterPressed(event)) miqAjaxAuth();")
-          :javascript
-            $j('#user_name').focus();
-        %p
-          %label Password
-          = password_field_tag('user_password', @user_password,:onkeypress=>"if(miqEnterPressed(event)) miqAjaxAuth();",:autocomplete => "off")
-
-        - if User.mode == 'database'
-          = render :partial => 'login_more'
-
-        -# Fields collected via JS functions, sent up with credentials
-        %input{:type=>"hidden", :id=>"browser_name", :name=>"browser_name"}
-        %input{:type=>"hidden", :id=>"browser_version", :name=>"browser_version"}
-        %input{:type=>"hidden", :id=>"browser_os", :name=>"browser_os"}
-        %input{:type=>"hidden", :id=>"user_TZO", :name=>"user_TZO"}
-
-      %ul.login_buttons
-        %li
-          = link_to({:action=>"authenticate", :button=>"login", :method=>:post}, "data-miq_sparkle_on" => true,"data-submit"=>'login_div',:remote=>true,:id=>"login",:class=>"button", :title=>"Login") { "Log In" }
-
-        - if User.mode == "database"
-          %li#back_button{:style=>"display:none"}
-            = link_to({:action=>"authenticate", :button=>"back", :method=>:post},:remote=>true,:title=>"Back") { "Back" }
-          %li#more_button
-            = link_to({:action=>"authenticate", :button=>"more", :method=>:post}, :remote=>true,:title=>"Update Password") { "Update password" }
-    - if get_vmdb_config[:session][:show_login_info]
-      %aside
-        %p
-          Region:
-          %span
-            = (MiqRegion.my_region.description)
-        %p
-          Zone:
-          %span
-            = (MiqServer.my_zone)
-        %p
-          Appliance:
-          %span
-            = (MiqServer.my_server.name)
-        %p.message
-          - if get_vmdb_config[:server][:use_custom_login_text]
-            = (get_vmdb_config[:server][:custom_login_text].to_s)
-
+      .row
+        .col-xs-8
+          #login_div
+            .form-group
+              %label.col-xs-2.control-label Username
+              .col-xs-10
+                = text_field_tag('user_name', @user_name,:onkeypress=>"if(miqEnterPressed(event)) miqAjaxAuth();", :class => "form-control")
+                :javascript
+                  $j('#user_name').focus();
+            .form-group
+              %label.col-xs-2.control-label Password
+              .col-xs-10
+                = password_field_tag('user_password', @user_password,:onkeypress=>"if(miqEnterPressed(event)) miqAjaxAuth();",:autocomplete => "off", :class => "form-control")
+        
+            - if User.mode == 'database'
+              = render :partial => 'login_more'
+    
+            -# Fields collected via JS functions, sent up with credentials
+            %input{:type=>"hidden", :id=>"browser_name", :name=>"browser_name"}
+            %input{:type=>"hidden", :id=>"browser_version", :name=>"browser_version"}
+            %input{:type=>"hidden", :id=>"browser_os", :name=>"browser_os"}
+            %input{:type=>"hidden", :id=>"user_TZO", :name=>"user_TZO"}
+           
+            .login_buttons.button-group
+              .col-xs-offset-2.col-xs-10
+                = link_to({:action=>"authenticate", :button=>"login", :method=>:post}, "data-miq_sparkle_on" => true,"data-submit"=>'login_div',:remote=>true,:id=>"login",:class=>"btn btn-primary", :title=>"Login") { "Log In" }
+         
+                - if User.mode == "database"
+                  <span id="back_button" style="display:none">
+                  =link_to({:action=>"authenticate", :button=>"back", :method=>:post},:remote=>true,:class=>"btn btn-info", :title=>"Back") { "Back" }
+                  </span>
+                  <span id="more_button">
+                  = link_to({:action=>"authenticate", :button=>"more", :method=>:post}, :remote=>true,:class=>"btn btn-info", :title=>"Update Password") { "Update password" }
+                  </span>
+       
+        .col-xs-4
+          - if get_vmdb_config[:session][:show_login_info]
+            %aside
+              %p
+                Region:
+                %span
+                  = (MiqRegion.my_region.description)
+              %p
+                Zone:
+                %span
+                  = (MiqServer.my_zone)
+              %p
+                Appliance:
+                %span
+                  = (MiqServer.my_server.name)
+                %p
+                  - if get_vmdb_config[:server][:use_custom_login_text]
+                    = (get_vmdb_config[:server][:custom_login_text].to_s)
+      
 = javascript_include_tag 'miq_browser_detect.js'
 :javascript
   miqGetTZO();
@@ -63,3 +77,4 @@
 - if @user_name  # If user name is pre-populated by the server, press the Login button automatically
   :javascript
     var miq_after_onload = "$('login').click()";
+
