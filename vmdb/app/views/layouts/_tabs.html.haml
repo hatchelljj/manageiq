@@ -3,7 +3,7 @@
     - tab_id = 3
   - else
     - tab_id = 2
-  %ul{:class => "tab#{tab_id}"}
+  %ul{:class => "nav nav-tabs"}
     - @tabs[1..-1].each do |tab|
       - if tab[0] == @tabs[0][0]
         %li.active
@@ -37,7 +37,6 @@
                     "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                     "data-miq_check_for_changes"=>true,
                     :remote=>true)
-  %br{:clear => "all"}/
 - if !@tabs && (@lastaction == "show_list" || !@edit && !session[:menu_click])
   .dhtmlxInfoBarLabel-2
     - if @edit && @edit[:adv_search_applied] != nil && !session[:menu_click]
@@ -46,4 +45,3 @@
         (#{link_to("default", {:action => 'adv_search_clear'}, :method => :post, :class => 'active')})
     - else
       = @title
-  %br{:clear => "all"}/

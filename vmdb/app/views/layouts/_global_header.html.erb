@@ -15,13 +15,8 @@
     <title>
       <%= h(title_from_layout(@layout)) %>
     </title>
-
-    <%= stylesheet_link_tag 'application' %>
-    <%= stylesheet_link_tag 'main' %>
+    
     <%= tag :link, :rel => "shortcut icon", :href => image_path("favicon.ico") %>
-    <%= stylesheet_link_tag 'glyphicons' %>
-    <%= stylesheet_link_tag 'template' %>
-    <%= render :partial=>"stylesheets/template50" %>
     <!--[if IE 8]>
     <html class="ie8"><![endif]-->
     <%# jQuery includes %>
@@ -29,7 +24,6 @@
     <script type="text/javascript">
       $j = jQuery;	<%# Override jQuery $ to $j %>
     </script>
-
     <%# jQuery UI CSS %>
     <%= stylesheet_link_tag "jquery/miq/jquery-ui-1.9.2.custom" %>
 
@@ -41,7 +35,7 @@
 
     <%= csrf_meta_tag %>
 
-    <%= javascript_include_tag 'prototype_min', 'effects_min', 'application', 'dragdrop_min', 'controls_min' %>
+    <%= javascript_include_tag 'prototype', 'effects_min', 'application', 'dragdrop_min', 'controls_min' %>
 
     <%= javascript_include_tag 'dhtmlx_gpl_36/dhtmlxcommon.js', 'dhtmlx_gpl_36/dhtmlxcontainer.js' %>
 
@@ -66,6 +60,10 @@
     <% end %>
 
     <%= javascript_include_tag 'spin' %>  <%# JS activity spinner %>
+
+
+    <%= stylesheet_link_tag 'bootstrap/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'bootstrap.min.js' %>
 
     <style>html, body{width:100%; height:100%; margin:0px; padding:0px; overflow:hidden;}</style>
 </head>

@@ -1,8 +1,9 @@
-%li.dropdown{:onclick=>"miqToggleUserOptions(event, 'user_options_div')", :style=>"cursor: pointer;"}
-  %span.pficon.pficon-user
-  = "#{session[:username]} | #{session[:vmdb_name]}"
-  %b.caret
-  %ul.dropdown-menu#user_options_div{:style=>"display:none;"}
+%li.dropdown.bg-info
+  %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}
+    %span.glyphicon.glyphicon-user
+    = "#{session[:username]} | #{session[:vmdb_name]}"
+    %b.caret
+  %ul.dropdown-menu
     %li 
       Server: #{session[:vmdb_name]}
     %li 
@@ -18,14 +19,7 @@
       - else
         = session[:group_description] 
     %li.divider
-    %a{:href=>"/dashboard/logout", :onclick=>'return miqCheckForChanges()', :title=>"Click to Logout"}
-      %li.active
+    %li
+      %a{:href=>"/dashboard/logout", :onclick=>'return miqCheckForChanges()', :title=>"Click to Logout"}
         Logout
 
-  %script{:type=>"text/javascript"}
-    $j("body").click(function(e){
-    if (! $j(e.target).is('#to_group') && ! $j(e.target).is('#user_options_div')) 
-    -# If not clicking on group selector or user_options_div itself
-    if ($j('#user_options_div').is(':visible'))
-    $j('#user_options_div').hide();
-    });

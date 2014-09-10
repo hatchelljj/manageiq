@@ -7,10 +7,10 @@
     <strong>No Records Found</strong>
   </div>
 <% else %>
-    <table class="style3">
+    <table class="table table-striped">
     <thead>
       <tr>
-        <th class="checkbox" width="10"></th>
+        <th width="10"></th>
         <th nowrap>Description</th>
         <th nowrap>Type</th>
         <th nowrap>User ID</th>
@@ -22,8 +22,8 @@
     </thead>
     <tbody>
       <% @temp[:timeprofiles].each_with_index do |row,i| %>
-        <tr class="<%= cycle('row0', 'row1') %>">
-          <td class="checkbox">
+        <tr>
+          <td>
             <%= check_box_tag("check_#{row['id']}", value=1, checked=false, :id=>"listcheckbox", :onclick=>"miqUpdateButtons(this,'center_tb');") %>
           </td>
           <% title = row['description'] == "UTC" ? "Click to view Time Profile" : "Click to view/edit Time Profile" %>

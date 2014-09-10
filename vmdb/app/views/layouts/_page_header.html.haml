@@ -1,17 +1,20 @@
-%div{:id=>"page_header_div", :class=>"#{taskbar_in_header? ? "taskbar" : "notaskbar"} #{session[:custom_logo] ? "whitelabeled" : ""}"}
-  %div{:class=>"header #{session[:custom_logo] ? "whitelabeled" : ""}"}
-    .brand
-      %img{:src=>image_path("layout/brand.svg"), :alt=>"Red Hat&reg; CloudForms Management Engine"}
-    %ul.pull-right
-      - if session[:userid] 
-        = render :partial => "layouts/user_options" 
-      - else
-        Logging into
-        = "#{session[:vmdb_name]}"
-      - if ["login", "authenticate"].include?(controller.action_name) 
-        = javascript_tag( "$$('#navcontainer a').each(function(a){a.href='#'})" )
-        -# <li class="dropdown">Red Hat Access<b class="caret"></b></li> for later Sprint 
-      %div{:class=>"brand-white-label #{session[:custom_logo] ? "whitelabeled" : ""}"}
+%div.navbar.navbar-default.navbar-fixed-top#page_header_div
+  .bg-primary
+    .container
+      .row
+        .col-xs-2
+          %img{:src=>image_path("layout/brand.svg"), :alt=>"Red Hat&reg; CloudForms Management Engine", :style=>"padding-top: 12px;"}
+        .col-xs-10
+          .row
+            .col-xs-offset-8.col-xs-4
+              %ul.nav.nav-pills
+                - if session[:userid] 
+                  = render :partial => "layouts/user_options" 
+                - else
+                  Logging into
+                  = "#{session[:vmdb_name]}"
+                - if ["login", "authenticate"].include?(controller.action_name) 
+                  = javascript_tag( "$$('#navcontainer a').each(function(a){a.href='#'})" )
 
   = render :partial => "layouts/page_header_navbar"
   = render :partial => "layouts/spinner"
@@ -22,16 +25,18 @@
   -# Exception div to be replaced and attached to miqLayout when exceptions are hit 
   #exception_div{:style=>"display:none"}
 
-  = render :partial => "layouts/lightbox_panel"
-
-  - if taskbar_in_header?
-    = render :partial => "layouts/taskbar"
-  - else
-    %li.navbar-divider
-
-  - if  @layout == "dashboard" && (controller.action_name == "show" || controller.action_name == "change_tab") 
-    - if @widgets_menu_xml
-      = render :partial => "dashboard/dropdownbar" 
+  .row
+    .col-xs-4.navbar-fixed-bottom
+      - if  @layout == "dashboard" && (controller.action_name == "show" || controller.action_name == "change_tab")
+        - if @widgets_menu_xml
+          = render :partial => "dashboard/dropdownbar"
+    .col-xs-offset-4.col-xs-4
+      - if taskbar_in_header?
+        = render :partial => "layouts/taskbar"
+      - else
+        %li.navbar-divider
+    .col-xs-4    
+      = render :partial => "layouts/lightbox_panel"
 
   %script{:type => "text/javascript"}
     - if @miq_after_onload 
