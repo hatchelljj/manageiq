@@ -1,6 +1,6 @@
 <div id="zone_tree_div">
 	<fieldset>
-		<p class="legend">
+		<p class="lead">
 			Status of <%= @temp[:selected_server].is_a?(MiqRegion) ? "Regional" : "" %>
 			Roles for Servers in <%= ui_lookup(:model=>@temp[:selected_server].class.to_s) %> <%= @temp[:selected_server].description %>
 		</p>

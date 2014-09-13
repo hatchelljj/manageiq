@@ -3,15 +3,12 @@
 %>
 <% if @sb[:active_tab] == "settings_database" %>
   <%= render :partial => "layouts/flash_msg" %>
-  <div class="alert alert-danger">
-    <span class="pficon-layered">
-      <span class="pficon pficon-error-octagon"></span>
-      <span class="pficon pficon-error-exclamation"></span>
-    </span>
+  <div class="bg-danger">
+    <span class="glyphicon glyphicon-warning-sign"></span>
     <strong>Caution: Changing the Database settings could make the Server unstartable!</strong>
   </div>
-  <p class="legend">Database</p>
-  <table class="style1">
+  <p class="lead">Database</p>
+  <table class="table table-striped">
     <tr>
       <td class="key">Type</td>
       <td>
@@ -73,7 +70,8 @@
           <%= button_tag("Validate", 
                          :class => "btn btn-primary btn-disabled", 
                          :alt   => "Password fields must match to Validate Database Configuration", 
-                         :title => "Password fields must match to Validate Database Configuration") 
+                         :title => "Password fields must match to Validate Database Configuration",
+                         :disabled => "disabled" ) 
           %>
         </div>
       </td>

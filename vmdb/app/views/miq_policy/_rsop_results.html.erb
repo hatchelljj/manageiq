@@ -3,10 +3,10 @@
 	<%= render(:partial=>"layouts/flash_msg") %>
 	<% if session[:rsop_tree] %>
     <fieldset style="margin: 8px">
-      <p class="legend">Display Options</p>
-      <table class="style1">
+      <p class="lead">Display Options</p>
+      <table class="table table-striped">
         <tr>
-          <td class="key">Show out of scope items:</td>
+          <td>Show out of scope items:</td>
           <td>
             <%= check_box_tag("out_of_scope", value="1", checked=@sb[:rsop][:out_of_scope],
                               "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
@@ -14,7 +14,7 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Show policies:</td>
+          <td>Show policies:</td>
           <td>
             <%= check_box_tag("passed", value="1", checked=@sb[:rsop][:passed],
                               "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
@@ -28,7 +28,7 @@
       </table>
     </fieldset>
 		<fieldset style="margin: 8px">
-			<p class="legend">Policy Simulation Results</p>
+			<p class="lead">Policy Simulation Results</p>
         &nbsp;<strong>* Items in <font color="red"><i>red italics</i></font> do not change the outcome of the scope or expression.</strong>
       <% else %>
         &nbsp;<strong>* Enter Policy Simulation options on the left and press Submit</strong>

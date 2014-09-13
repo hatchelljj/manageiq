@@ -1,8 +1,8 @@
 <div id='main_div'>
   <%= render(:partial=>"layouts/flash_msg") %>
   <fieldset>
-    <p class="legend">Basic Information</p>
-    <table class="style1">
+    <p class="lead">Basic Information</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Name</td>
         <td>
@@ -12,8 +12,8 @@
     </table>
   </fieldset>
   <fieldset>
-    <p class="legend">LDAP Settings</p>
-    <table class="style1">
+    <p class="lead">LDAP Settings</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">User Type</td>
         <td class="wide">
@@ -53,8 +53,8 @@
     </table>
   </fieldset>
   <fieldset>
-    <p class="legend">Role Settings</p>
-    <table class="style1">
+    <p class="lead">Role Settings</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Get User Groups from LDAP</td>
         <td>
@@ -100,11 +100,11 @@
     </table>
   </fieldset>
   <fieldset>
-    <p class="legend">LDAP Servers</p>
+    <p class="lead">LDAP Servers</p>
     <% if @selected_ld.ldap_servers.count <= 0 %>
       No Records found.
     <% else %>
-      <table class="style3">
+      <table class="table table-striped">
         <% @selected_ld.ldap_servers.sort{|a,b| a.hostname.to_s <=> b.hostname.to_s}.each_with_index do |svr,i| %>
           <% if i == 0 %>
             <thead>

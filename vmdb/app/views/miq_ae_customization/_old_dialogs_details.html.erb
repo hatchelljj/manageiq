@@ -2,8 +2,8 @@
 <% if @dialog %>
   <% unless @edit %>
     <%= render(:partial => "layouts/flash_msg") %>
-    <p class="legend">Basic Information</p>
-    <table class="style1">
+    <p class="lead">Basic Information</p>
+    <table class="table table-striped">
       <tbody>
         <tr>
           <td class="key">Name</td>
@@ -15,7 +15,7 @@
         </tr>
       </table>
       <hr>
-      <p class="legend">Content</p>
+      <p class="lead">Content</p>
       <%= text_area("script",
                     "data",
                     :value    => h(@dialog.content.to_yaml),

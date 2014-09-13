@@ -5,7 +5,7 @@
     <tr>
       <td>
         <fieldset>
-          <p class="legend">Event Selection</p>
+          <p class="lead">Event Selection</p>
           <strong style="color: #4b4b4b">Type:</strong><br/>
           <%= select_tag('event_typ',
                          options_for_select(["<Choose>"] + @temp[:rsop_events],
@@ -24,7 +24,7 @@
     <tr>
       <td>
         <fieldset>
-          <p class="legend">VM Selection</p>
+          <p class="lead">VM Selection</p>
           <%= select_tag('filter_typ',
                          options_for_select(
                            [

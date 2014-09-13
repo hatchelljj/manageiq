@@ -1,11 +1,11 @@
 <% parent_id ||= nil %>
 <div id="form_widgets_div">
 	<fieldset>
-		<p class="legend"><%=typ.capitalize%></p>
+		<p class="lead"><%=typ.capitalize%></p>
 		<div id="modules">
-			<div class="yui-b">
-				<div class="yui-gb">
-					<div class="yui-u first" style="position:relative;min-height:50px;" id="col1">
+			<div>
+				<div>
+					<div style="position:relative;min-height:50px;" id="col1">
 						<% objects = @edit[:new][:tabs] %>
 						<% if parent_id %>
 							<% ids = parent_id.split('_') %>

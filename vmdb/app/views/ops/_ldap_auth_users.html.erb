@@ -1,7 +1,7 @@
 <div id="ldap_user_div">
   <% url = url_for(:action =>'rbac_group_field_changed', :id=>"#{@edit[:group_id] || "new"}") %>
 	<% if !@edit[:ldap_groups_by_user].empty? %>
-		<table class="style1">
+		<table class="table table-striped">
 				<tr>
 					<td class="key">LDAP Groups for User</td>
 					<td>

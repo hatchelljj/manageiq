@@ -7,8 +7,8 @@
 				<% if @edit %>
 					 <% url = url_for(:action=>'region_form_field_changed', :id=>"#{region.id || "new"}") %>
 						<fieldset>
-							<p class="legend">Region Information</p>
-							<table class="style1">
+							<p lead="legend">Region Information</p>
+							<table class="table table-striped">
 								<tr>
 									<td class="key">Description</td>
 									<td>
@@ -34,7 +34,7 @@
 			</fieldset>
 		</div>
 	<% end %>
-	<div class ="ops_details">
+	<div class ="bg-info">
 		<fieldset>
 			<div onclick="cfmeDynatree_activateNode('settings_tree', 'xx-sis');" onmouseover="this.style.cursor='pointer'" title="View Analysis Profiles">
 				<img src="/images/icons/new/scan_item_set.png"/>Analysis Profiles (<%= h(@temp[:scan_items].size) %>)

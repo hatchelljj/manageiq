@@ -6,8 +6,8 @@
 		<%= render(:partial =>"layouts/perf_charts",
 							:locals=>{:chart_data=>@temp[:chart_data], :chart_set=>"candu"}) %>
 	<% else %>
-		<div class="alert alert-info">
-			<span class="pficon pficon-info"></span>
+		<div class="bg-warning">
+			<span class="glyphicon glyphicon-info-sign"></span>
 			<strong>
 				<% if @record.vm && !@perf_record %>
 					No Utilization data available for this Server's Virtual Machine.

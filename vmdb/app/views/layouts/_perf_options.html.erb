@@ -3,8 +3,8 @@
 %>
 <div id="perf_options_div" onclick="if (typeof miqMenu != 'undefined') miqMenu.hideContextMenu();">
   <% if @temp[:charts] || @perf_options[:chart_type] != :performance %><%# Only show charts if task has run %>
-    <p class="legend">Options<%= @record != @perf_record ? " (#{ui_lookup(:model => @perf_record.class.to_s)}: #{@perf_record.name})" : "" %></p>
-    <dl class="dl-horizontal">
+    <p class="lead">Options<%= @record != @perf_record ? " (#{ui_lookup(:model => @perf_record.class.to_s)}: #{@perf_record.name})" : "" %></p>
+    <dl>
       <dt>Interval</dt>
       <dd>
         <%# Determine if realtime should be hidden from pulldown for host/vm charts %>

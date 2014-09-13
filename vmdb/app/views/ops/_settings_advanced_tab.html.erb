@@ -4,15 +4,12 @@
 <% if @sb[:active_tab] == "settings_advanced" %>
   <%= render :partial => "layouts/flash_msg" %>
   <div id="form_div">
-    <div class="alert alert-danger">
-      <span class="pficon-layered">
-        <span class="pficon pficon-error-octagon"></span>
-        <span class="pficon pficon-error-exclamation"></span>
-      </span>
+    <div class="bg-danger">
+      <span class="glyphicon glyphicon-warning-sign"></span>
       <strong>Caution: Manual changes to configuration files can disable the Server!</strong>
     </div>
-    <p class="legend">Configuration File to Edit</p>
-    <table class="style1">
+    <p class="lead">Configuration File to Edit</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">File</td>
         <td>
@@ -39,7 +36,7 @@
       </tr>
     </table>
     <hr>
-    <p class="legend">Editing <%= h(VMDB::Config.available_config_names[session[:config_file_name]]) %> File<font color="red">*</font></p>
+    <p class="lead">Editing <%= h(VMDB::Config.available_config_names[session[:config_file_name]]) %> File<font color="red">*</font></p>
     <%= text_area_tag("file_data",
                       @edit[:new][:file_data],
                       :style => "display:none;")

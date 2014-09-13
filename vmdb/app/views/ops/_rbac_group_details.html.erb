@@ -4,7 +4,7 @@
   %>
 <% end %>
 <%= render :partial => "layouts/flash_msg" %>
-<div id='main_div'>
+<div id='container'>
   <dl class="col2">
     <dd>
         <fieldset>
@@ -12,7 +12,7 @@
           <% if @edit %>
             <%= render :partial => "ldap_auth_users" %>
           <% end %>
-          <table class="style1">
+          <table class="table table-striped">
               <tr>
                 <td class="key">Description</td>
                 <td nowrap >
@@ -98,8 +98,8 @@
         <% if @edit %>
           <div id="group_lookup" style="display:none">
           <fieldset>
-            <p class="legend">LDAP Group Look Up</p>
-            <table class="style1">
+            <p class="lead">LDAP Group Look Up</p>
+            <table class="table table-striped">
                 <tr>
                   <td class="key">User to Look Up</td>
                   <td>
@@ -157,9 +157,9 @@
 
       <dd>
         <fieldset>
-          <p class="legend"><%= @edit ? "Assign Filters" : "Assigned Filters (read only)" %></p>
+          <p class="lead"><%= @edit ? "Assign Filters" : "Assigned Filters (read only)" %></p>
           <div id="rbac_group_tabs" style="display:none;" data-miq_url="_none_">
-            <ul class="tab">
+            <ul class="nav nav-tabs">
               <li><a href="#customer_tags"><%= escape_javascript(session[:customer_name]) %> Tags</a></li>
               <li><a href="#hosts_clusters">Hosts & Clusters</a></li>
               <li><a href="#vms_templates">VMs & Templates</a></li>

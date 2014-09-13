@@ -2,10 +2,10 @@
 
 <div id="action_options_div">
   <% if @edit[:new][:action_type] == "email" %>
-    <p class="legend">E-mail Settings</p>
-    <table class="style1">
+    <p class="lead">E-mail Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">From E-mail Address<br/>(leave blank for default)</td>
+        <td>From E-mail Address<br/>(leave blank for default)</td>
         <td>
           <%= text_field_tag("from",
                              @edit[:new][:options][:from],
@@ -17,7 +17,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">To E-mail Address</td>
+        <td>To E-mail Address</td>
         <td>
           <%= text_field_tag("to",
                              @edit[:new][:options][:to],
@@ -31,10 +31,10 @@
 
   <% elsif @edit[:new][:action_type] == "set_custom_attribute" %>
   
-    <p class="legend">Custom Attribute Settings</p>
-    <table class="style1">
+    <p class="lead">Custom Attribute Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Attribute Name</td>
+        <td  >Attribute Name</td>
         <td>
           <%= text_field_tag("attribute",
                               @edit[:new][:options][:attribute],
@@ -45,7 +45,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Value to Set</td>
+        <td  >Value to Set</td>
         <td>
           <%= text_field_tag("value",
                              @edit[:new][:options][:value],
@@ -59,10 +59,10 @@
 
   <% elsif @edit[:new][:action_type] == "tag" %>
 
-    <p class="legend">Applied Tag</p>
-    <table class="style1">
+    <p class="lead">Applied Tag</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Tag to Apply:</td>
+        <td  >Tag to Apply:</td>
         <td>
           <span id="tag_selected">
             <%= h(@tag_selected) %>
@@ -71,8 +71,8 @@
       </tr>
     </table>
     <hr>
-    <p class="legend">Select a Tag to Apply</p>
-    <table class="style1">
+    <p class="lead">Select a Tag to Apply</p>
+    <table class="table table-striped">
       <tr>
         <td>
           <div id="action_tags_treebox"></div>
@@ -93,10 +93,10 @@
 
   <% elsif @edit[:new][:action_type] == "create_snapshot" %>
 
-    <p class="legend">Snapshot Settings</p>
-    <table class="style1">
+    <p class="lead">Snapshot Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Snapshot Name</td>
+        <td  >Snapshot Name</td>
         <td>
           <%= text_field_tag("snapshot_name",
                              @edit[:new][:options][:name],
@@ -110,10 +110,10 @@
 
   <% elsif @edit[:new][:action_type] == "delete_snapshots_by_age" %>
 
-    <p class="legend">Snapshot Age Settings</p>
-    <table class="style1">
+    <p class="lead">Snapshot Age Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Delete if Older than</td>
+        <td  >Delete if Older than</td>
         <td>
           <%= select_tag('snapshot_age',
                           options_for_select([["<Choose>", nil]] + SNAPSHOT_AGES.invert.to_a.sort{|a,b| a.last<=>b.last},
@@ -125,10 +125,10 @@
 
   <% elsif @edit[:new][:action_type] == "reconfigure_memory" %>
 
-    <p class="legend">Reconfigure Memory</p>
-    <table class="style1">
+    <p class="lead">Reconfigure Memory</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Memory Size</td>
+        <td  >Memory Size</td>
         <td>
           <%= text_field_tag("memory_value",
                               @edit[:new][:options][:value],
@@ -143,10 +143,10 @@
 
   <% elsif @edit[:new][:action_type] == "reconfigure_cpus" %>
 
-    <p class="legend">Reconfigure CPU</p>
-    <table class="style1">
+    <p class="lead">Reconfigure CPU</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Number of CPU's</td>
+        <td  >Number of CPU's</td>
         <td>
           <% cpu_val = ["1","2","4"] %>
           <%= select_tag('cpu_value',
@@ -161,8 +161,8 @@
 
   <% elsif @edit[:new][:action_type] == "custom_automation" %>
 
-    <p class="legend">Custom Automation</p>
-    <table class="style1">
+    <p class="lead">Custom Automation</p>
+    <table class="table table-striped">
       <tr><td>
         <%= render(:partial => "layouts/ae_resolve_options",
                    :locals  => {:resolve           => @edit,
@@ -175,24 +175,23 @@
 
   <% elsif @edit[:new][:action_type] == "evaluate_alerts" %>
 
-    <p class="legend">Select Alerts to be Evaluated</p>
-    <table class="style1">
+    <p class="lead">Select Alerts to be Evaluated</p>
+    <table class="table table-striped">
       <tbody>
         <tr>
           <td >
-            <table width="100%" class="form" id="formtest">
+            <table width="100%" class="table table-striped" id="formtest">
               <tr>
                 <td align="left">Available Alerts:</td>
                 <td></td>
-                <td align="left" class="widthed"> Selected Alerts:</td>
+                <td class="text-left"> Selected Alerts:</td>
               </tr>
               <tr>
-                <td align="left" class="widthed" valign="top">
+                <td class="text-left" valign="top">
                   <span id="choices_chosen_div">
                     <%= select_tag('choices_chosen[]',
                                     options_for_select( @edit[:choices].sort ),
                                    {:multiple => true,
-                                    :class    => "widthed", 
                                     :size     => 8, 
                                     :id       => "choices_chosen"})
                     %>
@@ -231,7 +230,6 @@
                     <%= select_tag('members_chosen[]',
                                     options_for_select( @edit[:new][:alerts].sort),
                                    {:multiple => true,
-                                    :class    => "widthed",
                                     :size     => 8,
                                     :id       => "members_chosen" })
                     %>
@@ -246,10 +244,10 @@
 
   <% elsif @edit[:new][:action_type] == "snmp_trap" %>
 
-    <p class="legend">SNMP Trap Settings</p>
-    <table class="style1">
+    <p class="lead">SNMP Trap Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Host</td>
+        <td  >Host</td>
         <td>
           <%= text_field_tag("host",
                               @edit[:new][:options][:host],
@@ -260,7 +258,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Version</td>
+        <td  >Version</td>
         <td>
           <% version = ["v1","v2"] %>
           <%= select_tag('snmp_version',
@@ -275,7 +273,7 @@
       </tr>
       <% trap_text = @edit[:new][:options][:snmp_version] == "v1" || @edit[:new][:options][:snmp_version].nil? ? "Trap Number" : "Trap Object ID" %>
       <tr>
-        <td class="key"><%= trap_text %></td>
+        <td  ><%= trap_text %></td>
         <td>
           <%= text_field_tag("trap_id",
                               @edit[:new][:options][:trap_id],
@@ -286,8 +284,8 @@
         </td>
       </tr>
     </table>
-    <p class="legend">Variables</p>
-    <table class="style1">
+    <p class="lead">Variables</p>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Object ID</th>
@@ -300,7 +298,7 @@
         <% t = "var_type__" + (i+1).to_s %>
         <% v = "value__" + (i+1).to_s %>
         <tr>
-          <td class="wide">
+          <td>
             <%= text_field_tag("#{f}",
                                 @edit[:new][:options][:variables][i][:oid],
                                 :maxlength => MAX_NAME_LEN,
@@ -308,7 +306,7 @@
                                                        :url      => url}.to_json) 
             %>
           </td>
-          <td class="wide">
+          <td>
             <%= select_tag("#{t}",
                             options_for_select(["<None>"] + @edit[:snmp_var_types].sort,
                             @edit[:new][:options][:variables][i][:var_type]),
@@ -321,7 +319,7 @@
           <% else %>
             <%  val_disabled = false %>
           <% end %>
-          <td class="wide">
+          <td>
             <%= text_field_tag("#{v}",
                                 @edit[:new][:options][:variables][i][:value],
                                 :maxlength => MAX_NAME_LEN,
@@ -336,10 +334,10 @@
 
   <% elsif @edit[:new][:action_type] == "assign_scan_profile" %>
 
-    <p class="legend">Analysis Profiles</p>
-    <table class="style1">
+    <p class="lead">Analysis Profiles</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Analysis Profiles</td>
+        <td  >Analysis Profiles</td>
         <td>
           <%= select_tag('analysis_profile',
                           options_for_select([["<Choose>",nil]] + @edit[:new][:scan_profiles],
@@ -353,10 +351,10 @@
 
   <% elsif @edit[:new][:action_type] == "inherit_parent_tags" %>
 
-    <p class="legend">Inherit Tags Settings</p>
-    <table class="style1">
+    <p class="lead">Inherit Tags Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Parent Type</td>
+        <td  >Parent Type</td>
         <td>
           <%= select_tag('parent_type',
                           options_for_select(@edit[:tag_parent_types],
@@ -366,7 +364,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Categories</td>
+        <td  >Categories</td>
         <td>
             <table>
               <% j = 0 %>
@@ -395,10 +393,10 @@
 
   <% elsif @edit[:new][:action_type] == "remove_tags" %>
 
-    <p class="legend">Remove Tags Settings</p>
-    <table class="style1">
+    <p class="lead">Remove Tags Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Categories</td>
+        <td  >Categories</td>
         <td>
             <table>
               <% j = 0 %>

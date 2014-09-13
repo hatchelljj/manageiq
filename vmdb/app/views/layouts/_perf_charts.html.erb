@@ -22,8 +22,8 @@
             <% end %>
           <% end %>
         <% else %>
-          <div class="alert alert-info">
-            <span class="pficon pficon-info"></span>
+          <div class="bg-info">
+            <span class="glyphicon glyphicon-info-sign"></span>
             <strong>No Capacity & Utilization data available.</strong>
           </div>
         <% end %>
@@ -37,7 +37,7 @@
       <% elsif perf_parent? %><%# Show side by side VM/Parent charts %>
         <% pcharts = @temp[:parent_charts] %>
         <% pchart_data = @temp[:parent_chart_data] %>
-        <table>
+        <table class="table">
           <% if charts && chart_data.length > 0 %>
             <% (0..chart_data.length - 1).each do |c| %>
               <% unless charts[c][:type] == "None" || chart_data[c] == nil %>
@@ -86,14 +86,14 @@
               </tr>
             <% end %>
           <% else %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>No Capacity & Utilization data available.</strong>
             </div>
           <% end %>
         </table>
       <% elsif perf_compare_vm? %><%# Show main charts along with Compare to VM charts %>
-        <table><tr><td>
+        <table class="table"><tr><td>
           <h3>
             <br/>
             <%= ui_lookup(:model=>@perf_record.class.to_s) %> "<%= @perf_record.evm_display_name %>"
@@ -112,15 +112,15 @@
               <% end %>
             <% end %>
           <% else %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>No Capacity & Utilization data available.</strong>
             </div>
           <% end %>
 
           <% if @html %>
             <br clear="all"/>
-            <fieldset style="float:left;">
+            <fieldset class="pull-left">
             <%= @html.html_safe %>
             </fieldset>
           <% end %>
@@ -146,8 +146,8 @@
               <% end %>
             <% end %>
           <% else %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>No Capacity & Utilization data available.</strong>
             </div>
           <% end %>

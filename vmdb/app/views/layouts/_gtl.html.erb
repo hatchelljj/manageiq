@@ -31,8 +31,8 @@
       <% if (view == nil || table.data.length == 0) && render_flash_msg? %>
         <%= render :partial => "layouts/flash_msg" %>
       <% end %>
-      <div class="alert alert-info">
-        <span class="pficon pficon-info"></span>
+      <div class="bg-danger">
+        <span class="glyphicon glyphicon-info-sign"></span>
         <strong>No Records Found</strong>
       </div>
     <% if @bottom_msg %>

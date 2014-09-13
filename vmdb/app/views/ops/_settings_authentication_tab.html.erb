@@ -1,8 +1,8 @@
 <% url = url_for(:action =>'settings_form_field_changed', :id=>"#{@sb[:active_tab].split('_').last}") %>
 <% if @sb[:active_tab] == "settings_authentication" %>
   <%= render :partial => "layouts/flash_msg" %>
-    <p class="legend">Authentication</p>
-    <table class="style1">
+    <p class="lead">Authentication</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Session Timeout</td>
         <td>
@@ -30,8 +30,8 @@
     <hr>
     <%= hidden_div_if(!["ldap","ldaps"].include?(@edit[:new][:authentication][:mode]), :id=>"ldap_div" ) %>
 
-        <p class="legend">LDAP Settings</p>
-        <table class="style1">
+        <p class="lead">LDAP Settings</p>
+        <table class="table table-striped">
           <tr>
             <td class="key">LDAP Host Names</td>
               <td class="wide">
@@ -101,8 +101,8 @@
       </div>
     <%= hidden_div_if(@edit[:new][:authentication][:mode] != "amazon", :id=>"amazon_div" ) %>
 
-        <p class="legend">Amazon Primary AWS Account Settings for IAM</p>
-        <table class="style1">
+        <p class="lead">Amazon Primary AWS Account Settings for IAM</p>
+        <table class="table table-striped">
           <tr>
             <td class="key">Access Key</td>
               <td class="wide">
@@ -131,8 +131,8 @@
     <% else %>
       <div id="ldap_role_div" style="display:none">
     <% end %>
-    <p class="legend">Role Settings</p>
-    <table class="style1">
+    <p class="lead">Role Settings</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Get User Groups from LDAP</td>
         <td>
@@ -147,7 +147,7 @@
     <% else %>
       <div id="ldap_role_details_div" style="display:none">
     <% end %>
-    <table class="style1">
+    <table class="table table-striped">
       <% if !@edit[:new][:authentication][:user_proxies].blank? %>
         <tr id="get_roles_row">
       <% else %>
@@ -214,8 +214,8 @@
     <div id="amazon_role_div" style="display:none">
   <% end %>
 
-    <p class="legend">Role Settings</p>
-    <table class="style1">
+    <p class="lead">Role Settings</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Get User Groups from Amazon</td>
         <td>
@@ -234,8 +234,8 @@
   </div>
 
   <%= hidden_div_if(@edit[:new][:authentication][:mode] != "httpd", :id => "httpd_role_div") do %>
-    <p class="legend">Role Settings</p>
-    <table class="style1">
+    <p class="lead">Role Settings</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Get User Groups from External Authentication (httpd)</td>
         <td>

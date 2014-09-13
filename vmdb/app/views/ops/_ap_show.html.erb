@@ -1,7 +1,7 @@
 <div id='main_div'>
   <%= render(:partial=>"layouts/flash_msg") %>
-  <p class="legend">Info</p>
-  <table class="style1">
+  <p class="lead">Info</p>
+  <table class="table table-striped">
       <tr>
         <td class="key">Name</td>
         <td><%= h(@selected_scan.name) %></td>
@@ -20,8 +20,8 @@
     <% if @category %>
 
 
-            <p class="legend">Categories</p>
-            <table class="style1">
+            <p class="lead">Categories</p>
+            <table class="table table-striped">
                   <% @category.sort.each do |c| %>
                     <tr>
                       <td><%= h(c) %></td>
@@ -32,8 +32,8 @@
     <% end  %>
   <% end %>
   <% if @file %>
-    <p class="legend">File Items</p>
-    <table class="style3">
+    <p class="lead">File Items</p>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th width="200">Name</th>
@@ -53,8 +53,8 @@
   <% end  %>
       <% unless @selected_scan.mode == "Host" %>
         <% if @registry %>
-          <p class="legend">Registry Items</p>
-          <table class="style1">
+          <p class="lead">Registry Items</p>
+          <table class="table table-striped">
             <% @registry.sort_by { |r| r["key"] }.each do | k | %>
               <tr>
                 <td><%= h(k["hive"]) %>\<%= h(k["key"]) %> : <%= h(k["value"]) %></td>
@@ -67,8 +67,8 @@
     <% if @nteventlog %>
 
 
-          <p class="legend">Event Log Items</p>
-          <table class="style1">
+          <p class="lead">Event Log Items</p>
+          <table class="table table-striped">
                 <% @nteventlog.sort_by{|l|l[:name]}.each do | k | %>
                   <tr>
                     <td><%= h(k[:name]) %></td>

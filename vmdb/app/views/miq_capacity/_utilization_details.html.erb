@@ -15,8 +15,8 @@
   <% else %>
     <% msg = x_node == "" ? "Select a node on the left to view Utilization information." : "No performance data is available for the selected item." %>
 
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong><%=msg%></strong>
     </div>
   <% end %>

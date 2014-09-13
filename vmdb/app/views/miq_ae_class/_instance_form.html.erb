@@ -1,8 +1,8 @@
 <% url = url_for(:action => 'form_instance_field_changed',
                  :id     => "#{@ae_inst.id || "new"}")
 %>
-  <p class="legend">Main Info</p>
-  <table class="style1">
+  <p class="lead">Main Info</p>
+  <table class="table table-striped">
     <tr>
       <td class="key">
         <%= Dictionary::gettext('fqname',
@@ -48,8 +48,8 @@
     </tr>
   </table>
   <hr>
-  <p class="legend">Fields</p>
-  <table class="style3" cellspacing="1">
+  <p class="lead">Fields</p>
+  <table class="table table-striped" cellspacing="1">
     <thead>
       <tr>
         <th>Name</th>
@@ -62,7 +62,7 @@
     </thead>
     <tbody>
       <% @edit[:new][:ae_values].each_with_index do |flds,i| %>
-        <tr class="<%=cycle('row0','row1',:name=>'schema')%>">
+        <tr>
           <% image = @edit[:new][:ae_fields][i]["substitute"] ? "passed.png" : "failed.png" %>
           <td>
             <img src="/images/icons/new/ae_<%= @edit[:new][:ae_fields][i]["aetype"] %>.png" alt="Type: <%= @edit[:new][:ae_fields][i]["aetype"] %>" title="Type: <%= @edit[:new][:ae_fields][i]["aetype"] %>" />

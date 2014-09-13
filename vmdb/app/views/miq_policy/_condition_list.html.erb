@@ -3,18 +3,17 @@
 		<div style="padding-top:10px;"></div>
 		<%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
 		<% if @conditions.empty? %>
-			<div class="note">* No <%= ui_lookup(:model=>@sb[:folder]) %> Conditions are defined<%= @search_text.blank? ? "" : " that match the entered search string" %>.</div>
+			<div class="bg-info"><aside>* No <%= ui_lookup(:model=>@sb[:folder]) %> Conditions are defined<%= @search_text.blank? ? "" : " that match the entered search string" %>.</aside></div>
 		<% else %>
-				<table class="style3">
+				<table class="table table-striped">
 					<thead>
-						<th class="icon"></th><th></th>
+						<th></th><th></th>
 					</thead>
 					<tbody>
 					<% @conditions.each do |c| %>
-						<tr class="<%= cycle('row0', 'row1') %>"
-                onclick="cfmeDynatree_activateNode('condition_tree', 'xx-<%=c.towhat.downcase%>_co-<%= to_cid(c.id) %>');"
+						<tr onclick="cfmeDynatree_activateNode('condition_tree', 'xx-<%=c.towhat.downcase%>_co-<%= to_cid(c.id) %>');"
   							onmouseover="this.style.cursor='pointer'" title="View this Condition">
-							<td class="icon">
+							<td>
 									<img src="/images/icons/new/miq_condition.png" valign="middle" border="0" />
 							</td>
 							<td>

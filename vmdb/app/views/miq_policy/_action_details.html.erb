@@ -7,11 +7,11 @@
   <% if @action %>
     <div id="action_info_div">
       <%= render(:partial => "layouts/flash_msg") %>
-      <p class="legend">Basic Information</p>
-        <table class="style1">
+      <p class="lead">Basic Information</p>
+        <table class="table table-striped">
           <% if @edit %><%# Don't show description unless in edit mode %>
             <tr>
-              <td class="key">Description</td>
+              <td>Description</td>
               <% unless @edit %>
                 <td><%= h(@action.description) %></td>
               <% else %>
@@ -29,7 +29,7 @@
             </tr>
           <% end %>
           <tr>
-            <td class="key">Action Type</td>
+            <td>Action Type</td>
             <% unless @edit %>
               <td><%= h(@action.action_type == "default" ? "Default" : MiqAction::TYPES[@action.action_type]) %></td>
             <% else %>
@@ -48,48 +48,48 @@
         <hr>
         <% unless @edit %>
           <% if @action.action_type == "create_snapshot" %>
-            <p class="legend">Snapshot Settings</p>
-            <table class="style1">
+            <p class="lead">Snapshot Settings</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Name</td>
+                <td>Name</td>
                 <td><%= h(@action.options[:name]) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "delete_snapshots_by_age" %>
-            <p class="legend">Snapshot Age Settings</p>
-            <table class="style1">
+            <p class="lead">Snapshot Age Settings</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Delete if Older than</td>
+                <td>Delete if Older than</td>
                 <td><%= h(SNAPSHOT_AGES[@action.options[:age]]) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "custom_automation" %>
-            <p class="legend">Custom Automation</p>
-            <table class="style1">
+            <p class="lead">Custom Automation</p>
+            <table class="table table-striped">
               <tr>
                 <td width="50%">
                   <fieldset>
-                    <p class="legend">Object Details</p>
-                    <table class="style1">
+                    <p class="lead">Object Details</p>
+                    <table class="table table-striped">
                       <tr>
-                        <td class="key">Starting Message</td>
+                        <td>Starting Message</td>
                         <td><%= h(@action.options[:ae_message]) %></td>
                       </tr>
                       <tr>
-                        <td class="key">Request</td>
+                        <td>Request</td>
                         <td><%= h(@action.options[:ae_request]) %></td>
                       </tr>
                     </table>
                   </fieldset>
                   <fieldset>
-                    <p class="legend">Attribute/Value Pairs</p>
-                    <table class="style1">
+                    <p class="lead">Attribute/Value Pairs</p>
+                    <table class="table table-striped">
                       <% if !@action.options[:ae_hash].blank? %>
                         <% @action.options[:ae_hash].each do |k,v| %>
                           <tr>
-                            <td class="key"><%= h(k)%></td>
+                            <td><%= h(k)%></td>
                             <td><%= h(v)%></td>
                           </tr>
                         <% end %>
@@ -103,78 +103,78 @@
             </table>
             <hr>
           <% elsif @action.action_type == "email" %>
-            <p class="legend">E-mail Settings</p>
-            <table class="style1">
+            <p class="lead">E-mail Settings</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">From E-mail Address</td>
+                <td>From E-mail Address</td>
                 <td><%= h(@action.options[:from]) %></td>
               </tr>
               <tr>
-                <td class="key">To E-mail Address</td>
+                <td>To E-mail Address</td>
                 <td><%= h(@action.options[:to]) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "set_custom_attribute" %>
-            <p class="legend">Set Custom Attribute Settings</p>
-            <table class="style1">
+            <p class="lead">Set Custom Attribute Settings</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Attribute Name</td>
+                <td>Attribute Name</td>
                 <td><%= h(@action.options[:attribute]) %></td>
               </tr>
               <tr>
-                <td class="key">Value to Set</td>
+                <td>Value to Set</td>
                 <td><%= h(@action.options[:value]) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "reconfigure_cpus" %>
-            <p class="legend">Reconfigure CPU</p>
-            <table class="style1">
+            <p class="lead">Reconfigure CPU</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Number of CPU's</td>
+                <td>Number of CPU's</td>
                 <td><%= h(@action.options[:value]) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "reconfigure_memory" %>
-            <p class="legend">Reconfigure Memory</p>
-            <table class="style1">
+            <p class="lead">Reconfigure Memory</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Memory Size</td>
+                <td>Memory Size</td>
                 <td><%= h(@action.options[:value]) %> MB</td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "tag" %>
-            <p class="legend">Applied Tag</p>
-            <table class="style1">
+            <p class="lead">Applied Tag</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Tag</td>
+                <td>Tag</td>
                 <td><%= h(Classification.tag2human(@action.options[:tags].first)) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "snmp_trap" %>
-            <p class="legend">SNMP Trap</p>
-            <table class="style1">
+            <p class="lead">SNMP Trap</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Host</td>
+                <td>Host</td>
                 <td><%= h(@action.options[:host]) %></td>
               </tr>
               <tr>
-                <td class="key">Version</td>
+                <td>Version</td>
                 <td><%= h(@action.options[:snmp_version]) %></td>
               </tr>
               <% trap_text = @action.options[:snmp_version] == "v1" || @action.options[:snmp_version].nil? ? "Trap Number" : "Trap Object ID" %>
               <tr>
-                <td class="key"><%= trap_text %></td>
+                <td><%= trap_text %></td>
                 <td><%= h(@action.options[:trap_id]) %></td>
               </tr>
             </table>
             <hr>
-            <p class="legend">Variables</p>
-            <table class="style3">
+            <p class="lead">Variables</p>
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Object ID</th>
@@ -198,33 +198,32 @@
             </table>
             <hr>
           <% elsif @action.action_type == "assign_scan_profile" %>
-            <p class="legend">Analysis Profile</p>
-            <table class="style1">
+            <p class="lead">Analysis Profile</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Assigned Analysis Profile</td>
+                <td>Assigned Analysis Profile</td>
                 <td><%= h(@action.options[:scan_item_set_name]) %></td>
               </tr>
             </table>
             <hr>
           <% elsif @action.action_type == "evaluate_alerts" %>
-            <p class="legend">Alerts to Evaluate</p>
+            <p class="lead">Alerts to Evaluate</p>
             <% if @temp[:alert_guids].empty? %>
-              <div class="alert alert-info">
-                <span class="pficon pficon-info"></span>
+              <div class="bg-warning">
+                <span class="glyphicon glyphicon-info-sign"></span>
                 <strong>No Alerts have been selected.</strong>
               </div>
             <% else %>
-              <table class="style3">
+              <table class="table table-striped">
                 <thead>
-                  <th class="icon"></th><th></th>
+                  <th></th><th></th>
                 </thead>
                 <tbody>
                   <% @temp[:alert_guids].sort{|a,b| a.description <=> b.description}.each do |alert| %>
                     <% id = "al-#{to_cid(alert.id)}" %>
-                    <tr class="<%= cycle('row0', 'row1') %>"
-                      onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=alert") %>"
+                    <tr onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=alert") %>"
                       onmouseover="this.style.cursor='pointer'" title="View this Alert">
-                      <td class="icon">
+                      <td>
                         <img src="/images/icons/new/miq_alert.png" />
                       </td>
                       <td>
@@ -237,14 +236,14 @@
             <% end %>
             <hr>
           <% elsif @action.action_type == "inherit_parent_tags" %>
-            <p class="legend">Inherit Tags</p>
-            <table class="style1">
+            <p class="lead">Inherit Tags</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Parent Type</td>
+                <td>Parent Type</td>
                 <td><%= h(ui_lookup(:table => @action.options[:parent_type])) %></td>
               </tr>
               <tr>
-                <td class="key">Categories</td>
+                <td>Categories</td>
                 <td>
                   <%= h(@temp[:cats]) %>
                 </td>
@@ -252,10 +251,10 @@
             </table>
             <hr>
           <% elsif @action.action_type == "remove_tags" %>
-            <p class="legend">Inherit Tags</p>
-            <table class="style1">
+            <p class="lead">Inherit Tags</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Categories</td>
+                <td>Categories</td>
                 <td>
                   <%= h(@temp[:cats]) %>
                 </td>
@@ -264,24 +263,23 @@
             <hr>
           <% end %>
           <% if x_active_tree == :action_tree %>
-            <p class="legend">Assigned to Policies</p>
+            <p class="lead">Assigned to Policies</p>
             <% if @action_policies.empty? %>
-              <div class="alert alert-info">
-                <span class="pficon pficon-info"></span>
+              <div class="bg-warning">
+                <span class="glyphicon glyphicon-info-sign"></span>
                 <strong>This Action is not assigned to any Policies.</strong>
               </div>
             <% else %>
-              <table class="style3">
+              <table class="table table-striped">
                 <thead>
-                  <th class="icon"></th><th></th>
+                  <th></th><th></th>
                 </thead>
                 <tbody>
                 <% @action_policies.each do |p| %>
                   <% id = "xx-#{p.mode.downcase}_xx-#{p.mode.downcase}-#{p.towhat.downcase}_p-#{to_cid(p.id)}" %>
-                  <tr class="<%= cycle('row0', 'row1') %>"
-                      onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=policy") %>"
+                  <tr onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=policy") %>"
                       onmouseover="this.style.cursor='pointer'" title="Click to view Policy">
-                    <td class="icon">
+                    <td>
                         <img src="/images/icons/new/miq_policy_<%= p.towhat.downcase + (p.active ? "" : "_inactive") %>.png" />
                     </td>
                     <td>

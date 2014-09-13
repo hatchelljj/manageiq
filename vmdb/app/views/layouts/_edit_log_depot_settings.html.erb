@@ -9,7 +9,7 @@
   <%# created div with different name so database validation flash message can be shown in it's own box %>
   <%= render :partial => "layouts/flash_msg", :locals=> {:div_num => div_num} %>
   <fieldset>
-    <p class="legend">
+    <p class="lead">
       <%# Used for editing both database backup and log collection depot settings %>
       <% if @sb[:active_tab] == "diagnostics_database" %>
         Database Backup Settings
@@ -17,7 +17,7 @@
         Editing Log Depot Settings for <%= "#{Dictionary::gettext(record.class.name, :type => :model, :notfound => :titleize)}: #{@record.display_name}" %>
       <% end %>
     </p>
-    <table class="style1">
+    <table class="table table-striped">
       <tr>
         <td class="key">Type</td>
         <td class="wide">

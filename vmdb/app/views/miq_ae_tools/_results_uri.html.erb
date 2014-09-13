@@ -2,8 +2,8 @@
   <% if @temp[:results] %>
     <br/>
     <fieldset>
-      <p class="legend">Object Info</p>
-      <table class="style1">
+      <p class="lead">Object Info</p>
+      <table class="table table-striped">
         <tr>
           <td class="key">URI</td>
           <td class="wide"><%= @resolve[:uri] %></td>
@@ -21,8 +21,8 @@
       </table>
     </fieldset>
   <% else %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>Enter Automation Simulation options on the left and press Submit.</strong>
     </div>
   <% end %>

@@ -13,14 +13,14 @@
     <%= @sb[:bottlenecks][:report].filter_summary%>
   <% end %>
 <% elsif @sb[:bottlenecks][:tl_options] && @sb[:bottlenecks][:tl_options][:sdate].nil? && @sb[:bottlenecks][:tl_options][:edate].nil?  %>
-  <div class="alert alert-info">
-    <span class="pficon pficon-info"></span>
+  <div class="bg-warning">
+    <span class="glyphicon glyphicon-info-sign"></span>
     <strong>No events available for this timeline.</strong>
   </div>
 <% else %>
   <% if x_node != "" %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>No Timeline data available.</strong>
     </div>
   <% end %>

@@ -5,7 +5,7 @@
 
 	<% if @perf_record && @sb[:planning] && @sb[:planning][:rpt] %>
 
-		<p class="legend">VM Counts per <%= ui_lookup(:model => @sb[:planning][:options][:target_typ]) %></p>
+		<p class="lead">VM Counts per <%= ui_lookup(:model => @sb[:planning][:options][:target_typ]) %></p>
 		<%= @sb[:planning][:rpt].to_html.html_safe %>
 		<% tvms = 0 %>
 		<% @sb[:planning][:rpt].table.data.each{|r|tvms += r["total_vm_count"].to_i} %>

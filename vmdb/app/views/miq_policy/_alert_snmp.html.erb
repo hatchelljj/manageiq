@@ -4,11 +4,11 @@
   %>
 <% end %>
 <div id="alert_snmp_div" >
-  <p class="legend">SNMP Trap</p>
-  <table class="style1">
+  <p class="lead">SNMP Trap</p>
+  <table class="table table-striped">
     <% if @edit %>
       <tr>
-        <td class="key">Send an SNMP Trap</td>
+        <td>Send an SNMP Trap</td>
         <td>
           <%= check_box_tag("send_snmp_cb", 
                             value="1",
@@ -19,7 +19,7 @@
       </tr>
       <% if @edit[:new][:send_snmp] %>
         <tr>
-          <td class="key">Host</td>
+          <td>Host</td>
           <td>
             <%= text_field_tag("host_1",
                                @edit[:new][:snmp][:host][0],
@@ -44,7 +44,7 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Version</td>
+          <td>Version</td>
           <td>
             <% version = ["v1","v2"] %>
             <%= select_tag('snmp_version',
@@ -59,7 +59,7 @@
         </tr>
         <% trap_text = @edit[:new][:snmp][:snmp_version] == "v1" || @edit[:new][:snmp][:snmp_version].nil? ? "Trap Number" : "Trap Object ID" %>
         <tr>
-          <td class="key"><%= trap_text %></td>
+          <td><%= trap_text %></td>
           <td>
             <%= text_field_tag("trap_id",
                                @edit[:new][:snmp][:trap_id],
@@ -74,7 +74,7 @@
   </table>
   <% if @edit[:new][:send_snmp] %>
     <br/>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Variable Object ID</th>
@@ -87,7 +87,7 @@
         <% t = "var_type__" + (i+1).to_s %>
         <% v = "value__" + (i+1).to_s %>
         <tr>
-          <td class="wide">
+          <td>
             <%= text_field_tag("#{f}",
                                @edit[:new][:snmp][:variables][i][:oid],
                                :maxlength => MAX_DESC_LEN,
@@ -95,7 +95,7 @@
                                                       :url      => url}.to_json) 
             %>
           </td>
-          <td class="wide">
+          <td>
             <%= select_tag("#{t}",
                            options_for_select(["<None>"] + @edit[:snmp_var_types].sort,
                                               @edit[:new][:snmp][:variables][i][:var_type]),
@@ -110,7 +110,7 @@
           <% else %>
             <%  val_disabled = false %>
           <% end %>
-          <td class="wider">
+          <td>
             <%= text_field_tag("#{v}",
                                @edit[:new][:snmp][:variables][i][:value],
                                :disabled  => val_disabled,

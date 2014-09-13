@@ -1,10 +1,10 @@
 <% if @sb[:active_tab] == "settings_import_tags" %>
 	<div id="tab_div">
-		<p class="legend">Messages</p>
+		<p class="lead">Messages</p>
 		<%= render(:partial=>"layouts/flash_msg", :locals=>{:click_remove=>false}) %>
 		<hr>
-		<p class="legend">Upload <%= h(session[:customer_name]) %> Tag Assignments for VMs</p>
-		<table class="style1">
+		<p class="lead">Upload <%= h(session[:customer_name]) %> Tag Assignments for VMs</p>
+		<table class="table table-striped">
 			<tr>
 				<td>
 					<%= form_tag({:action=>"upload_csv", :typ=>"tag"}, :multipart => true) do %>

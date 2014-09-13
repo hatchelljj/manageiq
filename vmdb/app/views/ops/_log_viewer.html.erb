@@ -1,6 +1,6 @@
 <% legend_text ||= "Last 1000 lines from server #{@temp[:selected_server].name} [#{@temp[:selected_server].id}] in zone #{@temp[:selected_server].my_zone}" %>
 <%= render :partial=>"layouts/flash_msg" %>
-<p class="legend"><%= legend_text %></p>
+<p class="lead"><%= legend_text %></p>
 <% w = @winW - 150 %>
 <%= text_area("logview",
               "data", 

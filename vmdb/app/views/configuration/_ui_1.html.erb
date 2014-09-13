@@ -8,7 +8,7 @@
 			<dd>
 					<fieldset>
 						<p class="legend">Grid/Tile Icons</p>
-						<table class="style1">
+						<table class="table table-striped">
               <% if role_allows(:feature=>"ems_infra_show_list") %>
                 <tr>
                   <td class="key">Show <%=ui_lookup(:table=>"ems_infra")%> Quadrants</td>
@@ -132,7 +132,7 @@
 
 					<fieldset>
 						<p class="legend">Start Page</p>
-						<table class="style1">
+						<table class="table table-striped">
               <tr>
                 <td class="key">Show at Login</td>
                 <td>
@@ -147,7 +147,7 @@
 			<dd>
 					<fieldset>
 						<p class="legend">Default Items Per Page</p>
-						<table class="style1">
+						<table class="table table-striped">
               <tr>
                 <td class="key">Grid View</td>
                 <td>
@@ -184,38 +184,8 @@
 					</fieldset>
  					<fieldset>
 						<p class="legend">Display Settings</p>
-						<table class="style1">
- 						  <tr>
-                <td class="key">Header Accent Color</td>
-                <td class="wide">
-                      <% THEMES.each do |t| %>
-                        <% if t.last == @edit[:new][:display][:theme] %>
-                          <div title="The <%= t.first%> theme is currently selected"
-                              style="
-                              background-color: <%= THEME_CSS_SETTINGS[t.last][:background_color] %>;
-                              border: 3px solid #000;width:32px; height: 32px;  float: left">
-
-                          </div>
-                        <% else %>
-                          <div onclick="<%= remote_function(:url=>{:action=>'theme_changed', :theme=>t.last}) %>"
-                              title="Click to select the <%= t.first%> theme"
-                              style="background-color: <%= THEME_CSS_SETTINGS[t.last][:background_color] %>;
-                              border: 3px solid #fff; width:32px; height: 32px;  float: left">
-
-                          </div>
-                        <% end %>
-                      <% end %>
-                </td>
-              </tr>
-              <tr>
-                <td class="key">Chart Theme</td>
-                <td class="wide">
-                  <%= select_tag("display_reporttheme", # FIXME: themes should be done in a generic way
-                                    options_for_select(ZiyaCharting::ZTHEMES, @edit[:new][:display][:reporttheme]),
-                                    "data-miq_observe"=>{:url=>url}.to_json) %>
-                </td>
-              </tr>
-              <tr>
+						<table class="table table-striped">
+ 				                  <tr>
                 <td class="key">Time Zone</td>
                 <td class="wide">
                   <%= select_tag("display_timezone",

@@ -9,13 +9,13 @@
   <% elsif @alert %>
     <div id="alert_info_div">
       <%= render(:partial => "layouts/flash_msg") %>
-        <p class="legend">Info</p>
-        <table class="style1">
+        <p class="lead">Info</p>
+        <table class="table table-striped">
           <%# Description %>
           <% if @edit %>
             <tr>
-              <td class="key">Description</td>
-              <td class="wider">
+              <td>Description</td>
+              <td>
                 <%= text_field_tag("description",
                                    @edit[:new][:description],
                                    :maxlength => MAX_DESC_LEN,
@@ -29,7 +29,7 @@
 
           <%# Enabled %>
           <tr>
-            <td class="key">Active</td>
+            <td>Active</td>
             <% unless @edit %>
               <td><%= @alert.enabled ? "Yes" : "No" %></td>
             <% else %>
@@ -44,7 +44,7 @@
 
           <%# Based on (model) %>
           <tr>
-            <td class="key">Based On</td>
+            <td>Based On</td>
             <% unless @edit %>
               <td><%= h(ui_lookup(:model => @alert.db)) %></td>
             <% else %>
@@ -68,7 +68,7 @@
 
           <%# Eval Method %>
           <tr>
-            <td class="key">What to Evaluate</td>
+            <td>What to Evaluate</td>
             <% unless @edit %>
               <td>
                 <% if @alert.expression.is_a?(MiqExpression) %><%# Expression is an MiqExpression %>
@@ -98,14 +98,14 @@
           <% unless @edit %>
             <% if @alert.expression.is_a?(MiqExpression) || @alert.expression[:eval_method] == "nothing" %>
               <tr>
-                <td class="key">Driving Event</td>
+                <td>Driving Event</td>
                 <td><%= h(@temp[:event]) %></td>
               </tr>
             <% end %>
           <% else %>
             <% unless @edit[:new][:expression][:eval_method] && @edit[:new][:expression][:eval_method] != "nothing" %>
               <tr>
-                <td class="key">Driving Event</td>
+                <td>Driving Event</td>
                 <td>
                   <%= select_tag('exp_event',
                                   options_for_select([["<Choose>", nil],["Hourly Timer", "_hourly_timer_"]] +
@@ -121,7 +121,7 @@
 
           <%# Repeat Time %>
           <tr>
-            <td class="key">Notification Frequency</td>
+            <td>Notification Frequency</td>
             <% unless @edit %>
               <td>
                 <% if @alert.options[:notifications][:delay_next_evaluation].blank? %>
@@ -158,7 +158,7 @@
         <% unless @edit %>
           <% if @alert.expression.is_a?(MiqExpression) %>
 
-              <p class="legend">Expression</p>
+              <p class="lead">Expression</p>
               <% if @expression_table != nil %>
                 <% @expression_table.each do |token| %>
                   <% if ! ["AND", "OR", "(", ")"].include?([token].flatten.first) %>
@@ -174,8 +174,8 @@
           <% else %>
             <% unless @alert.expression[:eval_method] == "nothing" %>
 
-                <p class="legend"><%= h(MiqAlert.expression_types(@alert.db)[@alert.expression[:eval_method]]) %> Parameters</p>
-                <table class="style1">
+                <p class="lead"><%= h(MiqAlert.expression_types(@alert.db)[@alert.expression[:eval_method]]) %> Parameters</p>
+                <table class="table table-striped">
                   <% MiqAlert.expression_options(@alert.expression[:eval_method]).each do |eo| %>
                     <%= render :partial => "alert_builtin_exp", 
                                :locals  => {:option => eo} 
@@ -188,14 +188,14 @@
         <% else %>
           <% unless @edit[:new][:expression][:eval_method] %>
 
-              <p class="legend">Expression (Choose an element of the expression to edit)</p>
+              <p class="lead">Expression (Choose an element of the expression to edit)</p>
               <%= render(:partial => 'layouts/exp_editor') %>
 
           <% else %>
             <% unless @edit[:new][:expression][:eval_method] == "nothing" %>
 
-                <p class="legend"><%= h(MiqAlert.expression_types(@edit[:new][:db])[@edit[:new][:expression][:eval_method]]) %> Parameters</p>
-                <table class="style1">
+                <p class="lead"><%= h(MiqAlert.expression_types(@edit[:new][:db])[@edit[:new][:expression][:eval_method]]) %> Parameters</p>
+                <table class="table table-striped">
                   <% @edit[:expression_options].each do |eo| %>
                     <%= render :partial => "alert_builtin_exp", 
                                :locals  => {:option => eo} 
@@ -221,10 +221,10 @@
         <% else %>
           <% if @alert.options && @alert.options[:notifications] && !@alert.options[:notifications][:email].blank? %>
 
-            <p class="legend">Send E-mail</p>
-              <table class="style1">
+            <p class="lead">Send E-mail</p>
+              <table class="table table-striped">
                 <tr>
-                  <td class="key">From</td>
+                  <td>From</td>
                   <td>
                     <% if @alert.options[:notifications][:email][:from].blank? %>
                       (Default: <%= h(get_vmdb_config[:smtp][:from]) %>)
@@ -234,7 +234,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="key">To</td>
+                  <td>To</td>
                   <td>
                     <% if !@temp[:email_to].blank? %>
                       <%= h(@temp[:email_to].join(';')) %>
@@ -247,10 +247,10 @@
 
             <% if @alert.options && @alert.options[:notifications] && !@alert.options[:notifications][:snmp].blank? %>
 
-                <p class="legend">Send SNMP Trap</p>
-                <table class="style1">
+                <p class="lead">Send SNMP Trap</p>
+                <table class="table table-striped">
                   <tr>
-                    <td class="key">Host</td>
+                    <td>Host</td>
                     <td>
                       <% @alert.options[:notifications][:snmp][:host].each do |host| %>
                         <%= h(host) %></br>
@@ -258,19 +258,19 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="key">Version</td>
+                    <td>Version</td>
                     <td><%= h(@alert.options[:notifications][:snmp][:snmp_version]) %></td>
                   </tr>
                   <% trap_text = @alert.options[:notifications][:snmp][:snmp_version] == "v1" ||
                                   @alert.options[:notifications][:snmp][:snmp_version].nil? ? "Trap Number" : "Trap Object ID" %>
                   <tr>
-                    <td class="key"><%= trap_text %></td>
+                    <td><%= trap_text %></td>
                     <td><%= h(@alert.options[:notifications][:snmp][:trap_id]) %></td>
                   </tr>
                 </table>
                 <% if @alert.options[:notifications][:snmp].has_key?(:variables) %>
                   <br/>
-                  <table class="style3">
+                  <table class="table table-striped">
                     <thead>
                       <tr>
                         <th>Variable Object ID</th>
@@ -293,10 +293,10 @@
             <% end %>
             <% if @alert.options && @alert.options[:notifications] && @alert.options[:notifications][:evm_event] %>
 
-                <p class="legend">Timeline Event</p>
-                <table class="style1">
+                <p class="lead">Timeline Event</p>
+                <table class="table table-striped">
                   <tr>
-                    <td class="key">Show on Timeline</td>
+                    <td>Show on Timeline</td>
                     <td>True</td>
                   </tr>
                 </table>
@@ -304,10 +304,10 @@
             <% end %>
             <% if @alert.options && @alert.options[:notifications] && !@alert.options[:notifications][:automate].blank? %>
 
-                <p class="legend">Send Management Event</p>
-                <table class="style1">
+                <p class="lead">Send Management Event</p>
+                <table class="table table-striped">
                   <tr>
-                    <td class="key">Event Name</td>
+                    <td>Event Name</td>
                     <td><%= h(@alert.options[:notifications][:automate][:event_name]) %></td>
                   </tr>
                 </table>
@@ -320,25 +320,24 @@
             <% if x_active_tree == :alert_tree %>
               <tr>
                 <td>
-                  <p class="legend">Belongs to Alert Profiles</p>
+                  <p class="lead">Belongs to Alert Profiles</p>
                   <% if @alert_profiles.empty? %>
-                    <div class="alert alert-info">
-                      <span class="pficon pficon-info"></span>
+                    <div class="bg-warning">
+                      <span class="glyphicon glyphicon-info-sign"></span>
                       <strong>This Alert is not assigned to any Alert Profiles.</strong>
                     </div>
                   <% else %>
-                    <table class="style3">
+                    <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th class="icon"></th>
+                          <th></th>
                           <th></th>
                         </tr>
                       </thead>
                       <tbody>
                         <% @alert_profiles.each do |ap| %>
                           <% id = "xx-#{@alert.db}_ap-#{to_cid(ap.id)}" %>
-                          <tr class="<%= cycle('row0', 'row1') %>"
-                              onclick="<%= remote_function(:url=>"/miq_policy/x_show/#{id}?accord=alert_profile") %>"
+                          <tr onclick="<%= remote_function(:url=>"/miq_policy/x_show/#{id}?accord=alert_profile") %>"
                               onmouseover="this.style.cursor='pointer'" title="View this Alert Profile">
                             <td>
                                 <img src="/images/icons/new/miq_alert_profile.png" valign="middle" border="0" height="20" width="20" />
@@ -361,25 +360,24 @@
             <% if x_active_tree == :alert_tree && !@alert.owning_miq_actions.empty? %>
               <tr>
                 <td>
-                  <p class="legend">Referenced by Actions</p>
+                  <p class="lead">Referenced by Actions</p>
                   <% if @alert.owning_miq_actions.empty? %>
-                    <div class="alert alert-info">
-                      <span class="pficon pficon-info"></span>
+                    <div class="bg-warning">
+                      <span class="glyphicon glyphicon-info-sign"></span>
                       <strong>This Alert is not referenced by any Actions.</strong>
                     </div>
                   <% else %>
-                    <table class="style3">
+                    <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th class="icon"></th>
+                          <th></th>
                           <th></th>
                         </tr>
                       </thead>
                       <tbody>
                         <% @alert.owning_miq_actions.each do |oa| %>
                           <% id = "a-#{to_cid(oa.id)}" %>
-                          <tr class="<%= cycle('row0', 'row1') %>"
-                              onclick="<%= remote_function(:url=>"/miq_policy/x_show/#{id}?accord=action") %>"
+                          <tr onclick="<%= remote_function(:url=>"/miq_policy/x_show/#{id}?accord=action") %>"
                               onmouseover="this.style.cursor='pointer'" title="View this Action">
                             <td>
                               <% if oa.action_type == "default" %>

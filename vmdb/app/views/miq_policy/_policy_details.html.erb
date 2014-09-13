@@ -11,59 +11,33 @@
       
       <%# Description and active fields %>
       <% unless @edit %>
-        <p class="legend">Basic Information</p>
-          <table class="style1">
+        <p class="lead">Basic Information</p>
+          <table class="table table-striped">
             <tr>
-              <td class="key">Active</td>
+              <td>Active</td>
               <td><%= h(@policy.active ? "Yes" : "No") %></td>
             </tr>
             <tr>
-              <td class="key">Created</td>
+              <td>Created</td>
               <td><%= h("By User ID #{@policy.created_by || "N/A"} #{format_timezone(@policy.created_on, session[:user_tz], "on_at")}") %></td>
             </tr>
             <% if @policy.created_on != @policy.updated_on %>
               <tr>
-                <td class="key">Last Updated</td>
+                <td>Last Updated</td>
                 <td><%= h("By User ID #{@policy.updated_by || "N/A"} #{format_timezone(@policy.updated_on, session[:user_tz], "on_at")}") %></td>
               </tr>
             <% end %>
           </table>
         <% else %>
           <% if @edit && @edit[:typ] == "basic" %>
-            <p class="legend">Basic Information</p>
-            <table class="style1">
+            <p class="lead">Basic Information</p>
+            <table class="table table-striped">
               <tr>
-                <td class="key">Description</td>
+                <td>Description</td>
                 <% unless @edit %>
                   <td><%= h(@policy.description) %></td>
                 <% else %>
-                  <td class="wider">
-                    <%= text_field_tag("description",
-                                        @edit[:new][:description],
-                                        :maxlength => MAX_DESC_LEN,
-                                        "data-miq_observe" => {:interval => '.5', 
-                                                               :url => url}.to_json) 
-                    %>
-                    <%= javascript_tag("$j('#description').focus()") %>
-                  </td>
-                <% end %>
-              </tr>
-              <tr>
-                <td class="key">Active</td>
-                <td>
-                  <%= check_box_tag("active", value="1",
-                                      checked=@edit[:new][:active],
-                                      "data-miq_observe_checkbox" => {:url => url}.to_json)%>
-                </td>
-              </tr>
-            </table>
-          <% end %>
-        <% end %>
-        <hr>
-
-        <%# Scope %>
-        <% unless @edit %>
-          <p class="legend">Scope</p>
+                  class="lead">Scope</p>
           <% if @expression_table != nil %>
             <% @expression_table.each do |token| %>
               <% if ! ["AND", "OR", "(", ")"].include?([token].flatten.first) %>
@@ -73,15 +47,15 @@
               <% end %>
             <% end %>
           <% else %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>No Policy scope defined, the scope of this policy includes all elements.</strong>
             </div>
           <% end %>
           <hr>
         <% else %>
           <% if @edit[:typ] == "basic" %>
-            <p class="legend">Scope (Choose an element of the Policy scope to edit)</p>
+            <p class="lead">Scope (Choose an element of the Policy scope to edit)</p>
               <%= render(:partial => 'layouts/exp_editor') %>
 
           <% end %>
@@ -90,26 +64,25 @@
 
         <%# Conditions for this policy %>
         <% unless @edit %>
-          <p class="legend">Conditions</p>
+          <p class="lead">Conditions</p>
           <% if @policy_conditions.empty? %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>No conditions defined. This policy is unconditional and will ALWAYS return true.</strong>
             </div>
           <% else %>
-            <table class="style3">
+            <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="icon">&nbsp;</th>
+                  <th>&nbsp;</th>
                   <th nowrap>Description</th>
                   <th nowrap>Scopes / Expressions</th>
                 </tr>
               </thead>
                   <% @policy_conditions.each do |c| %>
-                    <tr class="<%= cycle('row0', 'row1') %>"
-                        onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_co-#{to_cid(c.id)}" %>');"
+                    <tr onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_co-#{to_cid(c.id)}" %>');"
                         onmouseover="this.style.cursor='pointer'" title="View this Condition">
-                      <td class="icon">
+                      <td>
                           <img src="/images/icons/new/miq_condition.png" />
                       </td>
                       <td><%= c.description %></td>
@@ -139,23 +112,22 @@
         <% else %>
           <% if @edit[:typ] == "conditions" %>
             <fieldset>
-              <p class="legend">Condition Selection</p>
+              <p class="lead">Condition Selection</p>
               <table class="admintable">
                 <tr>
                   <td>
-                    <table width="100%" class="form" id="formtest">
+                    <table width="100%" class="table table-striped" id="formtest">
                       <tr>
-                        <td align="left">Available <%= ui_lookup(:model=>@edit[:new][:towhat]) %> Conditions:</td>
+                        <td class="text-left">Available <%= ui_lookup(:model=>@edit[:new][:towhat]) %> Conditions:</td>
                         <td></td>
-                        <td align="left" class="widthed"> Policy Conditions:</td>
+                        <td class="text-left"> Policy Conditions:</td>
                       </tr>
                       <tr>
-                        <td align="left" class="widthed" valign="top">
+                        <td class="text-left" valign="top">
                           <span id="choices_chosen_div">
                             <%= select_tag('choices_chosen[]',
                                            options_for_select( @edit[:choices].sort ),
                                            {:multiple => true, 
-                                            :class    => "widthed", 
                                             :size     => 8, 
                                             :id       => "choices_chosen" }) 
                             %>
@@ -209,7 +181,6 @@
                             <%= select_tag('members_chosen[]',
                                           options_for_select( @edit[:new][:conditions].sort ),
                                           {:multiple => true, 
-                                           :class    => "widthed",
                                            :size     => 8, 
                                            :id       => "members_chosen" }) 
                             %>
@@ -227,25 +198,24 @@
 
         <%# Events for this policy %>
         <% unless @edit %>
-          <p class="legend">Events</p>
+          <p class="lead">Events</p>
           <% if @policy_events.empty? %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>This policy does not currently respond to any Events.</strong>
             </div>
           <% else %>
-            <table class="style3">
+            <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="icon">&nbsp;</th>
+                  <th>&nbsp;</th>
                   <th nowrap>Description</th>
                   <th nowrap>Actions</th>
                 </tr>
               </thead>
               <% @policy_events.each do |e| %>
                 <tr>
-                  <td class="icon"
-                      onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_ev-#{to_cid(e.id)}" %>');"
+                  <td onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_ev-#{to_cid(e.id)}" %>');"
                       onmouseover="this.style.cursor='pointer'" title="View this Policy Event">
                     <img src="/images/icons/new/event-<%= e.name %>.png" />
                   </td>
@@ -261,11 +231,10 @@
                         <strong>* No Actions are configured for this Event.</strong>
                       <% else %>
                         <% unless ta.empty? %>
-                          <table class="style3">
+                          <table class="table table-striped">
                             <tbody>
                             <% ta.each do |a| %>
-                              <tr class="<%= cycle('row0', 'row1') %>"
-                                  onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_ev-#{to_cid(e.id)}_a-#{to_cid(a.id)}" %>');"
+                              <tr onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_ev-#{to_cid(e.id)}_a-#{to_cid(a.id)}" %>');"
                                   onmouseover="this.style.cursor='pointer'" title="View this Event Action">
                                 <td width="20">
                                   <img src="/images/icons/new/check.png" valign="middle" border="0" height="20" width="20" />
@@ -277,11 +246,10 @@
                           </table>
                         <% end %>
                         <% unless fa.empty? %>
-                          <table class="style3">
+                          <table class="table table-striped">
                             <tbody>
                             <% fa.each do |a| %>
-                              <tr class="<%= cycle('row0', 'row1') %>"
-                                  onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_ev-#{to_cid(e.id)}_a-#{to_cid(a.id)}" %>');"
+                              <tr onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_ev-#{to_cid(e.id)}_a-#{to_cid(a.id)}" %>');"
                                   onmouseover="this.style.cursor='pointer'" title="View this Event Action">
                                 <td width="20">
                                   <img src="/images/icons/new/x.png" valign="middle" border="0" height="20" width="20" />
@@ -303,10 +271,10 @@
         <% else %>
           <% if @edit[:typ] == "events" %>
             <fieldset>
-              <p class="legend">Event Selection</p>
+              <p class="lead">Event Selection</p>
               <% @edit[:allevents].keys.sort.each do |k| %>
                 <fieldset>
-                  <p class="legend"><%= h(k) %></p>
+                  <p class="lead"><%= h(k) %></p>
                   <% @edit[:allevents][k].sort{|a,b|a.first<=>b.first}.each do |e| %>
                     <div style="width: 300px; height: 18px; float:left; padding: 0px 5px 0px 0px;">
                       <%= check_box_tag("event_#{e.last}", value="1",
@@ -324,10 +292,10 @@
 
         <%# Notes field %>
         <% unless @edit %>
-          <p class="legend">Notes</p>
+          <p class="lead">Notes</p>
           <% if @policy.notes.blank? %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>No notes have been entered.</strong>
             </div>
           <% else %>
@@ -339,7 +307,7 @@
           <% end %>
         <% else %>
           <% if @edit[:typ] == "basic" %>
-            <p class="legend">Notes (<span id="notes_count"><%= @edit[:new][:notes] ? @edit[:new][:notes].length : 0 %></span> / 512)</p>
+            <p class="lead">Notes (<span id="notes_count"><%= @edit[:new][:notes] ? @edit[:new][:notes].length : 0 %></span> / 512)</p>
               <%= text_area_tag("notes",
                                 @edit[:new][:notes], 
                                 :rows      => 4, 
@@ -356,27 +324,26 @@
         <%# Profiles policy is assigned to %>
         <% unless @edit %>
           <% if x_active_tree == :policy_tree %>
-            <p class="legend">Belongs to Profiles</p>
+            <p class="lead">Belongs to Profiles</p>
             <% if @policy_profiles.empty? %>
-              <div class="alert alert-info">
-                <span class="pficon pficon-info"></span>
+              <div class="bg-warning">
+                <span class="glyphicon glyphicon-info-sign"></span>
                 <strong>This Policy is not assigned to any Profiles.</strong>
               </div>
             <% else %>
-              <table class="style3">
+              <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="icon"></th>
+                    <th></th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <% @policy_profiles.each do |pp| %>
                     <% id = "pp-#{to_cid(pp.id)}" %>
-                    <tr class="<%= cycle('row0', 'row1') %>"
-                        onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=policy_profile") %>"
+                    <tr onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=policy_profile") %>"
                         onmouseover="this.style.cursor='pointer'" title="View this Profile">
-                      <td class="icon">
+                      <td>
                         <img src="/images/icons/new/policy_profile<%= pp.active? ? "" : "_inactive" %>.png" />
                       </td>
                       <td>

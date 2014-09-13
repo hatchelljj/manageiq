@@ -6,8 +6,8 @@
 <% url = url_for(:action=>field_changed_url, :id=>rec_id) %>
 
 			<fieldset>
-			<p class="legend">Object Details</p>
-				<table class="style1">
+			<p class="lead">Object Details</p>
+				<table class="table table-striped">
 					<% if form_action == "ae_resolve"	%>
 						<tr>
 							<td class="key">System/Process/</td>
@@ -60,8 +60,8 @@
 				<% unless ae_custom_button %>
 				<%# simulation screen %>
 					<fieldset>
-						<p class="legend">Object Attribute</p>
-						<table class="style1">
+						<p class="lead">Object Attribute</p>
+						<table class="table table-striped">
 <% if false %><%# Not allowing user entered attribute name - Sprint 63 %>
 							<tr>
 								<td class="key">Name</td>
@@ -99,8 +99,8 @@
 					</fieldset>
 				<% else %>
 					<fieldset>
-						<p class="legend">Object Attribute</p>
-						<table class="style1">
+						<p class="lead">Object Attribute</p>
+						<table class="table table-striped">
 <% if false %><%# Not allowing user entered attribute name - Sprint 63 %>
 							<tr>
 								<td class="key">Name</td>
@@ -122,8 +122,8 @@
 			<% end %>
 			<% if ae_sim_form %>
 			<fieldset>
-				<p class="legend">Simulation Parameters</p>
-				<table class="style1">
+				<p class="lead">Simulation Parameters</p>
+				<table class="table table-striped">
 					<tr>
 						<%# default is uncehcked, if left unchecked, pass readonly=true, if checked pass readonly=false %>
 						<% checked = resolve[:new][:readonly] != true %>
@@ -138,8 +138,8 @@
 			</fieldset>
 			<% end %>
 			<fieldset>
-				<p class="legend">Attribute/Value Pairs</p>
-				<table class="style1">
+				<p class="lead">Attribute/Value Pairs</p>
+				<table class="table table-striped">
 					<% AE_MAX_RESOLUTION_FIELDS.times do |i| %>
 						<% f = "attribute_" + (i+1).to_s %>
 						<% v = "value_" + (i+1).to_s %>

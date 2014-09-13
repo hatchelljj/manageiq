@@ -1,7 +1,7 @@
 <% if @sb[:active_tab] == "diagnostics_replication" %>
   <%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Replication Process</p>
-  <table class="style1">
+  <p class="lead">Replication Process</p>
+  <table class="table table-striped">
     <tr>
       <td class="key">Replicate to Host</td>
       <td class="wide"><%= h(MiqReplicationWorker.destination_host.to_s) %></td>

@@ -5,7 +5,7 @@
     = render(:partial => 'layouts/ae_tree_select', :locals => {:entry_point => "Namespace"})
   %fieldset
     %p
-    %table.style1
+    %table.table.table-striped
       %tr
         %td.key From Domain
         %td.wide
@@ -52,7 +52,7 @@
                              @edit[:new][:namespace],
                              :onFocus => 'miqShowAE_Tree("namespace");miqButtons(false);')
   %p
-    %table.style3
+    %table.table.table-striped
       %thead
         %th #{pluralize(@edit[:selected_items].count, "Item")} selected to copy
       %tbody

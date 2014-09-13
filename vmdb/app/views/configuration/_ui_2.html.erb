@@ -2,13 +2,13 @@
 
 <div id="tab_div">
 
-	<%= form_tag( {:action => 'update'}, {:id => "config_form"}) do %>
+	<%= form_tag( {:action => 'update'}, {:id => "config_form", :class=>"form"}) do %>
 
-		<dl class="col2">
+		<dl>
 			<dd>
 				<fieldset>
-					<p class="legend">General</p>
-					<table class="style1">
+					<p class="lead">General</p>
+					<table class="table table-striped">
 							<tr>
 								<td class="key">Tagging</td>
 								<td>
@@ -55,8 +55,8 @@
 				</fieldset>
 				<% if role_allows(:feature=>"miq_proxy_show_list")%>
 					<fieldset>
-						<p class="legend">Management Engine</p>
-						<table class="style1" >
+						<p class="lead">Management Engine</p>
+						<table class="table table-striped" >
 								<tr>
 									<td class="key">SmartProxies</td>
 									<td>
@@ -68,8 +68,8 @@
 				<% end %>
         <% if get_vmdb_config[:product][:vdi] && role_allows(:main_tab => MAIN_TABS[:vdi]) %>
           <fieldset>
-            <p class="legend">VDI</p>
-            <table class="style1">
+            <p class="lead">VDI</p>
+            <table class="table table-striped">
               <% if role_allows(:feature => 'vdi_controller_show_list') %>
                 <tr>
                   <td class="key"><%= ui_lookup(:tables=>"vdi_controller") %></td>
@@ -130,8 +130,8 @@
           </fieldset>
         <% end %>
         <fieldset>
-          <p class="legend">Services</p>
-          <table class="style1" >
+          <p class="lead">Services</p>
+          <table class="table table-striped" >
             <% if role_allows(:feature=>"service") %>
               <tr>
                 <td class="key">My Services</td>
@@ -188,8 +188,8 @@
           role_allows(:feature=>"images_filter_accord")
         %>
           <fieldset>
-            <p class="legend">Clouds</p>
-            <table class="style1" >
+            <p class="lead">Clouds</p>
+            <table class="table table-striped" >
               <% if role_allows(:feature=>"ems_cloud_show_list") %>
                 <tr>
                   <td class="key"><%= ui_lookup(:tables=>"ems_clouds")%></td>
@@ -244,8 +244,8 @@
               role_allows(:feature=>"templates_filter_accord"))
 				%>
 					<fieldset>
-						<p class="legend">Infrastructure</p>
-						<table class="style1" >
+						<p class="lead">Infrastructure</p>
+						<table class="table table-striped" >
 								<% if role_allows(:feature=>"ems_infra_show_list") %>
 									<tr>
 										<td class="key"><%= ui_lookup(:tables=>"ems_infras")%></td>
@@ -323,8 +323,8 @@
 				<% end %>
         <% if get_vmdb_config[:product][:storage] %>
           <fieldset>
-            <p class="legend">Storage</p>
-            <table class="style1" >
+            <p class="lead">Storage</p>
+            <table class="table table-striped" >
                 <tr>
                   <td class="key"><%= ui_lookup(:tables=>"ontap_storage_system") %></td>
                   <td>

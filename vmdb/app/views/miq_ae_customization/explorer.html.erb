@@ -21,11 +21,11 @@
 <% end %>
 
 <% if x_active_tree == :ab_tree %>    <%# Showing a Buttons tree %>
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <%= render :partial => "shared/buttons/ab_list" %>
   </div>
 <% elsif x_active_tree == :old_dialogs_tree %>                                      <%# Showing a Dialogs tree %>
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <% if @dialog %>
       <%= render :partial => "old_dialogs_details" %>
     <% else %>
@@ -33,7 +33,7 @@
     <% end %>
   </div>
 <% elsif x_active_tree == :dialogs_tree %>                                      <%# Showing a Dialogs tree %>
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <% if @record %>
       <%= render :partial => "dialog_details" %>
     <% else %>
@@ -41,7 +41,7 @@
     <% end %>
   </div>
 <% elsif x_active_tree == :dialog_import_export_tree %>
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <%= render :partial => "dialog_import_export" %>
   </div>
 <% end %>

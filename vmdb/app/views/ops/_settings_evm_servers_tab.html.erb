@@ -1,8 +1,8 @@
 <% if @sb[:active_tab] == "settings_evm_servers" %>
 	<% if @servers %>
     <%= render(:partial=>"layouts/flash_msg") %>
-    <p class="legend">Relationships</p>
-    <table class="style1">
+    <p class="lead">Relationships</p>
+    <table class="table table-striped">
       <tr>
         <td class="key">Servers</td>
         <td class="wide"><%= @selected_zone.miq_servers.count %></td>
@@ -31,7 +31,7 @@
     <% if @servers.empty? %>
       <br/><strong>* No Servers Found.</strong>
     <% else %>
-      <table class="style3">
+      <table class="table table-striped">
         <thead>
           <th class="icon"></th><th></th>
         </thead>

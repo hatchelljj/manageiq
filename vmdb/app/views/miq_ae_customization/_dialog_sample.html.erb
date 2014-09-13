@@ -3,7 +3,7 @@
 <dl class="col1">
   <dd>
     <div id="dialog_tabs" style="display:none;width:100%;height:100%;overflow:auto;" data-miq_url="_none_">
-      <ul class="tab">
+      <ul class="nav nav-tabs">
         <% @record.ordered_dialog_resources.each do |dt| %>
           <li><a href="#<%=dt.resource.id%>_tab" title="<%= dt.resource.description %>"><%= dt.resource.label %></a></li>
         <% end %>
@@ -16,11 +16,11 @@
           <%# dialog groups/fields %>
             <% group = tg.resource %>
             <fieldset>
-              <p class="legend" title="<%= group.description %>"><%= group.label %></p>
+              <p class="lead" title="<%= group.description %>"><%= group.label %></p>
               <% group.ordered_dialog_resources.each_with_index do |g,i|  %>
                 <% field = g.resource %>
                 <% if i == 0 %>
-                  <table class="style1">
+                  <table class="table table-striped">
                     <tbody>
                 <% end %>
                     <tr>

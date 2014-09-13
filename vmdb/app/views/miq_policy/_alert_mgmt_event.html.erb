@@ -4,11 +4,11 @@
   %>
 <% end %>
 <div id="alert_mgmt_event_div" >
-  <p class="legend">Management Event</p>
-  <table class="style1">
+  <p class="lead">Management Event</p>
+  <table class="table table-striped">
     <% if @edit %>
       <tr>
-        <td class="key">Send a Management Event</td>
+        <td>Send a Management Event</td>
         <td>
           <%= check_box_tag("send_event_cb", value="1",
                             checked=@edit[:new][:send_event],
@@ -21,7 +21,7 @@
       </tr>
       <% if @edit[:new][:send_event] %>
         <tr>
-          <td class="key">Event Name</td>
+          <td>Event Name</td>
           <td>
             <%= text_field_tag("event_name",
                                @edit[:new][:event_name],

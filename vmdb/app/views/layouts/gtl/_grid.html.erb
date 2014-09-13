@@ -1,7 +1,7 @@
 <% if @embedded %>
-  <table style="height: 100px;">
+  <table class="table table-striped" style="height: 100px;">
 <% else %>
-  <table>
+  <table class="table table-striped">
 <% end %>
   <tr>
     <td width="55%" valign="top">
@@ -22,7 +22,7 @@
         <% @id = row['id'] %>
         <% item = @targets_hash[@id] if @targets_hash %><%# Get the record %>
         <div style="width: 100px; height: 100px; float:left; padding: 0 10px 20px 0;">
-          <table border="0" cellpadding="0" cellspacing="0" >
+          <table class="table table-striped" border="0" cellpadding="0" cellspacing="0" >
             <tr>
               <td valign="bottom" width="8" align="left">
                 <% unless @embedded || @no_checkboxes %>

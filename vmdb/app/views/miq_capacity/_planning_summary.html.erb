@@ -5,7 +5,7 @@
   %>
 
   <% if @perf_record %>
-    <p class="legend">Display Options</p>
+    <p class="lead">Display Options</p>
       <dl class="dl-horizontal">
         <dt>Limit Chart to</dt>
         <dd>
@@ -28,8 +28,8 @@
       %>
 
     <% else %>
-      <div class="alert alert-info">
-        <span class="pficon pficon-info"></span>
+      <div class="bg-warning">
+        <span class="glyphicon glyphicon-info-sign"></span>
         <strong>No planning data is available for the selected item.</strong>
       </div>
       
@@ -37,8 +37,8 @@
 <br clear="all">
 <hr>
     <% if @sb[:planning][:chart_data] && @sb[:planning][:chart_data]["planning"] %>
-      <p class="legend">Eligible <%= ui_lookup(:models => @sb[:planning][:options][:target_typ]) %></p>
-      <table class="style3">
+      <p class="lead">Eligible <%= ui_lookup(:models => @sb[:planning][:options][:target_typ]) %></p>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>
@@ -55,7 +55,7 @@
         <% if @sb[:planning][:rpt] %>
           <% @sb[:planning][:rpt].table.data.each_with_index do |r, r_idx| %>
             <% break if r_idx > 9 || r[1].to_i == 0  %>
-              <tr class="<%= cycle('row0', 'row1') %>">
+              <tr>
                 <td align="center"><%= (r_idx + 1).ordinalize %></td>
                 <td><%= r["name"] %></td>
                 <td align="center"><%= r["total_vm_count"] %></td>

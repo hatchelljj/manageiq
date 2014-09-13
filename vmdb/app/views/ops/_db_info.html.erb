@@ -1,7 +1,7 @@
 <%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
 <% if @temp[:vmdb_index] %>
-  <p class="legend">Index: <%= h(@temp[:vmdb_index].name) %></p>
-  <table class="style1">
+  <p class="lead">Index: <%= h(@temp[:vmdb_index].name) %></p>
+  <table class="table table-striped">
     <tr>
       <td class="key">Name</td>
       <td><%= h(@temp[:vmdb_index].name) %></td>
@@ -10,8 +10,8 @@
   <hr>
   <% metrics = @temp[:vmdb_index].latest_hourly_metric %>
   <% if metrics %>
-      <p class="legend">Metrics</p>
-      <table class="style1">
+      <p class="lead">Metrics</p>
+      <table class="table table-striped">
         <tr>
           <td class="key">Rows</td>
           <td><%= h(metrics.rows) %></td>
@@ -32,9 +32,9 @@
       <hr>
   <% end %>
 <% elsif @temp[:table] %>
-    <p class="legend">Table: <%= h(@temp[:table].name) %></p>
+    <p class="lead">Table: <%= h(@temp[:table].name) %></p>
     <% metrics = @temp[:table].latest_hourly_metric %>
-    <table class="style1">
+    <table class="table table-striped">
       <tr>
         <td class="key">Name</td>
         <td><%= h(@temp[:table].name) %></td>
@@ -62,11 +62,11 @@
 <% end %>
 <%# show list of indexes on table summary and when indexes node is selected in tree %>
 <% if @temp[:indexes] %>
-    <p class="legend">Indexes</p>
+    <p class="lead">Indexes</p>
     <% if @temp[:indexes].blank? %>
       No Indexes found for this table.
     <% else %>
-      <table class="style3">
+      <table class="table table-striped">
         <%# level2 folders list%>
         <thead>
           <th class="icon"></th>

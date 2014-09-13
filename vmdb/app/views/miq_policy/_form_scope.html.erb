@@ -1,10 +1,10 @@
 <div id="form_scope_div">
   <% if @expkey == :applies_to_exp %>
-    <p class="legend">Scope (Choose an element of the scope to edit)</p>
+    <p class="lead">Scope (Choose an element of the scope to edit)</p>
     <%= render(:partial => 'layouts/exp_editor') %>
     <hr>
   <% else %>
-    <p class="legend">Scope (Press the "Edit" button to edit the scope)</p>
+    <p class="lead">Scope (Press the "Edit" button to edit the scope)</p>
     <%= link_to(image_tag("/images/toolbars/edit.png",
                           :border => "0", 
                           :alt    => "Edit this Scope"),
@@ -26,8 +26,8 @@
         <% end %>
       <% end %>
     <% else %>
-      <div class="alert alert-info">
-        <span class="pficon pficon-info"></span>
+      <div class="bg-warning">
+        <span class="glyphicon glyphicon-info-sign"></span>
         <strong>No scope defined, the scope of this condition includes all elements.</strong>
       </div>
     <% end %>

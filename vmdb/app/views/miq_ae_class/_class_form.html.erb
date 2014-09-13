@@ -1,8 +1,8 @@
 <% url = url_for(:action => 'form_field_changed',
                  :id     => "#{@ae_class.id || "new"}")
 %>
-  <p class="legend">Properties</p>
-  <table class="style1">
+  <p class="lead">Properties</p>
+  <table class="form form-striped">
       <tr>
         <td class="key">
           <%= Dictionary::gettext('fqname', 

@@ -5,7 +5,7 @@
 %>
 <%= select_tag('chosen_count',
 							options_for_select(["<Choose>"] + MiqExpression.miq_adv_search_lists(exp_model, :exp_available_counts), @edit[@expkey][:exp_count]),
-							:multiple=>false, :class=>"widthed",
+							:multiple=>false,
 							"data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
 							"data-miq_observe"=>{:url=>url}.to_json) %>
 
@@ -28,7 +28,7 @@
   <br/>
 	<%= select_tag('chosen_key',
 								options_for_select(MiqExpression.get_col_operators(:count), @edit[@expkey][:exp_key]),
-								:multiple=>false, :class=>"widthed",
+								:multiple=>false,
 								"data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
 								"data-miq_observe"=>{:url=>url}.to_json) %>
   <br/>
@@ -39,7 +39,7 @@
       <% if @edit[@expkey][:exp_key] == "RUBY" %>
         <br/>
         <fieldset>
-          <p class="legend">Ruby Script (<span id="ruby_count"><%= @edit[@expkey][:exp_value] ? @edit[@expkey][:exp_value].length : 0 %></span> / 1000)</p>
+          <p class="lead">Ruby Script (<span id="ruby_count"><%= @edit[@expkey][:exp_value] ? @edit[@expkey][:exp_value].length : 0 %></span> / 1000)</p>
           <div style="margin:5px 10px 10px 10px">
             <%= text_area_tag("chosen_value", @edit[@expkey][:exp_value], :rows=>10, :style=>"width:100%",
                               :maxlength=>"1000", :counter=>"ruby_count",

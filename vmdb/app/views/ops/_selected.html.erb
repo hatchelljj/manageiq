@@ -1,10 +1,10 @@
 <% rec = @record %>
 <div id="selected_<%=@sb[:active_tab].split('_').last%>_div">
 	<fieldset>
-		<p class="legend">Selected Item</p>
+		<p class="lead">Selected Item</p>
 		<% if @sb[:diag_tree_type] == "roles" %><%# tree type is roles by server %>
 			<% if rec.class == MiqServer %>
-				<table class="style1">
+				<table class="table table-striped">
 					<tr>
 						<td  class="keyimage" rowspan="13"><img src="/images/icons/new/evmserver.png"/></td>
 						<td class="key"><%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}" %></td>
@@ -65,7 +65,7 @@
           </tr>
 				</table>
 			<% else %><%# record class is AssignedServerRole %>
-				<table class="style1">
+				<table class="table table-striped">
 					<tr>
 						<td  class="keyimage" rowspan="9">
 							<img src="/images/icons/new/role-<%= rec.server_role.name %>.png">
@@ -101,7 +101,7 @@
 			<% end %>
 		<% else %><%# tree type is servers by role %>
 			<% if rec.class == ServerRole %>
-				<table class="style1">
+				<table class="table table-striped">
 					<tr>
 						<td  class="keyimage" rowspan="9"><img src="/images/icons/new/role-<%=  rec.name %>.png"></td>
 						<td class="key">Role</td>
@@ -117,7 +117,7 @@
 					</tr>
 				</table>
 			<% else %><%# record class is AssignedServerRole %>
-				<table class="style1">
+				<table class="table table-striped">
 					<tr>
 						<td  class="key" rowspan="13"><img src="/images/icons/new/evmserver.png"></td>
 						<td class="key"><%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}" %></td>

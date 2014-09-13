@@ -7,14 +7,14 @@
 	<%= select_tag('chosen_tag',
 								options_for_select(["<Choose>"] + @edit[@expkey][:exp_available_tags],
 																	@edit[@expkey][:exp_tag]),
-								:multiple=>false, :class=>"widthed",
+								:multiple=>false,
 								"data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
 								"data-miq_observe"=>{:url=>url}.to_json) %>
 <% else %>
 	<%= select_tag('chosen_tag',
 								options_for_select(["<Choose>"] + exp_available_tags(exp_model, @edit[@expkey][:use_mytags]),
 																	@edit[@expkey][:exp_tag]),
-								:multiple=>false, :class=>"widthed",
+								:multiple=>false,
 								"data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
 								"data-miq_observe"=>{:url=>url}.to_json) %>
 <% end %>
@@ -46,7 +46,7 @@
     <%= select_tag('chosen_value',
                   options_for_select(["<Choose>"] +	MiqExpression.get_entry_details(@edit[@expkey][:exp_tag]).sort{|a,b| a.first.downcase<=>b.first.downcase},
                                     @edit[@expkey][:exp_value]),
-                  :multiple=>false, :class=>"widthed",
+                  :multiple=>false,
                   "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                   "data-miq_observe"=>{:url=>url}.to_json) %>
   <% end %>

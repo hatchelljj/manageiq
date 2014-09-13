@@ -6,8 +6,8 @@
 	<dl class="col2">
 		<dd>
       <fieldset>
-        <p class="legend">Role Information</p>
-        <table class="style1">
+        <p class="lead">Role Information</p>
+        <table class="table table-striped">
           <tr>
             <td class="key">Name</td>
             <td>
@@ -65,7 +65,7 @@
     </dd>
     <dd>
       <fieldset>
-        <p class="legend"><%= "Product Features (#{@edit ? "Editing" : "Read Only"})" %></p>
+        <p class="lead"><%= "Product Features (#{@edit ? "Editing" : "Read Only"})" %></p>
         <div id="features_treebox" style="width:100%;height:<%= @winH - 435 %>px;color:#000"></div>
         <%= render(:partial => "layouts/dynatree",
                   :locals => {:tree_id => "features_treebox",

@@ -33,7 +33,7 @@
 
   <div id="throw_off" style="display:<%= @resolve[:throw_ready] ? "none" : "display" %>;">
     <%= button_tag("Submit",	
-                   :class => "btn btn-primary btn-disabled", 
+                   :class => "btn btn-primary", :disabled=>"disabled" 
                    :title => "Starting process must be specified") 
     %>
     <%= link_to(button_tag("Reset",

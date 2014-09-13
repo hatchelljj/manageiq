@@ -8,9 +8,9 @@
 
 = render :partial => 'layouts/flash_msg'
 
-%p{:class => 'legend'}
+%p{:class => 'lead'}
   Red Hat Software Updates
-%table{:class => 'style1'}
+%table{:class => 'table table-striped'}
   - if @customer.registered
     = render :partial => 'ops/rhn/info_subscribed'
   - else

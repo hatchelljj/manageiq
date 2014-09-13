@@ -2,8 +2,8 @@
 <div id="tl_options_div">
   <% if @temp[:timeline] %>
     <fieldset>
-      <p class="legend">Options<%= @record != @tl_record ? " (#{ui_lookup(:model=>@tl_record.class.to_s)}: #{@tl_record.name})" : "" %></p>
-        <table class="style1">
+      <p class="lead">Options<%= @record != @tl_record ? " (#{ui_lookup(:model=>@tl_record.class.to_s)}: #{@tl_record.name})" : "" %></p>
+        <table class="table table-striped">
           <tr>
             <td class="key" style="width:90px">Show</td>
             <td style="padding-right: 5px">
@@ -51,7 +51,7 @@
       </table>
 
       <% if @tl_options[:tl_show] == "policy_timeline" %>
-        <table class="style1">
+        <table class="table table-striped">
           <tr>
             <td class="key" style="width:90px; height:15px" nowrap >Result</td>
             <td class="notwide" style="padding-right: 5px" >
@@ -94,7 +94,7 @@
           <% end %>
         </form>
       <% else %>
-        <table class="style1">
+        <table class="table table-striped">
           <tr>
             <td nowrap  class="key" style="width:90px">Level
             </td>

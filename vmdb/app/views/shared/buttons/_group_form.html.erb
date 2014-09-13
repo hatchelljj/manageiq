@@ -3,8 +3,8 @@
 %>
 <div id="group_form_div" style="width:100%;height:100%;overflow:auto;">
   <%= render(:partial => "layouts/flash_msg") %>
-  <p class="legend">Basic Info</p>
-  <table class="style1">
+  <p class="lead">Basic Info</p>
+  <table class="table table-striped">
     <tr>
       <td class="key">Button Group Text</td>
       <td>
@@ -54,7 +54,7 @@
 
 <% if x_active_tree == :ab_tree || (x_active_tree == :sandt_tree && @edit[:rec_id]) %>
   <hr>
-  <p class="legend">Assign Buttons</p>
+  <p class="lead">Assign Buttons</p>
   <%= render :partial => "shared/buttons/column_lists" %>
 
 <% end %>

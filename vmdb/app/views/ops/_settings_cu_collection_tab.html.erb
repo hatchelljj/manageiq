@@ -6,8 +6,8 @@
 			<dl class="col2">
 				<dd>
 					<fieldset>
-						<p class="legend">Clusters</p>
-							<table class="style1">
+						<p class="lead">Clusters</p>
+							<table class="table table-striped">
 								<tr>
 									<td class="key">Collect for All Clusters</td>
 									<td>
@@ -18,7 +18,7 @@
 									</td>
 								</tr>
 							</table>
-            <div class="note">Note: <b>Collect for All Clusters</b> must be checked to be able to collect C & U data from Cloud Providers such as Red Hat OpenStack or Amazon EC2</div>
+            <div class="bg-info">Note: <b>Collect for All Clusters</b> must be checked to be able to collect C & U data from Cloud Providers such as Red Hat OpenStack or Amazon EC2</div>
             <div id="clusters_div" style="display:<%= @edit[:new][:all_clusters] ? "none" : "" %>">
 								<%# if @temp[:clhosts_tree].blank? %>
 								<% if @edit[:new][:clusters].blank? && @edit[:new][:non_cl_hosts].blank? %>
@@ -43,15 +43,15 @@
                             )
                   %>
 									<br/>
-									<div class="note">VM data will be collected for VMs under selected Hosts only. Data is collected for a Cluster and all of its Hosts when at least one Host is selected.</div>
+									<div class="bg-info">VM data will be collected for VMs under selected Hosts only. Data is collected for a Cluster and all of its Hosts when at least one Host is selected.</div>
 								<% end %>
 							</div>
 						</fieldset>
 				</dd>
 				<dd>
 						<fieldset>
-							<p class="legend"><%= ui_lookup(:tables=>"storages") %></p>
-							<table class="style1">
+							<p class="lead"><%= ui_lookup(:tables=>"storages") %></p>
+							<table class="table table-striped">
 								<tr>
 									<td class="key">Collect for All Datastores</td>
 									<td>

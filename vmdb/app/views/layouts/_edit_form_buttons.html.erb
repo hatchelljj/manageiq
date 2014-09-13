@@ -11,7 +11,7 @@
 <% show_cancel_button = %w(user_edit user_update menu_tree zone_edit zone_update ldap_seq_edit rbac_group_edit rbac_group_update rbac_group_field_changed category_edit category_update timeprofile_edit timeprofile_update timeprofile_copy) %>
 <% force_cancel_button ||= false %>
 &nbsp;
-<table width="100%">
+<table width="100%" class="table">
   <tr>
     <td align="<%= align %>">
       <div id="buttons_on" style="display:<%= @changed ? "display" : "none" %>;">

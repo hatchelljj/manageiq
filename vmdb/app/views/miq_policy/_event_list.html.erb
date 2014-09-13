@@ -2,18 +2,17 @@
 	<% if @events %>
 		<%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
 		<% if @events.empty? %>
-			<div class="note">* No Events are defined<%= @search_text.blank? ? "" : " that match the entered search string" %>.</div>
+			<div class="bg-info"><aside>* No Events are defined<%= @search_text.blank? ? "" : " that match the entered search string" %>.</aside></div>
 		<% else %>
-					<table class="style3">
+					<table class="table table-striped">
 						<thead>
-							<th class="icon"></th><th></th>
+							<th></th><th></th>
 						</thead>
 						<tbody>
 						<% @events.each do |e| %>
-							<tr class="<%= cycle('row0', 'row1') %>"
-                  onclick="cfmeDynatree_activateNode('event_tree', 'ev-<%= to_cid(e.id) %>');"
+							<tronclick="cfmeDynatree_activateNode('event_tree', 'ev-<%= to_cid(e.id) %>');"
 						  		onmouseover="this.style.cursor='pointer'" title="View this Event">
-					  		<td class="icon">
+					  		<td>
 										<img src="/images/icons/new/event-<%= e.name %>.png" valign="middle" border="0" />
 								</td>
 								<td>

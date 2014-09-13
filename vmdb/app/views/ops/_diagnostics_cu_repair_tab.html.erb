@@ -12,8 +12,8 @@
   <%= render :partial => "layouts/flash_msg", 
              :locals  => {:div_num => "cu_repair"} 
   %>
-  <p class="legend">Collection Options</p>
-  <table class="style1">
+  <p class="lead">Collection Options</p>
+  <table class="table table-striped">
     <tr>
       <td class="key">Timezone</td>
       <td>
@@ -45,5 +45,5 @@
       </td>
     </tr>
   </table>
-  <div class="note">Note: Gap Collection is only available for VMware vSphere Infrastructures</div>
+  <div class="bg-info">Note: Gap Collection is only available for VMware vSphere Infrastructures</div>
 <% end %>

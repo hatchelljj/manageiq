@@ -1,7 +1,7 @@
 <%# showing list of CIs %>
 <% if @sb[:obj_list] %>
   <%= render :partial => "layouts/flash_msg" %>
-  <table class="style3">
+  <table class="table table-striped">
     <thead>
     <th>Object Types</th>
     </thead>
@@ -22,14 +22,14 @@
 <% elsif @sb[:button_groups] %>
   <% if @sb[:button_groups].blank? %>
     <hr>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>No Items found.</strong>
     </div>
 
   <% else %>
     <%= render(:partial => "layouts/flash_msg") %>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
         <th class="icon"></th>
         <th>Text</th>
@@ -41,8 +41,7 @@
       <tbody>
         <% @sb[:button_groups].each do |obj| %>
           <% if obj.kind_of?(String) %>
-            <tr class="<%= cycle('row0', 'row1') %>"
-                onclick="cfmeDynatree_activateNode('ab_tree', '<%= "-ub-#{@nodetype[1]}" %>')"
+            <tr onclick="cfmeDynatree_activateNode('ab_tree', '<%= "-ub-#{@nodetype[1]}" %>')"
                 onmouseover="this.style.cursor='pointer'" title="Click to view details">
               <td>
                 <img src="/images/icons/new/folder.png" align="left" width="20" height="20"/>
@@ -66,8 +65,7 @@
               <% img = obj[:button_image] %>
               <% rec_type = "Group" %>
             <% end %>
-            <tr class="<%= cycle('row0', 'row1') %>"
-              onclick="cfmeDynatree_activateNode('<%= tree_box %>', '<%= tree_id %>_<%= typ %>-<%= to_cid(obj[:id]) %>')"
+            <tr onclick="cfmeDynatree_activateNode('<%= tree_box %>', '<%= tree_id %>_<%= typ %>-<%= to_cid(obj[:id]) %>')"
               onmouseover="this.style.cursor='pointer'" title="Click to view details">
               <td>
                 <img src="/images/icons/new/custom-<%=img%>.png" align="left" width="20" height="20"/>
@@ -94,8 +92,8 @@
   <%# don't need basic info box for Unassigned button group %>
   <% if @record && @record.kind_of?(CustomButtonSet) %>
 
-      <p class="legend">Basic Information</p>
-      <table class="style1">
+      <p class="lead">Basic Information</p>
+      <table class="table table-striped">
         <tbody>
         <tr>
           <td class="key">Button Text</td>
@@ -122,14 +120,14 @@
 
   <% end %>
   <% if @sb[:buttons].blank? %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>No Buttons found.</strong>
     </div>
 
   <% else %>
       <hr>
-      <table class="style3">
+      <table class="table table-striped">
         <thead>
           <th class="icon"></th>
           <th>Text</th>
@@ -139,8 +137,7 @@
           <% @sb[:buttons].each do |obj| %>
             <% tree_box = x_active_tree == :sandt_tree ? 'sandt_tree' : 'ab_tree' %>
             <% id = @nodetype[0].split('-')[1] == "ub" ? "#{@nodetype[0]}_cb-#{to_cid(obj[:id])}" : "#{x_node}_cb-#{to_cid(obj[:id])}" %>
-            <tr class="<%= cycle('row0', 'row1') %>"
-                onclick="cfmeDynatree_activateNode('<%= tree_box %>', '<%= id %>')"
+            <tr onclick="cfmeDynatree_activateNode('<%= tree_box %>', '<%= id %>')"
                 onmouseover="this.style.cursor='pointer'" title="Click to view details">
                 <td>
                   <img src="/images/icons/new/custom-<%=obj[:button_image]%>.png" align="left" width="20" height="20"/>

@@ -4,7 +4,7 @@
 
 	<%# tabs for Settings accordion %>
 		<% if x_node.split("-")[0] == "z" %>
-			<ul class="tab">
+			<ul class="nav nav-tabs">
 				<li><a href="#settings_evm_servers">Zone</a></li>
 				<li><a href="#settings_smartproxy_affinity">SmartProxy Affinity</a></li>
 			</ul>
@@ -16,7 +16,7 @@
 			</div>
 		<% elsif x_node.split("-")[0] == "svr" %>
 			<% cur_svr_id = from_cid(x_node.split("-").last).to_i %>
-			<ul class="tab">
+			<ul class="nav nav-tabs">
 				<li><a href="#settings_server">Server</a></li>
 				<li><a href="#settings_authentication">Authentication</a></li>
 				<li><a href="#settings_workers">Workers</a></li>
@@ -108,7 +108,7 @@
 					<% end %>
 				</div>
 			<% else %><%# Settings Region node %>
-				<ul class="tab">
+				<ul class="nav nav-tabs">
 					<li><a href="#settings_details">Details</a></li>
 					<li><a href="#settings_cu_collection">C & U Collection</a></li>
 					<li><a href="#settings_co_categories"><%= escape_javascript(session[:customer_name]) %> Categories</a></li>
@@ -159,7 +159,7 @@
 
 	<%# tabs for Diagnostics accordion %>
 		<% if x_node.split("__").last.split("-")[0] == "z" %>
-			<ul class="tab">
+			<ul class="nav nav-tabs">
 					<li><a href="#diagnostics_roles_servers">Roles by Servers</a></li>
 					<li><a href="#diagnostics_servers_roles">Servers by Roles</a></li>
 					<li><a href="#diagnostics_server_list">Servers</a></li>
@@ -192,7 +192,7 @@
 					<% end %>
 				</div>
 		<% elsif x_node.split("__").last.split("-")[0] == "svr" %>
-				<ul class="tab">
+				<ul class="nav nav-tabs">
 					<% if @sb[:selected_server_id] == @sb[:my_server_id] || @temp[:selected_server].started? %>
             <li><a href="#diagnostics_summary">Summary</a></li>
 						<li><a href="#diagnostics_workers">Workers</a></li>
@@ -252,7 +252,7 @@
 				</div>
 		<% else %><%# Region node ("root") %>
 
-			<ul class="tab">
+			<ul class="nav nav-tabs">
 				<li><a href="#diagnostics_zones"><%=ui_lookup(:models=>'Zone')%></a></li>
 				<% if session[:userrole] == "super_administrator" %>
 					<li><a href="#diagnostics_roles_servers">Roles by Servers</a></li>
@@ -331,7 +331,7 @@
 	<% elsif x_active_tree == :vmdb_tree %>
 
 	<%# tabs for Database accordion %>
-		<ul class="tab">
+		<ul class="nav nav-tabs">
       <% tree_node = x_node %>
 			<% if tree_node == "root" %>
 				<li><a href="#db_summary">Summary</a></li>
@@ -396,7 +396,7 @@
 	<% elsif x_active_tree == :analytics_tree && get_vmdb_config[:product][:analytics] %>
 
 	<%# tabs for Analytics accordion %>
-		<ul class="tab">
+		<ul class="nav nav-tabs">
 			<li><a href="#analytics_details">Analytics Report</a></li>
 		</ul>
 

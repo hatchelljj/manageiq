@@ -2,8 +2,8 @@
   <% url = url_for(:action => 'form_method_field_changed',
                    :id     => "#{@ae_method.id || "new"}")
   %>
-    <p class="legend">Main Info</p>
-    <table class="style1">
+    <p class="lead">Main Info</p>
+    <table class="table table-striped">
         <tr>
           <td class="key">
             <%= Dictionary::gettext('fqname', 
@@ -58,13 +58,13 @@
         <% end %>
         </table> 
         <hr>
-        <p class="legend">Data</p>
+        <p class="lead">Data</p>
         <%= render :partial => "method_data",
                    :locals  => {:field_name => "#{prefix}method"}
         %>
         <hr>
-    <p class="legend">Input Parameters</p>
-    <table class="style3" style="margin:0">
+    <p class="lead">Input Parameters</p>
+    <table class="table table-striped" style="margin:0">
       <% if @sb[:squash_state] %>
         <% title = "Show Input Parameters" %>
         <% display = "display:none" %>
@@ -74,9 +74,8 @@
       <% end %>
       <thead>
         <tr>
-          <th class="special">
-            <%= link_to(image_tag("/images/toolbars/squashed-#{@sb[:squash_state]}.png", 
-                                  :class => "rollover small",
+          <th>
+            <%= link_to(image_tag("/images/toolbars/squashed-#{@sb[:squash_state]}.png",
                                   :id    => "exp_collapse_img",
                                   :style => "z-index:50", 
                                   :alt   => title, 
@@ -91,7 +90,7 @@
     </table>
 
     <div id="inputs_div" style="<%=display%>">
-      <table class="style3">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th class="icon"></th>
@@ -103,7 +102,7 @@
         <tbody>
           <% @edit[:new][:fields].each_with_index do |flds,i| %>
             <% unless @edit[:fields_to_delete].include?(flds["id"]) %>
-              <tr class="<%=cycle('row0','row1',:name=>'schema')%>">
+              <tr>
                 <td>
                 <%= link_to(image_tag("/images/icons/16/notequal-red.png",
                                       :alt     => "Click to delete this input field from method"),
@@ -152,14 +151,14 @@
             <% end %>
           <% end	%>
           <% if !params[:add] && params[:add] != "new" && (session[:field_data].blank? || session[:field_data].empty?)  %>
-            <tr class="<%=cycle('row0','row1',:name=>'schema')%>" onclick="<%= remote_function(:url=>{:action=>'field_method_select', :add=>'new', :item=>"field"}) %>" title="Click to add a new parameter">
+            <tr onclick="<%= remote_function(:url=>{:action=>'field_method_select', :add=>'new', :item=>"field"}) %>" title="Click to add a new parameter">
               <td><%= image_tag("/images/icons/16/equal-green.png") %></td>
               <td><%= h("<New Parameter>") %></td>
               <td>&nbsp;</td>
               <td>&nbsp;</td>
               </tr>
           <% else %>
-            <tr class="<%=cycle('row0','row1',:name=>'schema')%>">
+            <tr>
               <td>
                   <%= link_to(image_tag("/images/icons/16/na.png",
                                         :alt => "Add this entry"),

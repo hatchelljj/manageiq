@@ -1,7 +1,7 @@
 <div id="import_export_div">
 	<%= render(:partial=>"layouts/flash_msg") %>
 	<fieldset>
-		<p class="legend">Import</p>
+		<p class="lead">Import</p>
 		Import Datastore classes
 		<%= form_tag({:action=>"upload", :typ=>"ae_tag", :db=>"MiqAeClass"}, :multipart => true) do %>
 			<%= file_field("upload", "datastore") %>
@@ -12,7 +12,7 @@
 	</fieldset>
 
 	<fieldset>
-		<p class="legend">Export</p>
+		<p class="lead">Export</p>
 		<%= link_to(image_tag("/images/toolbars/export.png", :border=>"0",
 									:alt=>"Export all classes and instances"),
 									{:action=>'export_datastore'},
@@ -21,7 +21,7 @@
 	</fieldset>
 
 	<fieldset>
-		<p class="legend">Reset</p>
+		<p class="lead">Reset</p>
 			<%= link_to(image_tag("/images/toolbars/reset.png",
 												:alt=>"Reset all custom classes and instances to default"),
 												{:action=>'reset_datastore'},

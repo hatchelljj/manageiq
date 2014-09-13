@@ -3,8 +3,8 @@
 %>
 <div id="form_div">
   <%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Basic Information</p>
-  <table class="style1">
+  <p class="lead">Basic Information</p>
+  <table class="table table-striped">
       <tr>
         <td class="key">Name</td>
         <td class="wide">
@@ -41,7 +41,7 @@
       </tr>
     </table>
     <hr>
-    <p class="legend">Content</p>
+    <p class="lead">Content</p>
     <%= text_area_tag("content_data",
                       @edit[:new][:content],
                       :style => "display:none;")

@@ -1,16 +1,16 @@
 <%= render :partial => "layouts/flash_msg", :locals=>{:div_num=>"_domains_priority"}  %>
 <div id="domains_list">
-  <table class="admintable">
+  <table class="table table-striped">
     <tbody>
   <tr>
     <td >
-      <table width="50%" class="form" id="formtest">
+      <table width="50%" class="table table-striped" id="formtest">
         <tr>
-      <td align="left" class="widthed">Domains:</td>
+      <td class="text-left">Domains:</td>
       <td></td>
       </tr>
             <tr>
-          <td align="left" valign="top">
+          <td class="text-left" valign="top">
              <%= select_tag('seq_fields[]', options_for_select(@edit[:new][:domain_order], @selected), { :multiple=> true, :style=>"width: 450px", :size=>20, :id=>"seq_fields" } ) %>
           </td>
           <td width="30" align="left" valign="middle">
@@ -18,7 +18,7 @@
               <%= image_tag("/images/toolbars/up.png", :class=>"dimmed small") %>
             <% else %>
               <%= link_to(image_tag("/images/toolbars/up.png",
-                                  :class=>"rollover small", :alt=>"Move selected fields up"),
+                                  :alt=>"Move selected fields up"),
                                 {:action=>'priority_form_field_changed', :button=>'up', :id=>"priority__edit"},
                                 "data-submit" =>"domains_list",
                                 :remote=>true,
@@ -27,10 +27,10 @@
             <% end %>
 
             <% if @edit[:new][:domain_order].length < 2 %>
-              <%= image_tag("/images/toolbars/down.png", :class=>"dimmed small") %>
+              <%= image_tag("/images/toolbars/down.png") %>
             <% else %>
               <%= link_to(image_tag("/images/toolbars/down.png",
-                                      :class=>"rollover small", :alt=>"Move selected fields down"),
+                                     :alt=>"Move selected fields down"),
                                     {:action=>'priority_form_field_changed', :button=>'down', :id=>"priority__edit"},
                                     "data-submit" =>"domains_list",
                                     :remote=>true,
@@ -39,7 +39,7 @@
             <% end %>
           </td>
           </tr>
-          <div class="note">* Select one or more consecutive groups to move up or down.</div>
+          <div class="bg-info"><aside>* Select one or more consecutive groups to move up or down.</aside></div>
         </table>
       </td>
     </tr>

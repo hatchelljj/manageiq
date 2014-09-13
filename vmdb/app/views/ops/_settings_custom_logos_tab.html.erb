@@ -3,12 +3,12 @@
 %>
 <% if @sb[:active_tab] == "settings_custom_logos" %>
   <%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Custom Logo Image (Shown on top right of all screens)</p>
+  <p class="lead">Custom Logo Image (Shown on top right of all screens)</p>
   <% if File.exists?(@logo_file) %>
     <%= image_tag("/upload/custom_logo.png?#{rand(99999999).to_s}") %>
   <% else %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>No custom logo image has been uploaded yet.</strong>
     </div>
   <% end %>
@@ -22,7 +22,7 @@
   <% end %>
   <% if File.exists?(@logo_file) %>
     <br/>
-    <table class="style1">
+    <table class="table talbe-striped">
       <tr>
         <td class="key">Use Custom Logo Image</td>
         <td>
@@ -35,7 +35,7 @@
     </table>
   <% end %>
   <hr>
-  <p class="legend">Custom Login Background Image</p>
+  <p class="lead">Custom Login Background Image</p>
   <% if File.exists?(@login_logo_file) %>
     <%= image_tag("/upload/custom_login_logo.png?#{rand(99999999).to_s}", 
                   :height => 400, 
@@ -43,8 +43,8 @@
     %>
     <br/><br/>* Image shown at 25% of actual size<br/><br/>
   <% else %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>No custom login image has been uploaded yet.</strong>
     </div>
   <% end %>
@@ -59,7 +59,7 @@
   <% end %>
   <% if File.exists?(@login_logo_file) %>
     <br/>
-    <table class="style1">
+    <table class="table table-striped">
       <tr>
         <td class="key">Use Custom Login Background Image</td>
         <td>
@@ -73,7 +73,7 @@
     </table>
   <% end %>
   <hr>
-  <p class="legend">Custom Login Panel Text (<span id="text_count"><%= @edit[:new][:notes] ? @edit[:new][:notes].length : 0 %></span> / 500)</p>
+  <p class="lead">Custom Login Panel Text (<span id="text_count"><%= @edit[:new][:notes] ? @edit[:new][:notes].length : 0 %></span> / 500)</p>
 
     <%= text_area_tag("login_text",
                       @edit[:new][:server][:custom_login_text], 
@@ -85,7 +85,7 @@
     %>
 
   <br/>
-  <table class="style1">
+  <table class="table table-striped">
     <tr>
       <td class="key">Use Custom Login Text</td>
       <td>

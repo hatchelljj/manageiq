@@ -1,12 +1,12 @@
 <% if @folders %>
   <%= render(:partial=>"layouts/flash_msg") %>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
-        <th class="icon"></th><th></th>
+        <th></th><th></th>
       </thead>
       <tbody>
       <% @folders.each do |f| %>
-        <tr class="<%= cycle('row0', 'row1') %>"
+        <tr
           <% if ["Compliance","Control"].include?(f) %>
             onclick="cfmeDynatree_activateNode('policy_tree', 'xx-<%= f.downcase %>');"
           <% else %>

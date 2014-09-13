@@ -1,13 +1,13 @@
 %iframe.import-hidden-iframe(name="upload_target")
 
-.import-flash-message
-  .alert
+%p
+  .bg-warning
     %span.icon-placeholder
-      %span.pficon
-      %span.pficon
-    %strong.message
+      %span.glyphicon
+      %span.glyphicon
+    %strong
 
-.import-or-export
+%p
   %fieldset
     %p.legend Import
     = form_tag({:action => "upload_import_file"}, :target => "upload_target", :multipart => true) do

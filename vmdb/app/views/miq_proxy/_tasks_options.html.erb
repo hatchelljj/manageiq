@@ -2,8 +2,8 @@
 <div id="tasks_options_div">
   <%= form_tag( {:action => 'tasks_show_option'}, 
                 {:id     => "tasks_form"}) do %>
-    <p class="legend">Filter By</p>
-    <table class="style1">
+    <p class="lead">Filter By</p>
+    <table class="table table-striped">
       <tbody>
         <% if ["my_tasks", "all_tasks"].include?(@layout) %>
           <tr>
@@ -62,14 +62,14 @@
                                 "data-miq_observe_checkbox" => {:url => url}.to_json) 
               %>
               &nbsp;
-              <img src="/images/icons/new/checkmark.png" valign="middle"  title="Ok" /> Ok
+              <img src="/images/icons/new/checkmark.png" valign="middle"  title="Ok" width="16" height="16" /> Ok
               &nbsp;
               <%= check_box_tag("error", value="1",
                                 checked=@tasks_options[@tabform][:error],
                                 "data-miq_observe_checkbox" => {:url => url}.to_json) 
               %>
               &nbsp;
-              <img src="/images/icons/new/x.png" valign="middle" title="Error" /> Error
+              <img src="/images/icons/new/x.png" valign="middle" title="Error" width="16" height="16" /> Error
               &nbsp;
               <%= check_box_tag("warn", value="1",
                                 checked=@tasks_options[@tabform][:warn],
@@ -94,12 +94,13 @@
           <td align="right">
 
               <div id="buttons_off">
-                <%= button_tag("Apply", :class => "btn btn-primary btn-disabled")%>
-                <%= button_tag("Reset", :class => "btn btn-default btn-disabled")%>
+                <%= button_tag("Apply", :class => "btn btn-primary btn-disabled", :disabled=>"disabled")%>
+                <%= button_tag("Reset", :class => "btn btn-default btn-disabled", :disabled=>"disabled")%>
                 
                   <%= link_to(button_tag('Default', 
                                          :class => "btn btn-default",
-                                         :alt   => "Set filters to default"),
+                                         :alt   => "Set filters to default",
+                                         :disabled => "disabled"),
                               {:action => "tasks_button", 
                                :button => "default"},
                               "data-miq_sparkle_on"  => true,

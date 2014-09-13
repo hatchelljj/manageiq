@@ -3,23 +3,23 @@
     <div id="event_info_div">
       <%= render(:partial => "layouts/flash_msg") %>
 
-      <p class="legend">Basic Information</p>
-      <table class="style1">
+      <p class="lead">Basic Information</p>
+      <table class="table table-striped">
         <% if false %><%# Don't show description (event descriptions can not be edited) %>
           <tr>
-            <td class="key">Description</td>
+            <td>Description</td>
             <td>
-              <img src="/images/icons/new/event-<%= h(@event.name) %>.png" align="left" width="16" height="16">
+              <img src="/images/icons/new/event-<%= h(@event.name) %>.png" class="text-left" width="16" height="16">
               <%= h(@event.description) %></td>
           </tr>
         <% end %>
         <tr>
-          <td class="key">Event Group</td>
+          <td>Event Group</td>
           <td><%= h(@event.memberof.first.description) %></td>
         </tr>
         <% unless x_active_tree == :event_tree %>
           <tr>
-            <td class="key">Attached to Policy</td>
+            <td>Attached to Policy</td>
             <td><%= h(@temp[:policy].description) %></td>
           </tr>
         <% end %>
@@ -27,24 +27,23 @@
       <hr>
 
       <% if x_active_tree == :event_tree %>
-        <p class="legend">Assigned to Policies</p>
+        <p class="lead">Assigned to Policies</p>
         <% if @event_policies.empty? %>
-          <div class="alert alert-info">
-            <span class="pficon pficon-info"></span>
+          <div class="bg-warning">
+            <span class="glyphicon glyphicon-info-sign"></span>
             <strong>This Event is not assigned to any Policies.</strong>
           </div>
         <% else %>
-          <table class="style3">
+          <table class="table table-striped">
             <thead>
-              <th class="icon"></th><th></th>
+              <th></th><th></th>
             </thead>
             <tbody>
               <% @event_policies.each do |p| %>
                 <% id = "xx-#{p.mode.downcase}_xx-#{p.mode.downcase}-#{p.towhat.downcase}_p-#{to_cid(p.id)}" %>
-                <tr class="<%= cycle('row0', 'row1') %>"
-                    onclick="<%= remote_function(:url=>"/miq_policy/x_show/#{id}?accord=policy") %>"
+                <tr onclick="<%= remote_function(:url=>"/miq_policy/x_show/#{id}?accord=policy") %>"
                     onmouseover="this.style.cursor='pointer'" title="Click to view Policy">
-                  <td class="icon">
+                  <td>
                     <img src="/images/icons/new/miq_policy_<%= p.towhat.downcase + (p.active ? "" : "_inactive") %>.png"/>
                   </td>
                   <td>
@@ -57,18 +56,18 @@
           <hr>
         <% end %>
       <% else %>
-        <p class="legend">Order of Actions if ALL Conditions are True</p>
+        <p class="lead">Order of Actions if ALL Conditions are True</p>
         <% unless @edit %>
           <% if @event_true_actions.empty? %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>This Event has no true Actions.</strong>
             </div>
           <% else %>
-            <table class="style3">
+            <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="icon">&nbsp;</th>
+                  <th>&nbsp;</th>
                   <th nowrap>Description</th>
                   <th nowrap>Synchronous</th>
                   <th nowrap>Type</th>
@@ -76,14 +75,14 @@
               </thead>
               <% @event_true_actions.each do |a| %>
                 <% id = "a-#{to_cid(a.id)}" %>
-                <tr class="<%= cycle('row0', 'row1') %>"
+                <tr
                   <% if x_active_tree == :action_tree %>
                     onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=action") %>"
                   <% else %>
                     onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_#{id}" %>');"
                   <% end %>
                   onmouseover="this.style.cursor='pointer'" title="View this Event Action">
-                  <td class="icon">
+                  <td>
                     <img src="/images/icons/new/check.png"/>
                   </td>
                   <td><%= a.description %></td>
@@ -95,23 +94,22 @@
           <% end %>
           <hr>
         <% else %>
-          <table class="admintable">
+          <table class="table table-striped">
             <tbody>
               <tr>
                 <td>
-                  <table width="100%" class="form" id="formtest">
+                  <table width="100%" class="table table-striped" id="formtest">
                     <tr>
-                      <td align="left">Available Actions:</td>
+                      <td class="text-left">Available Actions:</td>
                       <td></td>
-                      <td align="left" class="widthed"> Selected Actions:</td>
+                      <td class="text-left"> Selected Actions:</td>
                     </tr>
                     <tr>
-                      <td align="left" class="widthed" valign="top">
+                      <td class="text-left" valign="top">
                         <span id="choices_chosen_true_div">
                           <%= select_tag('choices_chosen_true[]',
                                          options_for_select( @edit[:choices_true].sort ),
                                          {:multiple => true, 
-                                          :class    => "widthed", 
                                           :size     => 8, 
                                           :id       => "choices_chosen_true"}) 
                           %>
@@ -155,13 +153,12 @@
                                     :title  => "Remove selected Actions from this Event")
                         %>
                       </td>
-                      <td align="right" valign="top" >
+                      <td class="text-right" valign="top" >
                         <span id="members_chosen_true_div">
                           <%= select_tag('members_chosen_true[]',
                                          options_for_select(@edit[:new][:actions_true], 
                                                             @true_selected),
                                          {:multiple => true,
-                                          :class    => "widthed", 
                                           :size     => 8,
                                           :id       => "members_chosen_true" }) 
                           %>
@@ -225,18 +222,18 @@
           </table>
           <hr>
         <% end %>
-        <p class="legend">Order of Actions if ANY Conditions are False</p>
+        <p class="lead">Order of Actions if ANY Conditions are False</p>
         <% unless @edit %>
           <% if @event_false_actions.empty? %>
-            <div class="alert alert-info">
-              <span class="pficon pficon-info"></span>
+            <div class="bg-warning">
+              <span class="glyphicon glyphicon-info-sign"></span>
               <strong>This Event has no false Actions.</strong>
             </div>
           <% else %>
-            <table class="style3">
+            <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="icon">&nbsp;</th>
+                  <th>&nbsp;</th>
                   <th nowrap>Description</th>
                   <th nowrap>Synchronous</th>
                   <th nowrap>Type</th>
@@ -244,7 +241,7 @@
               </thead>
               <% @event_false_actions.each do |a| %>
                 <% id = "a-#{to_cid(a.id)}" %>
-                  <tr class="<%= cycle('row0', 'row1') %>"
+                  <tr>
                     <% if x_active_tree == :action_tree %>
                       onclick="<%= remote_function(:url => "/miq_policy/x_show/#{id}?accord=action") %>"
                     <% else %>
@@ -263,23 +260,22 @@
           <% end %>
           <%#= render :partial => "layouts/gtl", :locals=>{:view=>@false_view, :listicon_image=>"x"} %>
         <% else %>
-          <table class="admintable">
+          <table classi="table table-striped">
             <tbody>
               <tr>
                 <td >
-                  <table width="100%" class="form" id="formtest">
+                  <table width="100%" class="table table-striped" id="formtest">
                     <tr>
-                      <td align="left">Available Actions:</td>
+                      <td class="text-left">Available Actions:</td>
                       <td></td>
-                      <td align="left" class="widthed"> Selected Actions:</td>
+                      <td class="text-left"> Selected Actions:</td>
                     </tr>
                     <tr>
-                      <td align="left" class="widthed" valign="top">
+                      <td class="text-left" valign="top">
                         <span id="choices_chosen_false_div">
                           <%= select_tag('choices_chosen_false[]',
                                          options_for_select( @edit[:choices_false].sort ),
                                          {:multiple => true, 
-                                          :class    => "widthed", 
                                           :size     => 8, 
                                           :id       => "choices_chosen_false" }) 
                           %>
@@ -322,7 +318,7 @@
                                     :title  => "Remove selected Actions from this Event")
                         %>
                       </td>
-                      <td align="right" valign="top" >
+                      <td class="text-right" valign="top" >
                         <span id="members_chosen_false_div">
                           <%= select_tag('members_chosen_false[]',
                                          options_for_select(@edit[:new][:actions_false], 

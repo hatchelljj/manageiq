@@ -39,12 +39,12 @@
                 <% if exp_model == "Vm" %>
 			
                   <%= select_tag('chosen_typ', options_for_select(["<Choose>"] + exptypes + VM_EXP_TYPES, @edit[@expkey][:exp_typ]),
-                                :multiple=>false, :class=>"widthed",
+                                :multiple=>false,
                                 "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
                 <% elsif exp_model == "AuditEvent" %>
                   <%= select_tag('chosen_typ', options_for_select(["<Choose>", ["Field", "field"]], @edit[@expkey][:exp_typ]),
-                                :multiple=>false, :class=>"widthed",
+                                :multiple=>false,
                                 "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
                 <% elsif exp_model == "_display_filter_" %>
@@ -55,12 +55,12 @@
                     <% sel_opts.push(["Tag", "tag"]) %>
                   <% end %>
                   <%= select_tag('chosen_typ', options_for_select(sel_opts, @edit[@expkey][:exp_typ]),
-                                :multiple=>false, :class=>"widthed",
+                                :multiple=>false,
                                 "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
                 <% else %>
                   <%= select_tag('chosen_typ', options_for_select(["<Choose>"] + exptypes, @edit[@expkey][:exp_typ]),
-                                :multiple=>false, :class=>"widthed",
+                                :multiple=>false,
                                 "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
                 <% end %>
@@ -88,9 +88,9 @@
     miq_cal_dateTo = null;
   </script>
 <% else %>  <%# Errors in this atom, display them instead of the atom %>
-  <fieldset class="adminform">
+  <fieldset class="table table-striped">
     <ul id="message" style="padding-left:30px">
-      <li id="message" class="error">
+      <li id="message" class="bg-danger">
         <% @exp_atom_errors.each do |ae| %>
           <%= ae %><br/>
         <% end %>

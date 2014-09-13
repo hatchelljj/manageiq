@@ -1,15 +1,16 @@
 <% url = url_for(:action=>'export_field_changed') %>
 <div id="profile_export_div">
   <%= render :partial=>"layouts/flash_msg" %>
-  <p class="legend">Import</p>
+  <p class="lead">Import</p>
   <% if @sb[:hide] %>
-    <table width="100%">
+    <table class="Table table-striped" width="100%">
       <tr>
-        <td align="right">
+        <td class="text-right">
           <div id="buttons">
             <% if @sb[:conflict] %>
               <%= button_tag("Commit", 
-                             :class => "btn btn-primary btn-disabled",
+                             :class => "btn btn-primary",
+                             :disabled=>"disabled",
                              :title => "Resolve conflicts to import the file", 
                              :alt   => "Resolve conflicts to import the file") 
               %>
@@ -57,17 +58,17 @@
 
 <% if @sb[:hide] == false %>
     <hr>
-    <p class="legend">Export</p>
+    <p class="lead">Export</p>i
     <%# title = @sb[:dbtype] == "pp" ? "Profiles" : "Policies" %>
     <% title = case @sb[:dbtype]
       when "pp" then "Profiles"
       when "p"  then "Policies"
       when "al" then "Alerts"
     end %>
-    <table class="style1">
+    <table class="table table-striped">
       <tr>
-        <td class="key">Export:</td>
-        <td align="left" valign="top">
+        <td>Export:</td>
+        <tdclass="text-left" valign="top">
           <%= select_tag('dbtype',
                          options_for_select([["Policy Profiles","pp"],
                                              ["Policies","p"],
@@ -78,8 +79,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key" align="left" valign="top">Available <%= title%>:</td>
-        <td align="left" valign="top">
+        <td align="left" valign="top">Available <%= title%>:</td>
+        <td class="text-left" valign="top">
           <div style="overflow:auto;width:400px;border:1px solid #999999;">
             <%= select_tag('choices_chosen[]',
               options_for_select(@sb[:new][:choices].sort),
@@ -92,9 +93,9 @@
         </td>
       </tr>
     </table>
-    <table width="100%">
+    <table class="table table-striped" width="100%">
       <tr>
-        <td align="right">
+        <td class="text-right">
           <div id="buttons">
             <%= link_to(button_tag('Export',
                                    :class => "btn btn-primary",

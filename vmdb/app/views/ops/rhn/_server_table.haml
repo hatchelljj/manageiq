@@ -1,9 +1,9 @@
 %fieldset
-  %p{:class => 'legend'}
+  %p{:class => 'lead'}
     Appliance Updates
 
     #rhn_buttons
-      %table
+      %table.table.table-striped
         %tr
           %td{:colspan => 2}
             Available Product version:
@@ -44,7 +44,7 @@
                                                   true);")
     %br
     #form_div
-      %table{:class => 'style3'}
+      %table{:class => 'table table-striped'}
         %thead
           %th.checkbox
             = check_box_tag('masterToggle', 1, @check_all,

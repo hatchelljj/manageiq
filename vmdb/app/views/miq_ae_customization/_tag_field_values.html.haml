@@ -1,11 +1,11 @@
 #field_values_div
   %fieldset
-    %p.legend Category Tag Entries
-    %table.style3
+    %p.lead Category Tag Entries
+    %table.table.table-striped
       %thead
         %tr
-          %th.title Value
-          %th.title Description
+          %th.lead Value
+          %th.lead Description
       %tbody
         - DialogFieldTagControl.category_tags(@edit[:field_category]).each do |cat|
           %tr

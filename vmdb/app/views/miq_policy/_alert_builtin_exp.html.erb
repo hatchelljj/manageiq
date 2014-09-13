@@ -3,8 +3,8 @@
 <% end %>
 <tr>
 		<% if option[:name] == :event_types %>
-			<td class="key"><%= h(option[:description]) %></td>
-			<td class="wider">
+			<td><%= h(option[:description]) %></td>
+			<td>
 				<% if @edit %>
           <%= select_tag('event_types',
                           options_for_select([["<Choose>", nil]] + @sb[:alert][:events].invert.sort,
@@ -17,7 +17,7 @@
 			</td>
 
 		<% elsif option[:name] == :time_threshold %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
           <%= select_tag('time_threshold',
@@ -31,7 +31,7 @@
 			</td>
 
 		<% elsif option[:name] == :hourly_time_threshold %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
 					<%= select_tag('hourly_time_threshold',
@@ -45,7 +45,7 @@
 			</td>
 
 		<% elsif option[:name] == :rt_time_threshold %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
           <%= select_tag('rt_time_threshold',
@@ -60,7 +60,7 @@
 
 		<% elsif option[:name] == :operator || option[:name] == :value_threshold	%><%# Skip these, they are handled by perf_column %>
 		<% elsif option[:name] == :perf_column %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
           <%= select_tag('perf_column',
@@ -87,7 +87,7 @@
 			</td>
 		<% elsif option[:name] == :trend_steepness	%><%# Skip, handled by trend_direction %>
 		<% elsif option[:name] == :trend_direction %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
            <%= select_tag('trend_direction',
@@ -112,7 +112,7 @@
 			</td>
 
 		<% elsif option[:name] == :debug_trace %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
           <%= select_tag('debug_trace',
@@ -127,7 +127,7 @@
 
 		<% elsif option[:name] == :event_log_message_filter_value	%><%# Skip this, handled by event_log_message_filter_type %>
 		<% elsif option[:name] == :event_log_message_filter_type %>
-			<td class="key">Message Filter</td>
+			<td>Message Filter</td>
 			<td>
 				<% if @edit %>
           <%= select_tag('select_event_log_message_filter_type',
@@ -146,7 +146,7 @@
 			</td>
 
 		<% elsif option[:name] == :hdw_attr %>
-			<td class="key">Hardware Attribute</td>
+			<td>Hardware Attribute</td>
 			<td>
 				<% if @edit %>
           <%= select_tag('select_hdw_attr',
@@ -166,7 +166,7 @@
 			</td>
 
 		<% elsif option[:name] == :ems_id %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
 					<% if @edit[:emss].length == 0 %>
@@ -191,7 +191,7 @@
 
 		<% elsif option[:name] == :ems_alarm_mor %>
 			<% if @edit || @temp[:ems] %><%# Show if editing or a valid EMS is configured %>
-				<td class="key"><%= h(option[:description]) %></td>
+				<td><%= h(option[:description]) %></td>
 				<td>
 					<% if @edit %>
 						<% if @edit[:new][:expression][:options][:ems_id] %>
@@ -214,7 +214,7 @@
 			<% end %>
 
 		<% else %><%# Set up as a text input field %>
-			<td class="key"><%= h(option[:description]) %></td>
+			<td><%= h(option[:description]) %></td>
 			<td>
 				<% if @edit %>
           <%= text_field_tag(option[:name],

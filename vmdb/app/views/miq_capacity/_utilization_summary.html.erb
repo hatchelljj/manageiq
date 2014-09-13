@@ -14,7 +14,7 @@
     <br clear="all">
     <hr>
     <% if @sb[:util][:summary][:cpu] && !@sb[:util][:summary][:cpu].empty? %>
-      <table class="style3">
+      <table class="table table-striped">
         <thead>
           <tr><th colspan="2" align="left">CPU</th></tr>
         </thead>
@@ -23,7 +23,7 @@
                   (c.first.include?("Available") &&
                     @sb[:util][:options][:model] != "Host") ||
                   c.first.include?("Total") %>
-            <tr class="<%=cycle('row0','row1',:name=>'cap')%>">
+            <tr>
               <td style="width:50%"><%= c.first %></td>
               <td><%= c.last %></td>
             </tr>
@@ -33,7 +33,7 @@
     <% end %>
     <% if @sb[:util][:summary][:memory] && !@sb[:util][:summary][:memory].empty? %>
       <hr>
-      <table class="style3">
+      <table class="table-striped">
         <thead>
           <tr><th colspan="2" align="left">Memory</th></tr>
         </thead>
@@ -42,7 +42,7 @@
                   (m.first.include?("Available") &&
                     @sb[:util][:options][:model] != "Host") ||
                   m.first.include?("Total") %>
-            <tr class="<%=cycle('row0','row1',:name => 'trend')%>">
+            <tr>
               <td style="width:50%"><%= m.first %></td>
               <td><%= m.last %></td>
             </tr>
@@ -52,14 +52,14 @@
     <% end %>
     <% if @sb[:util][:summary][:storage] && !@sb[:util][:summary][:storage].empty? %>
       <hr>
-      <table class="style3">
+      <table class="table table-striped">
         <thead>
           <tr><th colspan="2" align="left">Disk</th></tr>
         </thead>
         <% @sb[:util][:summary][:storage].each do |s| %>
           <% if (s.first.include?("Trend:") && s.first.include?("Max")) ||
                   s.first.include?("Total") %>
-            <tr class="<%=cycle('row0','row1',:name => 'cap')%>">
+            <tr>
               <td style="width:50%"><%= s.first %></td>
               <td><%= s.last %></td>
             </tr>
@@ -70,8 +70,8 @@
   <% else %>
     <% msg = x_node == "" ? "Select a node on the left to view Utilization information." : "No performance data is available for the selected
        item." %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong><%=msg%></strong>
     </div>
   <% end %>

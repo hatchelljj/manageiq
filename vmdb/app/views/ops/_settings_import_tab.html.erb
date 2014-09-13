@@ -3,9 +3,9 @@
   <p class="legend">Messages</p>
   <%= render(:partial=>"layouts/flash_msg", :locals=>{:click_remove=>false}) %>
   <hr>
-  <p class="legend">Upload Custom Variable Values</p>
+  <p class="lead">Upload Custom Variable Values</p>
   <%= form_tag({:action=>"upload_csv", :typ=>"asset_tag"}, :multipart => true) do %>
-    <table class="style1">
+    <table class="table table-striped">
       <tr>
         <td class="key">Type</td>
         <td>
@@ -20,7 +20,7 @@
           <td class="key">File</td>
           <td>
             <%= file_field("upload", "file") %>
-            <%= submit_tag("Upload", :id=>"upload_atags") %>  * Requirements: CSV formatted file.
+            <%= submit_tag("Upload", :id=>"upload_atags", :class=>"btn btn-default") %>  * Requirements: CSV formatted file.
           </td>
         </tr>
       <% end %>
