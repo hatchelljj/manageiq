@@ -9,14 +9,14 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th class="icon">&nbsp;</th>
+            <th>&nbsp;</th>
             <th>Userid</th>
             <th>Count</th>
           </tr>
         </thead>
         <tbody>
           <% for rec in @sb[:orphaned_records] %>
-            <tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
+            <tr>
               <td onclick="<%= remote_function(:url => {:action => 'orphaned_records_delete', :userid => rec[:userid]}, :confirm => "Are you sure you want to delete orphaned records for user '#{rec[:userid]}'?") %>" title="Click to delete Orphaned Records for this user">
                 <%= image_tag("/images/toolbars/delete.png", 
                               :class=>"rollover small")

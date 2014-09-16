@@ -3,17 +3,17 @@
   <%= render :partial => "cb_rate_edit" %>
 <% else %>
   <fieldset>
-  <p class="legend">Basic Info</p>
-    <table class="style1">
+  <p class="lead">Basic Info</p>
+    <table class="table table-striped">
         <tr>
-          <td class="key">Description</td>
+          <td >Description</td>
           <td><%= h(@record.description) %></td>
         </tr>
     </table>
   </fieldset>
   <fieldset>
-  <p class="legend">Rate Details</p>
-    <table class="style3">
+  <p class="lead">Rate Details</p>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Group</th>

@@ -6,7 +6,7 @@
                            :id       => "#{@edit[:rec_id] || "new"}", 
                            :transOne =>'1')
 %>
-  <p class="legend">Long Description</p>
+  <p class="lead">Long Description</p>
   <%= text_area_tag("long_description",
                     @edit[:new][:long_description],
                     :size  => "350x600",

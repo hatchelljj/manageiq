@@ -1,11 +1,11 @@
 <%= form_tag( {:action => 'update_agent', :id=>@host}, {:id => "host_form"}) do %>
 	<div id="form_div">
 <%= render :partial => "layouts/flash_msg" %>
-			<dl class="col2">
+			<dl>
 				<dd>
 					<fieldset>
-						<p class="legend">Current</p>
-						<table class="style1">
+						<p class="lead">Current</p>
+						<table class="table table-striped">
 								<tr>
 									<td class="key">Build Number</td>
 									<td><%= @he[:current_build] %></td>
@@ -15,10 +15,10 @@
 				</dd>
 				<dd>
 					<fieldset>
-						<p class="legend">New</p>
-						<table class="style1">
+						<p class="lead">New</p>
+						<table class="table table-striped">
 								<tr>
-									<td class="key">Update To Build Number</td>
+									<td>Update To Build Number</td>
 									<td><%= select_tag('new_build', options_for_select(@agent_choices.sort, "<choose>"), "data-miq_focus"=>true,) %></td>
 								</tr>
 						</table>

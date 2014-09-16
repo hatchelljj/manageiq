@@ -1,9 +1,9 @@
 <% url = url_for(:action =>'schedule_form_field_changed', :id=>"#{@schedule.id || "new"}") %>
 <div id="form_timer_div">
-  <p class="legend">Timer</p>
-  <table class="style1">
+  <p class="lead">Timer</p>
+  <table class="table table-striped">
     <tr>
-      <td class="key">Run</td>
+      <td >Run</td>
       <td>
         <%= select_tag('timer_typ',
                               options_for_select(["Once","Hourly","Daily","Weekly","Monthly"],
@@ -41,7 +41,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Time Zone</td>
+      <td >Time Zone</td>
       <td>
         <%= select_tag('time_zone',
                               options_for_select(ALL_TIMEZONES,
@@ -51,7 +51,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Starting Date</td>
+      <td >Starting Date</td>
       <td id="start_date">
         <%= text_field_tag("miq_date_1",
                             (@edit[:new][:start_date]),
@@ -61,7 +61,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Starting Time (<span id="tz_span"><%= @timezone_abbr%></span>)</td>
+      <td >Starting Time (<span id="tz_span"><%= @timezone_abbr%></span>)</td>
       <td>
         <%= select_tag('start_hour',
                               options_for_select(Array.new(24) {|i| i},

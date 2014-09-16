@@ -1,7 +1,7 @@
 <div id="snapshots_tree_div">
   <% if @record.snapshots.count > 0 %>
     <fieldset>
-      <p class="legend">Available Snapshots</p>
+      <p class="lead">Available Snapshots</p>
       <div id="snapshots_treebox" style="width: 100%"></div>
       <%= render(:partial => "layouts/dynatree",
                  :locals => {

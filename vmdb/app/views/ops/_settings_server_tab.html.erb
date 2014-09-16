@@ -1,21 +1,21 @@
 <% url = url_for(:action=>'settings_form_field_changed', :id=>"#{@sb[:active_tab].split('_').last}") %>
 <% if @sb[:active_tab] == "settings_server" %>
   <%= render :partial => "layouts/flash_msg" %>
-  <dl class="col2">
+  <dl>
     <dd>
       <fieldset>
       <p class="lead">Basic Information</p>
         <table class="table table-striped">
             <tr>
-              <td class="key">Hostname</td>
-              <td class="wide"><%= @temp[:selected_server].hostname %></td>
+              <td >Hostname</td>
+              <td ><%= @temp[:selected_server].hostname %></td>
             </tr>
             <tr>
-              <td class="key">IP Address</td>
-              <td class="wide"><%= @temp[:selected_server].ipaddress %></td>
+              <td >IP Address</td>
+              <td ><%= @temp[:selected_server].ipaddress %></td>
             </tr>
             <tr>
-              <td class="key">Resides on VM</td>
+              <td >Resides on VM</td>
               <td style="padding: 0px">
                 <table cellpadding="0" cellspacing="0">
                   <tr>
@@ -23,19 +23,19 @@
                   <% if vm %>
                     <td class="image" onclick="DoNav('<%= "/vm/show/" << vm.id.to_s %>');" onmouseover="this.style.cursor='pointer'" title="Click to view this VM">
                       <img src="/images/icons/new/vm.png" align="left" width="20" height="20"/></td>
-                    <td class="<%=cycle('row0','row1',:name=>'rel')%> hover-text" onclick="DoNav('<%= "/vm/show/" << vm.id.to_s %>');" onmouseover="this.style.cursor='pointer'" title="Click to view this VM">
+                    <td onclick="DoNav('<%= "/vm/show/" << vm.id.to_s %>');" onmouseover="this.style.cursor='pointer'" title="Click to view this VM">
                       <%= h(vm.name) %>
                     </td>
                   <% else %>
-                    <td class="wide">Not Available</td>
+                    <td >Not Available</td>
                   <% end %>
                   </tr>
                 </table>
               </td>
             </tr>
             <tr>
-              <td class="key">Company Name</td>
-              <td class="wide">
+              <td >Company Name</td>
+              <td >
                 <%= text_field_tag("server_company",
                                         @edit[:new][:server][:company],
                                         :maxlength=>20,
@@ -43,8 +43,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Appliance Name</td>
-              <td class="wide">
+              <td >Appliance Name</td>
+              <td >
                 <%= text_field_tag("server_name",
                                         @edit[:new][:server][:name],
                                         :maxlength=>20,
@@ -52,8 +52,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Zone*</td>
-              <td class="wide">
+              <td >Zone*</td>
+              <td >
                 <% if session[:server_zones].length == 1 %>
                   <%= text_field_tag("server_zone",
                                         @edit[:new][:server][:zone],
@@ -68,21 +68,21 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Appliance Time Zone</td>
-              <td class="wide">
+              <td >Appliance Time Zone</td>
+              <td >
                 <%= select_tag('server_timezone',
                                   options_for_select(ALL_TIMEZONES, @edit[:new][:server][:timezone]),
                                   "data-miq_observe"=>{:url=>url}.to_json) %>
               </td>
             </tr>
         </table>
-        <div class="note">* Changing the Zone will reset all of this Server's priorities to secondary.</div>
+        <div class="bg-info"><aside>* Changing the Zone will reset all of this Server's priorities to secondary.</aside></div>
       </fieldset>
       <fieldset>
         <p class="lead">Server Control</p>
         <table class="table table-striped">
             <tr>
-              <td class="key">Server Roles</td>
+              <td >Server Roles</td>
               <td>
                 <% session[:server_roles].sort{|a,b| a[1]<=>b[1]}.each do |k,v| %>
                   <% checked = !session[:selected_roles].nil? && session[:selected_roles].include?(k) ? true : false %>
@@ -94,7 +94,7 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Default Repository SmartProxy</td>
+              <td >Default Repository SmartProxy</td>
               <td style="width: 350px">
                 <% if @smartproxy_choices.empty? %>
                   None Available
@@ -112,8 +112,8 @@
         <p class="lead">VMware Console Support</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Use</td>
-            <td class="wide">
+            <td >Use</td>
+            <td >
               <%= select_tag('console_type',
                               options_for_select([["VMware MKS Plugin","MKS"],["VNC","VNC"],["VMware VMRC Plugin","VMRC"]],
                                 @edit[:new][:server][:remote_console_type]),
@@ -122,8 +122,8 @@
           </tr>
           <% if @edit[:new][:server][:remote_console_type] == "MKS" %>
             <tr>
-              <td class="key">VMware MKS Plugin Version</td>
-              <td class="wide">
+              <td >VMware MKS Plugin Version</td>
+              <td >
                 <%= select_tag('server_mks_version',
                               options_for_select(MKS_VERSIONS,
                                 @edit[:new][:server][:mks_version]),
@@ -132,8 +132,8 @@
             </tr>
           <% elsif @edit[:new][:server][:remote_console_type] == "VNC" %>
             <tr>
-              <td class="key">VNC Proxy Address</td>
-              <td class="wide">
+              <td >VNC Proxy Address</td>
+              <td >
                 <%= text_field_tag("server_vnc_proxy_address",
                                    @edit[:new][:server][:vnc_proxy_address],
                                    :maxlength=>MAX_NAME_LEN,
@@ -141,7 +141,7 @@
               </td>
             </tr>
             <tr>
-              <td class="key">VNC Proxy Port</td>
+              <td >VNC Proxy Port</td>
               <td>
                 <%= text_field_tag("server_vnc_proxy_port",
                                    @edit[:new][:server][:vnc_proxy_port],
@@ -158,8 +158,8 @@
         <p class="lead">NTP Servers</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Servers</td>
-            <td class="wide">
+            <td >Servers</td>
+            <td >
               <%= text_field_tag("ntp_server_1",
                                       @edit[:new][:ntp][:server][0],
                                       :maxlength=>MAX_NAME_LEN,
@@ -175,14 +175,14 @@
             </td>
           </tr>
         </table>
-        <div class="note">Specified NTP settings applied here will override Zone NTP settings.</div>
+        <div class="bg-info"><aside>Specified NTP settings applied here will override Zone NTP settings.</aside></div>
       </fieldset>
       <fieldset>
         <p class="lead">Outgoing SMTP E-mail Server</p>
         <table class="table table-striped">
             <tr>
-              <td class="key">Host</td>
-              <td class="wide">
+              <td >Host</td>
+              <td >
                 <%= text_field_tag("smtp_host",
                   @edit[:new][:smtp][:host],
                   :maxlength=>30,
@@ -190,8 +190,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Port</td>
-              <td class="wide" colspan="2">
+              <td >Port</td>
+              <td  colspan="2">
                 <%= text_field_tag("smtp_port",
                                     @edit[:new][:smtp][:port],
                                     :maxlength=>6,
@@ -199,8 +199,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Domain</td>
-              <td class="wide">
+              <td >Domain</td>
+              <td >
                 <%= text_field_tag("smtp_domain",
                                     @edit[:new][:smtp][:domain],
                                     :maxlength=>30,
@@ -208,7 +208,7 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Start TLS Automatically</td>
+              <td >Start TLS Automatically</td>
               <td>
                 <%= check_box_tag("smtp_enable_starttls_auto",
                           value = GenericMailer.default_for_enable_starttls_auto ? "1" : "0",
@@ -217,16 +217,16 @@
               </td>
             </tr>
             <tr>
-              <td class="key">SSL Verify Mode</td>
-              <td class="wide">
+              <td >SSL Verify Mode</td>
+              <td >
                 <%= select_tag('smtp_openssl_verify_mode',
                                 options_for_select(GenericMailer.openssl_verify_modes.collect{|m| [m.titleize, m]}, @edit[:new][:smtp][:openssl_verify_mode]),
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
               </td>
             </tr>
             <tr>
-              <td class="key">Authentication</td>
-              <td class="wide">
+              <td >Authentication</td>
+              <td >
                 <%= select_tag('smtp_authentication',
                                 options_for_select(GenericMailer.authentication_modes, @edit[:new][:smtp][:authentication]),
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
@@ -234,8 +234,8 @@
             </tr>
             <% chk = @edit[:new][:smtp][:authentication] == "none" %>
             <tr>
-              <td class="key">User Name</td>
-              <td class="wide">
+              <td >User Name</td>
+              <td >
                 <%= text_field_tag("smtp_user_name",
                                     @edit[:new][:smtp][:user_name],
                                     :maxlength=>MAX_NAME_LEN,
@@ -244,8 +244,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Password</td>
-              <td class="wide">
+              <td >Password</td>
+              <td >
                 <%= password_field_tag("smtp_password",
                                     @edit[:new][:smtp][:password],
                                     :maxlength=>MAX_NAME_LEN,
@@ -254,8 +254,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">From E-mail Address</td>
-              <td class="wide">
+              <td >From E-mail Address</td>
+              <td >
                 <%= text_field_tag("smtp_from",
                                     @edit[:new][:smtp][:from],
                                     :maxlength=>MAX_DESC_LEN,
@@ -263,8 +263,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Test E-mail Address</td>
-              <td class="wide">
+              <td >Test E-mail Address</td>
+              <td >
                  <%= text_field_tag("smtp_test_to",
                                     @sb[:new_to],
                                     :maxlength=>MAX_DESC_LEN,
@@ -280,16 +280,16 @@
         <p class="lead">Web Services</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Mode</td>
-            <td class="wide">
+            <td >Mode</td>
+            <td >
                <%= select_tag('webservices_mode',
                                options_for_select(["invoke","disable"], @edit[:new][:webservices][:mode]),
                                "data-miq_observe"=>{:url=>url}.to_json) %>
              </td>
           </tr>
           <tr>
-            <td class="key">Security</td>
-            <td class="wide">
+            <td >Security</td>
+            <td >
                <%= select_tag('webservices_security',
                                options_for_select(["none","ws-security"], @edit[:new][:webservices][:security]),
                                "data-miq_observe"=>{:url=>url}.to_json) %>
@@ -301,8 +301,8 @@
         <p class="lead">Logging</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Log Level</td>
-            <td class="wide">
+            <td >Log Level</td>
+            <td >
                <%= select_tag('log_level',
                                options_for_select(["fatal","error","warn","info","debug"], @edit[:new][:log][:level]),
                                "data-miq_observe"=>{:url=>url}.to_json) %>
@@ -314,8 +314,8 @@
         <p class="lead">Custom Support URL</p>
         <table class="table table-striped">
             <tr>
-              <td class="key">URL (i.e. www.mypage.com)</td>
-              <td class="wide">
+              <td >URL (i.e. www.mypage.com)</td>
+              <td >
                 <%= text_field_tag("custom_support_url",
                                     @edit[:new][:server][:custom_support_url],
                                     :maxlength=>50,
@@ -323,8 +323,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Description</td>
-              <td class="wide">
+              <td >Description</td>
+              <td >
                 <%= text_field_tag("custom_support_url_description",
                                     @edit[:new][:server][:custom_support_url_description],
                                     :maxlength=>50,

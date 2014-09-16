@@ -1,7 +1,7 @@
 <% if keys.any? { |key| workflow.get_field(key, dialog)[:display] && workflow.get_field(key, dialog)[:display].to_s != "hide" } %>
 	<fieldset>
-		<p class="legend"><%= label %></p>
-		<% table_class ||= "style1" %>
+		<p class="lead"><%= label %></p>
+		<% table_class ||= "table table-striped" %>
 		<table class=<%=table_class%> <%=extra_table_attributes if defined?(extra_table_attributes)%> >
 			<% prefix ||= "/miq_request/" %>
 			<% keys.each do |key| %>

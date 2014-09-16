@@ -12,17 +12,15 @@
 	</div>
 
 	<%# Name based search box %>
-	<div id="searchbox" class="nameonly <% if session[:custom_logo] %>whitelabeled<% end %>">
+	<div id="searchbox">
 		<%= text_field_tag('search_text', @search_text,
 											:onkeypress=>"if(miqEnterPressed(event)) miqSearchByName();",
 											:alt=>"Search by Name within results",
-											:title=>"Search by Name within results",
-											:class=>"#{nameonly ? "nameonly" : nil}") %>
+											:title=>"Search by Name within results") %>
 		<%= javascript_tag("$j('#search_text').focus();") %>
 		<%= link_to(image_tag('/images/layout/search.gif',
 													:id=>"searchicon", :name=>"search_button",
 													:alt=>"Search by Name within results",
-													:class=>"#{nameonly ? "nameonly" : nil}"),
 								{:action=>"x_search_by_name", :button=>"search_button"},
 								"data-miq_sparkle_on" => true,
 								"data-submit"=>'searchbox',

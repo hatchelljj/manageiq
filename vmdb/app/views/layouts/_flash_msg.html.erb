@@ -25,24 +25,18 @@
 		>
 			<% @flash_array.each do |fl| %>
 				<% if fl[:level] == :error %>
-					<div class="alert alert-danger">
-						<span class="pficon-layered">
-							<span class="pficon pficon-error-octagon"></span>
-							<span class="pficon pficon-error-exclamation"></span>
-						</span>
+					<div class="bg-warning">
+						<span class="glyphicon glyphicon-exclamation-sign"></span>
 						<strong><%= h(fl[:message]) %></strong>
 					</div>
 				<% elsif fl[:level] == :warning %>
-					<div class="alert alert-warning">
-						<span class="pficon-layered">
-							<span class="pficon pficon-warning-triangle"></span>
-							<span class="pficon pficon-warning-exclamation"></span>
-						</span>
+					<div class="bg-warning">
+						<span class="glyphicon glyphicon-exclamation-sign"></span>
 						<strong><%= h(fl[:message]) %></strong>
 					</div>
 				<% else %>
-					<div class="alert alert-success">
-						<span class="pficon pficon-ok"></span>
+					<div class="bg-success">
+						<span class="glyphicon glyphicon-ok-circle"></span>
 						<strong><%= h(fl[:message]) %></strong>
 					</div>
  				<% end %>

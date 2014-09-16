@@ -4,10 +4,10 @@
 
 = render :partial=>"layouts/flash_msg"
 
-%p.legend Import
+%p.lead Import
 
 #import_div
-  %table.style1
+  %table.table.table-striped
     %tr
       %td
         = form_tag({:action => "upload", :typ => "import", :dbtype => @sb[:dbtype]}, :multipart => true) do
@@ -19,11 +19,11 @@
           = submit_tag("Upload", :id => "upload_atags")
 %hr
 
-%p.legend Export
+%p.lead Export
 
-%table.style1
+%table.table.table-striped
   %tr
-    %td.key(align="left" valign="top")
+    %td(align="left" valign="top")
       Available Custom Reports:
     %td(align="left" valign="top")
       %div(style="overflow: auto; width: 400px; border: 1px solid #999999;")

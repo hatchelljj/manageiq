@@ -3,15 +3,15 @@
   <p class="lead">Schedule Info</p>
   <table class="table table-striped">
       <tr>
-        <td class="key">Description</td>
+        <td >Description</td>
         <td><%= h(@selected_schedule.description) %></td>
       </tr>
       <tr>
-        <td class="key">Active</td>
+        <td >Active</td>
         <td><%= h(@selected_schedule.enabled) %></td>
       </tr>
       <tr>
-        <td class="key">Action</td>
+        <td >Action</td>
         <td>
           <% if @selected_schedule.sched_action[:method] && @selected_schedule.sched_action[:method] == "check_compliance" %>
             <%= h(ui_lookup(:model=>@selected_schedule.towhat)) %> Compliance Check
@@ -24,7 +24,7 @@
       </tr>
       <% if @selected_schedule.sched_action[:method] != "db_backup" %>
         <tr>
-          <td class="key">Filter</td>
+          <td >Filter</td>
           <% unless @selected_schedule.miq_search %>
             <% if @selected_schedule.filter.is_a?(MiqExpression) %>
               <td>
@@ -47,11 +47,11 @@
         </tr>
       <% end %>
       <tr>
-        <td class="key">Run At</td>
+        <td >Run At</td>
         <td><%= h(@selected_schedule.run_at_to_human(@timezone).to_s) %></td>
       </tr>
       <tr>
-        <td class="key">Last Run Time</td>
+        <td >Last Run Time</td>
         <td>
           <% if !@selected_schedule.last_run_on.blank? %>
             <%= h(format_timezone(@selected_schedule.last_run_on, @timezone,"view")) %>
@@ -59,7 +59,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Next Run Time</td>
+        <td >Next Run Time</td>
         <td>
           <% if !@selected_schedule.next_run_on.blank? %>
             <%= h(format_timezone(@selected_schedule.next_run_on, @timezone, "view")) %>
@@ -67,7 +67,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Zone</td>
+        <td >Zone</td>
         <td>
           <%= h(@selected_schedule.v_zone_name) %>
         </td>

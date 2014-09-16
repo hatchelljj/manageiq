@@ -3,10 +3,10 @@
   <%= form_tag(url_for(:action => 'ldap_domain_edit', :id=>"#{@edit[:ldap_domain_id] || "new"}"), :remote=>true) do %>
 	<%= render :partial => "layouts/flash_msg" %>
   <fieldset>
-    <p class="legend">Basic Information</p>
-    <table class="style1">
+    <p class="lead">Basic Information</p>
+    <table class="table table-striped">
         <tr>
-          <td class="key">Name</td>
+          <td >Name</td>
           <td>
             <%= text_field_tag("name",
                                 @edit[:new][:name],
@@ -18,11 +18,11 @@
     </table>
   </fieldset>
   <fieldset>
-    <p class="legend">LDAP Settings</p>
-    <table class="style1">
+    <p class="lead">LDAP Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">User Type</td>
-        <td class="wide">
+        <td >User Type</td>
+        <td >
           <%= select_tag('user_type',
                          options_for_select(
                            [
@@ -36,7 +36,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">User Suffix:
+        <td >User Suffix:
           <% if @edit[:new][:user_type] == "dn-cn" %>
             <span id="upn-mail_prefix" style="display:none"><%= h("<user>@") %></span>
             <span id="dn-cn_prefix"><%= h("CN=<user>,") %></span>
@@ -51,7 +51,7 @@
             <span id="dn-uid_prefix" style="display:none"><%= h("UID=<user>,") %></span>
           <% end %>
         </td>
-        <td class="wide">
+        <td >
           <%= text_field_tag("user_suffix",
                              @edit[:new][:user_suffix],
                              :maxlength=>50,
@@ -62,10 +62,10 @@
   </fieldset>
 
   <fieldset>
-    <p class="legend">Role Settings</p>
-    <table class="style1">
+    <p class="lead">Role Settings</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Get User Groups from LDAP</td>
+        <td >Get User Groups from LDAP</td>
         <td>
           <%= check_box_tag("get_user_groups", value="1",
                             checked=@edit[:new][:get_user_groups],
@@ -74,7 +74,7 @@
       </tr>
 
       <tr>
-        <td class="key">Get Roles from Home Forest</td>
+        <td >Get Roles from Home Forest</td>
         <td>
           <%= check_box_tag("get_direct_groups", value="1",
                             checked=@edit[:new][:get_direct_groups],
@@ -82,7 +82,7 @@
         </td>
         </tr>
         <tr>
-          <td class="key">Follow Referrals</td>
+          <td >Follow Referrals</td>
           <td>
             <%= check_box_tag("follow_referrals", value="1",
                               checked=@edit[:new][:follow_referrals],
@@ -90,8 +90,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Base DN</td>
-          <td class="wide">
+          <td >Base DN</td>
+          <td >
             <%= text_field_tag("base_dn",
                                @edit[:new][:base_dn],
                                :maxlength=>255,
@@ -99,8 +99,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Bind DN</td>
-          <td class="wide">
+          <td >Bind DN</td>
+          <td >
             <%= text_field_tag("bind_dn",
                                @edit[:new][:bind_dn],
                                :maxlength=>255,
@@ -108,8 +108,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Bind Password</td>
-          <td class="wide">
+          <td >Bind Password</td>
+          <td >
             <%= password_field_tag("bind_pwd",
                                @edit[:new][:bind_pwd],
                                :maxlength=>128,

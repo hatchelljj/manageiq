@@ -60,7 +60,7 @@
 	                  <% reset_cycle %>
 	                  <% for i in 1..4 %>
 	                    <% if view.headers.length > i %>
-	                      <tr class="<%= cycle('row0', 'row1') %>">
+	                      <tr >
 	                        <td  width="800" style="padding: 2px">
 	                          <strong><%= h(view.headers[i])+ ": " %></strong>
 	                          <% col = view.col_order[i] %>
@@ -149,7 +149,7 @@
                   <% reset_cycle %>
                   <% for i in 1..4 %>
                     <% if view.headers.length > i %>
-                      <tr class="<%= cycle('row0', 'row1') %>">
+                      <tr >
                         <td width="350">
                           <strong><%= h(view.headers[i])+ ": " %></strong>
                           <% col = view.col_order[i] %>

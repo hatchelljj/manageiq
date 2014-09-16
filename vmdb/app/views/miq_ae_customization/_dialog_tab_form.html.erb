@@ -3,8 +3,8 @@
   <p class="lead">Tab Information</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Label</td>
-      <td class="wide">
+      <td >Label</td>
+      <td >
         <%= text_field_tag("tab_label",
                             @edit[:tab_label],
                             :maxlength=>MAX_NAME_LEN,
@@ -13,8 +13,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Description</td>
-      <td class="wide">
+      <td >Description</td>
+      <td >
         <%= text_field_tag("tab_description",
                             @edit[:tab_description],
                             :maxlength=>100,

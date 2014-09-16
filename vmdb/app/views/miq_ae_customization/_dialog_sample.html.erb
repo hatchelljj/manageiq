@@ -1,6 +1,6 @@
 <%# if dialogs is selected %>
 <%= render :partial => "layouts/dhtmlx_tags", :locals=>{:control=>"calendar"} %>
-<dl class="col1">
+<dl>
   <dd>
     <div id="dialog_tabs" style="display:none;width:100%;height:100%;overflow:auto;" data-miq_url="_none_">
       <ul class="nav nav-tabs">
@@ -24,7 +24,7 @@
                     <tbody>
                 <% end %>
                     <tr>
-                      <td class="key" title="<%= field.description %>"><%= field.label %></td>
+                      <td  title="<%= field.description %>"><%= field.label %></td>
                       <td title="<%= field.description %>">
                         <% case field.type %>
                         <% when "DialogFieldTextBox" %>

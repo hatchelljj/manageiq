@@ -21,26 +21,26 @@
                                         :notfound => :titleize)
                 %>
               </td>
-              <td class="wide"><%= h(@sb[:namespace_path]) %></td>
+              <td ><%= h(@sb[:namespace_path]) %></td>
             </tr>
             <tr>
-              <td class="label">Name</td>
+              <td >Name</td>
               <td><%= @ae_class.name %></td>
             </tr>
             <tr>
-              <td class="label">Display Name</td>
+              <td >Display Name</td>
               <td><%= @ae_class.display_name %></td>
             </tr>
             <tr>
-              <td class="label">Description</td>
+              <td >Description</td>
               <td><%= @ae_class.description %></td>
             </tr>
             <tr>
-              <td class="label">Inherits From</td>
+              <td >Inherits From</td>
               <td><%= @ae_class.inherits %></td>
             </tr>
              <tr>
-              <td class="label">Instances</td>
+              <td >Instances</td>
               <td><%= h(@ae_class.ae_instances.length) %></td>
             </tr>
           </table>

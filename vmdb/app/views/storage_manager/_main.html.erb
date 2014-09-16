@@ -1,10 +1,10 @@
-<div class="maincontent">
+<div class="container">
 	<%= render :partial => "layouts/flash_msg" %>
 	<%= hidden_div_if(@settings[:views][:dashboards] != "graphical", :id => "graphical_div") do %>
 		<%= render :partial => "shared/summary/graphical", :locals => { :title => "Properties",      :items => graphical_group_properties } %>
 	<% end %>
 	<%= hidden_div_if(@settings[:views][:dashboards] != "textual", :id => "textual_div") do %>
-		<dl class="col2">
+		<dl>
 			<dd>
 				<%= render :partial => "shared/summary/textual", :locals => { :title => "Properties",       :items => textual_group_properties } %>
 			</dd>

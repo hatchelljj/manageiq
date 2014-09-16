@@ -4,10 +4,10 @@
   <% url = url_for(:action=>action_url, :id=>"#{record.id || "new"}") %>
 <% end %>
 <div id="edit_email_div">
-  <p class="legend"><%= box_title %></p>
-    <table class="style1">
+  <p class="lead"><%= box_title %></p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Send an E-mail</td>
+        <td >Send an E-mail</td>
         <td>
           <%= check_box_tag("send_email_cb", value="1",
                               checked=@edit[:new][:send_email],
@@ -16,7 +16,7 @@
       </tr>
       <% if @edit[:new][:send_email] %>
         <tr>
-          <td class="key">From<br/>(leave blank for default)</td>
+          <td >From<br/>(leave blank for default)</td>
           <td>
             <%= text_field_tag("from",
                                 @edit[:new][:email][:from],

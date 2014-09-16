@@ -29,7 +29,7 @@
 				</div>
 				<% @panels["#{@view.db}_def_searches"] = true if @panels["#{@view.db}_def_searches"].nil? %>
 				<%= hidden_div_if(@panels["#{@view.db}_def_searches"] == nil || @panels["#{@view.db}_def_searches"] == false, :id=>"#{@view.db}_def_searches") %>
-				<div class="panecontent">
+				<div class="container">
 					<% @def_searches.each do |search| %>
 					<% if (!@default_search.blank? && @default_search.name == search.name) || (@default_search.blank? && search.id.to_i == 0) %>
 						<%# highlight if default is selected, or first time in %>

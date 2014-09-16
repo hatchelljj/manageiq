@@ -3,11 +3,11 @@
 <div id="prov_options_div">
 	<%= form_tag( {:action => 'prov_show_option'}, {:id => "prov_form"}) do %>
 	<fieldset>
-		<p class="legend">Filter By</p>
-		<table class="style1">
+		<p class="lead">Filter By</p>
+		<table class="table table-striped">
 				<% res_type = @sb[:prov_options][@sb[:prov_options][:resource_type]] %>
 				<tr>
-					<td class="key">Requester:</td>
+					<td >Requester:</td>
 					<td>
 						<% if res_type[:users].length > 1 %>
               <%= select_tag("user_choice",
@@ -20,7 +20,7 @@
 				</tr>
 
 				<tr>
-					<td class="key">Approval State:</td>
+					<td >Approval State:</td>
 					<td>
 						<% res_type[:states].sort.each_with_index do |(state, display_name), i| %>
 							<div style="padding: 0px 5px 0px 0px; float:left;">
@@ -33,7 +33,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="key">Type:</td>
+					<td >Type:</td>
 					<td>
 						<% if res_type[:types].length > 1 %>
               <%= select_tag("type_choice",
@@ -45,7 +45,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="key">Request Date:</td>
+					<td >Request Date:</td>
 					<td>
             <%= select_tag("time_period",
                               options_for_select(Array(PROV_TIME_PERIODS.invert).sort{|a,b|a.last<=>b.last}, res_type[:time_period]),
@@ -53,7 +53,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="key">Reason:</td>
+					<td >Reason:</td>
 					<td>
             <%= text_field_tag("reason_text",
                                 res_type[:reason_text],

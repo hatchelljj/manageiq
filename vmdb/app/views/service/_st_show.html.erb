@@ -1,40 +1,40 @@
-<div class="maincontent">
+<div class="container">
 	<%= render :partial => "layouts/flash_msg" %>
 	<%= hidden_div_if(@settings[:views][:dashboards] != "graphical", :id => "graphical_div") do %>
 
 	<% end %>
 	<%= hidden_div_if(@settings[:views][:dashboards] != "textual", :id => "textual_div") do %>
-		<dl class="col1">
+		<dl>
 			<dd>
 				<fieldset>
-					<table class="style1">
+					<table class="table table-striped">
 							<tr>
-								<td class="key">Name</td>
-								<td class="notwide"><%= @record.name %></td>
+								<td >Name</td>
+								<td ><%= @record.name %></td>
 							</tr>
 							<tr>
-								<td class="key">Description</td>
-								<td class="notwide"><%= @record.description%></td>
+								<td >Description</td>
+								<td ><%= @record.description%></td>
 							</tr>
 							<tr>
-								<td class="key">Display</td>
-								<td class="notwide"><%= @record.display ? "True" : "False" %></td>
+								<td >Display</td>
+								<td ><%= @record.display ? "True" : "False" %></td>
 							</tr>
 					</table>
 				</fieldset>
 			</dd>
 		</dl>
 		<% if @record.composite? %>
-			<dl class="col1">
+			<dl>
 				<dd>
 					<fieldset>
-						<p class="legend">Resources</p>
+						<p class="lead">Resources</p>
 						<% resources = @record.service_resources %>
 						<% if !resources.empty? %>
-							<table class="style3">
+							<table class="table table-striped">
 								<thead>
 									<tr>
-										<th class="icon"/>
+										<th/>
 										<% titles = ['Name',"Description", "Group Order"] %>
 										<% titles.each do |title| %>
 											<th colspan ="1"><%= title %></th>
@@ -48,12 +48,12 @@
 										<% col_span = 4 %>
 										<% if prev_group != r.group_idx && i < resources.length %>
 											<% prev_group = r.group_idx %>
-											<tr id="new_tr" class="seperator"><td colspan="<%=col_span%>"></td></tr>
+											<tr id="new_tr" class="divider"><td colspan="<%=col_span%>"></td></tr>
 										<% end %>
-										<tr class="<%= cycle('row0', 'row1') %>"
+										<tr
 													onclick="sandt_tree.selectItem('<%= x_node %>_st-<%= to_cid(r.resource_id) %>', true);"
 													onmouseover="this.style.cursor='pointer'" title="Click to view details">
-											<td class="icon" nowrap>
+											<td nowrap>
 												<img src="/images/icons/new/service_template.png" valign="middle" border="0" height="20" width="20" />
 											</td>
 											<% keys = ["resource_name","resource_description","group_idx"] %>
@@ -73,10 +73,10 @@
 				</dd>
 			</dl>
 		<% else %>
-			<dl class="col1">
+			<dl>
 				<dd>
 					<fieldset>
-					<p class="legend">Request Info</p>
+					<p class="lead">Request Info</p>
 						<%= render :partial => "miq_request/prov_wf", :locals=>{:wf=>@miq_request.workflow_class.new({:src_vm_id => @miq_request.source_id},session[:userid]), :show=>true} %>
 					</fieldset>
 				</dd>

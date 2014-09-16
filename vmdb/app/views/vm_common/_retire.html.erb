@@ -2,12 +2,12 @@
 
 <%= render :partial => "layouts/flash_msg" %>
 
-<fieldset class="adminform">
+<fieldset>
 	<legend>Set/Remove Retirement Date</legend>
-	<table class="admintable" cellspacing="1">
+	<table class="table table-striped" cellspacing="1">
 		<tbody>
 			<tr>
-				<td class="key">Retirement Date</td>
+				<td >Retirement Date</td>
 				<td id="retirement_date">
 					<%= text_field_tag("miq_date_1", h(session[:retire_date]), :class=>"css1", :readonly=>"true") %>
 					<%= observe_field("miq_date_1",
@@ -24,8 +24,8 @@
 			</tr>
 			<tr>
 				<% disabled = session[:retire_date] == nil %>
-				<td class="key">Retirement Warning</td>
-				<td class="wide"><%= select("retirement","warn", [["None",""],["1 Week before retirement",7],["2 Weeks before retirement",14],["30 Days before retirement",30]], {:selected=>session[:retire_warn]},{:disabled=>disabled}) %></td>
+				<td >Retirement Warning</td>
+				<td ><%= select("retirement","warn", [["None",""],["1 Week before retirement",7],["2 Weeks before retirement",14],["30 Days before retirement",30]], {:selected=>session[:retire_warn]},{:disabled=>disabled}) %></td>
 				<%= observe_field("retirement_warn",
 													:loading=>"miqSparkle(true);", :complete=>"miqSparkle(false);",
 													:with=>"retirement_warn", :url => { :action => 'retire_date_changed' })
@@ -38,9 +38,9 @@
 
 <%= render(:partial => '/layouts/edit_form_buttons', :locals=>{:noreset=>true, :action_url=>"retire"}) %>
 
-<fieldset class="adminform">
+<fieldset>
 	<legend><%= "New setting will affect #{pluralize(@retireitems.length,'VM')}" %></legend>
-	<table class="admintable" cellspacing="1" height="75">
+	<table class="table table-striped" cellspacing="1" height="75">
 		<tbody>
 			<tr>
 				<td>

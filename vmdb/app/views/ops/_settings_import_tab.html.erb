@@ -1,13 +1,13 @@
 <% url = url_for(:action =>'upload_form_field_changed', :id=>@sb[:active_tab].split('_').last) %>
 <% if @sb[:active_tab] == "settings_import" %>
-  <p class="legend">Messages</p>
+  <p class="lead">Messages</p>
   <%= render(:partial=>"layouts/flash_msg", :locals=>{:click_remove=>false}) %>
   <hr>
   <p class="lead">Upload Custom Variable Values</p>
   <%= form_tag({:action=>"upload_csv", :typ=>"asset_tag"}, :multipart => true) do %>
     <table class="table table-striped">
       <tr>
-        <td class="key">Type</td>
+        <td >Type</td>
         <td>
           <%= select_tag('upload_type',
                           options_for_select([["<Choose>",nil],["Host","host"],["Vm","vm"]],
@@ -17,7 +17,7 @@
       </tr>
       <% if @edit[:new][:upload_type] %>
         <tr>
-          <td class="key">File</td>
+          <td >File</td>
           <td>
             <%= file_field("upload", "file") %>
             <%= submit_tag("Upload", :id=>"upload_atags", :class=>"btn btn-default") %>  * Requirements: CSV formatted file.

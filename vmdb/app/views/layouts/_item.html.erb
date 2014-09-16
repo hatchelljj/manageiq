@@ -1,5 +1,5 @@
 <%= render :partial => "layouts/flash_msg" %>
-<table class="style1">
+<table class="table table-striped">
 
 <% if @item && ["CimStorageExtent","SniaLocalFileSystem"].include?(@item.class.to_s) %>
 	<% if @item.class.to_s == "CimStorageExtent" %>
@@ -19,8 +19,8 @@
 	<% end %>
 
 	<% cols.each do |title,val| %>
-		<tr class="<%= cycle('row0', 'row1') %>">
-			<td class="key">
+		<tr>
+			<td >
 				<%= title %>
 			</td>
 			<td>
@@ -42,8 +42,8 @@
 		<% j = 1 %>
 	<% end %>
 	<% for i in j...@view.col_order.length %>
-		<tr class="<%= cycle('row0', 'row1') %>">
-			<td class="key">
+		<tr>
+			<td >
 				<%= @view.headers[i] %>
 			</td>
 			<td>
@@ -68,8 +68,8 @@
 		</tr>
 	<% end %>
 	<% if @lastaction == "users" %>
-		<tr class="<%= cycle('row0', 'row1') %>">
-				<td class="key">Groups</td>
+		<tr >
+				<td >Groups</td>
 				<td>
 					<% groups = Array.new %>
 					<% @group_names.sort_by{ | m| m[:name]}.each {|group| groups.push(group.name)} %>
@@ -77,8 +77,8 @@
 				</td>
 			</tr>
 	<% elsif @lastaction == "groups" %>
-		<tr class="<%= cycle('row0', 'row1') %>">
-				<td class="key">Users</td>
+		<tr >
+				<td >Users</td>
 				<td>
 					<% users = Array.new %>
 					<% @user_names.sort_by{ | m| m[:name]}.each {|user| users.push(user.name)} %>
@@ -86,8 +86,8 @@
 				</td>
 			</tr>
 	<% elsif @lastaction == "filesystems" %>
-		<tr class="<%= cycle('row0', 'row1') %>">
-				<td class="key">Contents</td>
+		<tr >
+				<td >Contents</td>
 				<td>
 					<% if @item.has_contents? %>
 						<%= text_area_tag("item_contents", @item.contents, :readonly=>"readonly", :style=>"overflow:auto;width:600px;height:400px;") %>

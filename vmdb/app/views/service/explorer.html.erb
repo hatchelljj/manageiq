@@ -18,11 +18,11 @@
 
 
 <% if ["Service"].include?(X_TREE_NODE_PREFIXES[@nodetype]) %><%# Showing a specific Service %>
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <%= render(:partial => "svcs_show", :locals=>{:controller=>"service"}) %>
   </div>
 <% else %>                                      <%# Showing a list of VMs %>
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <%= render(:partial => 'layouts/x_gtl') %>
   </div>
 <% end %>

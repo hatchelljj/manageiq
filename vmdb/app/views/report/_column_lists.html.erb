@@ -1,12 +1,12 @@
 <div id="column_lists">
 
-	<table>
+	<table class="table table-striped">
 		<tr>
-			<td align="left">Available Fields:</td>
+			<td class="text-left">Available Fields:</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td align="right" valign="top">
+			<td class="text-right" valign="top">
 				<% af = @edit[:new][:model] ?
 								MiqExpression.reporting_available_fields(@edit[:new][:model], @edit[:new][:perf_interval]) - @edit[:new][:fields] :
 								[] %>
@@ -20,7 +20,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td align="center">
+			<td class="text-center">
 				<% if @edit[:new][:model].nil? || MiqExpression.reporting_available_fields(@edit[:new][:model], @edit[:new][:perf_interval]).length == 0 %>
 					<%= image_tag("/images/toolbars/down.png", :class=>"dimmed rollover small-nofloat") %>
 				<% else %>
@@ -46,11 +46,11 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td align="left">Selected Fields:</td>
+			<td class="text-left">Selected Fields:</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td align="left" valign="top">
+			<td class="text-left" valign="top">
 					<%= select_tag('selected_fields[]',
 												options_for_select(@edit[:new][:fields], @selected ),
 																					{:multiple=>true,

@@ -1,7 +1,7 @@
 <% unless @edit[:new][:emstype].blank? %>
 <tr>
-  <td class="key">Host Name</td>
-  <td class="wide">
+  <td>Host Name</td>
+  <td>
     <%= text_field_tag("hostname",
                       @edit[:new][:hostname],
                       :maxlength=>MAX_HOSTNAME_LEN,
@@ -9,8 +9,8 @@
   </td>
 </tr>
 <tr>
-  <td class="key">IP Address</td>
-  <td class="wide">
+  <td>IP Address</td>
+  <td>
   <%= text_field_tag("ipaddress",
                     @edit[:new][:ipaddress],
                     :maxlength=>15,

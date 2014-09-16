@@ -260,7 +260,7 @@
           <% end %>
           <%#= render :partial => "layouts/gtl", :locals=>{:view=>@false_view, :listicon_image=>"x"} %>
         <% else %>
-          <table classi="table table-striped">
+          <table class="table table-striped">
             <tbody>
               <tr>
                 <td >
@@ -324,7 +324,6 @@
                                          options_for_select(@edit[:new][:actions_false], 
                                                             @false_selected),
                                          {:multiple => true, 
-                                          :class    => "widthed", 
                                           :size     => 8, 
                                           :id       => "members_chosen_false" }) 
                           %>

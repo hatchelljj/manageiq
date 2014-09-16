@@ -6,60 +6,60 @@
 			<% if rec.class == MiqServer %>
 				<table class="table table-striped">
 					<tr>
-						<td  class="keyimage" rowspan="13"><img src="/images/icons/new/evmserver.png"/></td>
-						<td class="key"><%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}" %></td>
-						<td class="wide"><%= h("#{rec.name}(#{rec.id})") %> PID=<%= h(rec[:pid]) %></td>
+						<td  height="64" width="64" rowspan="13"><img src="/images/icons/new/evmserver.png"/></td>
+						<td ><%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}" %></td>
+						<td ><%= h("#{rec.name}(#{rec.id})") %> PID=<%= h(rec[:pid]) %></td>
 					</tr>
 					<tr>
-						<td class="key">Hostname</td><td class="wide"><%= h(rec[:hostname]) %></td>
+						<td >Hostname</td><td ><%= h(rec[:hostname]) %></td>
 					</tr>
 					<tr>
-						<td class="key">IP Address</td><td class="wide"><%= h(rec[:ipaddress]) %></td>
+						<td >IP Address</td><td ><%= h(rec[:ipaddress]) %></td>
 					</tr>
 					<tr>
-						<td class="key">Status</td><td class="wide"><%= h(rec[:status]) %></td>
+						<td >Status</td><td ><%= h(rec[:status]) %></td>
 					</tr>
 					<tr>
-						<td class="key">Started On</td>
-						<td class="wide">
+						<td >Started On</td>
+						<td >
 							<% t = rec.started_on %>
 							<%= h(t.blank? ? "" : format_timezone(t)) %>
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Stopped On</td>
-						<td class="wide">
+						<td >Stopped On</td>
+						<td >
 							<% t = rec.stopped_on %>
 							<%= h(t.blank? ? "" : format_timezone(t)) %>
 						</td>
 					</tr>
           <tr>
-            <td class="key">Memory Usage</td>
-            <td class="wide">
+            <td >Memory Usage</td>
+            <td >
               <%= h(rec["memory_usage"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">Memory Size</td>
-            <td class="wide">
+            <td >Memory Size</td>
+            <td >
               <%= h(rec["memory_size"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">CPU Time</td>
-            <td class="wide">
+            <td >CPU Time</td>
+            <td >
               <%= h(rec["cpu_time"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">CPU Percent</td>
-            <td class="wide">
+            <td >CPU Percent</td>
+            <td >
               <%= h(rec["percent_cpu"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">Version / Build</td>
-            <td class="wide">
+            <td >Version / Build</td>
+            <td >
               <%= h(rec["version"]) %>
             </td>
           </tr>
@@ -67,22 +67,22 @@
 			<% else %><%# record class is AssignedServerRole %>
 				<table class="table table-striped">
 					<tr>
-						<td  class="keyimage" rowspan="9">
+						<td  height="64" width="64" rowspan="9">
 							<img src="/images/icons/new/role-<%= rec.server_role.name %>.png">
 						</td>
-						<td class="key">Role</td>
-						<td class="wide"><%= rec.server_role.description %> on
+						<td >Role</td>
+						<td ><%= rec.server_role.description %> on
 							<%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}: #{rec.miq_server.name} [#{rec.miq_server.id}]" %>
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Status</td>
-						<td class="wide"><%= h(rec.miq_server.started? ? (rec.active ? "active" : "available") : "unavailable") %></td>
+						<td >Status</td>
+						<td ><%= h(rec.miq_server.started? ? (rec.active ? "active" : "available") : "unavailable") %></td>
 					</tr>
 					<% if rec.master_supported? %>
 						<tr>
-							<td class="key">Priority</td>
-							<td class="wide">
+							<td >Priority</td>
+							<td >
 								<% if rec.priority == 1 %>
 									primary
 								<% elsif rec.priority == 2 %>
@@ -95,7 +95,7 @@
 					<% end %>
 					<tr>
 						<% max = rec.server_role.max_concurrent %>
-						<td class="key">Max Concurrent</td><td class="wide"><%= h(max == 0 ? "unlimited" : max) %></td>
+						<td >Max Concurrent</td><td ><%= h(max == 0 ? "unlimited" : max) %></td>
 					</tr>
 				</table>
 			<% end %>
@@ -103,33 +103,33 @@
 			<% if rec.class == ServerRole %>
 				<table class="table table-striped">
 					<tr>
-						<td  class="keyimage" rowspan="9"><img src="/images/icons/new/role-<%=  rec.name %>.png"></td>
-						<td class="key">Role</td>
-						<td class="wide"><%= rec.description %></td>
+						<td  height="64" width="64" rowspan="9"><img src="/images/icons/new/role-<%=  rec.name %>.png"></td>
+						<td >Role</td>
+						<td ><%= rec.description %></td>
 					</tr>
 					<tr>
-						<td class="key">Status</td>
-						<td class="wide"><%= h(@temp[:rec_status]) %></td>
+						<td >Status</td>
+						<td ><%= h(@temp[:rec_status]) %></td>
 					</tr>
 					<tr>
 						<% max = rec.max_concurrent %>
-						<td class="key">Max Concurrent</td><td class="wide"><%= h(max == 0 ? "unlimited" : max) %></td>
+						<td >Max Concurrent</td><td ><%= h(max == 0 ? "unlimited" : max) %></td>
 					</tr>
 				</table>
 			<% else %><%# record class is AssignedServerRole %>
 				<table class="table table-striped">
 					<tr>
-						<td  class="key" rowspan="13"><img src="/images/icons/new/evmserver.png"></td>
-						<td class="key"><%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}" %></td>
-						<td class="wide"><%= h("#{rec.miq_server.name} [#{rec.miq_server.id}]") %></td>
+						<td   rowspan="13"><img src="/images/icons/new/evmserver.png"></td>
+						<td ><%= "#{Dictionary::gettext('MiqServer', :type=>:model, :notfound=>:titleize)}" %></td>
+						<td ><%= h("#{rec.miq_server.name} [#{rec.miq_server.id}]") %></td>
 					</tr>
 					<tr>
-						<td class="key">Status</td><td class="wide"><%= h(rec.miq_server.status) %></td>
+						<td >Status</td><td ><%= h(rec.miq_server.status) %></td>
 					</tr>
 					<% if rec.master_supported? %>
 						<tr>
-							<td class="key">Priority</td>
-							<td class="wide">
+							<td >Priority</td>
+							<td >
 								<% if rec.priority == 1 %>
 									primary
 								<% elsif rec.priority == 2 %>
@@ -141,49 +141,49 @@
 						</tr>
 					<% end %>
 					<tr>
-						<td class="key">Process ID</td><td class="wide"><%= h(rec.miq_server.pid) %></td>
+						<td >Process ID</td><td ><%= h(rec.miq_server.pid) %></td>
 					</tr>
 					<tr>
-						<td class="key">Started On</td>
-						<td class="wide">
+						<td >Started On</td>
+						<td >
 							<% t = rec.miq_server.started_on %>
 							<%= h(t.blank? ? "" : format_timezone(t)) %>
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Stopped On</td>
-						<td class="wide">
+						<td >Stopped On</td>
+						<td >
 							<% t = rec.miq_server.stopped_on %>
 							<%= h(t.blank? ? "" : format_timezone(t)) %>
 						</td>
 					</tr>
           <tr>
-            <td class="key">Memory Usage</td>
-            <td class="wide">
+            <td >Memory Usage</td>
+            <td >
               <%= h(rec.miq_server["memory_usage"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">Memory Size</td>
-            <td class="wide">
+            <td >Memory Size</td>
+            <td >
               <%= h(rec.miq_server["memory_size"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">CPU Time</td>
-            <td class="wide">
+            <td >CPU Time</td>
+            <td >
               <%= h(rec.miq_server["cpu_time"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">CPU Percent</td>
-            <td class="wide">
+            <td >CPU Percent</td>
+            <td >
               <%= h(rec.miq_server["percent_cpu"]) %>
             </td>
           </tr>
           <tr>
-            <td class="key">Version / Build</td>
-            <td class="wide">
+            <td >Version / Build</td>
+            <td >
               <%= h(rec.miq_server["version"]) %>
             </td>
           </tr>

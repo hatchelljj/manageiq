@@ -1,9 +1,9 @@
 <% if @sb[:active_tab] == "settings_co_categories" %>
 	<%= render :partial => "layouts/flash_msg" %>
-	<table class="style3">
+	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th class="icon">&nbsp;</th>
+				<th >&nbsp;</th>
 				<th>Name</th>
 				<th>Display Name</th>
 				<th>Show in Console</th>
@@ -14,8 +14,8 @@
 		</thead>
 	<tbody>
 		<tr id="new_tr" class="<%= cycle('row0', 'row1') %>" onclick="<%= remote_function(:url=>{:action=>'category_edit',:id=>nil}) %>" title="Click to add a new category">
-			<td class="icon">
-				<ul class="icons">
+			<td >
+				<ul >
 					<li>
 						<span class="glyphicon glyphicon-plus">
 					</li>
@@ -25,20 +25,20 @@
 			<td></td><td></td><td></td><td></td><td></td>
 		</tr>
 		<% @categories.each do | cat | %>
-			<tr class="<%= cycle('row0', 'row1') %>">
+			<tr >
 					<% if cat[:default] == "t" || cat[:default].to_s == "1" %>
-						<td title="Category '<%=cat[:name]%>' cannot be deleted" class="icon">
-							<ul class="icons">
+						<td title="Category '<%=cat[:name]%>' cannot be deleted" >
+							<ul >
 								<li>
-									<span class="pficon pficon-delete"></span>
+									<span class="glyphicon glyphicon-remove"></span>
 								</li>
 							</ul>
 						</td>
 					<% else %>
-						<td onclick="<%= remote_function(:url=>{:action=>'category_delete', :id=>cat[:id]}, :confirm=>"Are you sure you want to delete category '#{cat[:name]}'?") %>" title="Click to delete this category" class="icon">
-							<ul class="icons">
+						<td onclick="<%= remote_function(:url=>{:action=>'category_delete', :id=>cat[:id]}, :confirm=>"Are you sure you want to delete category '#{cat[:name]}'?") %>" title="Click to delete this category" >
+							<ul >
 								<li>
-									<span class="pficon pficon-delete"></span>
+									<span class="glyphicon glyphicon-remove"></span>
 								</li>
 							</ul>
 						</td>

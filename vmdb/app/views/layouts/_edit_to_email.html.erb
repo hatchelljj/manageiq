@@ -1,9 +1,9 @@
 <% url = url_for(:action=>action_url, :id=>"#{record.id || "new"}") %>
 <div id="edit_to_email_div" style="width:100%;height:100%;overflow:auto;">
 	<br/>
-	<table class="style1">
+	<table class="table table-striped">
 		<tr>
-			<td class="key">To<br/>(Click to remove)</td>
+			<td >To<br/>(Click to remove)</td>
 			<td>
 				<% if @edit[:new][:email][:to].blank? %>
 					None
@@ -28,7 +28,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="key">Add a User</td>
+			<td >Add a User</td>
 				<td>
 					<% if @edit[:user_emails].empty? %>
 						 None Available or All Selected
@@ -41,8 +41,8 @@
 				</td>
 		</tr>
 		<tr>
-			<td class="key">Add (enter manually)</td>
-			<td class="wider">
+			<td >Add (enter manually)</td>
+			<td >
         <%= text_field_tag("email",
                             @edit[:email],
                             :maxlength=>MAX_DESC_LEN,

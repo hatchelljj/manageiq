@@ -1,6 +1,6 @@
 <div id="prov_vm_div">
   <% if @temp[:vms] %>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
         <tr>
           <% id = @edit[:req_id] || "new" %>
@@ -57,18 +57,18 @@
             <td onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
               <%= h(row.num_cpu) %>
             </td>
-            <td align="right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+            <td class="text-right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
               <%= h(number_to_human_size(row.mem_cpu.to_i*1024*1024)) %>
             </td>
-            <td align="right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+            <td class="text-right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
               <%= h(number_to_human_size(row.allocated_disk_storage)) %>
             </td>
-            <td align="right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+            <td class="text-right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
               <% if row.ext_management_system %>
                 <%= h(row.ext_management_system.name) %>
               <% end %>
             </td>
-            <td align="right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
+            <td class="text-right" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
               <%= h(row.v_total_snapshots) %>
             </td>
           </tr>
@@ -78,7 +78,7 @@
     </table>
   <% elsif @temp[:vm] %>
   <%# grid with only one record for Redhat provisioning %>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
       <tr>
         <% id = @edit[:req_id] || "new" %>
@@ -90,19 +90,19 @@
       </tr>
       </thead>
       <tbody>
-        <tr class="row3" nowrap>
+        <tr nowrap>
           <td><%= h(@temp[:vm].name) %></td>
           <td><%= h(@temp[:vm].operating_system.try(:product_name)) %></td>
           <td><%= h(@temp[:vm].platform) %></td>
           <td><%= h(@temp[:vm].num_cpu) %></td>
-          <td align="right"><%= h(number_to_human_size(@temp[:vm].mem_cpu.to_i*1024*1024)) %></td>
-          <td align="right"><%= h(number_to_human_size(@temp[:vm].allocated_disk_storage)) %></td>
-          <td align="right">
+          <td class="text-right"><%= h(number_to_human_size(@temp[:vm].mem_cpu.to_i*1024*1024)) %></td>
+          <td class="text-right"><%= h(number_to_human_size(@temp[:vm].allocated_disk_storage)) %></td>
+          <td class="text-right">
             <% if @temp[:vm].ext_management_system %>
               <%= h(@temp[:vm].ext_management_system.name) %>
             <% end %>
           </td>
-          <td align="right"><%= h(@temp[:vm].v_total_snapshots) %></td>
+          <td class="text-right"><%= h(@temp[:vm].v_total_snapshots) %></td>
         </tr>
       </tbody>
       <tfoot><tr><td colspan="40"></td></tr></tfoot>

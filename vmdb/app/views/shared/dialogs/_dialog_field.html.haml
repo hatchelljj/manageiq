@@ -5,7 +5,7 @@
 - when :review      then false
 - else                   !@edit.nil?
 %tr{:id => "field_#{field.id}_tr"}
-  %td.key{:title => field.description}
+  %td{:title => field.description}
     = field.label
   %td{:title => field.description}
     - case field.type

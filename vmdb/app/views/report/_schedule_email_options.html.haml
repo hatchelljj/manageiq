@@ -3,15 +3,15 @@
 %div#schedule_email_options_div
   - if @edit[:new][:send_email]
     %fieldset
-      %p.legend E-mail Options
-      %table.style1
+      %p.lead E-mail Options
+      %table.table.table-striped
         %tr
-          %td.key Send if Report is Empty
+          %td Send if Report is Empty
           %td
             = check_box_tag("send_if_empty", "1", @edit[:new][:email][:send_if_empty],
                             "data-miq_observe_checkbox" => url_json)
         %tr
-          %td.key Attachments
+          %td Attachments
           %td
             = check_box_tag("send_txt", 1,
                             Array(@edit[:new][:email][:attach]).include?(:txt),

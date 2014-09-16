@@ -1,4 +1,4 @@
-<div class="maincontent">
+<div class="container">
 <%= render :partial => "layouts/flash_msg" %>
 
 <% if ["props"].include?(@display) %>
@@ -8,15 +8,15 @@
 
 <% if @display == "os_info" %>
 			<% if @osinfo %>
- 		<dl class="col2">
+ 		<dl>
 			<dd>
-				<table class="style3">
+				<table class="table table-striped">
 					<thead>
 						<tr><th colspan="2" align="left">Basic Information</th></tr>
 					</thead>
 							<% @osinfo.each do |item| %>
-							<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-								<td class="label">
+							<tr>
+								<td>
 									<%= h(item[:osinfo]) %></td>
 								<td>
 									<img src="/images/icons/new/os-<%= h(@record.os_image_name.downcase) %>.png"/>
@@ -36,9 +36,9 @@
 		%>
 		<% if !linuxos %>
 
-			 	<dl class="col2">
+			 	<dl>
 					<dd>
-						<table class="style3">
+						<table class="table table-striped">
 							<thead>
 								<tr><th colspan="2" align="left">Account Policies</th></tr>
 							</thead>
@@ -48,7 +48,7 @@
 								<% else %>
 									<% @account_policy.each_with_index do |item, idx| %>
 										<% if idx%2 == 0 %>
-											<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
+											<tr>
 										<% end %>
 											 <td  width="495"><strong><%= h(item[:field]) %>: </strong><%= h(item[:description]) %>
 												</td>
@@ -64,15 +64,15 @@
 <% if @display == "hv_info" %>
 
 			<% if @vmminfo %>
-			<dl class="col2">
+			<dl>
 				<dd>
-						<table class="style3">
+						<table class="table table-striped">
 							<thead>
 								<tr><th colspan="2" align="left">Basic Information</th></tr>
 							</thead>
 								<% @vmminfo.each do |item| %>
-								<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-									<td class="label">
+								<tr>
+									<td>
 										<%= h(item[:vmminfo]) %>
 									</td>
 									<td>
@@ -81,19 +81,19 @@
 								</tr>
 								<% end %>
 						</table>
-						<table class="style3">
+						<table class="table table-striped">
 							<thead>
 								<tr><th colspan="2" align="left">Devices</th></tr>
 							</thead>
 							<% unless @devices.empty? %>
 								<% @devices.each do |item| %>
-									<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-										<td class="label"><%= h(item[:device]) %></td>
+									<tr>
+										<td><%= h(item[:device]) %></td>
 										<td><img src="/images/icons/new/hardware-<%= item[:icon].downcase%>.png"><%= h(item[:description]) %></td>
 									</tr>
 								<% if ! item[:mode].nil? %>
-									<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-										<td class="label">Network Type</td>
+									<tr>
+										<td>Network Type</td>
 										<td><%= h(item[:mode]) %></td>
 									</tr>
 								<% end %>
@@ -155,7 +155,7 @@
 			<% if @vmminfo %>
 			<div class="modbox" style="margin: 0px 0px 20px 30px">
 				<h2 class="modtitle">Network Adapters</h2>
-				<table class="style3">
+				<table class="table table-striped">
 				<% if ! @record.hardware.networks.blank? %>
 					<thead>
 						<tr>
@@ -170,7 +170,7 @@
 					<tbody>
 						<tr>
 							<% @record.hardware.networks.each do | v |  %>
-							<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
+							<tr>
 								<td><%= v[:ipaddress] %>
 								</td>
 								<td><%= v[:description] %>
@@ -188,7 +188,7 @@
 							</tr>
 					<% end %>
 						<% else %>
-							<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
+							<tr>
 							 <td> <strong><%= @record.name %> has no network adapters.</strong>
 							</td>
 							</tr>
@@ -201,48 +201,48 @@
 <% end %>
 <% if @display == "resources_info" %>
 
-					<table class="style3">
+					<table class="table table-striped">
 						<thead>
 							<tr><th colspan="2">Account Policies</th></tr>
 						</thead>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">CPU Limit</td>
+						<tr>
+							<td>CPU Limit</td>
 							<td><%= h(@record.cpu_limit) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">CPU Reserve</td>
+						<tr>
+							<td>CPU Reserve</td>
 							<td><%= h(@record.cpu_reserve) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">CPU Reserve Expand</td>
+						<tr>
+							<td>CPU Reserve Expand</td>
 							<td><%= h(@record.cpu_reserve_expand) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">CPU Shares</td>
+						<tr>
+							<td>CPU Shares</td>
 							<td><%= h(@record.cpu_shares) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">CPU Shares Level</td>
+						<tr>
+							<td>CPU Shares Level</td>
 							<td><%= h(@record.cpu_shares_level) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">Memory Limit</td>
+						<tr>
+							<td >Memory Limit</td>
 							<td><%= h(@record.memory_limit) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">Memory Reserve</td>
+						<tr>
+							<td >Memory Reserve</td>
 							<td><%= h(@record.memory_reserve) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">Memory Reserve Expand</td>
+						<tr>
+							<td >Memory Reserve Expand</td>
 							<td><%= h(@record.memory_reserve_expand) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">Memory Shares</td>
+						<tr>
+							<td >Memory Shares</td>
 							<td><%= h(@record.memory_shares) %></td>
 						</tr>
-						<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-							<td class="label">Memory Shares Level</td>
+						<tr>
+							<td >Memory Shares Level</td>
 							<td><%= h(@record.memory_shares_level) %></td>
 						</tr>
 					</table>

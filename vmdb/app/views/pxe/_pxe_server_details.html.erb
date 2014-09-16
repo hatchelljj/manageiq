@@ -16,8 +16,8 @@
           <%# this code can be uncommented when we have multiple pxe_menus %>
           <% if !@ps.pxe_menus.empty? %>
             <hr>
-            <p class="legend">PXE Image Menus</p>
-              <table class="style3">
+            <p class="lead">PXE Image Menus</p>
+              <table class="table table-striped">
                 <thead>
                 <tr>
                   <th>Filename</th>
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                 <% @ps.pxe_menus.sort{|a,b| a.file_name <=> b.file_name}.each do |menu| %>
-                  <tr class="<%= cycle('row0', 'row1') %>">
+                  <tr>
                     <td><%= h(menu.file_name) %></td>
                   </tr>
                 <% end %>
@@ -36,8 +36,8 @@
         <% end %>
         <% unless @ps.pxe_images.empty? %>
           <hr>
-          <p class="legend">PXE Images</p>
-          <table class="style3">
+          <p class="lead">PXE Images</p>
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th>Name</th>
@@ -48,8 +48,7 @@
             </thead>
             <tbody>
               <% @ps.pxe_images.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |i| %>
-                <tr class="<%= cycle('row0', 'row1') %>"
-                  onclick="cfmeDynatree_activateNode('pxe_servers_tree', 'pi-<%= to_cid(i.id) %>');"
+                <tr onclick="cfmeDynatree_activateNode('pxe_servers_tree', 'pi-<%= to_cid(i.id) %>');"
                   onmouseover="this.style.cursor='pointer'" title="View this PXE Image">
                   <td><%= h(i.name) %></td>
                   <td><%= h(i.description) %></td>
@@ -62,8 +61,8 @@
         <% end %>
         <% unless @ps.windows_images.empty? %>
           <hr>
-          <p class="legend">Windows Images</p>
-          <table class="style3">
+          <p class="lead">Windows Images</p>
+          <table class="table table-striped">
             <thead>
             <tr>
               <th>Name</th>
@@ -74,8 +73,7 @@
             </thead>
             <tbody>
             <% @ps.windows_images.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |i| %>
-              <tr class="<%= cycle('row0', 'row1') %>"
-                  onclick="cfmeDynatree_activateNode('pxe_servers_tree', 'wi-<%= to_cid(i.id) %>');"
+              <tr onclick="cfmeDynatree_activateNode('pxe_servers_tree', 'wi-<%= to_cid(i.id) %>');"
                   onmouseover="this.style.cursor='pointer'" title="View this Windows Image">
                 <td><%= h(i.name) %></td>
                 <td><%= h(i.description) %></td>

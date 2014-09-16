@@ -4,8 +4,8 @@
   <p class="lead">Dialog Information</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Label</td>
-      <td class="wide">
+      <td >Label</td>
+      <td >
         <%= text_field_tag("label",
                             @edit[:new][:label],
                             :maxlength=>MAX_NAME_LEN,
@@ -14,8 +14,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Description</td>
-      <td class="wide">
+      <td >Description</td>
+      <td >
         <%= text_field_tag("description",
                             @edit[:new][:description],
                             :maxlength=>100,
@@ -23,7 +23,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Buttons</td>
+      <td >Buttons</td>
       <td>
         <% @edit[:dialog_buttons].each do |b| %>
           <% checked = !@edit[:new][:buttons].nil? && @edit[:new][:buttons].include?(b) ? true : false %>

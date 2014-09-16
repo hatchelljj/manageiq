@@ -1,10 +1,10 @@
 <% url = url_for(:action=>action_url, :id=>"#{record.id || "new"}") %>
 <div id="form_timer_div">
 
-		<p class="legend">Timer</p>
-		<table class="style1">
+		<p class="lead">Timer</p>
+		<table class="table table-striped">
 				<tr>
-					<td class="key">Run</td>
+					<td >Run</td>
 					<td>
 						<% timer_types = x_active_tree == :widgets_tree ? ["Hourly","Daily","Weekly","Monthly"] : ["Once","Hourly","Daily","Weekly","Monthly"] %>
             <%= select_tag("timer_typ",
@@ -37,7 +37,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="key">Time Zone</td>
+					<td >Time Zone</td>
 					<td>
             <%= select_tag("time_zone",
                               options_for_select(ALL_TIMEZONES, @edit[:tz]),
@@ -46,7 +46,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="key">Starting Date</td>
+					<td >Starting Date</td>
 					<td id="start_date">
             <%= text_field_tag("miq_date_1",
                                 @edit[:new][:start_date],
@@ -56,7 +56,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="key">Starting Time (<span id="tz_span"><%= @timezone_abbr%></span>)</td>
+					<td >Starting Time (<span id="tz_span"><%= @timezone_abbr%></span>)</td>
 					<td>
             <%= select_tag("start_hour",
                               options_for_select(Array.new(24) {|i| i}, @edit[:new][:start_hour].to_i),

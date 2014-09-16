@@ -2,11 +2,11 @@
 <div id="form_div">
   <%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
   <% read_only = @edit && @edit[:db_id] && @edit[:db_id] ? true : false %>
-    <p class="legend">Basic Information</p>
-    <table class="style1">
+    <p class="lead">Basic Information</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key"><% if read_only%>* <%end%>Name</td>
-        <td class="wider">
+        <td ><% if read_only%>* <%end%>Name</td>
+        <td >
           <%= text_field_tag("name",
                              @edit[:new][:name],
                              :maxlength=>50,
@@ -18,8 +18,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Tab Title</td>
-        <td class="wider">
+        <td >Tab Title</td>
+        <td >
           <%= text_field_tag("description",
             @edit[:new][:description],
             :maxlength=>20,
@@ -27,7 +27,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Locked</td>
+        <td >Locked</td>
         <td>
           <%= check_box_tag("locked", value="1",
                              checked=@edit[:new][:locked],

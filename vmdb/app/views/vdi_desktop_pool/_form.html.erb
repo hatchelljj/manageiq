@@ -2,12 +2,12 @@
 <div id="form_div">
   <%= render :partial => "layouts/flash_msg" %>
     <fieldset>
-      <p class="legend">Basic Information</p>
-      <table class="admintable">
+      <p class="lead">Basic Information</p>
+      <table class="table table-striped">
         <tbody>
           <tr>
-            <td class="key">Name</td>
-            <td class="wide">
+            <td >Name</td>
+            <td >
               <%= text_field_tag("name",
                                   @edit[:new][:name],
                                   :maxlength=>MAX_NAME_LEN,
@@ -16,8 +16,8 @@
             </td>
           </tr>
           <tr>
-            <td class="key">Description</td>
-            <td class="wide">
+            <td >Description</td>
+            <td >
               <%= text_field_tag("description",
                                  @edit[:new][:description],
                                  :maxlength=>MAX_DESC_LEN,
@@ -25,7 +25,7 @@
             </td>
           </tr>
           <tr>
-            <td class="key">Enabled</td>
+            <td >Enabled</td>
             <td>
               <%= check_box_tag("enabled", value="1",
                                 checked=@edit[:new][:enabled],
@@ -33,8 +33,8 @@
             </td>
           </tr>
           <tr>
-            <td class="key">Farm</td>
-            <td class="wide">
+            <td >Farm</td>
+            <td >
               <% if @record.id %>
                 <%= @edit[:farm] %>
               <% else %>
@@ -47,7 +47,7 @@
           </tr>
           <% if @edit[:new][:vdi_farm_id] && (!@edit[:emses].nil? || @edit[:new][:ems_id]) %>
             <tr>
-              <td class="key"><%= ui_lookup(:table => "ext_management_system")%></td>
+              <td ><%= ui_lookup(:table => "ext_management_system")%></td>
               <td>
                 <% if @record.id %>
                   <%= @edit[:ems] %>
@@ -71,8 +71,8 @@
           <% end %>
           <% if @edit[:new][:vdi_farm_id] && (!@edit[:behaviors].blank? || @edit[:new][:assignment_behavior]) %>
           <tr>
-            <td class="key">Assignment Behavior</td>
-            <td class="wide">
+            <td >Assignment Behavior</td>
+            <td >
               <% if @record.id %>
                 <%= @edit[:new][:assignment_behavior] %>
               <% elsif @edit[:behaviors].length == 1 %>

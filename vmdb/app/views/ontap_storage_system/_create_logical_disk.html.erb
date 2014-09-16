@@ -2,10 +2,10 @@
 <div id="form_div">
 	<%= render :partial => "layouts/flash_msg" %>
 	<fieldset>
-		<p class="legend">Options</p>
-		<table class="admintable">
+		<p class="lead">Options</p>
+		<table class="table table-striped">
 			<tr>
-				<td class="key">Name</td>
+				<td >Name</td>
 				<td>
           <%= text_field_tag("ld_name",
                               @edit[:new][:ld_name],
@@ -15,7 +15,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="key">Aggregate (free space)</td>
+				<td >Aggregate (free space)</td>
 				<td>
           <%= select_tag("aggregate_name",
                             options_for_select([["<Choose>",nil]] + @edit[:aggregates].invert.sort,
@@ -25,7 +25,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="key">Size (GB)</td>
+				<td >Size (GB)</td>
 				<td>
           <%= text_field_tag("ld_size",
                               @edit[:new][:ld_size],

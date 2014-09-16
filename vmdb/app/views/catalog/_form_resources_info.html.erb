@@ -3,11 +3,11 @@
 %>
 <div id="resources_info_div">
   <% if @edit[:new][:service_type] == "composite" %>
-    <p class="legend">Resources</p>
-    <table class="style1">
+    <p class="lead">Resources</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Add a Resource</td>
-        <td class="notwide">
+        <td>Add a Resource</td>
+        <td>
           <%= select_tag('resource_id',
                          options_for_select(([["<Choose>",nil]]) + Array(@edit[:new][:available_resources].invert).sort{|a,b|a.first.downcase<=>b.first.downcase},
                                             nil),
@@ -18,11 +18,11 @@
       </tr>
     </table>
     <% if !@edit[:new][:selected_resources].empty? %>
-      <p class="legend">Selected Resources</p>
-      <table class="style3">
+      <p class="lead">Selected Resources</p>
+      <table class="table table-striped">
         <thead>
         <tr>
-          <th class="icon"/>
+          <th />
           <% titles = ['Name', "Action Order", "Provision Order", "Action", "Delay (mins)"] %>
           <% colspan = ["Action", "Delay (mins)"] %>
 
@@ -43,10 +43,10 @@
           <%# add blank tr after each group %>
           <% col_span = 9 %>
           <% if i != 0 && !groups.empty? && i < @edit[:new][:rsc_groups].length-1 %>
-            <tr id="new_tr" class="seperator"><td colspan="<%=col_span%>"></td></tr>
+            <tr id="new_tr" class="divider"><td colspan="<%=col_span%>"></td></tr>
           <% end %>
           <% groups.sort_by { | g | g[:name].downcase }.each_with_index do |sr,k| %>
-            <tr class="<%=cycle('row0 no-hover','row1 no-hover', :name => 'st_group')%>">
+            <tr>
               <td>
                 <%= link_to(image_tag("/images/icons/16/notequal-red.png", 
                                       :border => "0", 

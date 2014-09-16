@@ -4,7 +4,7 @@
   <% url = url_for(:action => @edit[:new][:service_type] == "composite" ? "st_form_field_changed" : "atomic_form_field_changed",
                    :id     => "#{@edit[:rec_id] || "new"}")
   %>
-    <p class="legend">Request Info</p>
+    <p class="lead">Request Info</p>
     <%= render :partial => "miq_request/prov_wf",
                :locals  => {:wf => @edit[:wf]}
     %>

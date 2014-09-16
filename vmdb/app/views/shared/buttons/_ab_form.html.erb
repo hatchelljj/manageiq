@@ -26,7 +26,7 @@
   <p class="lead">Action</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Button Text</td>
+      <td >Button Text</td>
       <td>
         <%= text_field_tag("name",
                            @edit[:new][:name],
@@ -46,8 +46,8 @@
       <% end %>
     </tr>
     <tr>
-      <td class="key">Button Hover Text</td>
-      <td class="wide">
+      <td >Button Hover Text</td>
+      <td >
         <%= text_field_tag("description",
                            @edit[:new][:description],
                            :maxlength         => 50,
@@ -56,7 +56,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Button Image</td>
+      <td >Button Image</td>
       <td>
         <%#= select("button","id", Array.new(5) {|i| i+1},
                     {:selected=>@edit[:new][:button_id].to_i}, {:class=>"threedigit"}) %>
@@ -73,8 +73,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Dialog</td>
-      <td class="wide">
+      <td >Dialog</td>
+      <td >
         <%= select_tag('dialog_id',
                        options_for_select(([["<None>",nil]]) + Array(@edit[:new][:available_dialogs].invert).sort{|a,b|a.first.downcase<=>b.first.downcase},
                                           @edit[:new][:dialog_id]),

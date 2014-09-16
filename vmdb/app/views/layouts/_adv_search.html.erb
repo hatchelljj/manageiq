@@ -20,11 +20,11 @@
     <% end %>
     <table width="100%">
       <tr>
-        <td align="left">
+        <td class="text-left">
           <div id="buttons">        
             <% if @edit[@expkey][:exp_search_expressions].blank? && report_expressions.blank? %>
               <%= button_tag("Load...", 
-                             :class => "btn btn-primary button-disabled",
+                             :class => "btn btn-primary", :disabled => "disabled"
                              :alt   => 'No saved filters or report filters are available to load',
                              :title => 'No saved filters or report filters are available to load')
               %>
@@ -40,10 +40,10 @@
             <% end %>
           </div>
         </td>
-        <td align="right">
+        <td class="text-right">
           <div id="buttons">
             <% if @edit[@expkey][:exp_table].flatten.first == "???" %>
-              <%= button_tag("Apply", :class => "btn btn-primary btn-disabled") %>
+              <%= button_tag("Apply", :class => "btn btn-primary", :disabled=>"disabled") %>
             <% else %>
               <%= link_to(button_tag('Apply',
                                      :class => "btn btn-primary", 
@@ -77,7 +77,7 @@
               <% end %>
 
                 <% if @edit[@expkey][:exp_table].flatten.first == "???" %>
-                  <%= button_tag("Save...", :class => "btn btn-primary btn-disabled") %>
+                  <%= button_tag("Save...", :class => "btn btn-primary", :disabled=>"disabled") %>
                 <% else %>
                   <%= link_to(button_tag('Save...',
                                          :class => "btn btn-primary", 
@@ -90,7 +90,7 @@
                 <% end %>
 
                 <% if @edit[@expkey][:exp_table].flatten.first == "???" %>
-                  <%= button_tag("Reset", :class => "btn btn-default btn-disabled") %>
+                  <%= button_tag("Reset", :class => "btn btn-default", :disabled=>"disabled") %>
                 <% else %>
                   <%= link_to(button_tag('Reset',
                                          :class => "btn btn-default", 
@@ -111,7 +111,7 @@
     <br/>
     <% if @exp_to_load %>
       <fieldset>
-        <p class="legend">Search Expression Preview</p>
+        <p class="lead">Search Expression Preview</p>
         <% @exp_to_load.each do |token| %>
           <% if ! ["AND", "OR", "(", ")"].include?([token].flatten.first) %>
             <%= h([token].flatten.first) %>
@@ -122,11 +122,11 @@
       </fieldset>
     <% end %>
     <fieldset>
-      <table class="style1">
+      <table class="table table-striped">
         <tbody>
           <% unless @edit[@expkey][:exp_search_expressions].blank? %>
             <tr>
-              <td class="key">
+              <td >
                 <font color="black">Choose a saved <%= ui_lookup(:model => @edit[@expkey][:exp_model]) %> filter:</font>
               </td>
               <td>
@@ -142,12 +142,12 @@
           <% end %>
           <% unless @edit[@expkey][:exp_search_expressions].blank? || report_expressions.blank? %>
             <tr>
-              <td class="key">-- OR --</td>
+              <td >-- OR --</td>
             </tr>
           <% end %>
           <% unless report_expressions.blank? %>
             <tr>
-              <td class="key">
+              <td >
                 <font color="black">Choose a <%= ui_lookup(:model => @edit[@expkey][:exp_model]) %> report filter:</font>
               </td>
               <td>
@@ -167,7 +167,7 @@
 
     <table width="100%">
       <tr>
-        <td align="left">
+        <td class="text-left">
           <div id="buttons">
             <% if @edit[@expkey][:exp_chosen_report] == nil && @edit[@expkey][:exp_chosen_search] == nil %>
               <%= button_tag("Load",  
@@ -202,13 +202,13 @@
 
   <% elsif mode == "save" %>
     <fieldset>
-      <p class="legend">Advanced Search (Save)</p>
+      <p class="lead">Advanced Search (Save)</p>
       <br/>
       <%= render(:partial => 'layouts/flash_msg', 
                  :locals  => {:div_num => "2"}) 
       %>
       <fieldset>
-        <p class="legend">Search Expression</p>
+        <p class="lead">Search Expression</p>
         <% @edit[@expkey][:exp_table].each do |token| %>
           <% if ! ["AND", "OR", "(", ")"].include?([token].flatten.first) %>
             <%= h([token].flatten.first) %>
@@ -218,11 +218,11 @@
         <% end %>
       </fieldset>
       <fieldset>
-        <table class="style1">
+        <table class="table table-striped">
           <tbody>
             <tr>
-              <td class="key">Save this <%= ui_lookup(:model => @edit[@expkey][:exp_model]) %> search as:</td>
-              <td class="notwide">
+              <td >Save this <%= ui_lookup(:model => @edit[@expkey][:exp_model]) %> search as:</td>
+              <td >
                 <span id='search_name_span'>
                   <%= text_field_tag("search_name",
                                      h(@edit[:adv_search_name]),
@@ -237,8 +237,8 @@
             </tr>
             <% if session[:userrole] == "super_administrator" || session[:userrole] == "administrator" %>
             <tr>
-              <td class="key">Global Search:</td>
-              <td class="notwide" align="left">
+              <td >Global Search:</td>
+              <td  class="text-left">
                 <span id='search_type_span'>
                   <% if @edit && @edit[:expression] && @edit[:expression][:selected] && @edit[:expression][:selected][:typ] == "global" %>
                     <% checked = true %>
@@ -260,7 +260,7 @@
     </fieldset>
     <table width="100%">
       <tr>
-        <td align="right">
+        <td class="text-right">
           <div id="buttons">
             <%= link_to(button_tag('Save',
                                    :class => "btn btn-primary", 

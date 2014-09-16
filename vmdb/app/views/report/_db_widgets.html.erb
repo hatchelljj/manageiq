@@ -1,11 +1,11 @@
 <div id="form_widgets_div">
 <% edit = @in_a_form ? @edit : @sb %>
-  <p class="legend">Sample Dashboard</p>
+  <p class="lead">Sample Dashboard</p>
   <% if @in_a_form %>
-    <table class="admintable">
+    <table class="table table-striped">
       <tbody>
         <tr>
-          <td class="wider">
+          <td >
             <% combo_url  = "/report/db_form_field_changed/#{@db.id || 'new'}" %>
             <div id="widget_div" style="width: 500px"></div>
             <%= render :partial => 'layouts/dhtmlxcombo', :locals => { :combo_id =>"widget_div", :combo_name =>"widget",
@@ -16,9 +16,9 @@
     </table>
   <% end %>
   <div id="modules">
-    <div class="yui-b">
-      <div class="yui-gb">
-        <div class="yui-u first" style="position:relative;min-height:50px;" id="col1">
+    <div class="">
+      <div class="">
+        <div class="" style="position:relative;min-height:50px;" id="col1">
           <% edit[:new][:col1].each do |w| %>
             <% widget = MiqWidget.find_by_id(w) %>
             <% if widget && widget.enabled %>
@@ -26,7 +26,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="yui-u" style="position:relative;min-height:50px;" id="col2" >
+        <div class="" style="position:relative;min-height:50px;" id="col2" >
           <% edit[:new][:col2].each do |w| %>
             <% widget = MiqWidget.find_by_id(w) %>
             <% if widget && widget.enabled %>
@@ -34,7 +34,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="yui-u" style="position:relative;min-height:50px;" id="col3">
+        <div class="" style="position:relative;min-height:50px;" id="col3">
           <% edit[:new][:col3].each do |w| %>
             <% widget = MiqWidget.find_by_id(w) %>
             <% if widget && widget.enabled %>

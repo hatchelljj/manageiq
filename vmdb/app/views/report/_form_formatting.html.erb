@@ -1,21 +1,21 @@
 <% url = url_for(:action=>'form_field_changed', :id=>"#{@edit[:rpt_id] || "new"}") %>
 <div id="formatting_div">
-  <p class="legend">PDF Output</p>
-  <table class="style1">
+  <p class="lead">PDF Output</p>
+  <table class="table table-striped">
     <tr>
-      <td class="key">Page Size</td>
+      <td >Page Size</td>
       <td>
         <%= select_tag('pdf_page_size',
                         options_for_select(PDF_PAGE_SIZES.invert.sort, @edit[:new][:pdf_page_size]),
-                        :multiple=> false, :class=>"widthed",
+                        :multiple=> false, 
                         "data-miq_sparkle_on"=>true,
                         "data-miq_observe"=>{:url=>url}.to_json) %>
       </td>
     </tr>
   </table>
   <hr>
-    <p class="legend">Specify Column Headers and Formats</p>
-    <table class="style3">
+    <p class="lead">Specify Column Headers and Formats</p>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Column Name</th>
@@ -26,8 +26,8 @@
       <tbody>
         <% @edit[:new][:field_order].each_with_index do |f, f_idx| %>
           <tr>
-            <td class="key"><%= h(f.first) %></td>
-            <td class="wide">
+            <td ><%= h(f.first) %></td>
+            <td >
               <div id='<%= "hdr_#{f.last}_div" %>' >
                 <%= text_field_tag("hdr_" + f.last,
                                   @edit[:new][:headers][f.last],

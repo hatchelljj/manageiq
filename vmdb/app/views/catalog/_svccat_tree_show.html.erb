@@ -1,4 +1,4 @@
-<div class="maincontent" xmlns="http://www.w3.org/1999/html">
+<div class="container" xmlns="http://www.w3.org/1999/html">
 	<%= render :partial => "layouts/flash_msg" %>
   <%= hidden_div_if(@settings[:views][:dashboards] != "graphical", :id => "graphical_div") do %>
 
@@ -47,24 +47,24 @@
           </div>
         </td>
         <td valign="top">
-          <table class="style1">
+          <table class="table table-striped">
             <tr>
-              <td class="key">Name</td>
-              <td class="notwide"><%= @record.name %></td>
+              <td>Name</td>
+              <td><%= @record.name %></td>
             </tr>
             <tr>
-              <td class="key">Description</td>
-              <td class="notwide"><%= @record.description%></td>
+              <td>Description</td>
+              <td><%= @record.description%></td>
             </tr>
             <!--
             <tr>
-              <td class="key">Cost</td>
+              <td>Cost</td>
               <td><%= h(@record.provision_cost.nil? ? "" : sprintf("%.2f", @record.provision_cost.to_f)) %>
             </tr>
             -->
             <tr>
-              <td class="key">Long Description</td>
-              <td class="wide"><%= @record.long_description.to_s.html_safe %></td>
+              <td>Long Description</td>
+              <td><%= @record.long_description.to_s.html_safe %></td>
             </tr>
           </table>
         </td>

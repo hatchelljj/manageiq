@@ -16,7 +16,7 @@
               <% unless @edit %>
                 <td><%= h(@condition.description) %></td>
               <% else %>
-                <td class="wider">
+                <td >
                   <%= text_field_tag("description",
                                      @edit[:new][:description],
                                      :maxlength => MAX_DESC_LEN,

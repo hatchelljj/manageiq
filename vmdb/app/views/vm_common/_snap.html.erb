@@ -2,19 +2,19 @@
 	<%= render :partial => "layouts/flash_msg" %>
 	<div id="form_div">
 				<fieldset>
-					<p class="legend">Snapshot Information</p>
-					<table class="style1">
+					<p class="lead">Snapshot Information</p>
+					<table class="table table-striped">
 						<tbody>
 							<tr>
-								<td class="key">Name</td>
+								<td >Name</td>
 								<td><%= text_field_tag("name", @name, :maxlength=>MAX_NAME_LEN, "data-miq_focus"=>true) %></td>
 							</tr>
 							<tr>
-								<td class="key">Description</td>
+								<td >Description</td>
 								<td><%= text_area_tag("description", @description, :size=>"50x4") %></td>
 							</tr>
 							<tr>
-								<td class="key">Snapshot VM memory</td>
+								<td >Snapshot VM memory</td>
 								<td><%= check_box_tag("snap_memory", value="1", checked=false)%></td>
 							</tr>
 						</tbody>
@@ -24,7 +24,7 @@
 	<% if !@edit %>
 		<table width="100%">
 			<tr>
-				<td align="right">
+				<td class="text-right">
 					<%= image_submit_tag("/images/formbuttons/create.png",  :width=>"80", :height=>"35", :name=>"create", :class=>"button", :alt=>"Create snapshot", :title=>"Create snapshot") %>
 					<%= image_submit_tag("/images/formbuttons/cancel.png",  :width=>"80", :height=>"35", :name=>"cancel", :class=>"button", :alt=>"Cancel", :title=>"Cancel") %>
 				</td>

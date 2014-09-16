@@ -1,13 +1,13 @@
 <div id="proxy_lists">
-    <table class="admintable">
+    <table class="table table-striped">
       <tbody>
 				<tr>
-					<td align="left" class="widthed">  Available SmartProxies:</td>
+					<td class="text-left">  Available SmartProxies:</td>
 					<td></td>
-					<td align="left">Selected SmartProxies:</td>
+					<td class="text-left">Selected SmartProxies:</td>
 		      </tr>
 		      <tr>
-						<td align="right" valign="top">
+						<td class="text-right" valign="top">
 
 			    <%= select_tag('available_proxies[]', options_for_select( @edit[:new][:available_proxies].sort), { :multiple=> true, :style=>"width: 450px", :size=>8, :id=>":available_proxies" } ) %>
 
@@ -39,7 +39,7 @@
 				    %>
 				  <% end %>
 			</td>
-			<td align="left" valign="top">
+			<td class="text-left" valign="top">
 			    <%= select_tag('selected_proxies[]', options_for_select( @edit[:new][:selected_proxies], @selected ), { :multiple=> true, :style=>"width: 450px", :size=>8, :id=>"selected_proxies"} ) %>
 			</td>
 		</tr>

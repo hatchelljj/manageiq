@@ -4,7 +4,7 @@
   <p class="lead">Host Based SmartProxy Settings</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Heartbeat Frequency</td>
+      <td >Heartbeat Frequency</td>
       <td width="70">
         <%= select_tag('agent_heartbeat_frequency_mins',
                         options_for_select(Array.new(61) {|i| i},
@@ -20,7 +20,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Read Only Mode</td>
+      <td >Read Only Mode</td>
       <% checked = @edit[:new][:agent][:readonly].to_s == "1" %>
       <td colspan="2">
         <%= check_box_tag("agent_readonly", value="1",
@@ -29,8 +29,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Web Services Listen Port</td>
-      <td class="wide" colspan="2">
+      <td >Web Services Listen Port</td>
+      <td  colspan="2">
         <%= text_field_tag("agent_wsListenPort",
                             @edit[:new][:agent][:wsListenPort],
                             :maxlength=>6,
@@ -38,8 +38,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Log Level</td>
-      <td class="wide" colspan="2">
+      <td >Log Level</td>
+      <td  colspan="2">
         <%= select_tag('agent_log_level',
                         options_for_select(["fatal","error","warn","info","debug"],
                           @edit[:new][:agent][:log][:level]),
@@ -47,8 +47,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Log Wrap Size</td>
-      <td class="wide" colspan="2">
+      <td >Log Wrap Size</td>
+      <td  colspan="2">
           <%= text_field_tag("agent_log_wrapsize",
                               @edit[:new][:agent][:log][:wrap_size],
                               :maxlength=>3,
@@ -57,7 +57,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Log Wrap Time</td>
+      <td >Log Wrap Time</td>
       <td width="70">
         <%= select_tag('agent_log_wraptime_days',
                         options_for_select(Array.new(31) {|i| i},

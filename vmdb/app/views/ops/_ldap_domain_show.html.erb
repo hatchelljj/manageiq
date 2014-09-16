@@ -4,7 +4,7 @@
     <p class="lead">Basic Information</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Name</td>
+        <td >Name</td>
         <td>
           <%= @selected_ld.name %>
         </td>
@@ -15,8 +15,8 @@
     <p class="lead">LDAP Settings</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">User Type</td>
-        <td class="wide">
+        <td >User Type</td>
+        <td >
           <% case @selected_ld.user_type %>
             <% when "mail" %>
               <% user_type = "E-mail Address" %>
@@ -31,7 +31,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">User Suffix:
+        <td >User Suffix:
           <% if @selected_ld.user_type == "dn-cn" %>
             <span id="upn-mail_prefix" style="display:none"><%= h("<user>@") %></span>
             <span id="dn-cn_prefix"><%= h("CN=<user>,") %></span>
@@ -46,7 +46,7 @@
             <span id="dn-uid_prefix" style="display:none"><%= h("UID=<user>,") %></span>
           <% end %>
         </td>
-        <td class="wide">
+        <td >
           <%= @selected_ld.user_suffix %>
         </td>
       </tr>
@@ -56,7 +56,7 @@
     <p class="lead">Role Settings</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Get User Groups from LDAP</td>
+        <td >Get User Groups from LDAP</td>
         <td>
           <%= check_box_tag("get_user_groups", value="1",
                             checked=@selected_ld.get_user_groups,
@@ -64,7 +64,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Get Roles from Home Forest</td>
+        <td >Get Roles from Home Forest</td>
         <td>
           <%= check_box_tag("get_direct_groups", value="1",
                             checked=@selected_ld.get_direct_groups,
@@ -72,7 +72,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Follow Referrals</td>
+        <td >Follow Referrals</td>
         <td>
           <%= check_box_tag("follow_referrals", value="1",
                             checked=@selected_ld.follow_referrals,
@@ -80,20 +80,20 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Base DN</td>
-        <td class="wide">
+        <td >Base DN</td>
+        <td >
           <%= @selected_ld.base_dn %>
         </td>
       </tr>
       <tr>
-        <td class="key">Bind DN</td>
-        <td class="wide">
+        <td >Bind DN</td>
+        <td >
           <%= @selected_ld.authentication_userid %>
         </td>
       </tr>
       <tr>
-        <td class="key">Bind Password</td>
-        <td class="wide">
+        <td >Bind Password</td>
+        <td >
           <%= @selected_ld.authentication_password ? "*******" : "" %>
         </td>
       </tr>
@@ -108,15 +108,15 @@
         <% @selected_ld.ldap_servers.sort{|a,b| a.hostname.to_s <=> b.hostname.to_s}.each_with_index do |svr,i| %>
           <% if i == 0 %>
             <thead>
-              <th class="icon"></th>
+              <th ></th>
               <th>Host Name</th>
               <th>Mode</th>
               <th>Port</th>
             </thead>
             <tbody>
           <% end %>
-          <tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
-            <td class="icon" nowrap>
+          <tr>
+            <td nowrap>
               <img src="/images/icons/new/ldap_server.png" valign="middle" border="0" height="20" width="20" />
             </td>
             <td>

@@ -1,18 +1,18 @@
 	<%= render :partial => "layouts/flash_msg" %>
     <div id="column_lists">
-    <table class="style1">
+    <table class="table table-striped">
 		<tr>
 		  <td>
-		    <table width="50%" class="form" id="formtest">
+		    <table width="50%" class="table table-striped" id="formtest">
 		      <tr>
-				<td align="left" class="widthed">User Group Sequencing for LDAP Look Up:</td>
+				<td class="text-left">User Group Sequencing for LDAP Look Up:</td>
 				<td></td>
 			  </tr>
 		      		<tr>
-						<td align="left" valign="top">
+						<td class="text-left" valign="top">
 							 <%= select_tag('seq_fields[]', options_for_select( @edit[:new][:ldap_groups_list], @selected), { :multiple=> true, :style=>"width: 450px", :size=>20, :id=>"seq_fields" } ) %>
 						</td>
-						<td width="30" align="left" valign="middle">
+						<td width="30" class="text-left" valign="middle">
 							<% if @edit[:new][:ldap_groups].length < 2 %>
 								<%= image_tag("/images/toolbars/up.png", :class=>"dimmed small") %>
 							<% else %>
@@ -36,7 +36,7 @@
 							<% end %>
 						</td>
 		      	</tr>
-						<div class="note">* Select one or more consecutive groups to move up or down.</div>
+						<div class="bg-info"><aside>* Select one or more consecutive groups to move up or down.</aside></div>
 			    </table>
 			  </td>
 			</tr>

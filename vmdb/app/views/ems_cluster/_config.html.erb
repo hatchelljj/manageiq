@@ -1,9 +1,9 @@
-<div class="maincontent">
+<div class="container">
   <%= render :partial => "layouts/flash_msg" %>
   <% if @display == "config_info" %>
-    <dl class="col2">
+    <dl>
       <dd>      
-        <table class="style3">
+        <table class="table table-striped">
           <thead>
             <tr><th colspan="2" align="left">Info</th></tr>
           </thead>
@@ -11,11 +11,11 @@
             <tr><td>Not Available</td></tr>
           <% else %>
             <% @cluster_config.each_slice(2) do |item1, item2| %>
-              <tr class="<%= cycle('row0', 'row1') %>">
-                <td class="label"><%= h(item1[:field]) %></td><td><%= h(item1[:description]) %></td>
+              <tr>
+                <td><%= h(item1[:field]) %></td><td><%= h(item1[:description]) %></td>
               <% if item2 != nil %>
-                <tr class="<%= cycle('row0', 'row1') %>">
-                  <td class="label"><%= h(item2[:field]) %></td><td><%= h(item2[:description]) %></td>
+                <tr>
+                  <td><%= h(item2[:field]) %></td><td><%= h(item2[:description]) %></td>
                 </tr>
               <% end %>
               </tr>

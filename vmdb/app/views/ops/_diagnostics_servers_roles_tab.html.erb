@@ -1,7 +1,7 @@
 <% if @sb[:active_tab] == "diagnostics_servers_roles" %>
   <%= render(:partial=>"layouts/flash_msg") %>
   <% if @temp[:server_tree] %>
-      <dl class="col2">
+      <dl>
         <dd>
           <%= render :partial => "zone_tree" %>
         </dd>

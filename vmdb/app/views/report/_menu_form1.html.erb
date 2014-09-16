@@ -6,10 +6,10 @@
 <div id="menu_div1">
 <%= form_tag( {:action => 'menu_update'}, {:id => "report_menu_form1"}) do %>
   <fieldset style="width:320px;height:450px">
-    <p class="legend"><span id="menu1_legend">Manage Accordions</span></p>
+    <p class="lead"><span id="menu1_lead">Manage Accordions</span></p>
     <div id="folder_lists">
     <%#= render :partial => "layouts/flash_msg" %>
-    <table class="form" cellspacing="3">
+    <table class="table table-striped" cellspacing="3">
       <tr>
         <td valign="top">
           <% @temp[:grid_xml] = params[:grid] if params[:grid] %>
@@ -89,11 +89,11 @@
 </div>
 <div id="menu_div3" style="display:none">
   <fieldset style="width:300px;height:450px">
-    <p class="legend">Manage Accordions & Folders</p>
+    p class="lead">Manage Accordions & Folders</p>
     <%#= render :partial => "layouts/flash_msg" %>
     <table cellspacing="1">
       <tr>
-        <td align="left">
+        <td class="text-left">
           <span style="color:#4b4b4b;font-size:14px;font-weight:bold;line-height: 22px;">Please select a node at left to edit.</span>
         </td>
       </tr>

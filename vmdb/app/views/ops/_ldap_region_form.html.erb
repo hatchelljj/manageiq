@@ -2,10 +2,10 @@
 <div id="form_div">
 	<%= render :partial => "layouts/flash_msg" %>
   <fieldset>
-    <p class="legend">Basic Information</p>
-    <table class="style1">
+    <p class="lead">Basic Information</p>
+    <table class="table table-striped">
         <tr>
-          <td class="key">Name</td>
+          <td >Name</td>
           <td>
             <%= text_field_tag("name",
                                 @edit[:new][:name],
@@ -15,8 +15,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Description</td>
-          <td class="wide">
+          <td >Description</td>
+          <td >
             <%= text_field_tag("description",
                                @edit[:new][:description],
                                :maxlength=>MAX_DESC_LEN,
@@ -24,8 +24,8 @@
           </td>
         </tr>
       <tr>
-        <td class="key">Zone</td>
-        <td class="wide">
+        <td >Zone</td>
+        <td >
             <%= select_tag('zone_id',
                          options_for_select([["<Choose>",nil]] + @edit[:zones], @edit[:new][:zone_id]),
                          "data-miq_observe"=>{:url=>url}.to_json) %>

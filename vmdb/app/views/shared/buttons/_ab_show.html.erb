@@ -3,7 +3,7 @@
 <table class="table table-striped">
   <tbody>
   <tr>
-    <td class="key">Button Text</td>
+    <td >Button Text</td>
     <td>
       <%= @temp[:custom_button].name %>
       <% display = @temp[:custom_button].options.has_key?(:display) ? @temp[:custom_button].options[:display] : true %>
@@ -15,15 +15,15 @@
     </td>
   </tr>
     <tr>
-      <td class="key">Button Hover Text</td>
-      <td class="notwide"><%= @temp[:custom_button].description %></td>
+      <td >Button Hover Text</td>
+      <td ><%= @temp[:custom_button].description %></td>
     </tr>
     <tr>
-      <td class="key">Image</td>
-      <td class="notwide"><img src="/images/icons/new/custom-<%=@temp[:custom_button].options[:button_image]%>.png" align="left" width="20" height="20"/></td>
+      <td >Image</td>
+      <td ><img src="/images/icons/new/custom-<%=@temp[:custom_button].options[:button_image]%>.png" align="left" width="20" height="20"/></td>
     </tr>
     <tr>
-      <td class="key">Dialog</td>
+      <td >Dialog</td>
       <td><%= h(@sb[:dialog_label]) %>
     </tr>
   </tbody>
@@ -34,15 +34,15 @@
 <table class="table table-striped">
   <tbody>
     <tr>
-      <td class="key">System/Process/</td>
+      <td >System/Process/</td>
       <td><%= h(@resolve[:new][:instance_name]) %></td>
     </tr>
     <tr>
-      <td class="key">Message</td>
+      <td >Message</td>
       <td><%= h(@resolve[:new][:object_message]) %></td>
     </tr>
     <tr>
-      <td class="key">Request</td>
+      <td >Request</td>
       <td><%= h(@resolve[:new][:object_request]) %></td>
     </tr>
     </tbody>
@@ -52,12 +52,12 @@
 <table class="table table-striped">
   <tbody>
     <tr>
-      <td class="key">Type</td>
-      <td class="notwide"><%= @resolve[:new][:target_class] %></td>
+      <td >Type</td>
+      <td ><%= @resolve[:new][:target_class] %></td>
     </tr>
     <% if @resolve[:new][:target_class] && !@resolve[:new][:target_class].blank? %>
       <tr>
-        <td class="key">Selection</td>
+        <td >Selection</td>
         <td>
           <%= h(@resolve[:new][:target_id]) %>
         </td>
@@ -76,9 +76,9 @@
   <table class="table table-striped">
     <% @resolve[:new][:attrs].each_with_index do |attr, i| %>
       <tr>
-        <td class="key"><%= (i+1).to_s %></td>
-        <td class="wide"><%= h(attr[0]) %></td>
-        <td class="wide"><%= h(attr[1]) %></td>
+        <td ><%= (i+1).to_s %></td>
+        <td ><%= h(attr[0]) %></td>
+        <td ><%= h(attr[1]) %></td>
       </tr>
     <% end %>
   </table>
@@ -89,12 +89,12 @@
   <% show_to = @temp[:custom_button].visibility.nil? || (@temp[:custom_button].visibility && @temp[:custom_button].visibility[:roles] && @temp[:custom_button].visibility[:roles][0] == "_ALL_") ? "To All" : "By Role" %>
   <tbody>
     <tr>
-      <td class="key">Show</td>
+      <td >Show</td>
       <td><%= h(show_to) %></td>
     </tr>
     <% if show_to == "By Role" && !@sb[:user_roles].blank? %>
       <tr>
-        <td class="key">User Roles</td>
+        <td >User Roles</td>
         <td><%= h(@sb[:user_roles].join(", ")) %></td>
       </tr>
     <% end %>

@@ -23,7 +23,7 @@
 <%# These are the initial divs that will go inside center_cell_div %>
 <% if @record %><%# Showing a specific VM or Template record %>
 
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
     <% if @showtype == "performance" %>
       <%= render(:partial => "layouts/performance") %>
       <script>
@@ -41,7 +41,7 @@
 
 <% else %>                                      <%# Showing a list of VMs %>
 
-  <div id="main_div" class="main_div">
+  <div id="main_div" class="container">
       <%= render(:partial => 'layouts/x_gtl') %>
   </div>
 

@@ -4,14 +4,14 @@
 <div id="tab_div">
 	<%= form_tag( {:action => 'update'}, {:id => "config_form"}) do %>
 
-		<dl class="col2">
+		<dl >
 			<dd>
 					<fieldset>
-						<p class="legend">Grid/Tile Icons</p>
+						<p class="lead">Grid/Tile Icons</p>
 						<table class="table table-striped">
               <% if role_allows(:feature=>"ems_infra_show_list") %>
                 <tr>
-                  <td class="key">Show <%=ui_lookup(:table=>"ems_infra")%> Quadrants</td>
+                  <td >Show <%=ui_lookup(:table=>"ems_infra")%> Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_ems", value="1",
                                         checked=@edit[:new][:quadicons][:ems],
@@ -21,7 +21,7 @@
               <% end %>
               <% if role_allows(:feature=>"ems_cloud_show_list") %>
                 <tr>
-                  <td class="key">Show <%=ui_lookup(:table=>"ems_cloud")%> Quadrants</td>
+                  <td >Show <%=ui_lookup(:table=>"ems_cloud")%> Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_ems_cloud", value="1",
                                       checked=@edit[:new][:quadicons][:ems_cloud],
@@ -31,7 +31,7 @@
               <% end %>
               <% if role_allows(:feature=>"host_show_list") %>
                 <tr>
-                  <td class="key">Show Host Quadrants</td>
+                  <td >Show Host Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_host", value="1",
                                         checked=@edit[:new][:quadicons][:host],
@@ -43,7 +43,7 @@
 
 <% if false %><%# Commented until we have host item quads %>
 								<tr>
-									<td class="key">Show Host Item Quadrants</td>
+									<td >Show Host Item Quadrants</td>
 									<td>
                     <%= check_box_tag("quadicons_hostitem", value="1",
                                         checked=@edit[:new][:quadicons][:hostitem],
@@ -53,7 +53,7 @@
 <% end %>
               <% if role_allows(:feature=>"storage_show_list") %>
                 <tr>
-                  <td class="key">Show <%=ui_lookup(:table=>"storages")%> Quadrants</td>
+                  <td >Show <%=ui_lookup(:table=>"storages")%> Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_storage", value="1",
                                       checked=@edit[:new][:quadicons][:storage],
@@ -61,7 +61,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="key">Show <%=ui_lookup(:table=>"storages")%> Item Quadrants</td>
+                  <td >Show <%=ui_lookup(:table=>"storages")%> Item Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_storageitem", value="1",
                                       checked=@edit[:new][:quadicons][:storageitem],
@@ -70,7 +70,7 @@
                 </tr>
               <% end %>
               <tr>
-                <td class="key">Show VM Quadrants</td>
+                <td >Show VM Quadrants</td>
                 <td>
                   <%= check_box_tag("quadicons_vm", value="1",
                                       checked=@edit[:new][:quadicons][:vm],
@@ -78,7 +78,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="key">Show VM Item Quadrants</td>
+                <td >Show VM Item Quadrants</td>
                 <td>
                   <%= check_box_tag("quadicons_vmitem", value="1",
                                       checked=@edit[:new][:quadicons][:vmitem],
@@ -86,7 +86,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="key">Show Template Quadrants</td>
+                <td >Show Template Quadrants</td>
                 <td>
                   <%= check_box_tag("quadicons_miq_template", value="1",
                                       checked=@edit[:new][:quadicons][:miq_template],
@@ -95,7 +95,7 @@
               </tr>
               <% if get_vmdb_config[:product][:vdi] %>
                 <tr>
-                  <td class="key">Show VM VDI Quadrants</td>
+                  <td >Show VM VDI Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_vmvdi", value="1",
                                         checked=@edit[:new][:quadicons][:vmvdi],
@@ -103,7 +103,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="key">Show VDI Controller Quadrants</td>
+                  <td >Show VDI Controller Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_vdicontroller", value="1",
                                         checked=@edit[:new][:quadicons][:vdicontroller],
@@ -111,7 +111,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="key">Show VDI Desktop Pools Quadrants</td>
+                  <td >Show VDI Desktop Pools Quadrants</td>
                   <td>
                     <%= check_box_tag("quadicons_vdidesktoppool", value="1",
                                         checked=@edit[:new][:quadicons][:vdidesktoppool],
@@ -120,7 +120,7 @@
                 </tr>
               <% end %>
               <tr>
-                <td class="key">Truncate Long Text</td>
+                <td >Truncate Long Text</td>
                 <td>
                   <%= select_tag("quad_truncate",
                                  options_for_select([["Front (...1234)", "f"],["Middle (AB...34)", "m"], ["Back (ABCD...)", "b"]], @edit[:new][:display][:quad_truncate]),
@@ -134,7 +134,7 @@
 						<p class="legend">Start Page</p>
 						<table class="table table-striped">
               <tr>
-                <td class="key">Show at Login</td>
+                <td >Show at Login</td>
                 <td>
                   <%= select_tag("start_page",
                                     options_for_select(session[:start_pages], @edit[:new][:display][:startpage]),
@@ -149,7 +149,7 @@
 						<p class="legend">Default Items Per Page</p>
 						<table class="table table-striped">
               <tr>
-                <td class="key">Grid View</td>
+                <td >Grid View</td>
                 <td>
                   <%= select_tag("perpage_grid",
                                     options_for_select(PPCHOICES, @edit[:new][:perpage][:grid]),
@@ -157,7 +157,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="key">Tile View</td>
+                <td >Tile View</td>
                 <td>
                   <%= select_tag("perpage_tile",
                                     options_for_select(PPCHOICES, @edit[:new][:perpage][:tile]),
@@ -165,7 +165,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="key">List View</td>
+                <td >List View</td>
                 <td>
                   <%= select_tag("perpage_list",
                                     options_for_select(PPCHOICES, @edit[:new][:perpage][:list]),
@@ -173,7 +173,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="key">Reports</td>
+                <td >Reports</td>
                 <td>
                   <%= select_tag("perpage_reports",
                                     options_for_select(PPCHOICES, @edit[:new][:perpage][:reports]),
@@ -186,8 +186,8 @@
 						<p class="legend">Display Settings</p>
 						<table class="table table-striped">
  				                  <tr>
-                <td class="key">Time Zone</td>
-                <td class="wide">
+                <td >Time Zone</td>
+                <td >
                   <%= select_tag("display_timezone",
                                     options_for_select(ALL_TIMEZONES, @edit[:new][:display][:timezone]),
                                     "data-miq_observe"=>{:url=>url}.to_json) %>

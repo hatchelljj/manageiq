@@ -3,8 +3,8 @@
 <%# JSON hash to hold text fields and types for miqValueStylePrefill %>
 <%= javascript_tag("miq_value_styles = {};") %>
 <div id="styling_div">
-  <p class="legend">Specify Column Styles</p>
-  <table class="style3">
+  <p class="lead">Specify Column Styles</p>
+  <table class="table table-striped">
     <thead>
       <tr>
         <% len = 0 %>
@@ -23,7 +23,7 @@
         <% col_name = f.last.include?(".") ? f.last.split(".").last.gsub("-", ".") : f.last.split("-").last %>
         <% styles = @edit.fetch_path(:new, :col_options, col_name, :style) || [] %>
         <tr>
-          <td class="key"><%= h(f.first) %></td>
+          <td ><%= h(f.first) %></td>
           <td>
             <% (0..2).each do |s_idx| %>
               <% break if s_idx > 0 &&
@@ -52,7 +52,7 @@
                 <%= select_tag("styleop_#{f_idx}_#{s_idx}",
                               options_for_select([["Default", "DEFAULT"]] + MiqExpression.get_col_style_operators(f.last),
                                                 styles[s_idx].nil? ? nil : styles[s_idx][:operator]),
-                              :multiple=>false, :class=>"widthed",
+                              :multiple=>false, 
                               "data-miq_sparkle_on"=>true,
                               "data-miq_observe"=>{:url=>url}.to_json) %>
                 <% unless styles[s_idx][:operator] == nil ||
@@ -64,7 +64,7 @@
                     <%= select_tag("styleval_#{f_idx}_#{s_idx}",
                                   options_for_select(values,
                                                     styles[s_idx][:value]),
-                                  :multiple=>false, :class=>"widthed",
+                                  :multiple=>false, 
                                   "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                   "data-miq_observe"=>{:url=>url}.to_json) %>
                   <% elsif [:datetime, :date].include?(field_type) %>
@@ -92,7 +92,7 @@
                       <%= select_tag("stylesuffix_#{f_idx}_#{s_idx}",
                                     options_for_select(FORMAT_SUB_TYPES[field_type][:units],
                                                       styles[s_idx][:value_suffix]),
-                                    :multiple=>false, :class=>"widthed",
+                                    :multiple=>false, 
                                     "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                     "data-miq_observe"=>{:url=>url}.to_json) %>
                     <% end %>
@@ -104,7 +104,7 @@
             <% end %>
           </td>
           <td>
-            <table class="admintable" cellspacing="0" cellpadding="0" style="padding:0px">
+            <table class="table table-striped" cellspacing="0" cellpadding="0" style="padding:0px">
               <tbody>
                 <% (0..2).each do |s_idx| %>
                   <tr style="padding:0px">

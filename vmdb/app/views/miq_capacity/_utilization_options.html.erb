@@ -6,8 +6,8 @@
   <p class="lead">Options</p>
   <table class="table table-striped">
     <tr>
-      <td class="key" style="width:120px; ">Trends for past</td>
-      <td class="wide" style="padding-right: 5px">
+      <td  style="width:120px; ">Trends for past</td>
+      <td  style="padding-right: 5px">
         <%= select_tag("#{cap_type}_days",
                        options_for_select(WEEK_CHOICES.invert.sort{|a,b|a.last<=>b.last},
                        @sb[:util][:options][:days].to_i),
@@ -19,7 +19,7 @@
   </table>
   <table class="table table-striped">
     <tr>
-      <td class="key" style="width:120px; ">Classification</td>
+      <td  style="width:120px; ">Classification</td>
       <td style="padding-right: 5px">
         <%= select_tag("#{cap_type}_tag",
                        options_for_select([["<None>","<None>"]] + (@sb[:util][:tags] ? @sb[:util][:tags].invert.sort : []),
@@ -32,8 +32,8 @@
   </table>
   <table class="table table-striped">
     <tr>
-      <td class="key" style="width:120px">Time Profile</td>
-      <td class="wide" style="padding-right: 5px" valign="top">
+      <td  style="width:120px">Time Profile</td>
+      <td  style="padding-right: 5px" valign="top">
         <% if session[:time_profiles].blank? %>
           No Time Profiles found
         <% elsif session[:time_profiles].length == 1 %>  <%# Only 1 choice, show the value %>
@@ -50,8 +50,8 @@
     </tr>
     <% if ["summ"].include?(cap_type) %>
       <tr>
-        <td class="key" style="width:120px">Selected Day</td>
-        <td class="wide" style="padding-right: 5px" >
+        <td  style="width:120px">Selected Day</td>
+        <td  style="padding-right: 5px" >
           <%= text_field_tag("miq_date_1",
                              @sb[:util][:options][:chart_date],
                              :readonly               => "true",
@@ -62,8 +62,8 @@
       </tr>
     <% elsif ["report"].include?(cap_type) %>
       <tr>
-        <td class="key" style="width:120px">Selected Day</td>
-        <td class="wide" style="padding-right: 5px" >
+        <td  style="width:120px">Selected Day</td>
+        <td  style="padding-right: 5px" >
           <%= text_field_tag("miq_date_2",
                               @sb[:util][:options][:chart_date],
                               :readonly               => "true",

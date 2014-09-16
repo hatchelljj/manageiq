@@ -24,7 +24,7 @@
   var miq_cal_dateTo = null
 </script>
 
-<div id="main_div" class="main_div">
+<div id="main_div" class="container">
   <% if role_allows(:feature => "ops_settings") || role_allows(:feature => "ops_rbac") || role_allows(:feature => "ops_diagnostics") || role_allows(:feature => "ops_db") %>
     <div id="tab_all_tabs_div"><%= render :partial => "all_tabs" %></div>
   <% end %>

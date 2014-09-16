@@ -7,12 +7,12 @@
     %p
     %table.table.table-striped
       %tr
-        %td.key From Domain
-        %td.wide
+        %td From Domain
+        %td
           = @edit[:domain_name]
       %tr
-        %td.key To Domain
-        %td.wide
+        %td To Domain
+        %td
           - if @edit[:domains].length == 1
             = @edit[:domains].first.last
           - else
@@ -22,13 +22,13 @@
               "data-miq_observe" => {:url => url}.to_json)
       - if @edit[:selected_items].length == 1 && @edit[:new][:domain].to_i == @edit[:domain_id]
         %tr
-          %td.key New Name
-          %td.wider
+          %td New Name
+          %td
             = text_field_tag("new_name", @edit[:new][:new_name],
               "data-miq_observe"=>{:interval=>'.5', :url=>url}.to_json)
 
       %tr
-        %td.key Copy to same path
+        %td Copy to same path
         %td
           = check_box_tag("override_source",
                           value   = "1",
@@ -37,7 +37,7 @@
                           "data-miq_observe_checkbox" => {:url => url}.to_json)
       - if %w(MiqAeInstance MiqAeMethod).include?(@edit[:typ].to_s)
         %tr
-          %td.key Replace items if they already exist?
+          %td Replace items if they already exist?
           %td
             =check_box_tag("override_existing",
                            value   = "1",
@@ -46,8 +46,8 @@
                            "data-miq_observe_checkbox" => {:url => url}.to_json)
       - unless @edit[:new][:override_source]
         %tr
-          %td.key Namespace
-          %td.wider
+          %td Namespace
+          %td
             = text_field_tag("namespace",
                              @edit[:new][:namespace],
                              :onFocus => 'miqShowAE_Tree("namespace");miqButtons(false);')

@@ -58,7 +58,7 @@
           %th Last Message
         %tbody
           -Array(@updates).each do |update|
-            %tr{:class => cycle('row0', 'row1')}
+            %tr
               %td.checkbox
                 = check_box_tag('check_server_'+update.id.to_s, 1,
                                 update.checked,

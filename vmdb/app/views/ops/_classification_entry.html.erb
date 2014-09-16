@@ -1,6 +1,6 @@
 <% if edit %>
 	<% if entry == "new" %>
-		<tr id="new_tr" class="<%= cycle('row0', 'row1') %>">
+		<tr id="new_tr" >
 			<td>
 				<%= image_submit_tag("/images/toolbars/import.png",
 																						:class=>"rollover small",
@@ -18,7 +18,7 @@
 			<td></td>-->
 		</tr>
 	<% else %>
-		<tr id="<%= "#{entry.id}_tr" %>" class="<%= cycle('row0', 'row1') %>">
+		<tr id="<%= "#{entry.id}_tr" %>" >
 			<td>
 				<%= image_submit_tag("/images/toolbars/import.png",
 																						:class=>"rollover small",
@@ -38,9 +38,9 @@
 	<% end %>
 <% else %>
 	<% if entry == "new" %>
-		<tr id="new_tr" class="<%= cycle('row0', 'row1') %>" onclick="<%= remote_function(:url=>{:action=>'ce_select', :id=>'new'}) %>" title="Click to add a new entry">
-			<td class="icon">
-				<ul class="icons">
+		<tr id="new_tr"  onclick="<%= remote_function(:url=>{:action=>'ce_select', :id=>'new'}) %>" title="Click to add a new entry">
+			<td >
+				<ul >
 					<li>
 						<span class="glyphicon glyphicon-plus">
 					</li>
@@ -52,9 +52,9 @@
 			<td></td>-->
 		</tr>
 	<% else %>
-		<tr id="<%= "#{entry.id}_tr" %>" class="<%= cycle('row0', 'row1') %>">
-			<td onclick="<%= remote_function(:url=>{:action=>'ce_delete', :id=>entry.id}, :confirm=>"Deleting the '#{entry.name}' entry will also unassign it from all items, are you sure?") %>" title="Click to delete this entry" class="icon">
-				<ul class="icons">
+		<tr id="<%= "#{entry.id}_tr" %>" >
+			<td onclick="<%= remote_function(:url=>{:action=>'ce_delete', :id=>entry.id}, :confirm=>"Deleting the '#{entry.name}' entry will also unassign it from all items, are you sure?") %>" title="Click to delete this entry" >
+				<ul >
 					<li>
 						<span class="glyphicon glyphicon-remove-circle"></span>
 					</li>

@@ -1,12 +1,12 @@
 <div id="main_div">
 
 	<fieldset>
-		<p class="legend">Automations Tasks</p>
+		<p class="lead">Automations Tasks</p>
 		<% at =  @miq_request.automation_tasks %>
 		<% if at.empty? %>
 			No Records found
 		<% else %>
-			<table class="style3">
+			<table class="table table-striped">
 				<tbody>
 					<th>Description</th>
 					<th>State</th>

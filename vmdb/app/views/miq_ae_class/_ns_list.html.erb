@@ -33,20 +33,20 @@
       <table class="table table-striped">
         <% unless @ae_ns.domain? %>
           <tr>
-            <td class="key">
+            <td >
               <%= Dictionary::gettext('fqname', 
                                       :type     => :column,
                                       :notfound => :titleize)
               %>
             </td>
-            <td class="wide">
+            <td >
               <%= h(@sb[:namespace_path]) %>
             </td>
           </tr>
         <% end %>
         <tr>
-          <td class="key">Name</td>
-          <td class="wide">
+          <td >Name</td>
+          <td >
             <%= text_field_tag("ns_name",
                                 @edit[:new][:ns_name],
                                 :maxlength         => MAX_NAME_LEN,
@@ -57,8 +57,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Description</td>
-          <td class="wide">
+          <td >Description</td>
+          <td >
             <%= text_field_tag("ns_description",
                                   @edit[:new][:ns_description],
                                   :maxlength         => MAX_NAME_LEN,
@@ -69,7 +69,7 @@
         </tr>
         <% if @ae_ns.domain? %>
           <tr>
-            <td class="key">Enabled</td>
+            <td >Enabled</td>
             <td>
               <%= check_box_tag("ns_enabled",
                                 value   = "1",

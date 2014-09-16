@@ -3,12 +3,12 @@
 <%= render :partial => "layouts/flash_msg" %>
 
 			<fieldset>
-				<p class="legend">Available Builds</p>
-				<table class="style1">
+				<p class="lead">Available Builds</p>
+				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td class="key">Install SmartHost Build Number</td>
-							<td class="notwide"><%= select_tag('install_build', options_for_select(@agent_choices.sort, @agent_choices.last), "data-miq_focus"=>true) %></td>
+							<td>Install SmartHost Build Number</td>
+							<td><%= select_tag('install_build', options_for_select(@agent_choices.sort, @agent_choices.last), "data-miq_focus"=>true) %></td>
 						</tr>
 					</tbody>
 				</table>

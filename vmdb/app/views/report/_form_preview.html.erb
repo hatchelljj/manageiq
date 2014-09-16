@@ -2,7 +2,7 @@
 <% if @html %>
   <% if !@edit[:tl_xml].nil? %>
     <fieldset>
-      <p class="legend">Timeline Preview (up to 50 rows)</p>
+      <p class="lead">Timeline Preview (up to 50 rows)</p>
 
       <div id="miq_timeline" style="height: 500px; border: 1px solid #aaa"></div>
 
@@ -17,7 +17,7 @@
 
   <% if !@edit[:zgraph_xml].nil? %>
     <fieldset>
-      <p class="legend">Chart Preview (up to 50 rows)</p>
+      <p class="lead">Chart Preview (up to 50 rows)</p>
       <%=
         width, height = @html ? [350, 250] : [700, 500]
         chart_remote('report',
@@ -32,13 +32,13 @@
 
   <% if @html %>
     <fieldset>
-      <p class="legend">Report Preview (up to 50 rows)</p>
+      <p class="lead">Report Preview (up to 50 rows)</p>
       <%= @html.html_safe %>
     </fieldset>
   <% end %>
 <% else %>
   <fieldset>
-    <p class="legend">Generate Report Preview</p>
+    <p class="lead">Generate Report Preview</p>
     <table width="100%">
       <tr>
         <td align="right">

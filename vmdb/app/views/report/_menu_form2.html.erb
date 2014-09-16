@@ -2,17 +2,17 @@
 <% if @selected && @selected[1] && (!@edit[:selected_reports].blank? || !@edit[:available_reports].blank?) %>
 <%= form_tag( {:action => 'menu_update'}, {:id => "report_menu_form2"}) do %>
   <fieldset style=" height:450px">
-    <p class="legend">Manage Reports</p>
+    <p class="lead">Manage Reports</p>
     <div id="column_lists">
-      <table class="admintable">
+      <table class="table table-striped">
         <tr>
-          <td align="left" >Selected Reports:</td>
+          <td class="text-left" >Selected Reports:</td>
           <td></td>
-          <td align="left">Available Reports:</td>
+          <td class="text-left">Available Reports:</td>
           <td></td>
         </tr>
         <tr>
-          <td align="right" >
+          <td class="text-right" >
           <%= select_tag('selected_reports[]', options_for_select(@edit[:selected_reports], @selected_reps), { :multiple=> true, :style=>"width: 280px; height: 310px;", :id=>"selected_reports"} ) %>
           </td>
           <td width="20" valign="middle">
@@ -88,12 +88,12 @@
               %>
             <% end %>
           </td>
-          <td align="left" >
+          <td class="text-left" >
             <%= select_tag('available_reports[]', options_for_select( @edit[:available_reports].sort), { :multiple=> true, :style=>"width: 280px; height: 310px;", :id=>"available_reports"} ) %>
           </td>
         </tr>
         <tr>
-          <td colspan="3" align="right">
+          <td colspan="3" class="text-right">
             <div style="width: 67px; float: right; margin-bottom: 2px">
 
                   <%= link_to(image_tag('/images/toolbars/commit.png',

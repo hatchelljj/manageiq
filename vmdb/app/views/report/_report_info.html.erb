@@ -1,23 +1,23 @@
 <%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10, :div_num=>"_report_list"}) %>
 <% if @sb[:active_tab] == "report_info" %>
   <% if @sb[:miq_report_id] && @miq_report %>
-    <p class="legend"><%= @miq_report.name %></p>
-    <table class="style1">
+    <p class="lead"><%= @miq_report.name %></p>
+    <table class="table table-striped">
       <tbody>
         <tr>
-          <td class="key">Title</td>
-          <td class="notwide"><%= @miq_report.title %></td>
+          <td >Title</td>
+          <td ><%= @miq_report.title %></td>
         </tr>
         <% if @miq_report.conditions %>
           <tr>
-            <td class="key">Primary (Record) Filter</td>
-            <td class="notwide"><%= @miq_report.conditions.to_human %></td>
+            <td >Primary (Record) Filter</td>
+            <td ><%= @miq_report.conditions.to_human %></td>
           </tr>
         <% end %>
         <% if @miq_report.display_filter %>
           <tr>
-            <td class="key">Secondary (Display) Filter</td>
-            <td class="notwide"><%= @miq_report.display_filter.to_human %></td>
+            <td >Secondary (Display) Filter</td>
+            <td ><%= @miq_report.display_filter.to_human %></td>
           </tr>
         <% end %>
         <% if @miq_report.sortby %>
@@ -26,33 +26,33 @@
             <% sortby.push(Dictionary::gettext(s, :type=>:column, :notfound=>:titleize)) %>
           <% end %>
           <tr>
-            <td class="key">Sort By</td>
-            <td class="notwide">
+            <td >Sort By</td>
+            <td >
               <%= sortby.join(", ") %>
             </td>
           </tr>
         <% end %>
         <% if @miq_report.graph %>
           <tr>
-            <td class="key">Chart</td>
-            <td class="notwide"><%= @miq_report.graph[:type] %></td>
+            <td >Chart</td>
+            <td ><%= @miq_report.graph[:type] %></td>
           </tr>
         <% end %>
         <tr>
-          <td class="key">Based On</td>
-          <td class="notwide"><%= Dictionary::gettext(@miq_report.db, :type=>:model, :notfound=>:titleize) %></td>
+          <td >Based On</td>
+          <td ><%= Dictionary::gettext(@miq_report.db, :type=>:model, :notfound=>:titleize) %></td>
         </tr>
         <tr>
-          <td class="key">User</td>
-          <td class="notwide"><%= @miq_report.user ? @miq_report.user.userid : "" %></td>
+          <td >User</td>
+          <td ><%= @miq_report.user ? @miq_report.user.userid : "" %></td>
         </tr>
         <tr>
-          <td class="key"><%= Dictionary::gettext("MiqGroup", :type=>:model, :notfound=>:titleize) %></td>
-          <td class="notwide"><%= @miq_report.miq_group ? @miq_report.miq_group.description : "" %></td>
+          <td ><%= Dictionary::gettext("MiqGroup", :type=>:model, :notfound=>:titleize) %></td>
+          <td ><%= @miq_report.miq_group ? @miq_report.miq_group.description : "" %></td>
         </tr>
         <tr>
-          <td class="key">Updated On</td>
-          <td class="notwide">
+          <td >Updated On</td>
+          <td >
             <%= format_timezone(@miq_report.updated_on,Time.zone,"gtl") %>
           </td>
         </tr>
@@ -60,16 +60,16 @@
     </table>
     <hr>
   <% end %>
-  <p class="legend">Schedules</p>
+  <p class="lead">Schedules</p>
   <% if @temp[:schedules].blank? %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-info">
+      <span class=glyphicon glyphicon-info-sign"></span>
       <strong>Report is not Scheduled.</strong>
     </div>
   <% else %>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
-        <th class="icon"></th>
+        <th ></th>
         <th>Name</th>
         <th>Description</th>
         <th>Active</th>
@@ -86,13 +86,13 @@
         <%	tz = s.run_at && s.run_at[:tz] ?
                 s.run_at[:tz] : session[:user_tz] %>
         <% if role_allows(:feature=>"miq_report_schedules") %>
-          <tr class="<%= cycle('row0', 'row1') %>"
+          <tr
             onclick="<%= remote_function(:url=>"/report/x_show/msc-#{to_cid(s.id)}?accord=schedules") %>"
             onmouseover="this.style.cursor='pointer'" title="View this Schedule">
         <% else %>
           <tr>
         <% end %>
-          <td class="icon" nowrap>
+          <td nowrap>
             <img src="/images/icons/new/miq_schedule.png" valign="middle" border="0" height="20" width="20" />
           </td>
           <td><%= s.name %></td>
@@ -122,16 +122,16 @@
       </tbody>
     </table>
   <% end %>
-    <p class="legend">Widgets</p>
+    <p class="lead">Widgets</p>
     <% if @temp[:widget_nodes].nil? || (@temp[:widget_nodes] && @temp[:widget_nodes].empty?) %>
-      <div class="alert alert-info">
-        <span class="pficon pficon-info"></span>
+      <div class="bg-warning">
+        <span class="glyphicon glyphicon-info-sign"></span>
         <strong>Report doesn't belong to Widgets.</strong>
       </div>
     <% else %>
-      <table class="style3">
+      <table class="table table-striped">
         <thead>
-          <th class="icon"></th>
+          <th ></th>
           <th>Title</th>
           <th>Description</th>
           <th>Enabled</th>
@@ -139,13 +139,13 @@
         <tbody>
         <% @temp[:widget_nodes].each do |w| %>
           <% if role_allows(:feature=>"miq_report_widget_editor") %>
-            <tr class="<%= cycle('row0', 'row1') %>"
+            <tr
               onclick="<%= remote_function(:url=>"/report/x_show/xx-#{WIDGET_CONTENT_TYPE.invert[w.content_type]}_-#{to_cid(w.id)}?accord=widgets") %>"
               onmouseover="this.style.cursor='pointer'" title="Click to view selected widget">
           <% else %>
             <tr>
           <% end %>
-            <td class="icon" nowrap>
+            <td nowrap>
                 <img src="/images/icons/new/report_widget.png" valign="middle" border="0" height="20" width="20" />
             </td>
             <td>

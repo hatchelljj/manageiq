@@ -2,10 +2,10 @@
 <div id="cb_assignment_div" style="width:100%;height:100%;overflow:auto">
 	<%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
   <fieldset>
-    <p class="legend">Basic Info</p>
-      <table class="style1">
+    <p class="lead">Basic Info</p>
+      <table class="table table-striped">
         <tr>
-          <td class="key">Assign To</td>
+          <td >Assign To</td>
           <td>
              <%= select_tag("cbshow_typ",
                                options_for_select(
@@ -17,7 +17,7 @@
         </tr>
         <% if !@edit[:new][:cbshow_typ].blank? && @edit[:new][:cbshow_typ].ends_with?("-tags")%>
           <tr>
-            <td class="key">Tag Category</td>
+            <td >Tag Category</td>
             <td>
                <%= select_tag("cbtag_cat",
                                options_for_select(
@@ -32,9 +32,9 @@
           <% if !@edit[:new][:cbshow_typ].ends_with?("-tags") ||
               (@edit[:new][:cbshow_typ].ends_with?("-tags") && !@edit[:new][:cbtag_cat].blank?)%>
             <tr>
-              <td class="key">Selections</td>
+              <td >Selections</td>
               <td>
-                <table class="style3">
+                <table class="table table-striped">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -44,7 +44,7 @@
                   <tbody>
                     <% if @edit[:new][:cbshow_typ].ends_with?("-tags") %>
                       <% @edit[:cb_assign][:tags].invert.sort{|a,b|a.first.downcase<=>b.first.downcase}.each do |tag,id| %>
-                        <tr class="<%= cycle('row0', 'row1') %>">
+                        <tr>
                           <td>
                             <%= h(tag) %>
                           </td>
@@ -60,7 +60,7 @@
                       <% end	%>
                     <% else %>
                       <% @edit[:cb_assign][:cis].invert.sort{|a,b|a.first.downcase<=>b.first.downcase}.each do |ci,id| %>
-                        <tr id="new_tr" class="<%= cycle('row0', 'row1') %>">
+                        <tr id="new_tr">
                           <td><%= h(ci) %></td>
                           <td>
                             <%= select_tag("#{@edit[:new][:cbshow_typ]}__#{id}",

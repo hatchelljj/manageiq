@@ -4,29 +4,29 @@
 	<%= render :partial => "layouts/flash_msg" %>
 
 	<fieldset>
-	<p class="legend">Category Information</p>
-		<table class="style1">
+	<p class="lead">Category Information</p>
+		<table class="table table-striped">
 				<% if @category && @category.default == "t" %>
 					<tr>
-						<td class="key">Name</td>
+						<td >Name</td>
 						<td>
 							<%= @edit[:new][:name] %>
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Display Name</td>
+						<td >Display Name</td>
 						<td>
 							<%= @edit[:new][:description] %>
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Description</td>
+						<td >Description</td>
 						<td>
 							<%= @edit[:new][:example_text] %>
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Show in Console</td>
+						<td >Show in Console</td>
 						<td>
 							<% checked = @edit[:new][:show] ? true : false %>
                  <%= check_box_tag("show", value="1",
@@ -35,7 +35,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Single Value</td>
+						<td >Single Value</td>
 						<td>
 							<% checked = @edit[:new][:single_value] ? true : false %>
 							<% disabled = true %>
@@ -46,7 +46,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Capture C&amp;U Data by Tag</td>
+						<td >Capture C&amp;U Data by Tag</td>
 						<td>
 							<% checked = @edit[:new][:perf_by_tag] ? true : false %>
                  <%= check_box_tag("perf_by_tag", value="1",
@@ -57,7 +57,7 @@
 				<% else %>
 					<% disabled = @category.nil? ? false : true %>
 					<tr>
-						<td class="key">Name</td>
+						<td >Name</td>
 						<td>
                  <%= text_field_tag("name",
                                      @edit[:new][:name],
@@ -67,7 +67,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Display Name</td>
+						<td >Display Name</td>
 						<td>
                  <%= text_field_tag("description",
                                      @edit[:new][:description],
@@ -81,7 +81,7 @@
 						<%= javascript_tag("$j('#description').focus()") %>
 					<% end %>
 					<tr>
-						<td class="key">Description</td>
+						<td >Description</td>
 						<td>
                  <%= text_field_tag("example_text",
                                      @edit[:new][:example_text],
@@ -90,7 +90,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Show in Console</td>
+						<td >Show in Console</td>
 						<td>
 							<% checked = @edit[:new][:show] ? true : false %>
                  <%= check_box_tag("show", value="1",
@@ -99,7 +99,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Single Value</td>
+						<td >Single Value</td>
 						<td>
 							<% checked = @edit[:new][:single_value] ? true : false %>
                  <%= check_box_tag("single_value", value="1",
@@ -109,7 +109,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Capture C&amp;U Data by Tag</td>
+						<td >Capture C&amp;U Data by Tag</td>
 						<td>
 							<% checked = @edit[:new][:perf_by_tag] ? true : false %>
                  <%= check_box_tag("perf_by_tag", value="1",

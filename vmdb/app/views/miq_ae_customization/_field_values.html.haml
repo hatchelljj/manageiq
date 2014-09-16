@@ -6,9 +6,9 @@
       %table.table.table-striped
         %thead
           %tr
-            %th.icon
-            %th.title Value
-            %th.title Description
+            %th
+            %th Value
+            %th Description
         %tbody
           - if entry == "new"
             = render :partial => "field_value_entry", :locals=>{:entry=>"new", :edit=>true}

@@ -19,6 +19,6 @@
   - elsif x_active_tree == :savedreports_tree && x_node.split('-').length == 3 && !@report && @temp[:report_result]
     = render :partial => 'report_status'
   - else
-    #alert.alert-info
-      %span.pficon.pficon-info
+    #alert.bg-warning
+      %span.glyphicon.glyphicon-info-sign
       %strong Choose a Report to view from the menus on the left.

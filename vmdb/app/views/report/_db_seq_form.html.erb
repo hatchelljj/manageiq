@@ -1,12 +1,12 @@
 <div id="column_lists">
 	<%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
-	<table class="admintable">
+	<table class="table table-striped">
 		<tbody>
 	<tr>
 		<td >
-			<table width="50%" class="form" id="formtest">
+			<table width="50%" class="table table-striped" id="formtest">
 				<tr>
-			<td align="left" class="widthed">Dashboards:</td>
+			<td align="left">Dashboards:</td>
 			<td></td>
 			</tr>
 						<tr>
@@ -39,7 +39,7 @@
 						<% end %>
 					</td>
 					</tr>
-					<div class="note">* Select one or more consecutive groups to move up or down.</div>
+					<div class="bg-info"><aside>* Select one or more consecutive groups to move up or down.</aside></div>
 				</table>
 			</td>
 		</tr>

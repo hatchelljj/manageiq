@@ -5,11 +5,11 @@
 	<% if @sb[:chargeback][:report] %>
 
 		<fieldset>
-			<p class="legend">Current Rates</p>
-			<table class="style1">
+			<p class="lead">Current Rates</p>
+			<table class="table table-striped">
 				<% Chargeback::default_rates().sort{|a,b| a.description.downcase<=>b.description.downcase}.each do |r| %>
 					<tr>
-						<td class="key" style="width:250px;"><%= h(r.description) %></td>
+						<td style="width:250px;"><%= h(r.description) %></td>
 						<td><%= h(r.friendly_rate) %></td>
 					</tr>
 				<% end %>

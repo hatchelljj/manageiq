@@ -1,12 +1,12 @@
 <div id="column_lists">
-  <table width="100%" class="form" id="formtest">
+  <table width="100%" class="table table-striped" id="formtest">
     <tr>
-      <td align="left" class="widthed">   UnAssigned:</td>
+      <td class="text-left">   UnAssigned:</td>
       <td></td>
-      <td align="left">Selected:</td>
+      <td class="text-left">Selected:</td>
     </tr>
     <tr>
-      <td align="right" valign="top">
+      <td class="text-right" valign="top">
         <%= select_tag('available_fields[]',
                        options_for_select(@edit[:new][:available_fields]),
                        {:multiple => true, 

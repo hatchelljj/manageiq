@@ -3,7 +3,7 @@
   <p class="lead">Options</p>
   <table class="table table-striped">
     <tr>
-      <td  class="key" style="width:150px">
+      <td    style="width:150px">
         Event Groups</td>
       <td>
         <%= select_tag("tl_#{typ}_fl_grp1",
@@ -17,7 +17,7 @@
     </tr>
     <% unless ["s","h"].include?(x_node.split("-").last.split("_").first) %>
       <tr>
-        <td class="key" style="width:150px">
+        <td   style="width:150px">
           Show Host Events
         </td>
         <td >
@@ -31,7 +31,7 @@
       </tr>
     <% end %>
     <tr>
-      <td class="key" style="width:150px">Time Zone</td>
+      <td   style="width:150px">Time Zone</td>
       <td>
         <%= select_tag("tl_#{typ}_tz",
                        options_for_select(ALL_TIMEZONES,

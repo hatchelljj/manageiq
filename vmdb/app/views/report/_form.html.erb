@@ -3,11 +3,11 @@
   <%= render :partial => '/layouts/tabs' %>
   <%= render :partial => "layouts/flash_msg" %>
   <%= form_tag( {:action => 'create'}, {:id => "report_basic_form"}) do %>
-      <p class="legend">Basic Report Info</p>
-      <table class="style1">
+      <p class="lead">Basic Report Info</p>
+      <table class="table table-striped">
         <tr>
-          <td class="key">Menu Name</td>
-          <td class="wider">
+          <td >Menu Name</td>
+          <td >
             <div id="name_div">
               <%= text_field_tag("name",
                                 @edit[:new][:name].to_s,
@@ -18,8 +18,8 @@
         </tr>
         <%= javascript_tag("$j('#name').focus()") %>
         <tr>
-          <td class="key">Title</td>
-          <td class="wider">
+          <td >Title</td>
+          <td >
             <div id="title_div">
               <%= text_field_tag("title",
                                 @edit[:new][:title],

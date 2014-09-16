@@ -14,16 +14,16 @@
 %>
 
      <fieldset>
-     <p class="legend"><%= display_name %></p>
-    	 <table class="style1">
+     <p class="lead"><%= display_name %></p>
+    	 <table class="table table-striped">
 	       <% if !session[:snap_selected].nil? || @record.snapshots.count > 0 %>
 	         <tr>
-						<td rowspan="9" valign="top" class="key" style="width: 64px"><img src="/images/icons/new/snapshot.png" width="64" height="64"></td>
-						<td class="key">Description</td>
+						<td rowspan="9" valign="top"  style="width: 64px"><img src="/images/icons/new/snapshot.png" width="64" height="64"></td>
+						<td >Description</td>
 						<td><%= selected_id[:description] %></td>
 					</tr>
 					<tr>
-						<td class="key">Size</td>
+						<td >Size</td>
 			<% unless selected_id[:total_size].blank? %>
 						<td>
 					<%= number_to_human_size(selected_id[:total_size],:precision=>2) %> (<%= number_with_delimiter(selected_id[:total_size],:delimiter=>",",:separator=>".") %> bytes)
@@ -31,7 +31,7 @@
 			<% end %>
 				</tr>
 	         <tr>
-						<td class="key">Created On</td>
+						<td >Created On</td>
 						<td>
 				<% if !selected_id[:create_time].blank? %>
 					<%= format_timezone(selected_id[:create_time].to_time,Time.zone,"view") %>
@@ -39,7 +39,7 @@
 					</td>
 				</tr>
 	      <% else %>
-	       <tr class="<%= cycle('row0', 'row1') %>">
+	       <tr >
 	         <td> <strong><%= @record.name %> has no snapshots.</strong>
 	         </td>
 	       </tr>

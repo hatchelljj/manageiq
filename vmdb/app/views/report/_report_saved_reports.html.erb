@@ -2,8 +2,8 @@
   <% if @view && !@view.table.data.empty? %>
     <%= render :partial => 'layouts/x_gtl'%>
   <% else %>
-     <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+     <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>No Saved Reports available.</strong>
     </div>
   <% end %>

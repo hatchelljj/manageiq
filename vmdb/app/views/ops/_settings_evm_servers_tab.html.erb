@@ -4,40 +4,40 @@
     <p class="lead">Relationships</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Servers</td>
-        <td class="wide"><%= @selected_zone.miq_servers.count %></td>
+        <td >Servers</td>
+        <td ><%= @selected_zone.miq_servers.count %></td>
       </tr>
       <tr>
-        <td class="key"><%= ui_lookup(:tables => "ext_management_system")%></td>
-        <td class="wide"><%= @selected_zone.ext_management_systems.count %></td>
+        <td ><%= ui_lookup(:tables => "ext_management_system")%></td>
+        <td ><%= @selected_zone.ext_management_systems.count %></td>
       </tr>
       <tr>
-        <td class="key">Storage Managers</td>
-        <td class="wide"><%= @selected_zone.storage_managers.count %></td>
+        <td >Storage Managers</td>
+        <td ><%= @selected_zone.storage_managers.count %></td>
       </tr>
       <% if get_vmdb_config[:product][:vdi] %>
         <tr>
-          <td class="key">VDI Farms</td>
-          <td class="wide"><%= @selected_zone.vdi_farms.count %></td>
+          <td >VDI Farms</td>
+          <td ><%= @selected_zone.vdi_farms.count %></td>
         </tr>
       <% end %>
       <tr>
-        <td class="key">Schedules</td>
-        <td class="wide"><%= @selected_zone.miq_schedules.count %></td>
+        <td >Schedules</td>
+        <td ><%= @selected_zone.miq_schedules.count %></td>
       </tr>
     </table>
     <hr>
-    <p class="legend">Servers</p>
+    <p class="lead">Servers</p>
     <% if @servers.empty? %>
       <br/><strong>* No Servers Found.</strong>
     <% else %>
       <table class="table table-striped">
         <thead>
-          <th class="icon"></th><th></th>
+          <th ></th><th></th>
         </thead>
         <tbody>
           <% @servers.sort{|a,b| a.id <=> b.id}.each do |s| %>
-            <tr class="<%= cycle('row0', 'row1') %>"
+            <tr
               onclick="cfmeDynatree_activateNode('settings_tree', 'svr-<%= to_cid(s.id) %>');"
               onmouseover="this.style.cursor='pointer'" title="View this MiqServer">
               <td  nowrap>

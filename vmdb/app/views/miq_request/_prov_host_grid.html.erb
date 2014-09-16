@@ -1,5 +1,5 @@
 <div id="prov_host_div" style="height:150px;overflow:auto">
-	<table class="style3">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<%# need to set options from @edit/@option based upon calling screen: show/edit %>
@@ -42,7 +42,7 @@
 			<% @temp[:hosts].each_with_index do |row,i| %>
 				<% @id = row.id %>
 				<% if options[:wf].class.to_s == "MiqHostProvisionWorkflow" %>
-					<tr class="<%= cycle('row0', 'row1') %>" nowrap>
+					<tr nowrap>
 				<% else %>
 					<% cls = @edit[:new][:placement_host_name] && @edit[:new][:placement_host_name][0] == @id ? "row3" : cycle('row0', 'row1') %>
 					<tr class="<%= cls %>" onclick="miqAjax('<%= "/miq_request/prov_field_changed/?" << field_id << "=" << @id.to_s << "&id=" << id.to_s  %>');"	nowrap>

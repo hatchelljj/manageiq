@@ -16,7 +16,7 @@
                       <% if @edit[:qs_tokens][token][:value_type] == :boolean %>
                         <% values = [["<Choose>",""],["true","true"],["false","false"]] %>
                         <%= select_tag("value_#{token}", options_for_select(values, nil),
-                                       :multiple=>false, :class=>"widthed",
+                                       :multiple=>false,
                                        "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                        "data-miq_observe"=>{:url=>url}.to_json) %>
                       <% else %>  <%# String input value %>
@@ -30,7 +30,7 @@
                         <% elsif FORMAT_SUB_TYPES[@edit[:qs_tokens][token][:value_type]][:units] %>
                           <%= select_tag("suffix_#{token}",
                                          options_for_select(FORMAT_SUB_TYPES[@edit[:qs_tokens][token][:value_type]][:units], nil),
-                                         :multiple=>false, :class=>"widthed",
+                                         :multiple=>false,
                                          "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                          "data-miq_observe"=>{:url=>url}.to_json) %>
                         <% end %>
@@ -40,7 +40,7 @@
                       <%= select_tag("value_#{token}",
                                      options_for_select(["<Choose>"] + MiqExpression.get_entry_details(@edit[:qs_tokens][token][:tag]).sort{|a,b| a.first.downcase<=>b.first.downcase},
                                                         nil),
-                                     :multiple=>false, :class=>"widthed",
+                                     :multiple=>false,
                                      "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                                      "data-miq_observe"=>{:url=>url}.to_json) %>
 

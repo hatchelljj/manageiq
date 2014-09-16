@@ -3,11 +3,11 @@
 <%= render :partial => "layouts/flash_msg" %>
 
 <fieldset>
-	<p class="legend">LDAP Search Options</p>
-	<table class="style1">
+	<p class="lead">LDAP Search Options</p>
+	<table class="table table-striped">
     <tr>
-      <td class="key">LDAP Region</td>
-      <td class="wide">
+      <td >LDAP Region</td>
+      <td >
         <%= select_tag('ldap_region',
                        options_for_select([["<Choose>",nil]] + @edit[:ldap_regions].sort, @edit[:new][:ldap_region_id]),
                        "data-miq_observe"=>{:url=>url}.to_json) %>
@@ -15,8 +15,8 @@
     </tr>
     <% unless @edit[:ldap_domains].nil? %>
       <tr>
-        <td class="key">LDAP Domain</td>
-        <td class="wide">
+        <td >LDAP Domain</td>
+        <td >
           <%= select_tag('ldap_domain',
                          options_for_select([["<All>",nil]] + @edit[:ldap_domains].sort, @edit[:new][:ldap_domain_id]),
                          "data-miq_observe"=>{:url=>url}.to_json) %>
@@ -28,8 +28,8 @@
 </fieldset>
 <% if @edit[:users] %>
   <fieldset>
-    <p class="legend">Users to Import</p>
-    <table class="admintable" height="75">
+    <p class="lead">Users to Import</p>
+    <table class="table table-striped" height="75">
       <tbody>
         <tr>
           <td>

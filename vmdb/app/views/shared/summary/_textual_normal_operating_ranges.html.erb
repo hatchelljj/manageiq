@@ -1,11 +1,11 @@
 <% if items %>
-  <table class="style3">
+  <table class="table table-striped">
     <thead>
       <tr><th colspan="2"><%= title %></th></tr>
     </thead>
     <% items.each do |item| %>
-      <tr class="no-hover <%= cycle('row0', 'row1', :name => title) %>">
-        <td class="label"><%= item[:label] %></td>
+      <tr class="no-hover">
+        <td><%= item[:label] %></td>
         <td>
           <table style="line-height:5px;white-space: nowrap">
             <% item[:value].each do |subitem| %>

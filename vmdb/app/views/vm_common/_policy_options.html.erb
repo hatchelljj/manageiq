@@ -2,10 +2,10 @@
 <% url2 = url_for(:action => 'policy_show_options', :id=>@record.id) %>
 <div id="policy_options_div">
 	<fieldset>
-		<p class="legend">Options</p>
-		<table class="style1">
+		<p class="lead">Options</p>
+		<table class="table table-striped">
 					<tr>
-						<td class="key">Show out of scope items:</td>
+						<td >Show out of scope items:</td>
 						<td>
               <%= check_box_tag("out_of_scope", value="1",
                                   checked=@policy_options[:out_of_scope],
@@ -14,7 +14,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="key">Show policies:</td>
+						<td >Show policies:</td>
 							<td>
                 <%= check_box_tag("passed", value="1",
                                   checked=@policy_options[:passed],

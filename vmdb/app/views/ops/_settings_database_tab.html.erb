@@ -10,7 +10,7 @@
   <p class="lead">Database</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Type</td>
+      <td >Type</td>
       <td>
         <%= select_tag('production_dbtype',
                         options_for_select(MiqDbConfig.get_db_types.invert.sort, @edit[:new][:name]),
@@ -21,7 +21,7 @@
     </tr>
     <% @options.each do |option| %>
       <tr>
-        <td class="key"><%= option[:description]%></td>
+        <td ><%= option[:description]%></td>
         <td>
           <% if option[:name].to_s == "password" %>
             <%= password_field_tag("production_#{option[:name]}",
@@ -41,7 +41,7 @@
       </tr>
       <% if option[:name].to_s == "password" %>
         <tr>
-          <td class="key">Verify Password</td>
+          <td >Verify Password</td>
           <td>
             <%= password_field_tag("production_verify",
                                    h(@edit[:new][:verify]),
@@ -68,7 +68,7 @@
         </div>
         <div id="validate_button_off" style="display:<%= @edit[:new][:password] != @edit[:new][:verify] ? "display" : "none" %>;">
           <%= button_tag("Validate", 
-                         :class => "btn btn-primary btn-disabled", 
+                         :class => "btn btn-primary", 
                          :alt   => "Password fields must match to Validate Database Configuration", 
                          :title => "Password fields must match to Validate Database Configuration",
                          :disabled => "disabled" ) 

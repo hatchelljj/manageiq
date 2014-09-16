@@ -8,7 +8,7 @@
     <table class="table table-striped">
       <% if @edit %>
         <tr>
-          <td class="key">Show on Timeline</td>
+          <td >Show on Timeline</td>
           <td>
             <%= check_box_tag("send_evm_event_cb", value="1",
                               checked=@edit[:new][:send_evm_event],

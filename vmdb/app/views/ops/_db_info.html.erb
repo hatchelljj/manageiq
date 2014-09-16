@@ -3,7 +3,7 @@
   <p class="lead">Index: <%= h(@temp[:vmdb_index].name) %></p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Name</td>
+      <td >Name</td>
       <td><%= h(@temp[:vmdb_index].name) %></td>
     </tr>
   </table>
@@ -13,19 +13,19 @@
       <p class="lead">Metrics</p>
       <table class="table table-striped">
         <tr>
-          <td class="key">Rows</td>
+          <td >Rows</td>
           <td><%= h(metrics.rows) %></td>
         </tr>
         <tr>
-          <td class="key">Size</td>
+          <td >Size</td>
           <td><%= number_to_human_size(metrics.size) %></td>
         </tr>
         <tr>
-          <td class="key">Wasted</td>
+          <td >Wasted</td>
           <td><%= number_to_human_size(metrics.wasted_bytes) %></td>
         </tr>
         <tr>
-          <td class="key">Percent Bloat</td>
+          <td >Percent Bloat</td>
           <td><%= h(metrics.percent_bloat) %></td>
         </tr>
       </table>
@@ -36,24 +36,24 @@
     <% metrics = @temp[:table].latest_hourly_metric %>
     <table class="table table-striped">
       <tr>
-        <td class="key">Name</td>
+        <td >Name</td>
         <td><%= h(@temp[:table].name) %></td>
       </tr>
       <% if metrics %>
         <tr>
-          <td class="key">Rows</td>
+          <td >Rows</td>
           <td><%= h(metrics.rows) %></td>
         </tr>
         <tr>
-          <td class="key">Size</td>
+          <td >Size</td>
           <td><%= number_to_human_size(metrics.size) %></td>
         </tr>
         <tr>
-          <td class="key">Wasted</td>
+          <td >Wasted</td>
           <td><%= number_to_human_size(metrics.wasted_bytes) %></td>
         </tr>
         <tr>
-          <td class="key">Percent Bloat</td>
+          <td >Percent Bloat</td>
           <td><%= h(metrics.percent_bloat) %></td>
         </tr>
       <% end %>
@@ -69,7 +69,7 @@
       <table class="table table-striped">
         <%# level2 folders list%>
         <thead>
-          <th class="icon"></th>
+          <th ></th>
           <th>Name</th>
           <th>Rows</th>
           <th>Size</th>
@@ -78,10 +78,10 @@
         </thead>
         <tbody>
           <% @temp[:indexes].each_with_index do |ind,i| %>
-            <tr class="<%= cycle('row0', 'row1') %>"
+            <tr
               onclick="<%= remote_function(:url=>"/ops/x_show/#{ind.id.to_s}") %>"
               onmouseover="this.style.cursor='pointer'" title="Click to view index">
-              <td class="icon" nowrap>
+              <td nowrap>
                 <img src="/images/icons/new/vmdbindex.png" valign="middle" border="0" height="20" width="20" />
               </td>
               <td><%= ind.name %></td>

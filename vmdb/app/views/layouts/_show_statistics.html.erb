@@ -1,5 +1,5 @@
 <%#= render(:partial => "layouts/gtl", :locals=>{:action_url=>"show/#{@record.id.to_s}"}) %>
-<table class="style3">
+<table class="table table-striped">
 		<thead>
 			<tr>
 				<th><%= Dictionary::gettext('statistic_time', :type=>:column, :notfound=>:titleize) %></th>
@@ -26,7 +26,7 @@
 		</thead>
 	<tbody>
 		<% @stats.each.sort{|a,b| b.statistic_time <=> a.statistic_time}.each do |stat| %>
-				<tr class="<%= cycle('row0', 'row1') %>">
+				<tr >
 					<td>
 						<%= h(format_timezone(stat.statistic_time,Time.zone,"compare_hdr")) %>
 					</td>

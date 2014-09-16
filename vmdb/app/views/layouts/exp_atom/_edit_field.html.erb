@@ -53,7 +53,7 @@
       <% if @edit[@expkey][:exp_key] == "RUBY" %>
         <br/>
         <fieldset>
-          <p class="legend">Ruby Script (<span id="ruby_count"><%= @edit[@expkey][:exp_value] ? @edit[@expkey][:exp_value].length : 0 %></span> / 1000)</p>
+          <p class="lead">Ruby Script (<span id="ruby_count"><%= @edit[@expkey][:exp_value] ? @edit[@expkey][:exp_value].length : 0 %></span> / 1000)</p>
           <div style="margin:5px 10px 10px 10px">
             <%= text_area_tag("chosen_value", @edit[@expkey][:exp_value], :rows=>10, :style=>"width:100%",
                               :maxlength=>"1000", :counter=>"ruby_count",

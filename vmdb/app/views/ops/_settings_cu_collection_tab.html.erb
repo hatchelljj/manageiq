@@ -3,13 +3,13 @@
 		<%#  Enterprise level C & U Collection tab %>
 		<%= form_tag( {:action => 'cu_collection_update'}, {:id => "config_form"}) do %>
 		<%= render :partial => "layouts/flash_msg" %>
-			<dl class="col2">
+			<dl>
 				<dd>
 					<fieldset>
 						<p class="lead">Clusters</p>
 							<table class="table table-striped">
 								<tr>
-									<td class="key">Collect for All Clusters</td>
+									<td >Collect for All Clusters</td>
 									<td>
 										<%= check_box_tag("all_clusters", value="1",
 																				checked=@edit[:new][:all_clusters],
@@ -53,7 +53,7 @@
 							<p class="lead"><%= ui_lookup(:tables=>"storages") %></p>
 							<table class="table table-striped">
 								<tr>
-									<td class="key">Collect for All Datastores</td>
+									<td >Collect for All Datastores</td>
 									<td>
 										<%= check_box_tag("all_storages", value="1",
 																				checked=@edit[:new][:all_storages],

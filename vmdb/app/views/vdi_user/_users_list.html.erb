@@ -11,7 +11,7 @@
       Desc. by:
     <% end %>
     <%= @edit[:headers][@edit[:sortcol_idx]] %><br/>
-	<table class="style3">
+	<table class="table table-striped">
 	<thead>
 		<tr>
 			<th class="checkbox" width="10"></th>
@@ -35,7 +35,7 @@
 	</thead>
 	<tbody>
 		<% @edit[:users].each_with_index do |row,i| %>
-			<tr class="<%= cycle('row0 no-hover', 'row1 no-hover') %>">
+			<tr>
 				<td class="checkbox">
           <% if row[:id].nil? %>
             <% checked = @edit[:selected_users] && @edit[:selected_users].include?(row[:idx].to_i) ? true : false%>
@@ -52,7 +52,7 @@
 	</tbody>
 	<tfoot><tr><td colspan="40"></td></tr></tfoot>
 </table>
-<div class="note">* Items without checkboxes already exist as VDI Users.</div>
+<div class="bg-info"><aside>* Items without checkboxes already exist as VDI Users.</aside></div>
 
 <% end %>
 </div>

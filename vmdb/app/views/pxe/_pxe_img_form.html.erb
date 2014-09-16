@@ -3,12 +3,12 @@
 %>
 <div id="form_div">
 	<%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Basic Information</p>
-  <table class="style1">
+  <p class="lead">Basic Information</p>
+  <table class="table table-striped">
     <tbody>
       <tr>
-        <td class="key">Type</td>
-        <td class="wide">
+        <td >Type</td>
+        <td >
           <% img_types = [["<Unkown>",nil]] + @edit[:pxe_image_types] %>
           <%= select_tag("image_typ",
                          options_for_select(img_types,
@@ -18,7 +18,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Windows Boot Environment</td>
+        <td >Windows Boot Environment</td>
         <td>
           <%= check_box_tag("default_for_windows", value="1",
                             checked=@edit[:new][:default_for_windows],

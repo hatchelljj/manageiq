@@ -3,29 +3,29 @@
 %tr
   %td{:colspan => 2} &nbsp;
 %tr
-  %td.key Service
-  %td.wide
+  %td Service
+  %td
     = @customer.subscription
 %tr
-  %td.key Server Address
-  %td.wide
+  %td Server Address
+  %td
     = @customer.server
 %tr
-  %td.key Account
-  %td.wide 
+  %td Account
+  %td 
     = @customer.user_name
 %tr
-  %td.key Organization
-  %td.wide 
+  %td Organization
+  %td 
     = @customer.company_name
 %tr
-  %td.key Update Repository
-  %td.wide
+  %td Update Repository
+  %td
     = @customer.update_repo_name
 -# to be enabled later
 -#    %tr
--#      %td{:class => 'key'} E-mail Address:
--#      %td{:class => 'wide'}= @customer.email
+-#      %td E-mail Address:
+-#      %td= @customer.email
 -#    %tr
--#      %td{:class => 'key'} Subscriptions:
--#      %td{:class => 'wide'}= @customer.subscriptions
+-#      %td Subscriptions:
+-#      %td= @customer.subscriptions

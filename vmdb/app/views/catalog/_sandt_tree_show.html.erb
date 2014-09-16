@@ -1,6 +1,6 @@
 <%= render :partial => "layouts/flash_msg" %>
 <div id="st_tabs" style="display:none;width:auto;height:99%;overflow:auto;">
-  <ul class="tab">
+  <ul class="nav nav-tabs">
     <li id="li_basic"><a href="#basic">Basic Info</a></li>
     <% if @record.display %>
       <li id="li_details"><a href="#details">Details</a></li>
@@ -15,10 +15,10 @@
   </ul>
   <div id="basic" name="basic" width="80px">
 
-          <p class="legend">Basic Information</p>
-          <table class="style1">
+          <p class="lead">Basic Information</p>
+          <table class="table table-striped">
             <tr>
-              <td class="key">Name / Description</td>
+              <td>Name / Description</td>
               <td><%= @record.name %> / <%= @record.description%>
                 <%= check_box_tag(display, 
                                   value=true,
@@ -30,36 +30,36 @@
             </tr>
             <!--
             <tr>
-              <td class="key">Cost</td>
+              <td>Cost</td>
               <td><%= h(@record.provision_cost.nil? ? "" : sprintf("%.2f", @record.provision_cost.to_f)) %>
             </tr>
             -->
             <% if @record.display %>
               <tr>
-                <td class="key">Catalog</td>
+                <td>Catalog</td>
                 <td><%= h(@record.service_template_catalog ? @record.service_template_catalog.name : "<Unassigned>") %>
               </tr>
             <% end %>
             <tr>
-              <td class="key">Dialog</td>
+              <td>Dialog</td>
               <td><%= h(@sb[:dialog_label]) %>
             </tr>
             <tr>
-              <td class="key" title="Provisioning Entry Point (NameSpace/Class/Instance)">Provisioning Entry Point <br>(NS/Cls/Inst)</td>
+              <td   title="Provisioning Entry Point (NameSpace/Class/Instance)">Provisioning Entry Point <br>(NS/Cls/Inst)</td>
               <td><%= h(@sb[:fqname]) %>
             </tr>
             <tr>
-              <td class="key" title="Reconfigure Entry Point (NameSpace/Class/Instance)">Reconfigure Entry Point <br>(NS/Cls/Inst)</td>
+              <td   title="Reconfigure Entry Point (NameSpace/Class/Instance)">Reconfigure Entry Point <br>(NS/Cls/Inst)</td>
               <td><%= h(@sb[:reconfigure_fqname]) %>
             </tr>
             <tr>
-              <td class="key" title="Retirement Entry Point (NameSpace/Class/Instance)">Retirement Entry Point <br>(NS/Cls/Inst)</td>
+              <td   title="Retirement Entry Point (NameSpace/Class/Instance)">Retirement Entry Point <br>(NS/Cls/Inst)</td>
               <td><%= h(@sb[:retire_fqname]) %>
             </tr>
           </table>
 
           <hr>
-          <p class="legend">Custom Image</p>
+          <p class="lead">Custom Image</p>
           <% if @record.picture %>
             <table>
               <tr>
@@ -116,11 +116,11 @@
 
   <% if @record.display %>
     <div id="details" name="details" width="80px">
-        <p class="legend">Basic Information</p>
-        <table class="style1">
+        <p class="lead">Basic Information</p>
+        <table class="table table-striped">
           <tr>
-            <td class="key">Long Description</td>
-            <td class="wide">
+            <td  >Long Description</td>
+            <td  >
               <%= @record.long_description.to_s.html_safe %>
             </td>
           </tr>
@@ -130,13 +130,13 @@
 
   <% if @record.composite? %>
     <div id="resources" name="resources" width="80px">
-        <p class="legend">Resources</p>
+        <p class="lead">Resources</p>
         <% resources = @record.service_resources %>
         <% if !resources.empty? %>
-          <table class="style3">
+          <table class="table table-striped">
             <thead>
             <tr>
-              <th class="icon"/>
+              <th  />
               <% titles = ['Name', "Description","Action Order","Provision Order", "Action", "Delay (mins)"] %>
               <% colspan = ["Action", "Delay (mins)"] %>
 
@@ -159,13 +159,12 @@
               <% col_span = 10 %>
               <% if prev_group != r.group_idx && i < resources.length %>
                 <% prev_group = r.group_idx %>
-                <tr id="new_tr" class="seperator"><td colspan="<%=col_span%>"></td></tr>
+                <tr id="new_tr" class="divider"><td colspan="<%=col_span%>"></td></tr>
               <% end %>
-              <tr class="<%= cycle('row0', 'row1') %>"
-                  onclick="<%= remote_function(:loading => "miqSparkle(true);", :complete => "miqSparkle(false);",
+              <tr onclick="<%= remote_function(:loading => "miqSparkle(true);", :complete => "miqSparkle(false);",
                                                :url => "/catalog/x_show/#{to_cid(r.resource_id)}") %>"
                   onmouseover="this.style.cursor='pointer'" title="Click to this Catalog Item">
-                <td class="icon" nowrap>
+                <td   nowrap>
                   <img src="/images/icons/new/service_template.png" valign="middle" border="0" height="20" width="20" />
                 </td>
                 <% keys = ["resource_name","resource_description","group_idx","provision_index","start_action","stop_action","start_delay","stop_delay"] %>
@@ -190,7 +189,7 @@
     <% if !@record.prov_type || (@record.prov_type && @record.prov_type != "generic") %>
       <div id="request" name="request" width="80px">
         <% if @options[:wf] %>
-            <p class="legend">Request Info</p>
+            <p class="lead">Request Info</p>
               <%= render :partial => "miq_request/prov_wf", 
                          :locals  => {:wf   => @options[:wf], 
                                       :show => true}

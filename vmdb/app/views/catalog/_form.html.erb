@@ -1,6 +1,6 @@
 <% url = url_for(:action=>@edit[:new][:service_type] == "composite" ? "st_form_field_changed" : "atomic_form_field_changed", :id=>"#{@edit[:rec_id] || "new"}") %>
 <div id="st_form_tabs" style="display:none;">
-  <ul class="tab">
+  <ul class="nav nav-tabs">
     <li id="li_basic"><a href="#basic">Basic Info</a></li>
     <li id="li_details"><a href="#details">Details</a></li>
     <% if @edit[:new][:service_type] == "composite" %>

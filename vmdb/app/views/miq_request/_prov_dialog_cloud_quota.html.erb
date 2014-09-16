@@ -16,7 +16,7 @@
 <% quotas = quotas.each_with_object({}) { |q, h| h[q[2]] = lookup_quota(cloud_tenant_id, q[0], q[1]) } %>
 
 <div id="cloud_quota">
-	<p class="legend">Cloud Quota</p>
+	<p class="lead">Cloud Quota</p>
 
 	<% if cloud_tenant_name %>
 		Cloud Tenant: <strong><%= cloud_tenant_name %></strong>

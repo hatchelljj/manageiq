@@ -6,11 +6,11 @@
                {:id => "vm_form"}) do 
   %>
     <%= render :partial => "layouts/flash_msg" %>
-    <p class="legend">Basic Information</p>
-    <table class="style1">
+    <p class="lead">Basic Information</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Custom Identifier</td>
-        <td class="wide">
+        <td >Custom Identifier</td>
+        <td >
           <%= text_field_tag("custom_1", 
                              @edit[:new][:custom_1],
                              :maxlength         => 50,
@@ -21,7 +21,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">
+        <td >
           Description (<span id="description_count"><%= @edit[:new][:description] ? @edit[:new][:description].length : 0 %></span> / 100)</td>
         <td>
           <div>
@@ -40,16 +40,15 @@
     </table>
     <hr>
 
-    <p class="legend">Parent VM Selection</p>
-    <table class="style1">
+    <p class="lead">Parent VM Selection</p>
+    <table class="table table-striped">
         <tr>
-          <td class="key">Parent VM</td>
+          <td >Parent VM</td>
           <td>
             <%= select_tag("chosen_parent",
                            options_for_select(@edit[:pchoices].sort, 
                            @edit[:new][:parent]),
                            :multiple              =>  false,
-                           :class                 => "widthed",
                            "data-miq_sparkle_on"  => true,
                            "data-miq_sparkle_off" => true,
                            "data-miq_observe"     => {:url => url}.to_json) %>
@@ -58,15 +57,15 @@
     </table>
     <hr>
 
-    <p class="legend">Child VM Selection</p>
+    <p class="lead">Child VM Selection</p>
     <table>
     <tr>
-      <td align="left" class="widthed">Child VMs:</td>
+      <td class="text-left" >Child VMs:</td>
       <td></td>
-      <td align="left">Available VMs:</td>
+      <td class="text-left">Available VMs:</td>
     </tr>
     <tr>
-      <td align="right" valign="top">
+      <td class="text-right" valign="top">
         <div style="
               overflow: auto;
               width: 400px;
@@ -132,7 +131,7 @@
           %>
         <% end %>
       </td>
-      <td align="left" valign="top">
+      <td class="text-left" valign="top">
         <div style="
               overflow: auto;
               width: 400px;

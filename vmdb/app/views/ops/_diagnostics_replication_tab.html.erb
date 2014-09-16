@@ -3,16 +3,16 @@
   <p class="lead">Replication Process</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Replicate to Host</td>
-      <td class="wide"><%= h(MiqReplicationWorker.destination_host.to_s) %></td>
+      <td >Replicate to Host</td>
+      <td ><%= h(MiqReplicationWorker.destination_host.to_s) %></td>
     </tr>
     <tr>
-      <td class="key">Status</td>
-      <td class="wide"><%= h(MiqReplicationWorker.replication_active? ? "Active" : "Inactive") %></td>
+      <td >Status</td>
+      <td ><%= h(MiqReplicationWorker.replication_active? ? "Active" : "Inactive") %></td>
     </tr>
     <tr>
-      <td class="key">Current Backlog</td>
-      <td class="wide"><%= h(MiqReplicationWorker.current_backlog.to_i) %></td>
+      <td >Current Backlog</td>
+      <td ><%= h(MiqReplicationWorker.current_backlog.to_i) %></td>
     </tr>
   </table>
 <% end %>

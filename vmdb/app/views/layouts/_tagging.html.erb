@@ -6,9 +6,9 @@
   <% if @tabs[0][0] == "classifying" %>
   <fieldset>
     <% if @tagitems.length == 1 %>
-      <p class="legend">Assignments</p>
+      <p class="lead">Assignments</p>
     <% else %>
-      <p class="legend">Common Assignments</p>
+      <p class="lead">Common Assignments</p>
     <% end %>
     <%= render :partial => "layouts/classify" %>
   </fieldset>
@@ -16,17 +16,17 @@
   <% elsif @tabs[0][0] == "tagging" %>
     <fieldset>
       <% if @tagitems.length == 1 %>
-        <p class="legend">Current Assignments</p>
+        <p class="lead">Current Assignments</p>
       <% else %>
-        <p class="legend">Common Assignments</p>
+        <p class="lead">Common Assignments</p>
       <% end %>
       <%= render :partial => "layouts/mytags" %>
     </fieldset>
   <% end %>
 
   <fieldset>
-    <p class="legend"><%= "#{pluralize(@tagitems.length,Dictionary::gettext(session[:tag_db].to_s, :type=>:model, :notfound=>:titleize))} Being Tagged" %></p>
-    <table class="admintable" height="75">
+    <p class="lead"><%= "#{pluralize(@tagitems.length,Dictionary::gettext(session[:tag_db].to_s, :type=>:model, :notfound=>:titleize))} Being Tagged" %></p>
+    <table class="table table-striped" height="75">
       <tbody>
         <tr>
           <td>

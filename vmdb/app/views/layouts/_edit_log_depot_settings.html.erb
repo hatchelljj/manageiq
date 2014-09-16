@@ -19,8 +19,8 @@
     </p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Type</td>
-        <td class="wide">
+        <td >Type</td>
+        <td >
           <%= select_tag(
             "log_protocol",
             options_for_select([["<No Depot>",nil]] + @edit[:protocols_arr].sort, @edit[:protocol]),
@@ -30,8 +30,8 @@
       </tr>
       <% if @edit[:protocol] %>
         <tr>
-          <td class="key">Depot Name</td>
-          <td class="wide">
+          <td >Depot Name</td>
+          <td >
             <%= text_field_tag("depot_name", @edit[:new][:depot_name],
               :maxlength         => 50,
               "data-miq_observe" => {
@@ -42,8 +42,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">URI</td>
-          <td class="wide"><%= @edit[:new][:uri_prefix] %>://
+          <td >URI</td>
+          <td ><%= @edit[:new][:uri_prefix] %>://
             <%= text_field_tag("uri", @edit[:new][:uri],
               :maxlength         => 100,
               "data-miq_observe" => {

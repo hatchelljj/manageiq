@@ -1,17 +1,14 @@
 <% if @timestamps.length == 0 %>
-  <div class="alert alert-warning">
-    <span class="pficon-layered">
-      <span class="pficon pficon-warning-triangle"></span>
-      <span class="pficon pficon-warning-exclamation"></span>
-    </span>
+  <div class="bg-warning">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
     <strong>No drift history found, an Analysis or Virtual Black Box Synchronization for this VM may need to be run.</strong>
   </div>
 <% else %>
   <%= render :partial => "layouts/flash_msg" %>
-  <table class="style3">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th class="icon"></th>
+        <th ></th>
         <th>
           Timestamp
         </th>
@@ -20,7 +17,7 @@
     <tbody>
       <% rowIndex = 0 %>
       <% @timestamps.reverse.each_with_index do |ts, idx| %>
-        <tr class="<%= cycle('row0', 'row1') %>">
+        <tr>
           <td onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" nowrap>
             <%= check_box_tag("check_#{(@timestamps.length - 1 - idx)}", value=1, checked=false, :id=>"listcheckbox", :onclick=>"miqUpdateButtons(this,'center_tb');") %>
           </td>

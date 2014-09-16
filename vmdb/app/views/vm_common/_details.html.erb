@@ -1,11 +1,8 @@
 <% @no_checkall = true %>
 <% if @items.length == 0 %>
   <%= render :partial => "layouts/flash_msg" %>
-  <div class="alert alert-warning">
-    <span class="pficon-layered">
-      <span class="pficon pficon-warning-triangle"></span>
-      <span class="pficon pficon-warning-exclamation"></span>
-    </span>
+  <div class="bg-danger">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
     <strong>No information found, an Analysis or Virtual Black Box Synchronization for this VM may need to be run.</strong>
   </div>
 <% else %>
@@ -70,20 +67,20 @@
                   <%= render :partial => "layouts/quadicon", :locals=>{:record=>item}%>
                 </td>
                 <td>
-                  <table class="style3">
-                    <tr class="row0">
+                  <table class="table table-striped">
+                    <tr  >
                       <td  width="1000">
                       <strong>  <%=h(@col_titles[0]) + ": "+ h(item.send(content_columns[0].name)) + ", " %>
                         <%=h(@col_titles[1]) + ": "+ h(item.send(content_columns[1].name)) %></strong>
                       </td>
                     </tr>
-                    <tr class="row1">
+                    <tr  >
                       <td>
                         <%=h(@col_titles[2]) + ": "+ h(item.send(content_columns[2].name)) + ", " %>
                         <%=h(@col_titles[3]) + ": "+ h(item.send(content_columns[3].name)) %>
                       </td>
                     </tr>
-                    <tr class="row0">
+                    <tr  >
                       <td>
                         <%=h(@col_titles[4]) + ": "+ h(item.send(content_columns[4].name)) %>
                       </td>
@@ -99,9 +96,9 @@
     <% if @item_pages != nil && @item_pages.last_page.number != 1 %>
     <% end %>
   <% elsif @gtl_type == 'list' %>
-    <table class="style3">
+    <table class="table table-striped">
       <thead>
-        <tr><th class="icon"></th>
+        <tr><th ></th>
           <% for i in 0...@col_titles.length %>
             <th>
               <%= link_to @col_titles[i], { :sortby => i } %>
@@ -118,8 +115,8 @@
       </thead>
       <tbody>
         <% rowIndex = 0 %><% for item in @items %>
-        <tr class="<%= cycle('row0', 'row1') %>">
-          <td class="icon" onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="DoNav('<%= "/vm/" << @listicon.pluralize << "/" << @record.id.to_s << "?show=" << item.id.to_s %>');" nowrap><img src="/images/icons/24/<%= h(@listicon.downcase) %>.png" align="middle" width="20"  height="20"/>
+        <tr>
+          <td  onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="DoNav('<%= "/vm/" << @listicon.pluralize << "/" << @record.id.to_s << "?show=" << item.id.to_s %>');" nowrap><img src="/images/icons/24/<%= h(@listicon.downcase) %>.png" align="middle" width="20"  height="20"/>
           </td>
           <% @col_names.each do | colname | %>
             <% title = item.send(colname).to_s %>

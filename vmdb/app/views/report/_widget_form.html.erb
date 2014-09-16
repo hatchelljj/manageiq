@@ -1,11 +1,11 @@
 <% url = url_for(:action=>'widget_form_field_changed', :id=>"#{@widget.id || "new"}") %>
 <div id="form_div">
   <%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Basic Information</p>
-  <table class="style1">
+  <p class="lead">Basic Information</p>
+  <table class="table table-striped">
     <tr>
-      <td class="key"><% if @edit[:read_only] %>* <% end %>Title</td>
-      <td class="wider">
+      <td ><% if @edit[:read_only] %>* <% end %>Title</td>
+      <td >
          <%= text_field_tag("title",
                             @edit[:new][:title],
                             :disabled=>@edit[:read_only],
@@ -17,8 +17,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key"><% if @edit[:read_only] %>* <% end %>Description</td>
-      <td class="wider">
+      <td ><% if @edit[:read_only] %>* <% end %>Description</td>
+      <td >
         <%= text_field_tag("description",
                             @edit[:new][:description],
                             :disabled=>@edit[:read_only],
@@ -27,7 +27,7 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Active</td>
+      <td >Active</td>
       <td>
         <%= check_box_tag("enabled", value="1",
                           checked=@edit[:new][:enabled],

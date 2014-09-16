@@ -1,9 +1,9 @@
 %div{:id => "group_#{group.id}_div"}
   %fieldset
-    %p.legend{:title => "#{group.description}"}
+    %p.lead{:title => "#{group.description}"}
       = group.label
       - unless group.dialog_fields.empty?
-        %table.style1
+        %table.table.table-striped
           %tbody
           - group.dialog_fields.each_with_index do |field, i|
             = render :partial => "shared/dialogs/dialog_field", 

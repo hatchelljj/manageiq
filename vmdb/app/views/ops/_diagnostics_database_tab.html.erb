@@ -7,20 +7,20 @@
     <p class="lead">Basic Info</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Type</td>
-        <td class="wide"><%= h(@database[:display_name])%></td>
+        <td >Type</td>
+        <td ><%= h(@database[:display_name])%></td>
       </tr>
       <tr>
-        <td class="key">Hostname</td>
-        <td class="wide"><%= h(@database[:host])%></td>
+        <td >Hostname</td>
+        <td ><%= h(@database[:host])%></td>
       </tr>
       <tr>
-        <td class="key">Database Name</td>
-        <td class="wide"><%= h(@database[:database])%></td>
+        <td >Database Name</td>
+        <td ><%= h(@database[:database])%></td>
       </tr>
       <tr>
-        <td class="key">Username</td>
-        <td class="wide"><%= h(@database[:username]) %>
+        <td >Username</td>
+        <td ><%= h(@database[:username]) %>
         </td>
       </tr>
     </table>
@@ -34,8 +34,8 @@
         <p class="lead">Backup Schedules</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Fetch settings from a schedule</td>
-            <td class="wide">
+            <td >Fetch settings from a schedule</td>
+            <td >
               <% if @edit[:backup_schedules].length < 1 %>
                 No Backup Schedules are defined
               <% else %>
@@ -72,7 +72,7 @@
             </div>
             <div id="submit_off">
               <%= button_tag("Submit",  
-                             :class => "btn btn-primary btn-disabled", 
+                             :class => "btn btn-primary", 
                              :disabled => "disabled",
                              :alt   => "No Backup Schedules are defined", 
                              :title => "No Backup Schedules are defined")

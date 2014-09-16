@@ -13,7 +13,7 @@
  <p class="lead">User Information</p>
   <table class="table table-striped">
       <tr>
-        <td class="key">Name</td>
+        <td >Name</td>
         <td>
           <% unless @edit %>
             <%= h(@user.name) %>
@@ -31,7 +31,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">User ID</td>
+        <td >User ID</td>
         <td>
           <% unless @edit %>
             <%= h(@user.userid) %>
@@ -49,7 +49,7 @@
         <% db_mode = get_vmdb_config[:authentication][:mode] %>
         <% if db_mode == "database" || (db_mode != "database" && disabled) %>
         <tr>
-          <td class="key">Change Password / Confirm Password</td>
+          <td >Change Password / Confirm Password</td>
           <td>
             <%= password_field_tag("password",
                               @edit[:new][:password],
@@ -67,7 +67,7 @@
         <% end %>
       <% end %>
       <tr>
-        <td class="key">E-mail Address</td>
+        <td >E-mail Address</td>
         <td>
           <% unless @edit %>
             <%= h(@user.email) %>
@@ -81,7 +81,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Group</td>
+        <td >Group</td>
         <td style="padding: 0px">
           <% unless @edit %>
             <% if @user.current_group %>
@@ -118,7 +118,7 @@
       </tr>
       <% unless @edit %>
         <tr>
-          <td class="key">Role</td>
+          <td >Role</td>
           <td style="padding: 0px">
             <% if @user.current_group && @user.current_group.miq_user_role %>
               <table cellpadding="0" cellspacing="0">

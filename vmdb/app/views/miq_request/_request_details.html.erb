@@ -3,11 +3,11 @@
 <% end %>
 
 			<fieldset>
-				<p class="legend">Request Details</p>
-				<table class="style1">
+				<p class="lead">Request Details</p>
+				<table class="table table-striped">
 					<tbody>
 						<tr>
-							<td class="key">Requested by</td>
+							<td >Requested by</td>
 							<td>
 								<% if @miq_request.requester %>
 									<%= h(@miq_request.requester + (@temp[:user] == nil ? nil : " (#{@temp[:user].name})")) %>
@@ -15,15 +15,15 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="key">Last Update</td>
+							<td >Last Update</td>
 							<td><%= h(format_timezone(@miq_request.updated_on)) %></td>
 						</tr>
 						<tr>
-							<td class="key">Status</td>
+							<td >Status</td>
 							<td><%= h(@miq_request.state.titleize) %></td>
 						</tr>
 						<tr>
-							<td class="key">Approved/Denied by</td>
+							<td >Approved/Denied by</td>
 							<td>
 								<% if @miq_request.stamped_by %>
 									<%= h(@miq_request.stamped_by + (@temp[:user] == nil ? nil : " (#{@temp[:user].name})")) %>
@@ -31,13 +31,13 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="key">Date Approved/Denied</td>
+							<td >Date Approved/Denied</td>
 							<td><%= h(format_timezone(@miq_request.stamped_on)) %></td>
 						</tr>
 						<tr>
-							<td class="key">Reason</td>
+							<td >Reason</td>
 							<% if @edit && @edit[:stamp_typ] %>
-								<td class="wide">
+								<td >
                   <%= text_field_tag("reason",
                                       @edit[:reason],
                                       :maxlength=>MAX_NAME_LEN,
@@ -49,7 +49,7 @@
 							<% end %>
 						</tr>
 						<tr>
-							<td class="key">Last Message</td>
+							<td >Last Message</td>
 							<td><%= h(@miq_request.message) %></td>
 						</tr>
 					</tbody>

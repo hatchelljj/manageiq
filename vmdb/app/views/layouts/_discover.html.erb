@@ -1,13 +1,13 @@
 <% url = url_for(:action => 'discover_field_changed') %>
 <%= render :partial => "layouts/flash_msg" %>
 <%= form_tag( {:action => 'discover'}, {:id => "discover_form"}) do %>
-    <p class="legend">Discover</p>
-    <table class="style1">
+    <p class="lead">Discover</p>
+    <table class="table table-striped">
       <% i = 0 %>
       <% while i < @discover_type.length %>
         <tr>
           <% if @discover_type.length == 1 %>
-            <td class="key">
+            <td>
               <%= check_box_tag("discover_type_#{@discover_type[i]}",
                                 value="1", 
                                 checked=true, 
@@ -18,7 +18,7 @@
           <% else %>
             <%# to keep track, if item was checked when start button was pressed %>
             <% check = @discover_type_checked.include?(@discover_type[i]) ? true : false %>
-            <td class="key">
+            <td>
               <%= check_box_tag("discover_type_#{@discover_type[i]}",
                                 value="1",
                                 checked=check,
@@ -43,10 +43,10 @@
     <%= render :partial => "layouts/discover_credentials", 
                :locals  => {:label => "IPMI Credentials"} %>
   </div>
-  <p class="legend">Subnet Range</p>
-  <table class="style1">
+  <p class="lead">Subnet Range</p>
+  <table class="table table-striped">
       <tr>
-        <td class="key">From Address</td>
+        <td>From Address</td>
         <td>
           <%= text_field_tag("from_first",
                                 @from[:first],
@@ -83,7 +83,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">To Address</td>
+        <td>To Address</td>
         <td>
           <%= text_field 'to','first', 
                          :readonly  => "readonly",

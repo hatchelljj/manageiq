@@ -4,10 +4,10 @@
 <%= render :partial => "layouts/flash_msg" %>
 
 <fieldset>
-	<p class="legend">Set/Remove Retirement Date</p>
-	<table class="style1">
+	<p class="lead">Set/Remove Retirement Date</p>
+	<table class="table table-striped">
 			<tr>
-				<td class="key">Retirement Date</td>
+				<td>Retirement Date</td>
 				<td id="retirement_date">
           <%= text_field_tag("miq_date_1",
                                 session[:retire_date],
@@ -25,8 +25,8 @@
 			</tr>
 			<tr>
 				<% disabled = session[:retire_date] == nil %>
-				<td class="key">Retirement Warning</td>
-				<td class="wide">
+				<td>Retirement Warning</td>
+				<td>
           <%= select_tag("retirement_warn",
                           options_for_select([["None",""],["1 Week before retirement",7],["2 Weeks before retirement",14],["30 Days before retirement",30]],
                             session[:retire_warn]),
@@ -43,8 +43,8 @@
 <% end %>
 
 <fieldset>
-	<p class="legend"><%= "New setting will affect #{pluralize(@retireitems.length,request.parameters[:controller] == "service" ? 'Service' : 'VM')}" %></p>
-	<table class="admintable" height="75">
+	<p class="lead"><%= "New setting will affect #{pluralize(@retireitems.length,request.parameters[:controller] == "service" ? 'Service' : 'VM')}" %></p>
+	<table class="table table-striped" height="75">
 		<tbody>
 			<tr>
 				<td>

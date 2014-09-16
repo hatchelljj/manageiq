@@ -1,9 +1,9 @@
 <div id="hosts_lists">
-    <table class="style1">
+    <table class="table table-striped">
 				<tr>
-					<td align="left" class="widthed">  Available Hosts:</td>
+					<td class="text-left">  Available Hosts:</td>
 					<td></td>
-					<td align="left">Selected Hosts:</td>
+					<td class="text-left">Selected Hosts:</td>
 		     </tr>
 		     <tr>
 					<td align="right" valign="top">
@@ -32,7 +32,7 @@
 						    %>
 						  <% end %>
 					</td>
-					<td align="left" valign="top">
+					<td class="text-left" valign="top">
 					    <%= select_tag('selected_fields[]', options_for_select( @edit[:new][@edit[:new][:selected_server][0]][:selected_hosts], @selected ), { :multiple=> true, :style=>"width: 450px", :size=>8, :id=>"selected_fields"} ) %>
 					</td>
 				</tr>

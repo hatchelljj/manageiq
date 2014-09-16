@@ -1,10 +1,10 @@
 <% if @report.nil? %>
-  <div class="alert alert-info">
-    <span class="pficon pficon-info"></span>
+  <div class="bg-warning">
+    <span class="glyphicon glyphicon-info-sign"></span>
     <strong>Choose a Report to view from the menus on the left.</strong>
   </div>
 <% else  %>
-  <p class="legend"><%= @title %></p>
+  <p class="lead"><%= @title %></p>
   <%= render :partial => "layouts/flash_msg" %>
   <%= render :partial => "shared/report_chart_and_html", :locals => { :html => @html, :chart => @zgraph, :report => @report } %>
 <% end  %>

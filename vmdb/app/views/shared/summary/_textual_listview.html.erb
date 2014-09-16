@@ -8,7 +8,7 @@
         </th>
       <% end %>
     <% item[:value].each do |row| %>
-      <tr class="<%= cycle('row0', 'row1', :name => title) %>"
+      <tr
         <% if row[:link] %> onclick="
           <% if row[:explorer] %>
             <%= row[:link] %>

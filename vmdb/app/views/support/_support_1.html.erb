@@ -7,44 +7,44 @@
         <p class="lead">Session Information</p>
         <table class="table table-striped">
             <tr>
-               <td class="key">Server Name</td>
-              <td class="wide">
+               <td >Server Name</td>
+              <td >
                 <%= h(session[:vmdb_name]) %>
               </td>
             </tr>
             <tr>
-               <td class="key">Version</td>
-              <td class="wide">
+               <td >Version</td>
+              <td >
                 <%= h(session[:vmdb][:version] + "." + session[:vmdb][:build]) %>
               </td>
             </tr>
             <tr>
-               <td class="key">User Name</td>
-              <td class="wide">
+               <td >User Name</td>
+              <td >
                 <%= h(session[:username]) %>
               </td>
             </tr>
             <tr>
-              <td class="key">User Role</td>
-              <td class="wide">
+              <td >User Role</td>
+              <td >
                 <%= h(@temp[:user_role]) %>
               </td>
             </tr>
             <tr>
-               <td class="key">Browser</td>
-              <td class="wide">
+               <td >Browser</td>
+              <td >
                 <%= h(browser_info("name")) %>
               </td>
             </tr>
             <tr>
-               <td class="key">Browser Version</td>
-              <td class="wide">
+               <td >Browser Version</td>
+              <td >
                 <%= h(browser_info("version")) %>
               </td>
             </tr>
             <tr>
-               <td class="key">Browser OS</td>
-              <td class="wide">
+               <td >Browser OS</td>
+              <td >
                 <%= h(browser_info("os")) %>
               </td>
             </tr>

@@ -56,7 +56,7 @@
             <th class="checkbox">&nbsp;</th>
           <% end %>
           <% unless @no_listicon %>
-            <th class="icon">&nbsp;</th>
+            <th>&nbsp;</th>
           <% end %>
           <% view.headers.each_with_index do |h,i| %>
             <% if ! @embedded && @pages %>
@@ -102,7 +102,7 @@
             <th class="checkbox">&nbsp;</th>
           <% end %>
           <% unless @no_listicon %>
-            <th class="icon">&nbsp;</th>
+            <th>&nbsp;</th>
           <% end %>
           <% view.col_order.each do |col| %>
             <th nowrap>
@@ -122,8 +122,7 @@
                       <%= link_to(image_tag('/images/layout/search.gif',
                                             :id    => "filtericon", 
                                             :name  => "search_button",
-                                            :alt   => "Filter by IPAdrress within results",
-                                            :class => "nameonly"),
+                                            :alt   => "Filter by IPAdrress within results"),
                                   {:action => "list_view_filter", 
                                    :button => "search_button"},
                                   "data-miq_sparkle_on" => true,
@@ -166,7 +165,7 @@
               </td>
             <% end %>
             <% unless @no_listicon %>
-              <td class="icon"  onmouseover="ChangeColor(this, true);this.style.cursor='<%=cursor%>';" onmouseout="ChangeColor(this, false);"
+              <td onmouseover="ChangeColor(this, true);this.style.cursor='<%=cursor%>';" onmouseout="ChangeColor(this, false);"
                 <% unless (@embedded || @no_checkboxes) && ! @showlinks %>
                   <%# Don't put a td URL for the server_build list view %>
                   <%# if view.db == "ProductUpdate" || view.db == "ServerBuild" || view.db == "MiqTask" || view.db == "MiqEvent" %>

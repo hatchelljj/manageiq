@@ -9,7 +9,7 @@
     <% tabname = @tabactive   || "#{options[:current_tab_key].to_s}_div" %>
 
     <div id="prov_tabs" style="display:none;">
-      <ul class="tab">
+      <ul class="nav nav-tabs">
         <% wf.get_dialog_order.each do |d| %>
           <% unless wf.get_dialog(d).blank? || wf.get_dialog(d)[:display] == :ignore %>
             <% d_hash = wf.get_dialog(d) %>

@@ -1,6 +1,6 @@
 <div id='main_div'>
   <%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Select Policy Profiles</p>
+  <p class="lead">Select Policy Profiles</p>
   <% if @sb[:no_policy_profiles] %>
     No Policy Profiles available
   <% else %>
@@ -8,8 +8,8 @@
   <% end %>
   <br/>
   <% if @politems.length > 1 %>
-    <div class="alert alert-info">
-      <span class="pficon pficon-info"></span>
+    <div class="bg-warning">
+      <span class="glyphicon glyphicon-info-sign"></span>
       <strong>Policy Profile is only applied to some of the items below.</strong>
     </div>
   <% end %>
@@ -18,14 +18,14 @@
                :locals  => {:action_url => "protect"})
     %>
   <% end %>
-  <p class="legend">
+  <p class="lead">
     <%= "Policy changes will affect #{pluralize(@politems.length, 
                                                 Dictionary::gettext(session[:pol_db].to_s,
                                                                     :type     => :model, 
                                                                     :notfound => :titleize))}" 
     %>
   </p>
-  <table class="admintable" height="75">
+  <table class="table table-striped" height="75">
     <tbody>
       <tr>
         <td>

@@ -5,7 +5,7 @@
       <p class="lead">Options<%= @record != @tl_record ? " (#{ui_lookup(:model=>@tl_record.class.to_s)}: #{@tl_record.name})" : "" %></p>
         <table class="table table-striped">
           <tr>
-            <td class="key" style="width:90px">Show</td>
+            <td style="width:90px">Show</td>
             <td style="padding-right: 5px">
               <%# only show pulldown if Policy Events are allowed %>
               <% if @tl_options[:tl_show_options].length > 1 %>
@@ -19,15 +19,15 @@
             </td>
           </tr>
           <tr>
-          <td class="key" style="width:90px">Interval</td>
-          <td class="notwide" style="padding-right: 5px">
+          <td style="width:90px">Interval</td>
+          <td style="padding-right: 5px">
             <%= select_tag("tl_typ",
                                   options_for_select(["Hourly","Daily"], @tl_options[:typ]),
                                   "data-miq_sparkle_on"=>true,
                                   "data-miq_observe"=>{:url=>url}.to_json) %>
           </td>
-          <td class="key" style="width:90px">Date</td>
-          <td class="notwide" style="padding-right: 5px" >
+          <td style="width:90px">Date</td>
+          <td style="padding-right: 5px" >
             <%= text_field_tag("miq_date_1",
                                   h(@tl_options[:typ] == "Hourly" ? @tl_options[:hourly_date] : @tl_options[:daily_date]),
                                   :readonly=>"true",
@@ -38,8 +38,8 @@
             <span id="day_span" style="display:none">
           <% else %>
             <span id="day_span">
-              <td class="key" style="width:100px">Show</td>
-              <td class="notwide" style="padding-right: 5px">
+              <td style="width:100px">Show</td>
+              <td style="padding-right: 5px">
                 <%= select_tag("tl_days",
                                   options_for_select(Array.new(30) {|i| i+2}, @tl_options[:days].to_i),
                                   "data-miq_sparkle_on"=>true,
@@ -53,18 +53,18 @@
       <% if @tl_options[:tl_show] == "policy_timeline" %>
         <table class="table table-striped">
           <tr>
-            <td class="key" style="width:90px; height:15px" nowrap >Result</td>
-            <td class="notwide" style="padding-right: 5px" >
+            <td style="width:90px; height:15px" nowrap >Result</td>
+            <td style="padding-right: 5px" >
               <%= select_tag("tl_result",
                                   options_for_select(@tl_options[:all_results], @tl_options[:tl_result]),
                                   "data-miq_sparkle_on"=>true,
                                   "data-miq_observe"=>{:url=>url}.to_json) %>
             </td>
 
-            <td class="key"  style="width:90px;" nowrap>Event Type
+            <td style="width:90px;" nowrap>Event Type
             </td>
               <%#= select("tl","fl_grp1", [["<NONE> ", ""]] + @tl_options[:etypes].sort, :selected=>@tl_options[:filter1]) %>
-            <td  nowrap>
+            <td nowrap>
               <%= check_box_tag("tl_fl_grp_all", value="1",
                                   checked=@tl_options[:tl_filter_all] ? true : false,
                                   "data-miq_sparkle_on"=>true,
@@ -72,7 +72,7 @@
               (Check All)
             </td>
 
-            <td  rowspan="2">
+            <td rowspan="2">
               <% @tl_options[:etypes].sort.each_with_index do |e,i| %>
                 <div style="padding: 0px 5px 0px 0px; float:left; color: <%= @tl_options[:tl_colors][i] %>">
                   <%= check_box_tag("tl_fl_grp#{i+1}__#{e}", value="1",
@@ -96,15 +96,15 @@
       <% else %>
         <table class="table table-striped">
           <tr>
-            <td nowrap  class="key" style="width:90px">Level
+            <td nowrap style="width:90px">Level
             </td>
-            <td class="notwide" style="padding-right: 5px">
+            <td style="padding-right: 5px">
               <%= select_tag("tl_fl_typ",
                                   options_for_select([["Summary", "Critical"],["Detail","Detail"]], @tl_options[:fl_typ]),
                                   "data-miq_sparkle_on"=>true,
                                   "data-miq_observe"=>{:url=>url}.to_json) %>
             </td>
-            <td  class="key" style="width:90px">
+            <td style="width:90px">
               Event Groups
             </td>
             <td >
@@ -149,4 +149,5 @@
     <script>miqObserveCheckboxes();</script>
   <% end %>
 </div>
+
 

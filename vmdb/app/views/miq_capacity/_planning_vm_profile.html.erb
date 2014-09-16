@@ -1,6 +1,6 @@
 <hr>
 <p class="lead">Reference VM Profile</p>
-<dl class="dl-horizontal">
+<dl>
     <dt>Source</dt>
     <dd><%= h(PLANNING_VM_MODES[@sb[:planning][:options][:submitted_vm_mode]])%></dd>
 
@@ -36,7 +36,7 @@
 
   <hr>
   <p class="lead">Target Options/Limits</p>
-  <dl class="dl-horizontal">
+  <dl>
     <dt>Show</dt>
     <dd><%= h(TARGET_TYPE_CHOICES[@sb[:planning][:options][:target_typ]])%></dd>
 
@@ -73,7 +73,7 @@
 
 <hr>
   <p class="lead">Trend Options</p>
-  <dl class="dl-horizontal">
+  <dl>
       <dt>Trend for Past</dt>
       <dd><%= h(WEEK_CHOICES[@sb[:planning][:options][:days].to_i])%></dd>
       <dt>Time Profile</dt>

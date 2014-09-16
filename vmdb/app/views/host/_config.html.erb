@@ -1,17 +1,17 @@
-<div class="maincontent">
+<div class="container">
   <%= render :partial => "layouts/flash_msg" %>
-  <dl class="col2">
+  <dl>
     <dd>
       <%# if ["props", "devices"].include?(@display) %>
       <% if @display == "devices" %>
-        <table class="style3">
+        <table class="table table-striped">
           <thead>
-            <tr><th colspan="2" align="left">Devices</th></tr>
+            <tr><th colspan="2" class="text-left">Devices</th></tr>
           </thead>
           <% unless @devices.empty? %>
             <% @devices.each do |item| %>
-              <tr class="<%=cycle('row0','row1',:name=>'rel')%>">
-                <td class="label"><%= h(item[:device]) %></td>
+              <tr>
+                <td><%= h(item[:device]) %></td>
                 <td><img src="/images/icons/new/hardware-<%= item[:icon].downcase%>.png" ><%= h(item[:description]) %></td>
               </tr>
             <% end %>
@@ -21,22 +21,22 @@
       <%# if ["props", "os_info"].include?(@display) %>
       <% if @display == "os_info" %>
         <% if @osinfo %>
-          <table class="style3">
+          <table class="table table-striped">
             <thead>
-              <tr><th colspan="2" align="left">OS Information</th></tr>
+              <tr><th colspan="2" class-"text-left">OS Information</th></tr>
             </thead>
             <% @osinfo.each do |item| %>
-              <tr class="<%=cycle('row0','row1',:name=>'rel')%>">
-                <td class="label"><%= h(item[:osinfo]) %></td>
+              <tr>
+                <td><%= h(item[:osinfo]) %></td>
                 <td><%= h(item[:description]) %></td>
               </tr>
             <% end %>
-            <tr class="<%= cycle('row0', 'row1') %>">
-              <td class="label">Hostname</td>
+            <tr>
+              <td>Hostname</td>
               <td><%= h(@host.hostname) %></td>
             </tr>
-            <tr class="<%= cycle('row0', 'row1') %>">
-              <td class="label">IP Address</td>
+            <tr>
+              <td>IP Address</td>
               <td><%= h(@host.ipaddress) %></td>
             </tr>
           </table>
@@ -45,13 +45,13 @@
       <%# if ["props", "hv_info"].include?(@display) %>
       <% if @display == "hv_info" %>
         <% if @vmminfo %>
-          <table class="style3">
+          <table class="table table-striped">
             <thead>
               <tr><th colspan="2" align="left">OS Information</th></tr>
             </thead>
             <% @vmminfo.each do |item| %>
-              <tr class="<%= cycle('row0', 'row1') %>">
-                <td  class="label"><%= h(item[:vmminfo]) %></td>
+              <tr>
+                <td><%= h(item[:vmminfo]) %></td>
                 <td><%= h(item[:description]) %></td>
               </tr>
             <% end %>

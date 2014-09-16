@@ -5,17 +5,17 @@
       <p class="lead">Object Info</p>
       <table class="table table-striped">
         <tr>
-          <td class="key">URI</td>
-          <td class="wide"><%= @resolve[:uri] %></td>
+          <td >URI</td>
+          <td ><%= @resolve[:uri] %></td>
         </tr>
         <% if !@resolve[:button_attr_name].blank? && !@resolve[:button_class].blank? %>
           <tr>
-            <td class="key">Object Attribute Name</td>
-            <td class="wide"><%= @resolve[:button_attr_name] %></td>
+            <td >Object Attribute Name</td>
+            <td ><%= @resolve[:button_attr_name] %></td>
           </tr>
           <tr>
-            <td class="key">Object Attribute Type</td>
-            <td class="wide"><%= ui_lookup(:model => @resolve[:button_class]) %></td>
+            <td >Object Attribute Type</td>
+            <td ><%= ui_lookup(:model => @resolve[:button_class]) %></td>
           </tr>
         <% end %>
       </table>

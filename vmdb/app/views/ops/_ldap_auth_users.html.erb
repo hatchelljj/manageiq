@@ -3,7 +3,7 @@
 	<% if !@edit[:ldap_groups_by_user].empty? %>
 		<table class="table table-striped">
 				<tr>
-					<td class="key">LDAP Groups for User</td>
+					<td >LDAP Groups for User</td>
 					<td>
             <%= select_tag('ldap_groups_user',
 								options_for_select(["<Choose>"] + @edit[:ldap_groups_by_user].uniq.sort,

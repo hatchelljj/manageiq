@@ -25,7 +25,7 @@
   </div>
   <div id="form_buttons_off" style="display:<%= session[:changed] ? "none" : "" %>;">
     <%= button_tag("Submit",	
-                   :class => "btn btn-primary", :disabled=>"disabled"
+                   :class => "btn btn-primary", :disabled=>"disabled",
                    :title => "Select a VM to Submit the Simulation Options") 
     %>
     <%= link_to(button_tag("Reset", 

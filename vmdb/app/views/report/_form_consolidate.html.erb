@@ -1,32 +1,32 @@
 <% url = url_for(:action=>'form_field_changed', :id=>"#{@edit[:rpt_id] || "new"}") %>
 <div id="consolidate_div">
-  <p class="legend">Group Records by up to 3 Columns</p>
-  <table class="style1">
+  <p class="lead">Group Records by up to 3 Columns</p>
+  <table class="table table-striped">
     <tr>
-      <td class="key">Column 1</td>
+      <td >Column 1</td>
       <td>
         <%= select_tag('chosen_pivot1', options_for_select([NOTHING_STRING] + @pivots1, @pivotby1),
-                      :multiple=>false, :class=>"widthed",
+                      :multiple=>false, 
                       "data-miq_sparkle_on"=>true,
                       "data-miq_observe"=>{:url=>url}.to_json) %>
       </td>
     </tr>
     <% if @pivotby1 != NOTHING_STRING %>
       <tr>
-        <td class="key">Column 2</td>
+        <td >Column 2</td>
         <td>
           <%= select_tag('chosen_pivot2', options_for_select([NOTHING_STRING] + @pivots2, @pivotby2),
-                        :multiple=>false, :class=>"widthed",
+                        :multiple=>false, 
                         "data-miq_sparkle_on"=>true,
                         "data-miq_observe"=>{:url=>url}.to_json) %>
         </td>
       </tr>
       <% if @pivotby2 != NOTHING_STRING %>
         <tr>
-          <td class="key">Column 3</td>
+          <td >Column 3</td>
           <td>
             <%= select_tag('chosen_pivot3', options_for_select([NOTHING_STRING] + @pivots3, @pivotby3),
-                          :multiple=>false, :class=>"widthed",
+                          :multiple=>false, 
                           "data-miq_sparkle_on"=>true,
                           "data-miq_observe"=>{:url=>url}.to_json) %>
           </td>
@@ -37,8 +37,8 @@
     <br/><strong>Note:</strong> Consolidating records will not show detail records in the report.
     <hr>
   <% if @pivotby1 != NOTHING_STRING %>
-    <p class="legend">Specify Calculations of Numeric Values for Grouped Records</p>
-    <table class="style3">
+    <p class="lead">Specify Calculations of Numeric Values for Grouped Records</p>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Column Name</th>
@@ -51,7 +51,7 @@
           <% next if [@pivotby1, @pivotby2, @pivotby3]. include?(f.last) %>
           <% next unless MiqReport.get_col_info(f.last)[:numeric] %>
           <tr>
-            <td class="key"><%= h(f.first) %></td>
+            <td ><%= h(f.first) %></td>
 
             <% combo_id = "pivotcalc_id_#{f_idx}" %>
             <% combo_name = "pivotcalc_#{f_idx}" %>

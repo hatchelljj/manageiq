@@ -14,22 +14,22 @@
     <p class="lead">Basic Info</p>
     <table class="table table-striped">
       <tr>
-        <td class="keyimage" rowspan="9"><img src=<%= icon_string %>></td>
-        <td class="key"><%= "#{Dictionary::gettext(record.class.name, :type=>:model, :notfound=>:titleize)}" %></td>
-        <td class="wide"><%= h(record.display_name) %></td>
+        <td height="64" width="64" rowspan="9"><img src=<%= icon_string %>></td>
+        <td ><%= "#{Dictionary::gettext(record.class.name, :type=>:model, :notfound=>:titleize)}" %></td>
+        <td ><%= h(record.display_name) %></td>
       </tr>
       <tr>
-        <td class="key">Log Depot URI</td>
-        <td class="wide"><%= h(log_depot_uri) %></td>
+        <td >Log Depot URI</td>
+        <td ><%= h(log_depot_uri) %></td>
       </tr>
       <tr>
-        <td class="key">Last Log Collection</td>
-        <td class="wide"><%= h(last_collection_time) %></td>
+        <td >Last Log Collection</td>
+        <td ><%= h(last_collection_time) %></td>
       </tr>
       <% if record.respond_to?(:last_log_sync_message) %>
         <tr>
-          <td class="key">Last Message</td>
-          <td class="wide"><%= h(record.last_log_sync_message) %></td>
+          <td >Last Message</td>
+          <td ><%= h(record.last_log_sync_message) %></td>
         </tr>
       <% end %>
     </table>

@@ -3,7 +3,7 @@
   <p class="lead">Visibility</p>
   <table class="table table-striped">
       <tr>
-        <td class="key">Show</td>
+        <td >Show</td>
         <td>
           <%= select_tag("visibility_typ",
                             options_for_select(@edit[:visibility_types], @edit[:new][:visibility_typ]),
@@ -12,7 +12,7 @@
       </tr>
       <% if @edit[:new][:visibility_typ] == "role" %>
         <tr>
-          <td class="key">User Roles</td>
+          <td >User Roles</td>
           <td>
             <table>
               <% j = 0 %>
@@ -41,7 +41,7 @@
         </tr>
       <% elsif @edit[:new][:visibility_typ] == "group" %>
         <tr>
-          <td class="key">Groups</td>
+          <td >Groups</td>
           <td>
             <table>
               <% j = 0 %>

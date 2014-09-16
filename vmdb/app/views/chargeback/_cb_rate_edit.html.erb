@@ -1,10 +1,10 @@
 <% url = url_for(:action=>'cb_rate_form_field_changed', :id=>"#{@sb[:rate].id || "new"}") %>
 <div id="form_div">
   <fieldset>
-    <p class="legend">Basic Info</p>
-      <table class="style1">
+    <p class="lead">Basic Info</p>
+      <table class="table table-striped">
           <tr>
-            <td class="key">
+            <td >
               Description
             </td>
             <td>
@@ -18,8 +18,8 @@
       </table>
   </fieldset>
   <fieldset>
-  <p class="legend">Rate Details</p>
-    <table class="style3">
+  <p class="lead">Rate Details</p>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Group</th>
@@ -37,15 +37,15 @@
             <tr><td  style="background-color: #f0f0f0" colspan=6>&nbsp;</td></tr>
           <% end %>
           <tr>
-            <td class="title1"><%=Dictionary::gettext(r[:group], :type=>:rate_detail_group, :notfound=>:titleize)%></td>
-            <td class="title1"><%=r[:description]%></td>
-            <td class="title1" align="right">
+            <td ><%=Dictionary::gettext(r[:group], :type=>:rate_detail_group, :notfound=>:titleize)%></td>
+            <td ><%=r[:description]%></td>
+            <td class="text-right">
               <%= text_field_tag("rate_#{i}",
                                     @edit[:new][:details][i][:rate],
                                     :maxlength=>MAX_NAME_LEN,
                                     "data-miq_observe"=>{:interval=>'.5', :url=>url}.to_json) %>
             </td>
-            <td class="title1">
+            <td >
               <%= select_tag("per_time_#{i}",
                                 options_for_select(
                                   @edit[:new][:per_time_types].invert,
@@ -53,7 +53,7 @@
                                 "data-miq_observe"=>{:url=>url}.to_json) %>
             </td>
             <% per_unit = r.per_unit_display %>
-            <td class="title1"><%=per_unit%></td>
+            <td ><%=per_unit%></td>
           </tr>
         <% end %>
       </tbody>

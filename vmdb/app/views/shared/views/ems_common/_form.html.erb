@@ -5,12 +5,12 @@
 
 <div id="form_div">
   <%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Basic Information</p>
-  <table class="style1">
+  <p class="lead">Basic Information</p>
+  <table class="table table-striped">
     <tbody>
       <tr>
-        <td class="key">Name</td>
-        <td class="wide">
+        <td>Name</td>
+        <td>
           <%= text_field_tag("name",
                              @edit[:new][:name],
                              :maxlength => MAX_NAME_LEN,
@@ -21,8 +21,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Type</td>
-        <td class="wide">
+        <td>Type</td>
+        <td>
           <% if @edit[:ems_id].nil? %>
             <%= select_tag("server_emstype",
                            options_for_select([["<Choose>",nil]] + Array(@edit[:ems_types].invert).sort{|a,b|a[0]<=>b[0]},
@@ -37,8 +37,8 @@
                  :locals  => {:url => url}) 
       %>
       <tr id="port_tr" style="display:<%= ["openstack", "rhevm"].include?(@edit[:new][:emstype]) ? "display" : "none" %>;">
-        <td class="key">API Port</td>
-        <td class="wide">
+        <td>API Port</td>
+        <td>
           <%= text_field_tag("port",
                              @edit[:new][:port],
                              :maxlength         => 15,
@@ -48,8 +48,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Zone</td>
-        <td class="wide">
+        <td>Zone</td>
+        <td>
           <% if @edit[:server_zones].length <= 1 %>
             <%= text_field_tag("server_zone",
                                @edit[:new][:zone],
@@ -69,7 +69,7 @@
       </tr>
       <% if @ems.is_a?(EmsVmware) %>
         <tr>
-          <td class="key">Host Default VNC Port Range</td>
+          <td>Host Default VNC Port Range</td>
           <td>
             <%= text_field_tag("host_default_vnc_port_start",
                                @edit[:new][:host_default_vnc_port_start],

@@ -1,7 +1,7 @@
 <% if @edit[:new][:emstype] == "ec2" %>
   <tr>
-    <td class="key">Amazon Region</td>
-    <td class="wide">
+    <td >Amazon Region</td>
+    <td >
       <%= select_tag("hostname",
                      options_for_select([["<Choose>",nil]] + Array(@edit[:amazon_regions].invert).sort{|a,b|a[0]<=>b[0]},
                                         @edit[:new][:hostname]),
@@ -10,8 +10,8 @@
   </tr>
 <% elsif !@edit[:new][:emstype].blank? %>
   <tr>
-    <td class="key">Host Name</td>
-    <td class="wide">
+    <td >Host Name</td>
+    <td >
       <%= text_field_tag("hostname",
                          @edit[:new][:hostname],
                          :maxlength=>MAX_HOSTNAME_LEN,
@@ -19,8 +19,8 @@
     </td>
   </tr>
   <tr>
-    <td class="key">IP Address</td>
-    <td class="wide">
+    <td >IP Address</td>
+    <td >
       <%= text_field_tag("ipaddress",
                          @edit[:new][:ipaddress],
                          :maxlength=>15,

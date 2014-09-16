@@ -1,10 +1,10 @@
 <% url = url_for(:action=>'form_field_changed', :id=>"#{@edit[:rpt_id] || "new"}") %>
 <fieldset>
-	<p class="legend">Chargeback Filters</p>
-	<table class="style1">
+	<p class="lead">Chargeback Filters</p>
+	<table class="table table-striped">
 			<% if @edit[:cb_users] %>
 				<tr>
-					<td class="key">Show Costs by</td>
+					<td >Show Costs by</td>
 					<td>
 						<%= select_tag("cb_show_typ",
 													options_for_select(	[
@@ -19,7 +19,7 @@
 				</tr>
 				<% if @edit[:new][:cb_show_typ] == "owner" %>
 					<tr>
-						<td class="key" style="width:120px; ">Owner</td>
+						<td  style="width:120px; ">Owner</td>
 						<td>
 							<%= select_tag("cb_owner_id",
 														options_for_select([["<Choose an Owner>", nil]] + Array(@edit[:cb_users].invert).sort{|a,b|a.first.downcase<=>b.first.downcase},
@@ -30,7 +30,7 @@
 					</tr>
 				<% elsif @edit[:new][:cb_show_typ] == "tag" %>
 					<tr>
-						<td class="key" style="width:120px; ">Tag Category</td>
+						<td  style="width:120px; ">Tag Category</td>
 						<td>
 							<%= select_tag("cb_tag_cat",
 														options_for_select([["<Choose a Category>", nil]] + Array(@edit[:cb_cats].invert).sort{|a,b|a.first.downcase<=>b.first.downcase},
@@ -41,7 +41,7 @@
 					</tr>
 					<% if @edit[:new][:cb_tag_cat] %>
 						<tr>
-							<td class="key" style="width:120px; ">Tag</td>
+							<td  style="width:120px; ">Tag</td>
 							<td>
 								<%= select_tag("cb_tag_value",
 															options_for_select([["<Choose a Value>", nil]] + Array(@edit[:cb_tags].invert).sort{|a,b|a.first.downcase<=>b.first.downcase},
@@ -54,14 +54,14 @@
 				<% end %>
 			<% else %>
 				<tr>
-					<td class="key" style="width:120px; ">Owner</td>
+					<td  style="width:120px; ">Owner</td>
 					<td>
 						<%= h(@edit[:cb_owner_name]) %>
 					</td>
 				</tr>
 			<% end %>
 			<tr>
-				<td class="key" style="width:120px; ">Group by</td>
+				<td  style="width:120px; ">Group by</td>
 				<td>
 					<%= select_tag("cb_groupby",
 												options_for_select([["Date","date"], ["VM/Instance","vm"]], @edit[:new][:cb_groupby]),
@@ -73,11 +73,11 @@
 	</table>
 </fieldset>
 <fieldset>
-	<p class="legend">Chargeback Interval</p>
-	<table class="style1">
+	<p class="lead">Chargeback Interval</p>
+	<table class="table table-striped">
 		<tbody>
 			<tr>
-				<td class="key">Show Costs by</td>
+				<td >Show Costs by</td>
 				<td>
 					<%= select_tag("cb_interval",
 												options_for_select([["Day","daily"], ["Week","weekly"], ["Month","monthly"]],
@@ -87,7 +87,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="key" style="width:120px; "><%= @edit[:new][:cb_interval].capitalize %>  Ending with</td>
+				<td  style="width:120px; "><%= @edit[:new][:cb_interval].capitalize %>  Ending with</td>
 				<td>
 					<% if @edit[:new][:cb_interval] == "daily" %>
 						<%= select_tag("cb_end_interval_offset",
@@ -175,7 +175,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="key" style="width:90px">Time Zone</td>
+				<td  style="width:90px">Time Zone</td>
 				<td>
 					<%= select_tag('chosen_tz', options_for_select(ALL_TIMEZONES, @edit[:new][:tz]),
 												"data-miq_observe"=>{:url=>url}.to_json) %>

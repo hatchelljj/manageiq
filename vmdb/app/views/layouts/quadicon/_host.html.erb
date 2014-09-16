@@ -2,14 +2,14 @@
 <% width = size == 150 ? 54 : 35 %>
 <% height = width %>
 <% if @settings[:quadicons][:host] %>
-	<div class="flobj" ><img src="/images/icons/<%= size %>/base.png" width="<%= size %>" height="<%= size %>"/></div>
+	<div><img src="/images/icons/<%= size %>/base.png" width="<%= size %>" height="<%= size %>"/></div>
 	<% vcount = item.vms.size %><%# Get the VM count %>
-	<div class="flobj a<%= size %>"><p><%= vcount %></p></div>
+	<div class="a<%= size %>"><p><%= vcount %></p></div>
 	<% unless item.state.blank? %>
-		<div class="flobj b<%= size %>"><img src="/images/icons/72/currentstate-<%= h(item.state.downcase)%>.png"/></div>
+		<div class="b<%= size %>"><img src="/images/icons/72/currentstate-<%= h(item.state.downcase)%>.png"/></div>
 	<% end %>
-	<div class="flobj c<%= size %>"><img src="/images/icons/new/vendor-<%= h(item.vmm_vendor.downcase) %>.png"/></div>
-	<div class="flobj d<%= size %>">
+	<div class="c<%= size %>"><img src="/images/icons/new/vendor-<%= h(item.vmm_vendor.downcase) %>.png"/></div>
+	<div class="d<%= size %>">
 		<%
 			case item.authentication_status
 			when "Invalid"
@@ -26,32 +26,32 @@
 	</div>
 
 	<% if item.get_policies.length > 0 %>
-		<div class="flobj g<%= size %>"><img src="/images/icons/new/shield.png"/></div>
+		<div class="g<%= size %>"><img src="/images/icons/new/shield.png"/></div>
 	<% end %>
 <% else %>
-	<div class="flobj" ><img src="/images/icons/<%= size %>/base-single.png"/></div>
-	<div class="flobj e<%= size %>"><img src="/images/icons/new/vendor-<%= h(item.vmm_vendor.downcase) %>.png" width="<%= width * 1.8 %>" height="<%= height * 1.8 %>"/></div>
+	<div   ><img src="/images/icons/<%= size %>/base-single.png"/></div>
+	<div class="e<%= size %>"><img src="/images/icons/new/vendor-<%= h(item.vmm_vendor.downcase) %>.png" width="<%= width * 1.8 %>" height="<%= height * 1.8 %>"/></div>
 <% end %>
 
 <% if typ == :listnav %><%# Listnav, no href needed %>
-		<div class="flobj"><img src="/images/icons/<%= size %>/reflection.png" width="<%= size %>" height="<%= size %>"/></div>
+		<div><img src="/images/icons/<%= size %>/reflection.png" width="<%= size %>" height="<%= size %>"/></div>
 <% else %>
 	<% if ! @embedded || @showlinks %>
 		<% if @edit && @edit[:hostitems] %>
-			<div class="flobj">
+			<div>
 				<a href="<%= "/host/edit/?selected_host=" << item.id.to_s %>" title="<%= "Name: "+h(item.name)+" | Host Name: "+h(item.hostname) %>" >
 				<img src="/images/icons/<%= size %>/reflection.png" width="<%= size %>" height="<%= size %>"/>
 				</a>
 			</div>
 		<% else %>
-			<div class="flobj">
+			<div>
 				<a href="<%= url_for_record(item) %>" title="<%= "Name: "+h(item.name)+" | Host Name: "+h(item.hostname) %>" >
 				<img src="/images/icons/<%= size %>/reflection.png" width="<%= size %>" height="<%= size %>"/>
 				</a>
 			</div>
 		<% end %>
 	<% else %>
-		<div class="flobj"><a title="<%= "Name: "+h(item.name)+" | Host Name: "+h(item.hostname) %>"><img src="/images/icons/<%= size %>/reflection.png" width="<%= size %>" height="<%= size %>"/></a></div>
+		<div><a title="<%= "Name: "+h(item.name)+" | Host Name: "+h(item.hostname) %>"><img src="/images/icons/<%= size %>/reflection.png" width="<%= size %>" height="<%= size %>"/></a></div>
 	<% end %>
 <% end %>
 

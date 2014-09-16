@@ -2,12 +2,12 @@
   <div id="form_div">
     <%= render :partial => "layouts/flash_msg" %>
       <fieldset>
-        <p class="legend">Basic Information</p>
-        <table class="admintable">
+        <p class="lead">Basic Information</p>
+        <table class="table table-striped">
           <tbody>
             <tr>
-              <td class="key">Name</td>
-              <td class="wide">
+              <td >Name</td>
+              <td >
                 <%= text_field_tag("name",
                                     @edit[:new][:name],
                                     :maxlength=>MAX_NAME_LEN,
@@ -16,8 +16,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Type</td>
-              <td class="wide">
+              <td >Type</td>
+              <td >
                 <% if @record.id %>
                   <%= @edit[:farm_types][@edit[:new][:vendor]] %>
                 <% else %>
@@ -29,8 +29,8 @@
               <td>
             </tr>
             <tr>
-              <td class="key">Zone</td>
-              <td class="wide">
+              <td >Zone</td>
+              <td >
                 <% if @edit[:server_zones].length <= 1 %>
                   <%= text_field_tag("server_zone",
                                      @edit[:new][:zone],

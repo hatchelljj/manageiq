@@ -15,7 +15,7 @@
   <p class="lead">Collection Options</p>
   <table class="table table-striped">
     <tr>
-      <td class="key">Timezone</td>
+      <td >Timezone</td>
       <td>
         <%= select_tag('cu_repair_tz',
                        options_for_select(ALL_TIMEZONES,
@@ -25,8 +25,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">Start Date</td>
-      <td class="wide" style="padding-right: 5px" >
+      <td >Start Date</td>
+      <td  style="padding-right: 5px" >
         <%= text_field_tag("miq_date_1",
                            (@edit[:new][:start_date]),
                            :readonly               => "true",
@@ -35,8 +35,8 @@
       </td>
     </tr>
     <tr>
-      <td class="key">End Date</td>
-      <td class="wide" style="padding-right: 5px" >
+      <td >End Date</td>
+      <td  style="padding-right: 5px" >
         <%= text_field_tag("miq_date_2",
                            (@edit[:new][:end_date]),
                            :readonly               => "true",

@@ -5,7 +5,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th class="icon"></th>
+            <th ></th>
             <th>LDAP Host Name</th>
             <th>Mode</th>
             <th>LDAP Port</th>
@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           <% if entry == nil || entry != "new" %>
-            <tr class="<%= cycle('row0', 'row1') %>" onclick="<%= remote_function(:url=>{:action=>'forest_select',:ldaphost_id=>"new"}) %>" title="Click to add a new forest">
+            <tr  onclick="<%= remote_function(:url=>{:action=>'forest_select',:ldaphost_id=>"new"}) %>" title="Click to add a new forest">
               <td>
                 <%= image_tag("/images/toolbars/new.png") %>
               </td>
@@ -24,7 +24,7 @@
               <td></td><td></td><td></td><td></td><td></td>
             </tr>
           <% else %>
-            <tr class="<%= cycle('row0', 'row1') %>">
+            <tr >
               <td class="all">
                 <%= image_submit_tag("/images/toolbars/import.png",
                                                     :class=>"listbutton",
@@ -54,7 +54,7 @@
           <% end %>
           <% @edit[:new][:authentication][:user_proxies].sort_by{|a| a[:ldaphost]}.each do |forest| %>
             <% if entry != nil && entry != "new" && entry[:ldaphost] == forest[:ldaphost] %>
-              <tr class="<%= cycle('row0', 'row1') %>">
+              <tr >
                 <td class="all">
                     <%= image_submit_tag("/images/toolbars/import.png",
                                                       :class=>"listbutton",
@@ -83,7 +83,7 @@
               </tr>
             <% else %>
               <% if !forest.blank? %>
-                <tr class="<%= cycle('row0', 'row1') %>">
+                <tr >
                   <td onclick="<%= remote_function(:url=>{:action=>'forest_delete', :ldaphost_id=>forest[:ldaphost].to_s}, :confirm=>"Are you sure you want to delete forest '#{forest[:ldaphost]}'?") %>" title="Click to delete this forest">
                     <ul id="list"><li>
                     <%= image_tag("/images/toolbars/delete.png") %></li></ul>

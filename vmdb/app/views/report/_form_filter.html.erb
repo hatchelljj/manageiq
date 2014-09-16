@@ -8,7 +8,7 @@
   <% elsif @edit[:new][:model] == "Chargeback" %>
     <%= render :partial => "form_filter_chargeback" %>
   <% else %><%# Show expression editors for all other reports%>
-    <p class="legend">Primary (Record) Filter - Filters the <%= @edit[:new][:model]  %> table records</p>
+    <p class="lead">Primary (Record) Filter - Filters the <%= @edit[:new][:model]  %> table records</p>
     <% if @expkey == :record_filter %>
       <%= render(:partial => 'layouts/exp_editor') %>
     <% else %>
@@ -34,7 +34,7 @@
     <%# Expression editor for the display filter %>
     <% unless @edit[:display_filter][:exp_available_fields].empty? && @edit[:display_filter][:exp_available_tags].empty? %>
       <fieldset>
-        <p class="legend">Secondary (Display) Filter - Filters the rows based on child table fields</p>
+        <p class="lead">Secondary (Display) Filter - Filters the rows based on child table fields</p>
         <% if @expkey == :display_filter %>
           <%= render(:partial => 'layouts/exp_editor') %>
         <% else %>

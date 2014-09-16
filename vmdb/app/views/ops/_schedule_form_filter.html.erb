@@ -1,10 +1,10 @@
 <% url = url_for(:action =>'schedule_form_field_changed', :id=>"#{@schedule.id || "new"}") %>
 <div id="form_filter_div">
   <% if @edit[:new][:action].starts_with?("vm") %>
-    <p class="legend">VM Selection</p>
-    <table class="style1">
+    <p class="lead">VM Selection</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Filter</td>
+        <td >Filter</td>
         <td>
           <%= select_tag('filter_typ',
                               options_for_select(
@@ -56,10 +56,10 @@
     </table>
     <hr>
     <% elsif @edit[:new][:action].starts_with?("miq_template") %>
-      <p class="legend">Template Selection</p>
-      <table class="style1">
+      <p class="lead">Template Selection</p>
+      <table class="table table-striped">
         <tr>
-          <td class="key">Filter</td>
+          <td >Filter</td>
           <td>
             <%= select_tag('filter_typ',
                            options_for_select(
@@ -111,10 +111,10 @@
       </table>
     <hr>
     <% elsif @edit[:new][:action].starts_with?("host") %>
-      <p class="legend">Host Selection</p>
-      <table class="style1">
+      <p class="lead">Host Selection</p>
+      <table class="table table-striped">
         <tr>
-          <td class="key">Filter</td>
+          <td >Filter</td>
           <td>
             <%= select_tag('filter_typ', options_for_select(
                                       [
@@ -159,10 +159,10 @@
     </table>
     <hr>
   <% elsif @edit[:new][:action] == "emscluster" %>
-    <p class="legend">Cluster Selection</p>
-    <table class="style1">
+    <p class="lead">Cluster Selection</p>
+    <table class="table table-striped">
       <tr>
-        <td class="key">Filter</td>
+        <td >Filter</td>
         <td>
           <%= select_tag('filter_typ', options_for_select(
                                     [
@@ -201,10 +201,10 @@
     </table>
     <hr>
   <% elsif @edit[:new][:action] == "storage" %>
-    <p class="legend"><%=ui_lookup(:table=>"storages")%> Selection</p>
-    <table class="style1">
+    <p class="lead"><%=ui_lookup(:table=>"storages")%> Selection</p>
+    <table class="table table-striped">
         <tr>
-          <td class="key">Filter</td>
+          <td >Filter</td>
           <td>
             <%= select_tag('filter_typ', options_for_select(
                                       [

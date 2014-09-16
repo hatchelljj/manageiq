@@ -3,13 +3,13 @@
 <% end %>
 <%= render :partial => "layouts/flash_msg" %>
 <div id='main_div'>
-	<dl class="col2">
+	<dl>
 		<dd>
       <fieldset>
         <p class="lead">Role Information</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Name</td>
+            <td >Name</td>
             <td>
               <% unless @edit %>
                 <%= h(@role.name)  %>
@@ -23,7 +23,7 @@
             </td>
           </tr>
           <tr>
-            <td class="key">VM & Template Access Restriction</td>
+            <td >VM & Template Access Restriction</td>
             <td>
               <% unless @edit %>
                 <% if @role.settings.kind_of?(Hash) && @role.settings.fetch_path(:restrictions, :vms) %>
@@ -41,7 +41,7 @@
           </tr>
           <% unless @edit %>
             <tr>
-              <td class="key">Groups Using this Role</td>
+              <td >Groups Using this Role</td>
               <td style="padding: 0px">
                 <table cellpadding="0" cellspacing="0">
                   <% @role.miq_groups.collect{|g| g}.sort{|a,b| a.description.downcase <=> b.description.downcase}.each do |g| %>

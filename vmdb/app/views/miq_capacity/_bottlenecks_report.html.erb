@@ -9,7 +9,7 @@
 
     <% if @sb[:bottlenecks] && @sb[:bottlenecks][:report] %>
           <hr>
-          <p class="legend">Bottleneck Event Details</p>
+          <p class="lead">Bottleneck Event Details</p>
           <%= @sb[:bottlenecks][:report].to_html.html_safe %>
     <% end %>
 

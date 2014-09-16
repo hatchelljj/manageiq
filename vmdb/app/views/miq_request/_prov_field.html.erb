@@ -18,7 +18,7 @@ pfx = "miq_request/"
 </script>
   <% if ![:cluster_filter,:ds_filter,:host_filter,:rp_filter,:vm_filter].include?(field) %>
     <tr>
-      <td class="key" valign="top"><%= field_hash[:description] %>
+      <td  valign="top"><%= field_hash[:description] %>
           <% if @edit && @edit[:new] && [:vm_description].include?(field) %> (<span id="description_count"><%= @edit[:new][:vm_description] ? @edit[:new][:vm_description].length : 0 %></span> / <%=  field_hash[:max_length]%>)<% end%>
           <% if @edit && field_hash[:required] && field_hash[:display] == :edit%> *<%  end %></td>
       <%# ### Text fields %>
@@ -30,7 +30,7 @@ pfx = "miq_request/"
               :sysprep_domain_admin,:sysprep_domain_password,:sysprep_workgroup_name,:sysprep_full_name,:sysprep_organization,:sysprep_product_id,
               :sysprep_computer_name,:sysprep_per_server_max_connections,:vdi_desktop_pool_user_list,:vdi_new_desktop_pool_name,:vm_description,:vm_name,:wins_servers
             ].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of the text field %>
             <% if [:root_password,:sysprep_password,:sysprep_domain_password].include?(field) %>
               <%= password_field_tag(field_id,
@@ -104,7 +104,7 @@ pfx = "miq_request/"
         </td>
       <%# text field for vm prefix/suffix %>
       <% elsif [:vm_prefix].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of the text field %>
             <%= text_field_tag(field_id,
                                 options[field],
@@ -128,7 +128,7 @@ pfx = "miq_request/"
         </td>
       <%# text field or a Pull down for vm memory, depending upon existence of :values hash %>
       <% elsif [:vm_memory].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !field_hash[:values] && !@edit[:stamp_typ] %> <%# Allow editing of the text field %>
             <%= text_field_tag(field_id,
                                 options[field].kind_of?(Array) ? options[field].last : options[field],
@@ -153,13 +153,13 @@ pfx = "miq_request/"
         </td>
       <%# text Area field to display uploaded file contents %>
       <% elsif [:customization_template_script,:sysprep_upload_text].include?(field) %>
-        <td class="wide">
+        <td >
           <%= text_area_tag(field_id, options[field],
                                 :readonly=>"readonly", :style=>"width:600px;height:250px;") %>
         </td>
       <%# ### dhtmlxree control for tags fields %>
       <% elsif [:ldap_ous].include?(field) %>
-        <td class="wide">
+        <td >
           <% tree_id = "ldap_ous_treebox" %>
           <div id="<%= tree_id%>" style="color:#000; overflow: hidden"></div>
           <%= render(:partial => "layouts/dynatree",
@@ -182,7 +182,7 @@ pfx = "miq_request/"
         </td>
       <%# ### wider Pull Down field that fits into 1280 wide screens %>
       <% elsif [:placement_folder_name].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of this pulldown field %>
             <%= select_tag(field_id,
                             options_for_select(
@@ -236,7 +236,7 @@ pfx = "miq_request/"
         </td>
       <%# ### dhtmlxree control for tags fields %>
       <% elsif [:tag_ids,:vm_tags].include?(field) %>
-        <td class="wide">
+        <td >
           <% tree_id = "all_tags_treebox" %>
           <div id="<%=tree_id%>" style="color:#000; overflow: hidden"></div>
           <%= render(:partial => "layouts/dynatree",
@@ -260,14 +260,14 @@ pfx = "miq_request/"
           <% unless field_hash[:notes_display] == :hide || field_hash[:notes].blank? %>
             <%= field_hash[:notes] %>
           <% end %>
-          <div class="note">* Only a single value can be assigned from these Tag Categories</div>
+          <div>* Only a single value can be assigned from these Tag Categories</div>
         </td>
       <%# ### Pull Down fields that need to be sorted on description %>
       <% elsif [:attached_ds,:iso_image_id,:placement_availability_zone,:placement_cluster_name,
                 :placement_dc_name,:placement_ds_name,:placement_ems_name,:placement_host_name,
                 :placement_rp_name,:pxe_image_id,:windows_image_id,:src_host_ids,:src_vm_id,
                 :sysprep_custom_spec,:customization_template_id].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of this pulldown field %>
             <% if field == :src_vm_id %>
               <%#  grid for src_vm_id %>
@@ -323,7 +323,7 @@ pfx = "miq_request/"
         </td>
       <%# ### Pull Down for fields that dont need <None> in the list%>
       <% elsif [:pxe_server_id,:number_of_vms,:number_of_cpus,:number_of_sockets,:cores_per_socket,:snapshot,:sysprep_enabled].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of this pulldown field %>
               <%= select_tag(field_id,
                               options_for_select(
@@ -345,7 +345,7 @@ pfx = "miq_request/"
         </td>
       <%# Pull down with Array of Arrays %>
       <% elsif [:sysprep_timezone].include?(field) %>
-        <td class="wide">
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of this pulldown field %>
             <% if field_hash[:values].length == 1 %>      <%# Only 1 choice, show the value %>
               <%= options[field].last %>                <%# Description is in the second, last, array element %>
@@ -428,7 +428,7 @@ pfx = "miq_request/"
         </td>
         </tr>
         <tr>
-        <td class="key">Starting Time (<%= get_timezone_abbr("user") %>)</td>
+        <td >Starting Time (<%= get_timezone_abbr("user") %>)</td>
         <td>
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of the text field %>
             <%= select_tag("start_hour",
@@ -454,8 +454,8 @@ pfx = "miq_request/"
   <% else %>
     <% if !field_hash[:values].blank? %>
       <tr>
-        <td class="key"><%= field_hash[:description] %><% if @edit && field_hash[:required] && field_hash[:display] == :edit%> *<%  end %></td>
-        <td class="wide">
+        <td ><%= field_hash[:description] %><% if @edit && field_hash[:required] && field_hash[:display] == :edit%> *<%  end %></td>
+        <td >
           <% if @edit && field_hash[:display] == :edit && !@edit[:stamp_typ] %> <%# Allow editing of this pulldown field %>
               <%= select_tag(field_id,
                               options_for_select([["<ALL>",0]] + (field_hash[:data_type] == :integer ? Array(field_hash[:values].invert).sort{|a,b|a.last<=>b.last} : Array(field_hash[:values].invert).sort{|a,b|a.first<=>b.first}),

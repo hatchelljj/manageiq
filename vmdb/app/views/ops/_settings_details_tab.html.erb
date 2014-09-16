@@ -1,7 +1,7 @@
 <% if @sb[:active_tab] == "settings_details" %>
 	<% if session[:userrole] == "super_administrator" %>
 		<%= render :partial => "layouts/flash_msg" %>
-		<div class ="ops_details">
+		<div>
 			<fieldset>
 				<% region = MiqRegion.my_region %>
 				<% if @edit %>
@@ -10,7 +10,7 @@
 							<p lead="legend">Region Information</p>
 							<table class="table table-striped">
 								<tr>
-									<td class="key">Description</td>
+									<td >Description</td>
 									<td>
 											 <%= text_field_tag("region_description",
 															 @edit[:new][:description],

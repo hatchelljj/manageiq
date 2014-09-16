@@ -5,16 +5,16 @@
 <% end %>
 <%= render :partial => "layouts/flash_msg" %>
 <div id='container'>
-  <dl class="col2">
+  <dl>
     <dd>
         <fieldset>
-          <p class="legend">Group Information</p>
+          <p class="lead">Group Information</p>
           <% if @edit %>
             <%= render :partial => "ldap_auth_users" %>
           <% end %>
           <table class="table table-striped">
               <tr>
-                <td class="key">Description</td>
+                <td >Description</td>
                 <td nowrap >
                   <% unless @edit %>
                     <%= h(@group.description) %>
@@ -36,7 +36,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="key">Role</td>
+                <td >Role</td>
                 <td style="<%=@edit ? 'padding: 0px' : ''%>">
                   <% unless @edit %>
                     <% if @group.miq_user_role %>
@@ -45,9 +45,9 @@
                           onclick="cfmeDynatree_activateNode('rbac_tree', 'ur-<%= to_cid(@group.miq_user_role.id) %>');"
                           onmouseover="this.style.cursor='pointer'" title="View this Role">
                           <td class="image">
-                            <ul class="icons">
+                            <ul>
                               <li>
-                                <span class="product product-role"></span>
+                                <span></span>
                               </li>
                             </ul>
                           </td>
@@ -67,7 +67,7 @@
               </tr>
               <% unless @edit %>
                 <tr>
-                  <td class="key">Users in this Group</td>
+                  <td >Users in this Group</td>
                   <td style="padding: 0px">
                     <table cellpadding="0" cellspacing="0">
                       <% @group.users.collect{|g| g}.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |u| %>
@@ -77,7 +77,7 @@
                           <td class="image">
                             <ul class="icons">
                               <li>
-                                <span class="pficon pficon-user"></span>
+                                <span class="glyphicon glyphicon-user"></span>
                               </li>
                             </ul>
                           </td>
@@ -101,7 +101,7 @@
             <p class="lead">LDAP Group Look Up</p>
             <table class="table table-striped">
                 <tr>
-                  <td class="key">User to Look Up</td>
+                  <td >User to Look Up</td>
                   <td>
                     <%= text_field_tag("user",
                                        @edit[:new][:user],
@@ -114,7 +114,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="key">User Id</td>
+                  <td >User Id</td>
                   <td>
                     <%= text_field_tag("user_id",
                                        @edit[:new][:user_id],
@@ -126,7 +126,7 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <td class="key">Password</td>
+                  <td >Password</td>
                   <td>
                     <%= password_field_tag("password",
                                       @edit[:new][:password],

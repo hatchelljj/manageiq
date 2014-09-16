@@ -4,7 +4,7 @@
     <p class="lead">Authentication</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Session Timeout</td>
+        <td >Session Timeout</td>
         <td>
           <%= select_tag('session_timeout_hours',
                           options_for_select(Array.new(25) {|i| i}, @edit[:new][:session][:timeout]/3600),
@@ -15,8 +15,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Mode</td>
-        <td class="wide">
+        <td >Mode</td>
+        <td >
           <%= select_tag('authentication_mode',
                          options_for_select(
                             [["Database", "database"], ["LDAP", "ldap"], ["LDAPS", "ldaps"],
@@ -33,8 +33,8 @@
         <p class="lead">LDAP Settings</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">LDAP Host Names</td>
-              <td class="wide">
+            <td >LDAP Host Names</td>
+              <td >
                 <%= text_field_tag("authentication_ldaphost_1",
                                     @edit[:new][:authentication][:ldaphost][0],
                                     :maxlength=>50,
@@ -50,8 +50,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">LDAP Port</td>
-              <td class="wide">
+              <td >LDAP Port</td>
+              <td >
                 <%= text_field_tag("authentication_ldapport",
                                     @edit[:new][:authentication][:ldapport],
                                     :maxlength=>6,
@@ -59,8 +59,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">User Type</td>
-              <td class="wide">
+              <td >User Type</td>
+              <td >
                 <%= select_tag('authentication_user_type',
                               options_for_select(
                                 [
@@ -74,7 +74,7 @@
               </td>
             </tr>
             <tr>
-              <td class="key">User Suffix:
+              <td >User Suffix:
                   <% if @edit[:new][:authentication][:user_type] == "dn-cn" %>
                     <span id="upn-mail_prefix" style="display:none"><%= h("<user>@") %></span>
                     <span id="dn-cn_prefix"><%= h("CN=<user>,") %></span>
@@ -89,7 +89,7 @@
                     <span id="dn-uid_prefix" style="display:none"><%= h("UID=<user>,") %></span>
                   <% end %>
               </td>
-              <td class="wide">
+              <td >
                 <%= text_field_tag("authentication_user_suffix",
                                     @edit[:new][:authentication][:user_suffix],
                                     :maxlength=>255,
@@ -104,8 +104,8 @@
         <p class="lead">Amazon Primary AWS Account Settings for IAM</p>
         <table class="table table-striped">
           <tr>
-            <td class="key">Access Key</td>
-              <td class="wide">
+            <td >Access Key</td>
+              <td >
                 <%= text_field_tag("authentication_amazon_key",
                                     @edit[:new][:authentication][:amazon_key],
                                     :maxlength=>50,
@@ -113,8 +113,8 @@
               </td>
             </tr>
             <tr>
-              <td class="key">Secret Key</td>
-              <td class="wide">
+              <td >Secret Key</td>
+              <td >
                 <%= password_field_tag("authentication_amazon_secret",
                                     @edit[:new][:authentication][:amazon_secret],
                                     :maxlength=>50,
@@ -134,7 +134,7 @@
     <p class="lead">Role Settings</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Get User Groups from LDAP</td>
+        <td >Get User Groups from LDAP</td>
         <td>
           <%= check_box_tag("ldap_role", value="1",
                               checked=@edit[:new][:authentication][:ldap_role],
@@ -153,7 +153,7 @@
       <% else %>
         <tr id="get_roles_row" style="display:none">
       <% end %>
-        <td class="key">Get Roles from Home Forest</td>
+        <td >Get Roles from Home Forest</td>
         <td>
            <%= check_box_tag("get_direct_groups", value="1",
                               checked=@edit[:new][:authentication][:get_direct_groups],
@@ -161,7 +161,7 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Follow Referrals</td>
+        <td >Follow Referrals</td>
         <td>
           <%= check_box_tag("follow_referrals", value="1",
                               checked=@edit[:new][:authentication][:follow_referrals],
@@ -169,8 +169,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Base DN</td>
-        <td class="wide">
+        <td >Base DN</td>
+        <td >
           <%= text_field_tag("authentication_basedn",
                               @edit[:new][:authentication][:basedn],
                               :maxlength=>255,
@@ -178,8 +178,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Bind DN</td>
-        <td class="wide">
+        <td >Bind DN</td>
+        <td >
           <%= text_field_tag("authentication_bind_dn",
                               @edit[:new][:authentication][:bind_dn],
                               :maxlength=>255,
@@ -187,8 +187,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Bind Password</td>
-        <td class="wide">
+        <td >Bind Password</td>
+        <td >
           <%= password_field_tag("authentication_bind_pwd",
                               @edit[:new][:authentication][:bind_pwd],
                               :maxlength=>128,
@@ -217,7 +217,7 @@
     <p class="lead">Role Settings</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Get User Groups from Amazon</td>
+        <td >Get User Groups from Amazon</td>
         <td>
           <%= check_box_tag("amazon_role", value="1",
                               checked=@edit[:new][:authentication][:amazon_role],
@@ -237,7 +237,7 @@
     <p class="lead">Role Settings</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Get User Groups from External Authentication (httpd)</td>
+        <td >Get User Groups from External Authentication (httpd)</td>
         <td>
           <%= check_box_tag("httpd_role", "1",
                               @edit[:new][:authentication][:httpd_role],

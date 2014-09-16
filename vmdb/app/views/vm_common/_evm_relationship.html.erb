@@ -2,11 +2,11 @@
 <div id="tab_div">
 	<%= render :partial => "layouts/flash_msg" %>
 	<fieldset>
-		<p class="legend">Servers</p>
-		<table class="style1">
+		<p class="lead">Servers</p>
+		<table class="table table-striped">
 			<tr>
-				<td class="key">Select Server:</td>
-				<td class="wide">
+				<td >Select Server:</td>
+				<td >
           <%= select_tag("server_id",
                           options_for_select([["<Not a Server>",""]] + @servers.sort, @edit[:new][:server]),
                           "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,

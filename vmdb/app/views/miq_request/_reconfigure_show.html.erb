@@ -1,17 +1,17 @@
 <div id="main_div">
 
 <fieldset>
-	<p class="legend">Options</p>
-	<table class="style1">
+	<p class="lead">Options</p>
+	<table class="table table-striped">
 			<% if @options[:vm_memory] %>
 				<tr>
-					<td class="key">Memory</td>
+					<td >Memory</td>
 					<td><%=h(@options[:memory])%> <%=@options[:mem_typ]%></td>
 				</tr>
 			<% end %>
 			<% if @options[:number_of_cpus] %>
 				<tr>
-					<td class="key">Processors</td>
+					<td >Processors</td>
 					<td><%=h(@options[:number_of_cpus])%></td>
 				</tr>
 			<% end %>
@@ -19,8 +19,8 @@
 </fieldset>
 
 <fieldset>
-	<p class="legend">Affected VMs</p>
-	<table class="style1" height="75">
+	<p class="lead">Affected VMs</p>
+	<table class="table table-striped" height="75">
 			<tr>
 				<td>
 					<% if @view %>

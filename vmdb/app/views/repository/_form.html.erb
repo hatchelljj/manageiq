@@ -6,12 +6,12 @@
 
 
 				<fieldset>
-					<p class="legend">Basic Information</p>
-					<table class="admintable">
+					<p class="lead">Basic Information</p>
+					<table class="table table-striped">
 						<tbody>
 							<tr>
-								<td class="key">Name</td>
-								<td class="wide">
+								<td >Name</td>
+								<td >
                   <%= text_field_tag("repo_name",
                                       @edit[:new][:name],
                                       :maxlength=>MAX_NAME_LEN,
@@ -20,8 +20,8 @@
                 </td>
 							</tr>
 							<tr>
-								<td class="key">Path</td>
-								<td class="wide">
+								<td >Path</td>
+								<td >
                   <%= text_field_tag("repo_path",
                                       @edit[:new][:path],
                                       :maxlength=>100,

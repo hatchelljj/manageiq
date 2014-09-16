@@ -176,26 +176,26 @@
           
             <% if record_id.blank? && multi_record.nil? && submit_button.nil? && continue_button.nil? %>
 
-                <%= button_tag("Add", :class => "btn btn-primary btn-disabled") %>
+                <%= button_tag("Add", :class => "btn btn-primary", :disabled=>"disabled") %>
 
             <% else %>
 
                 <% if apply_button %>
-                  <%= button_tag("Apply", :class => "btn btn-primary btn-disabled") %>
+                  <%= button_tag("Apply", :class => "btn btn-primary", :disabled=>"disabled") %>
                 <% elsif submit_button %>
                   <% title = submit_text ? submit_text : "" %>
-                  <%= button_tag("Submit", :class => "btn btn-primary btn-disabled") %>
+                  <%= button_tag("Submit", :class => "btn btn-primary", :disabled=>"disabled") %>
                 <% elsif continue_button %>
-                  <%= button_tag("Continue", :class => "btn btn-primary btn-disabled") %>
+                  <%= button_tag("Continue", :class => "btn btn-primary", :disabled=>"disabled") %>
                 <% elsif copy_button %>
-                  <%= button_tag("Copy", :class => "btn btn-primary btn-disabled") %>
+                  <%= button_tag("Copy", :class => "btn btn-primary", :disabled=>"disabled") %>
                 <% else %>
-                  <%= button_tag("Save", :class => "btn btn-primary btn-disabled") %>
+                  <%= button_tag("Save", :class => "btn btn-primary", :disabled=>"disabled") %>
                 <% end %>
 
               <% if !no_reset %>
 
-                  <%= button_tag("Reset", :class=>"btn btn-default btn-disabled") %>
+                  <%= button_tag("Reset", :class=>"btn btn-default", :disabled=>"disabled") %>
 
               <% end %>
             <% end %>

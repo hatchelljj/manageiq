@@ -3,11 +3,11 @@
 %>
 <div id="form_div">
 	<%= render :partial => "layouts/flash_msg" %>
-  <p class="legend">Basic Information</p>
-  <table class="style1">
+  <p class="lead">Basic Information</p>
+  <table class="table table-striped">
     <tbody>
       <tr>
-        <td class="key">Name</td>
+        <td >Name</td>
         <td>
           <%= text_field_tag("name",
                              @edit[:new][:name],
@@ -19,8 +19,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Depot Type</td>
-        <td class="wide">
+        <td >Depot Type</td>
+        <td >
           <%= select_tag("log_protocol",
                          options_for_select([["<Choose>",nil]] + @edit[:protocols_arr].sort,
                          @edit[:new][:protocol]),
@@ -30,8 +30,8 @@
         </tr>
         <% if !@edit[:new][:uri_prefix].nil? %>
           <tr>
-            <td class="key">URI</td>
-            <td class="wide"><%= @edit[:new][:uri_prefix]%>://
+            <td >URI</td>
+            <td ><%= @edit[:new][:uri_prefix]%>://
               <%= text_field_tag("uri",
                                  @edit[:new][:uri],
                                  :maxlength         => 100,
@@ -50,8 +50,8 @@
           <% end %>
         <% end %>
         <tr>
-          <td class="key">Access URL</td>
-          <td class="wide">
+          <td >Access URL</td>
+          <td >
             <%= text_field_tag("access_url",
                                @edit[:new][:access_url],
                                :maxlength => MAX_NAME_LEN,
@@ -61,8 +61,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">PXE Directory</td>
-          <td class="wide">
+          <td >PXE Directory</td>
+          <td >
             <%= text_field_tag("pxe_directory",
                                @edit[:new][:pxe_directory],
                                :maxlength         => MAX_NAME_LEN,
@@ -72,8 +72,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Windows Images Directory</td>
-          <td class="wide">
+          <td >Windows Images Directory</td>
+          <td >
             <%= text_field_tag("windows_images_directory",
                                @edit[:new][:windows_images_directory],
                                :maxlength         => MAX_NAME_LEN,
@@ -83,8 +83,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Customization Directory</td>
-          <td class="wide">
+          <td >Customization Directory</td>
+          <td >
             <%= text_field_tag("customization_directory",
                                @edit[:new][:customization_directory],
                                :maxlength         => MAX_NAME_LEN,
@@ -97,13 +97,13 @@
   </table>
 
   <hr>
-  <p class="legend">PXE Image Menus</p>
-  <table class="style1">
+  <p class="lead">PXE Image Menus</p>
+  <table class="table table-striped">
     <tbody>
       <% @edit[:new][:pxe_menus].each_with_index do |menu,i| %>
         <tr>
-          <td class="key">Filename</td>
-          <td class="wide">
+          <td >Filename</td>
+          <td >
             <%= text_field_tag("pxemenu_#{i}",
                                h(menu),
                                :maxlength         => MAX_NAME_LEN,

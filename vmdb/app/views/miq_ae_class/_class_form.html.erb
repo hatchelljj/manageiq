@@ -2,19 +2,19 @@
                  :id     => "#{@ae_class.id || "new"}")
 %>
   <p class="lead">Properties</p>
-  <table class="form form-striped">
+  <table class="table table-striped">
       <tr>
-        <td class="key">
+        <td >
           <%= Dictionary::gettext('fqname', 
                                   :type     => :column,
                                   :notfound => :titleize)
           %>
         </td>
-        <td class="wide"><%= @sb[:namespace_path] %></td>
+        <td ><%= @sb[:namespace_path] %></td>
       </tr>
       <tr>
-        <td class="key">Name</td>
-        <td class="wide">
+        <td >Name</td>
+        <td >
           <%= text_field_tag("name",
               @edit[:new][:name],
               :maxlength         => MAX_NAME_LEN,
@@ -25,8 +25,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Display Name</td>
-        <td class="wide">
+        <td >Display Name</td>
+        <td >
           <%= text_field_tag("display_name",
               @edit[:new][:display_name],
               :maxlength         => MAX_NAME_LEN,
@@ -36,8 +36,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Description</td>
-        <td class="wide">
+        <td >Description</td>
+        <td >
           <%= text_field_tag("description",
               @edit[:new][:description],
               :maxlength         => MAX_NAME_LEN,
@@ -47,8 +47,8 @@
         </td>
       </tr>
       <tr>
-        <td class="key">Inherits From</td>
-        <td class="wide">
+        <td >Inherits From</td>
+        <td >
           <%= select_tag('inherits_from',
                          options_for_select([["<Choose>",""]] + @edit[:inherits_from].sort,
                          @edit[:new][:inherits]),

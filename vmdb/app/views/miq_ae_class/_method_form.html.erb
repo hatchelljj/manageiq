@@ -5,19 +5,19 @@
     <p class="lead">Main Info</p>
     <table class="table table-striped">
         <tr>
-          <td class="key">
+          <td >
             <%= Dictionary::gettext('fqname', 
                                     :type     => :column,
                                     :notfound => :titleize)
             %>
           </td>
-          <td class="wide">
+          <td >
             <%= h(@sb[:namespace_path]) %>
           </td>
         </tr>
         <tr>
-          <td class="key">Name</td>
-          <td class="wide">
+          <td >Name</td>
+          <td >
             <%= text_field_tag("#{prefix}method_name",
                                 @edit[:new][:name],
                                 :maxlength         => MAX_NAME_LEN,
@@ -28,8 +28,8 @@
             <%#= javascript_tag("$j('#method_name').focus()") %>
         </tr>
         <tr>
-          <td class="key">Display Name</td>
-          <td class="wide">
+          <td >Display Name</td>
+          <td >
             <%= text_field_tag("#{prefix}method_display_name",
                                 @edit[:new][:display_name],
                                 :maxlength         => MAX_NAME_LEN,
@@ -39,8 +39,8 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Location</td>
-          <td class="wide">
+          <td >Location</td>
+          <td >
             <%= select_tag("#{prefix}method_location",
                            options_for_select(@edit[:new][:available_locations].sort, 
                            @edit[:new][:location]),
@@ -50,8 +50,8 @@
         </tr>
         <% if @ae_method.created_on %>
           <tr>
-            <td class="key">Created On</td>
-            <td class="wide">
+            <td >Created On</td>
+            <td >
               <%= h(format_timezone(@ae_method.created_on,Time.zone,"gtl")) %>
             </td>
           </tr>
@@ -93,7 +93,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th class="icon"></th>
+            <th ></th>
             <th>Name</th>
             <th>Default Value</th>
             <th>Data Type</th>

@@ -1,10 +1,10 @@
 <% url = url_for(:action=>'widget_form_field_changed', :id=>"#{@widget.id || "new"}") %>
 <fieldset>
-  <p class="legend">RSS Feed Options</p>
-  <table class="style1">
+  <p class="lead">RSS Feed Options</p>
+  <table class="table table-striped">
     <tr>
-      <td class="key"><% if @edit[:read_only] %>* <% end %>Type</td>
-      <td class="wide">
+      <td ><% if @edit[:read_only] %>* <% end %>Type</td>
+      <td >
         <%= select_tag("feed_type",
                             options_for_select([["Internal","internal"],["External","external"]], @edit[:new][:feed_type]),
                             :disabled=>@edit[:read_only],
@@ -13,8 +13,8 @@
     </tr>
     <% if @edit[:new][:feed_type] == "internal" %>
       <tr>
-        <td class="key"><% if @edit[:read_only] %>* <% end %>Internal RSS Feed</td>
-        <td class="wide">
+        <td ><% if @edit[:read_only] %>* <% end %>Internal RSS Feed</td>
+        <td >
           <%= select_tag("rss_feed",
                             options_for_select(@edit[:rss_feeds].sort, @edit[:new][:rss_feed_id]),
                             :disabled=>@edit[:read_only],
@@ -23,8 +23,8 @@
       </tr>
     <% else %>
       <tr>
-        <td class="key"><% if @edit[:read_only] %>* <% end %>External RSS Feed/URL</td>
-        <td class="wide">
+        <td ><% if @edit[:read_only] %>* <% end %>External RSS Feed/URL</td>
+        <td >
           <%= select_tag("rss_url",
                             options_for_select([["<Enter URL Manually>",nil]] + RSS_FEEDS.sort, @edit[:new][:url]),
                             :disabled=>@edit[:read_only],
@@ -40,7 +40,7 @@
       </tr>
     <% end %>
     <tr>
-      <td class="key">Row Count</td>
+      <td >Row Count</td>
       <td>
          <%= select_tag("row_count",
                             options_for_select(Array.new(16) {|i| i+5}, @edit[:new][:row_count]),

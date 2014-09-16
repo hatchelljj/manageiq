@@ -4,14 +4,14 @@
 <div id="form_div">
 	<%= render :partial => "layouts/flash_msg" %>
 
-		<dl class="col2">
+		<dl>
 			<dd>
 				<fieldset>
-					<p class="legend">Basic Information</p>
-					<table class="style1">
+					<p class="lead">Basic Information</p>
+					<table class="table table-striped">
 							<tr>
-								<td class="key">Name</td>
-								<td class="wide">
+								<td >Name</td>
+								<td >
                   <%= text_field_tag("name",
                                       @edit[:new][:name],
                                       :maxlength=>MAX_NAME_LEN,
@@ -20,8 +20,8 @@
                 </td>
 							</tr>
 							<tr>
-								<td class="key">Type</td>
-								<td class="wide">
+								<td >Type</td>
+								<td >
 									<% if @sm.id %>
 										<%= h(@edit[:new][:sm_type]) %>
 									<% else %>
@@ -32,8 +32,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="key">Host Name</td>
-								<td class="wide">
+								<td >Host Name</td>
+								<td >
                   <%= text_field_tag("hostname",
                                       @edit[:new][:hostname],
                                       :maxlength=>MAX_NAME_LEN,
@@ -41,8 +41,8 @@
                 </td>
 							</tr>
 							<tr>
-								<td class="key">IP Address</td>
-								<td class="wide">
+								<td >IP Address</td>
+								<td >
                   <%= text_field_tag("ipaddress",
                                       @edit[:new][:ipaddress],
                                       :maxlength=>15,
@@ -50,8 +50,8 @@
                 </td>
 							</tr>
 							<tr>
-								<td class="key">Port</td>
-								<td class="wide">
+								<td >Port</td>
+								<td >
                   <%= text_field_tag("port",
                                       @edit[:new][:port],
                                       :maxlength=>15,
@@ -60,8 +60,8 @@
 							</tr>
 							<% if false %>
 								<tr>
-									<td class="key">Type</td>
-									<td class="wide">
+									<td >Type</td>
+									<td >
                     <%= select_tag("agent_typ",
                                       options_for_select(["<Choose>"] + Array(StorageManager::AGENT_TYPES.invert).sort{|a,b|a[0]<=>b[0]},
                                         @edit[:new][:agent_type]),
@@ -70,8 +70,8 @@
 								</tr>
 							<% end %>
 							<tr>
-								<td class="key">Zone</td>
-								<td class="wide">
+								<td >Zone</td>
+								<td >
 									<% if @edit[:server_zones].length <= 1 %>
                     <%= text_field_tag("server_zone",
                                         @edit[:new][:zone],
@@ -90,11 +90,11 @@
 			</dd>
 			<dd>
 				<fieldset>
-					<p class="legend">Credentials</p>
-					<table class="style1">
+					<p class="lead">Credentials</p>
+					<table class="table table-striped">
 							<tr>
-								<td class="key">User ID</td>
-								<td class="wide">
+								<td >User ID</td>
+								<td >
                   <%= text_field_tag("userid",
                                         @edit[:new][:userid],
                                         :maxlength=>50,
@@ -102,8 +102,8 @@
                 </td>
 							</tr>
 							<tr>
-								<td class="key">Password</td>
-								<td class="wide">
+								<td >Password</td>
+								<td >
                   <%= password_field_tag("password",
                                         @edit[:new][:password],
                                         :maxlength=>50,
@@ -111,8 +111,8 @@
                 </td>
 							</tr>
 							<tr>
-								<td class="key">Verify Password</td>
-								<td class="wide">
+								<td >Verify Password</td>
+								<td >
                   <%= password_field_tag("verify",
                                         @edit[:new][:verify],
                                         :maxlength=>50,

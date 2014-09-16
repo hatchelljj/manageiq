@@ -9,14 +9,14 @@
 
     <% if @edit %><%# Don't show basic info box with description only unless in edit mode %>
 
-        <p class="legend">Basic Information</p>
-        <table class="style1">
+        <p class="lead">Basic Information</p>
+        <table class="table table-striped">
           <tr>
-            <td class="key">Description</td>
+            <td >Description</td>
             <% unless @edit %>
               <td><%= h(@profile.description) %></td>
             <% else %>
-              <td class="wider">
+              <td >
                 <%= text_field_tag("description",
                                    @edit[:new][:description],
                                    :maxlength => MAX_DESC_LEN,
@@ -31,13 +31,13 @@
         <hr>
     <% end %>
     <% unless @edit %>
-        <p class="legend">Policies</p>
+        <p class="lead">Policies</p>
         <% if @profile_policies.empty? %>
           <br/><strong>* No Policies are defined.</strong>
         <% else %>
-          <table class="style3">
+          <table class="table table-striped">
             <thead>
-            <th class="icon"></th><th></th>
+            <th ></th><th></th>
             </thead>
             <tbody>
 
@@ -45,7 +45,7 @@
               <tr class="<%= cycle('row0', 'row1') %>"
                   onclick="cfmeDynatree_activateNode('<%= x_active_tree %>', '<%= "#{x_node}_p-#{to_cid(p.id)}" %>');"
                   onmouseover="this.style.cursor='pointer'" title="View this <%= ui_lookup(:model => p.towhat) %> Policy">
-                <td class="icon">
+                <td >
                   <img src="/images/icons/new/miq_policy_<%= p.towhat.downcase + (p.active ? "" : "_inactive") %>.png" valign="middle" border="0" />
                 </td>
                 <td>
@@ -58,23 +58,22 @@
         <% end %>
         <hr>
     <% else %>
-        <p class="legend">Policy Selection</p>
-        <table class="admintable">
+        <p class="lead">Policy Selection</p>
+        <table class="table table-striped">
           <tr>
             <td>
-              <table width="100%" class="form" id="formtest">
+              <table width="100%" class="table table-striped" id="formtest">
                 <tr>
-                  <td align="left">Available Policies:</td>
+                  <td class="text-left">Available Policies:</td>
                   <td></td>
-                  <td align="left" class="widthed"> Profile Policies:</td>
+                  <td class="text-left"> Profile Policies:</td>
                 </tr>
                 <tr>
-                  <td align="left" class="widthed" valign="top">
+                  <td class="text-left" valign="top">
                       <span id="choices_chosen_div">
                         <%= select_tag 'choices_chosen[]',
                                        options_for_select(@edit[:choices].sort),
                                        {:multiple => true, 
-                                        :class    => "widthed", 
                                         :size     => 8, 
                                         :id       => "choices_chosen"} 
                         %>
@@ -121,12 +120,11 @@
                                 :title  => "Remove selected Policies from this Profile")
                     %>
                   </td>
-                  <td align="right" valign="top" >
+                  <td class="text-right" valign="top" >
                     <span id="members_chosen_div">
                       <%= select_tag 'members_chosen[]',
                                      options_for_select(@edit[:new][:policies].sort),
                                      {:multiple => true, 
-                                      :class    => "widthed", 
                                       :size     => 8, 
                                       :id       => "members_chosen"} 
                       %>
@@ -142,10 +140,10 @@
 
     <%# Notes field %>
     <% unless @edit %>
-      <p class="legend">Notes</p>
+      <p class="lead">Notes</p>
       <% if @profile.notes.blank? %>
-        <div class="alert alert-info">
-          <span class="pficon pficon-info"></span>
+        <div class="bg-warning">
+          <span class="glyphicon glyhicon-info-sign"></span>
           <strong>No notes have been entered.</strong>
         </div>
       <% else %>
@@ -153,7 +151,7 @@
       <% end %>
       <hr>
     <% else %>
-      <p class="legend">Notes (<span id="notes_count"><%= @edit[:new][:notes] ? @edit[:new][:notes].length : 0 %></span> / 512)</p>
+      <p class="lead">Notes (<span id="notes_count"><%= @edit[:new][:notes] ? @edit[:new][:notes].length : 0 %></span> / 512)</p>
       <%= text_area_tag("notes",
                         @edit[:new][:notes], 
                         :rows      => 4,

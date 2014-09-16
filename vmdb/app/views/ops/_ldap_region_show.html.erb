@@ -4,20 +4,20 @@
     <p class="lead">Basic Information</p>
     <table class="table table-striped">
       <tr>
-        <td class="key">Name</td>
+        <td >Name</td>
         <td>
           <%= @selected_lr.name %>
         </td>
       </tr>
       <tr>
-        <td class="key">Description</td>
+        <td >Description</td>
         <td>
           <%= @selected_lr.description %>
         </td>
       </tr>
       <tr>
-        <td class="key">Zone</td>
-        <td class="wide">
+        <td >Zone</td>
+        <td >
           <%= @selected_lr.zone ? @selected_lr.zone.name : "" %>
         </td>
       </tr>
@@ -25,15 +25,15 @@
   </fieldset>
 
   <fieldset>
-    <p class="legend">LDAP Domains</p>
+    <p class="lead">LDAP Domains</p>
     <% if @selected_lr.ldap_domains.count <= 0 %>
       No Records found.
     <% else %>
-      <table class="style3">
+      <table class="table table-striped">
         <% @selected_lr.ldap_domains.sort{|a,b| a.name.to_s <=> b.name.to_s}.each_with_index do |domain,i| %>
           <% if i == 0 %>
             <thead>
-            <th class="icon"></th>
+            <th ></th>
             <th>Name</th>
             <th>Base DN</th>
             <th>User Type</th>
@@ -41,10 +41,9 @@
             </thead>
             <tbody>
           <% end %>
-          <tr class="<%= cycle('row0', 'row1') %>"
-              onclick="cfmeDynatree_activateNode('settings_tree', 'ld-<%= to_cid(domain.id) %>');"
+          <tr onclick="cfmeDynatree_activateNode('settings_tree', 'ld-<%= to_cid(domain.id) %>');"
               onmouseover="this.style.cursor='pointer'" title="Click to view details">
-            <td class="icon" nowrap>
+            <td  nowrap>
               <img src="/images/icons/new/ldap_domain.png" valign="middle" border="0" height="20" width="20" />
 
             </td>

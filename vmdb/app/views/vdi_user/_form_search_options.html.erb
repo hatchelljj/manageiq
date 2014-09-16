@@ -1,9 +1,9 @@
 <% url = url_for(:action=>'user_import_form_field_changed', :id=>"import_edit__new") %>
 <tr>
-  <td class="key">Filter 1</td>
+  <td >Filter 1</td>
   <td>
     <%= select_tag('chosen_filter1', options_for_select([NOTHING_STRING] + @filters1, @filterby1),
-                  :multiple=>false, :class=>"widthed",
+                  :multiple=>false,
                   "data-miq_sparkle_on"=>true,
                   "data-miq_observe"=>{:url=>url}.to_json) %>
     <% if @filterby1 != NOTHING_STRING %>
@@ -16,10 +16,10 @@
 </tr>
 <% if @filterby1 != NOTHING_STRING %>
   <tr>
-    <td class="key">Filter 2</td>
+    <td >Filter 2</td>
     <td>
       <%= select_tag('chosen_filter2', options_for_select([NOTHING_STRING] + @filters2, @filterby2),
-                    :multiple=>false, :class=>"widthed",
+                    :multiple=>false,
                     "data-miq_sparkle_on"=>true,
                     "data-miq_observe"=>{:url=>url}.to_json) %>
       <% if @filterby2 != NOTHING_STRING %>
@@ -32,10 +32,10 @@
   </tr>
   <% if @filterby2 != NOTHING_STRING %>
     <tr>
-      <td class="key">Filter 3</td>
+      <td >Filter 3</td>
       <td>
         <%= select_tag('chosen_filter3', options_for_select([NOTHING_STRING] + @filters3, @filterby3),
-                      :multiple=>false, :class=>"widthed",
+                      :multiple=>false,
                       "data-miq_sparkle_on"=>true,
                       "data-miq_observe"=>{:url=>url}.to_json) %>
         <% if @filterby3 != NOTHING_STRING %>
@@ -49,7 +49,7 @@
   <% end %>
 <% end %>
 <tr>
-  <td class="key"></td>
+  <td ></td>
   <td align="right">
     <% buttons_show = @edit[:new][:ldap_region_id] && @filterby1 != NOTHING_STRING && !@edit[:new][:filter_value1].blank? %>
     <div id="buttons_on" style="display:<%= buttons_show ? "display" : "none" %>;">

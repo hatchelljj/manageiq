@@ -1,9 +1,9 @@
 	<fieldset>
-	<p class="legend">File Entry</p>
-			<table class="style3">
+	<p class="lead">File Entry</p>
+			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th class="icon"></th>
+						<th ></th>
 						<th>Name</th>
 						<th>Collect Contents?</th>
 					</tr>
@@ -20,7 +20,7 @@
 						<td class="all"><%= h("<New Entry>") %></td>
 					</tr>
 				<% else %>
-					<tr id="new_tr" class="<%= cycle('row0', 'row1') %>">
+					<tr id="new_tr">
 							<td>
 								<div class="rollover">
 									<%= image_submit_tag("/images/toolbars/import.png",
@@ -42,7 +42,7 @@
 				<% if !session[:file_names].nil? && !session[:file_names].empty? %>
 							<% session[:file_names].sort_by { |r| r["target"] }.each do | entry |%>
 							<% if session[:edit_filename] != entry["target"]%>
-							<tr id="<%= "#{entry["target"]}_tr" %>" class="<%= cycle('row0', 'row1') %>">
+							<tr id="<%= "#{entry["target"]}_tr" %>">
 								<td onclick="<%= remote_function(:url=>{:action=>'ap_ce_delete', :file_name=>entry["target"], :id=>"#{@scan.id || "new"}"}) %>" title="Click to delete this entry">
 									<%= image_tag("/images/toolbars/delete.png", :class=>"rollover small") %>
 								<td onclick="<%= remote_function(:url=>{:action=>'ap_ce_select', :file_name=>entry["target"], :edit_entry=>'edit_file', :field=>"fname", :id=>"#{@scan.id || "new"}"})%>" title="Click to update this entry">
@@ -54,7 +54,7 @@
 							</tr>
 							<% else %>
 								<% if params[:add] != "new"  %>
-								<tr id="<%= "edit_tr" %>" class="<%= cycle('row0', 'row1') %>">
+								<tr id="<%= "edit_tr" %>" >
 									<td>
 											<%= image_submit_tag("/images/toolbars/import.png",
 																												:class=>"rollover small",

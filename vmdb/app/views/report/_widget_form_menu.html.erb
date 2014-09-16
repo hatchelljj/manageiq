@@ -1,7 +1,7 @@
 <% url = url_for(:action=>'widget_form_field_changed', :id=>"#{@widget.id || "new"}") %>
 <fieldset>
-  <p class="legend">Menu Shortcuts</p>
-  <table class="admintable">
+  <p class="lead">Menu Shortcuts</p>
+  <table class="table table-striped">
     <tbody>
     <tr>
       <td class="wider">
@@ -18,9 +18,9 @@
     </tbody>
   </table>
   <div id="modules">
-    <div class="yui-b">
-      <div class="yui-gb">
-        <div class="yui-u first" style="position:relative;min-height:50px;" id="col1">
+    <div>
+      <div>
+        <div style="position:relative;min-height:50px;" id="col1">
           <% @edit[:new][:shortcuts].each do |s_id, s_desc| %> <%# :shortcuts is a hash of s.id => s.miq_widget_shortcut.description %>
             <div id="s_<%= s_id %>" title="Drag this Shortcut to a new location">
               <div class="modbox" id="test">

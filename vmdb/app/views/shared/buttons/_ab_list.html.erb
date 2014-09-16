@@ -8,7 +8,7 @@
     <tbody>
     <%# CI node level%>
     <% @sb[:obj_list].sort.each do |obj| %>
-      <tr class="<%= cycle('row0', 'row1') %>"
+      <tr
           onclick="cfmeDynatree_activateNode('ab_tree', 'xx-<%= obj[1].split('_').first %>_<%= @sb[:target_classes][obj[0]] %>')"
           onmouseover="this.style.cursor='pointer'" title="Click to view details">
         <td>
@@ -31,7 +31,7 @@
     <%= render(:partial => "layouts/flash_msg") %>
     <table class="table table-striped">
       <thead>
-        <th class="icon"></th>
+        <th></th>
         <th>Text</th>
         <% if x_active_tree == :sandt_tree %>
           <th>Type</th>
@@ -96,7 +96,7 @@
       <table class="table table-striped">
         <tbody>
         <tr>
-          <td class="key">Button Text</td>
+          <td >Button Text</td>
           <td>
             <%= @record.name.split('|').first %>
             <% display = @record.set_data.has_key?(:display) ? @record.set_data[:display] : true %>
@@ -108,12 +108,12 @@
           </td>
         </tr>
         <tr>
-          <td class="key">Button Hover Text</td>
-          <td class="notwide"><%= @record.description %></td>
+          <td >Button Hover Text</td>
+          <td ><%= @record.description %></td>
         </tr>
         <tr>
-          <td class="key">Image</td>
-          <td class="notwide"><img src="/images/icons/new/custom-<%=@record.set_data[:button_image]%>.png" align="left" width="20" height="20"/></td>
+          <td >Image</td>
+          <td ><img src="/images/icons/new/custom-<%=@record.set_data[:button_image]%>.png" align="left" width="20" height="20"/></td>
         </tr>
         </tbody>
       </table>
@@ -129,7 +129,7 @@
       <hr>
       <table class="table table-striped">
         <thead>
-          <th class="icon"></th>
+          <th ></th>
           <th>Text</th>
           <th>Hover Text</th>
         </thead>
