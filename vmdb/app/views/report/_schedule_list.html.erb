@@ -7,7 +7,7 @@
 	<% elsif @temp[:schedules] && @view %>
 		<% if @view.table.data.empty? %>
 		<div class="bg-warning">
-	  	<span class="glyphicon glyphicon-info-sign"></span>
+	  	<i class="fa fa-info-circle"></i>
 	  	<strong>No Schedules available.</strong>
 		</div>
 		<% else %>
@@ -15,7 +15,7 @@
 		<% end %>
 	<% else %>
 		<div class="bg-warning">
-			<span class="glyphicon glyphicon-info-sign"></span>
+			<i class="fa fa-info-circle"></i>
 			<strong>Choose a Schedule to view from the menus on the left.</strong>
 		</div>
 	<% end %>

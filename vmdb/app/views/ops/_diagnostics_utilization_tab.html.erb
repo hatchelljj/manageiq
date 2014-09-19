@@ -7,7 +7,7 @@
 							:locals=>{:chart_data=>@temp[:chart_data], :chart_set=>"candu"}) %>
 	<% else %>
 		<div class="bg-warning">
-			<span class="glyphicon glyphicon-info-sign"></span>
+			<i class="fa fa-info-circle"></i>
 			<strong>
 				<% if @record.vm && !@perf_record %>
 					No Utilization data available for this Server's Virtual Machine.

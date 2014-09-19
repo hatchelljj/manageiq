@@ -3,10 +3,10 @@
     - tab_id = 3
   - else
     - tab_id = 2
-  %ul{:class => "nav nav-tabs"}
+  %ul{:class => "nav"}
     - @tabs[1..-1].each do |tab|
       - if tab[0] == @tabs[0][0]
-        %li.active
+        %li
           %a
             = h(tab[1])
       - else

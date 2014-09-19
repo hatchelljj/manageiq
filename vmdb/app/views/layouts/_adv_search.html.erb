@@ -24,7 +24,7 @@
           <div id="buttons">        
             <% if @edit[@expkey][:exp_search_expressions].blank? && report_expressions.blank? %>
               <%= button_tag("Load...", 
-                             :class => "btn btn-primary", :disabled => "disabled"
+                             :class => "btn btn-primary", :disabled => "disabled",
                              :alt   => 'No saved filters or report filters are available to load',
                              :title => 'No saved filters or report filters are available to load')
               %>

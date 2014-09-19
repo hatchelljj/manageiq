@@ -48,7 +48,7 @@
             <% end %>
           <% else %>
             <div class="bg-warning">
-              <span class="glyphicon glyphicon-info-sign"></span>
+              <i class="fa fa-info-circle"></i>
               <strong>No Policy scope defined, the scope of this policy includes all elements.</strong>
             </div>
           <% end %>
@@ -67,7 +67,7 @@
           <p class="lead">Conditions</p>
           <% if @policy_conditions.empty? %>
             <div class="bg-warning">
-              <span class="glyphicon glyphicon-info-sign"></span>
+              <i class="fa fa-info-circle"></i>
               <strong>No conditions defined. This policy is unconditional and will ALWAYS return true.</strong>
             </div>
           <% else %>
@@ -201,7 +201,7 @@
           <p class="lead">Events</p>
           <% if @policy_events.empty? %>
             <div class="bg-warning">
-              <span class="glyphicon glyphicon-info-sign"></span>
+              <i class="fa fa-info-circle"></i>
               <strong>This policy does not currently respond to any Events.</strong>
             </div>
           <% else %>
@@ -295,7 +295,7 @@
           <p class="lead">Notes</p>
           <% if @policy.notes.blank? %>
             <div class="bg-warning">
-              <span class="glyphicon glyphicon-info-sign"></span>
+              <i class="fa fa-info-circle"></i>
               <strong>No notes have been entered.</strong>
             </div>
           <% else %>
@@ -327,7 +327,7 @@
             <p class="lead">Belongs to Profiles</p>
             <% if @policy_profiles.empty? %>
               <div class="bg-warning">
-                <span class="glyphicon glyphicon-info-sign"></span>
+                <i class="fa fa-info-circle"></i>
                 <strong>This Policy is not assigned to any Profiles.</strong>
               </div>
             <% else %>

@@ -83,9 +83,6 @@ function dhtmlXToolbarObject(baseId, skin) {
 			
 				var t = p[w][q];
 			
-				if (t.type == "buttonInput") {
-					t.node.className = t.node.className.replace(/dhx_toolbar_btn/,"dhx_toolbar_inp");
-				}
 				
 				// check if border-right/border-left needed
 				var br = false;
@@ -355,10 +352,10 @@ function dhtmlXToolbarObject(baseId, skin) {
 		if (item.state) return;
 		item.state = true;
 		if (this.objPull[item.id]["type"] == "buttonTwoState" && this.objPull[item.id]["obj"]["pressed"] == true) {
-			item.obj.className = "dhx_toolbar_btn pres";
-			item.obj.renderAs = "dhx_toolbar_btn over";
+			item.obj.className = "btn btn-default btn-xs";
+			item.obj.renderAs = "btn btn-default btn-xs";
 		} else {
-			item.obj.className = "dhx_toolbar_btn def";
+			item.obj.className = "btn btn-default btn-xs def";
 			item.obj.renderAs = item.obj.className;
 		}
 		if (item.arw) item.arw.className = String(item.obj.className).replace("btn","arw");
@@ -373,8 +370,8 @@ function dhtmlXToolbarObject(baseId, skin) {
 	this._disableItem = function(item) {
 		if (!item.state) return;
 		item.state = false;
-		item.obj.className = "dhx_toolbar_btn "+(this.objPull[item.id]["type"]=="buttonTwoState"&&item.obj.pressed?"pres_":"")+"dis";
-		item.obj.renderAs = "dhx_toolbar_btn def";
+		item.obj.className = "btn btn-default btn-xs ";
+		item.obj.renderAs = "btn btn-default btn-xs";
 		if (item.arw) item.arw.className = String(item.obj.className).replace("btn","arw");
 		var imgObj = this._getObj(item.obj, "img");
 		if (item.imgDis != "") {
@@ -417,7 +414,7 @@ function dhtmlXToolbarObject(baseId, skin) {
 					if (item.arw._skip === true) {
 						item.arw._skip = false;
 					} else if (item.polygon.style.display != "none") {
-						item.obj.renderAs = "dhx_toolbar_btn def";
+						item.obj.renderAs = "btn btn-default btn-xs";
 						item.obj.className = item.obj.renderAs;
 						item.arw.className = String(item.obj.renderAs).replace("btn","arw");
 						main_self.anyUsed = "none";
@@ -1563,7 +1560,7 @@ dhtmlXToolbarObject.prototype._buttonObject = function(that, id, data) {
 	
 	//
 	this.obj = document.createElement("DIV");
-	this.obj.className = "dhx_toolbar_btn "+(this.state?"def":"dis");
+	this.obj.className = "btn btn-default btn-xs";
 	this.obj.style.display = (data.hidden!=null?"none":"");
 	this.obj.allowClick = false;
 	this.obj.extAction = (data.action||null);
@@ -1583,14 +1580,14 @@ dhtmlXToolbarObject.prototype._buttonObject = function(that, id, data) {
 		this.allowClick = true;
 		if (obj.state == false) return;
 		if (that.anyUsed != "none") return;
-		this.className = "dhx_toolbar_btn over";
+		this.className = "btn btn-default btn-xs";
 		this.renderAs = this.className;
 	}
 	this.obj._doOnMouseOut = function() {
 		this.allowClick = false;
 		if (obj.state == false) return;
 		if (that.anyUsed != "none") return;
-		this.className = "dhx_toolbar_btn def";
+		this.className = "btn btn-default btn-xs";
 		this.renderAs = this.renderAs;
 	}
 	
@@ -1608,7 +1605,7 @@ dhtmlXToolbarObject.prototype._buttonObject = function(that, id, data) {
 		if (obj.state == false) { e = e||event; e.returnValue = false; e.cancelBubble = true; return false; }
 		if (that.anyUsed != "none") return;
 		that.anyUsed = this.idd;
-		this.className = "dhx_toolbar_btn pres";
+		this.className = "btn btn-default btn-xs";
 		this.pressed = true;
 		this.onmouseover = function() { this._doOnMouseOver(); }
 		this.onmouseout = function() { that.anyUsed = "none"; this._doOnMouseOut(); }
@@ -1732,7 +1729,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 	this.obj = document.createElement("DIV");
 	this.obj.allowClick = false;
 	this.obj.extAction = (data.action||null);
-	this.obj.className = "dhx_toolbar_btn "+(this.state?"def":"dis");
+	this.obj.className = "btn btn-default btn-xs";
 	this.obj.style.display = (data.hidden!=null?"none":"");
 	this.obj.renderAs = this.obj.className;
 	this.obj.onselectstart = function(e) { e = e||event; e.returnValue = false; }
@@ -1764,7 +1761,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 		e = e||event;
 		if (that.anyUsed != "none") return;
 		if (!self.state) return;
-		self.obj.renderAs = "dhx_toolbar_btn over";
+		self.obj.renderAs = "btn btn-default btn-xs";
 		self.obj.className = self.obj.renderAs;
 		self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 	}
@@ -1772,7 +1769,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 		self.obj.allowClick = false;
 		if (that.anyUsed != "none") return;
 		if (!self.state) return;
-		self.obj.renderAs = "dhx_toolbar_btn def";
+		self.obj.renderAs = "btn btn-default btn-xs";
 		self.obj.className = self.obj.renderAs;
 		self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 		self.callEvent = false;
@@ -1799,7 +1796,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 			if (that.anyUsed != "none") return;
 			if (!self.state) return;
 			self.obj.allowClick = true;
-			self.obj.className = "dhx_toolbar_btn pres";
+			self.obj.className = "btn btn-default btn-xs";
 			self.arw.className = "dhx_toolbar_arw pres";
 			self.callEvent = true;
 		}
@@ -1845,7 +1842,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 				if (that.objPull[that.idPrefix+that.anyUsed]["type"] == "buttonSelect") {
 					var item = that.objPull[that.idPrefix+that.anyUsed];
 					if (item.polygon.style.display != "none") {
-						item.obj.renderAs = "dhx_toolbar_btn def";
+						item.obj.renderAs = "btn btn-default btn-xs";
 						item.obj.className = item.obj.renderAs;
 						item.arw.className = String(self.obj.renderAs).replace("btn","arw");
 						item.polygon.style.display = "none";
@@ -1855,7 +1852,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 					}
 				}
 			}
-			self.obj.className = "dhx_toolbar_btn over";
+			self.obj.className = "btn btn-default btn-xs";
 			self.arw.className = "dhx_toolbar_arw pres";
 			that.anyUsed = self.obj.idd;
 			// show
@@ -2044,7 +2041,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 			
 			self.setListOptionSelected(this.idd.replace(that.idPrefix,""));
 			//
-			self.obj.renderAs = "dhx_toolbar_btn def";
+			self.obj.renderAs = "btn btn-default btn-xs";
 			self.obj.className = self.obj.renderAs;
 			self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 			self.polygon.style.display = "none";
@@ -2380,7 +2377,7 @@ dhtmlXToolbarObject.prototype._buttonInputObject = function(that, id, data) {
 	//
 	this.id = that.idPrefix+id;
 	this.obj = document.createElement("DIV");
-	this.obj.className = "dhx_toolbar_btn def";
+	this.obj.className = "btn btn-default btn-xs";
 	this.obj.style.display = (data.hidden!=null?"none":"");
 	this.obj.idd = String(id);
 	this.obj.w = (data.width!=null?data.width:100);
@@ -2455,12 +2452,12 @@ dhtmlXToolbarObject.prototype._buttonTwoStateObject = function(that, id, data) {
 	this.obj = document.createElement("DIV");
 	this.obj.pressed = (data.selected!=null);
 	this.obj.extAction = (data.action||null);
-	this.obj.className = "dhx_toolbar_btn "+(this.obj.pressed?"pres"+(this.state?"":"_dis"):(this.state?"def":"dis"));
+	this.obj.className = "btn btn-default btn-xs";
 	this.obj.style.display = (data.hidden!=null?"none":"");
 	this.obj.renderAs = this.obj.className;
 	this.obj.idd = String(id);
 	this.obj.title = (data.title||"");
-	if (this.obj.pressed) { this.obj.renderAs = "dhx_toolbar_btn over"; }
+	if (this.obj.pressed) { this.obj.renderAs = "btn btn-default btn-xs"; }
 	
 	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img src='"+that.imagePath+this.img+"'>":""),(data.text!=null?"<div>"+data.text+"</div>":""));
 	
@@ -2476,20 +2473,20 @@ dhtmlXToolbarObject.prototype._buttonTwoStateObject = function(that, id, data) {
 		if (obj.state == false) return;
 		if (that.anyUsed != "none") return;
 		if (this.pressed) {
-			this.renderAs = "dhx_toolbar_btn over";
+			this.renderAs = "btn btn-default btn-xs";
 			return;
 		}
-		this.className = "dhx_toolbar_btn over";
+		this.className = "btn btn-default btn-xs";
 		this.renderAs = this.className;
 	}
 	this.obj._doOnMouseOut = function() {
 		if (obj.state == false) return;
 		if (that.anyUsed != "none") return;
 		if (this.pressed) {
-			this.renderAs = "dhx_toolbar_btn def";
+			this.renderAs = "btn btn-default btn-xs";
 			return;
 		}
-		this.className = "dhx_toolbar_btn def";
+		this.className = "btn btn-default btn-xs";
 		this.renderAs = this.className;
 	}
 	this.obj[that._isIPad?"ontouchstart":"onmousedown"] = function(e) {
@@ -2499,7 +2496,7 @@ dhtmlXToolbarObject.prototype._buttonTwoStateObject = function(that, id, data) {
 		if (obj.state == false) return;
 		if (that.anyUsed != "none") return;
 		this.pressed = !this.pressed;
-		this.className = (this.pressed?"dhx_toolbar_btn pres":this.renderAs);
+		this.className = (this.pressed?"btn btn-default btn-xs";
 		
 		// event
 		var id = this.idd.replace(that.idPrefix, "");
@@ -2514,11 +2511,11 @@ dhtmlXToolbarObject.prototype._buttonTwoStateObject = function(that, id, data) {
 		if (this.obj.pressed != state) {
 			if (state == true) {
 				this.obj.pressed = true;
-				this.obj.className = "dhx_toolbar_btn pres"+(this.state?"":"_dis");
-				this.obj.renderAs = "dhx_toolbar_btn over";
+				this.obj.className = "btn btn-default btn-xs";
+				this.obj.renderAs = "btn btn-default btn-xs";
 			} else {
 				this.obj.pressed = false;
-				this.obj.className = "dhx_toolbar_btn "+(this.state?"def":"dis");
+				this.obj.className = "btn btn-default btn-xs";
 				this.obj.renderAs = this.obj.className;
 			}
 			if (callEvent == true) {
@@ -2585,7 +2582,7 @@ dhtmlXToolbarObject.prototype._sliderObject = function(that, id, data) {
 	this.id = that.idPrefix+id;
 	this.state = (data.enabled!=null?(data.enabled=="true"?true:false):true);
 	this.obj = document.createElement("DIV");
-	this.obj.className = "dhx_toolbar_btn "+(this.state?"def":"dis");
+	this.obj.className = "btn btn-default btn-xs";
 	this.obj.style.display = (data.hidden!=null?"none":"");
 	this.obj.onselectstart = function(e) { e = e||event; e.returnValue = false; }
 	this.obj.idd = String(id);
@@ -2711,12 +2708,12 @@ dhtmlXToolbarObject.prototype._sliderObject = function(that, id, data) {
 	this.enableItem = function() {
 		if (this.state) return;
 		this.state = true;
-		this.obj.className = "dhx_toolbar_btn def";
+		this.obj.className = "btn btn-default btn-xs";
 	}
 	this.disableItem = function() {
 		if (!this.state) return;
 		this.state = false;
-		this.obj.className = "dhx_toolbar_btn dis";
+		this.obj.className = "btn btn-default btn-xs";
 	}
 	this.isEnabled = function() {
 		return this.state;

@@ -61,7 +61,7 @@
     <%= render(:partial=>"layouts/flash_msg", :locals=>{:top_pad=>10}) %>
     <% if @temp[:widgetsets].empty? %>
       <div class="bg-warning">
-        <span class="glyphicon glyphicon-info-sign"></span>
+        <i class="fa fa-info-circle"></i>
         <strong>No Dashboards are defined for this group. Default dashboard will be shown.</strong>
       </div>
     <% else %>
@@ -80,7 +80,7 @@
                       title="Click to view '<%= ws.description %> (<%= ws.name %>)' " >
                 <ul class="icons">
                   <li>
-                    <span class="fa fa-dashboard" title="<%= ws.description %>"></span>
+                    <i class="fa fa-dashboard" title="<%= ws.description %>"></i>
                   </li>
                 </ul>
               </td>

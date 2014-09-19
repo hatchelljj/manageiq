@@ -26,17 +26,14 @@
   #exception_div{:style=>"display:none"}
 
   .row
-    .col-xs-4.navbar-fixed-bottom
-      - if  @layout == "dashboard" && (controller.action_name == "show" || controller.action_name == "change_tab")
-        - if @widgets_menu_xml
-          = render :partial => "dashboard/dropdownbar"
-    .col-xs-offset-4.col-xs-4
-      - if taskbar_in_header?
-        = render :partial => "layouts/taskbar"
-      - else
-        %li.nav
-    .col-xs-4    
-      = render :partial => "layouts/lightbox_panel"
+    - if  @layout == "dashboard" && (controller.action_name == "show" || controller.action_name == "change_tab")
+      - if @widgets_menu_xml
+        = render :partial => "dashboard/dropdownbar"
+    - if taskbar_in_header?
+      = render :partial => "layouts/taskbar"
+    - else
+      %li
+    = render :partial => "layouts/lightbox_panel"
 
   %script{:type => "text/javascript"}
     - if @miq_after_onload 

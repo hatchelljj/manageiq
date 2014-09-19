@@ -1,276 +1,278 @@
-%ul.nav.nav-tabs.bg-info{:role=>"tablist"}
-  -if role_allows(:main_tab => MAIN_TABS[:vi])
-    %li.active.dropdown
-      %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:vi])
-      %ul.dropdown-menu
-        -if role_allows(:feature => 'dashboard_view')
-          %li
-            %a{:href=>'/dashboard/'} Dashboard
-
-        -if role_allows(:feature=>'miq_report',:any=>true)
-          %li
-            %a{:href=>'report/explorer'}Reports
-
-        / Hiding usage for now - release 5.2
-        -if false
-          -if role_allows(:feature => 'usage')
+.navbar.navbar-default.bg-info
+  .container
+    %ul.nav.navbar-nav{:role=>"tablist"}
+      -if role_allows(:main_tab => MAIN_TABS[:vi])
+        %li.dropdown
+          %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:vi])
+          %ul.dropdown-menu
+            -if role_allows(:feature => 'dashboard_view')
+              %li
+                %a{:href=>'/dashboard/'} Dashboard
+    
+            -if role_allows(:feature=>'miq_report',:any=>true)
+              %li
+                %a{:href=>'/report/explorer'}Reports
+    
+            / Hiding usage for now - release 5.2
+            -if false
+              -if role_allows(:feature => 'usage')
+                %li
+                  %a{:href=>'/report/usage/'}Usage
+    
+            -if role_allows(:feature => 'chargeback',:any => true)
+              %li
+                %a{:href=>'/chargeback/explorer'}Chargeback
+    
+            -if role_allows(:feature => 'timeline')
+              %li
+                %a{:href=>'/dashboard/timeline/'}Timelines
+    
+            -if role_allows(:feature => 'rss')
+              %li
+                %a{:href=>'/alert/'}RSS
+     
+          -if role_allows(:main_tab => MAIN_TABS[:svc])
             %li
-              %a{:href=>'/report/usage/'}Usage
-
-        -if role_allows(:feature => 'chargeback',:any => true)
-          %li
-            %a{:href=>'/chargeback/explorer'}Chargeback
-
-        -if role_allows(:feature => 'timeline')
-          %li
-            %a{:href=>'/dashboard/timeline/'}Timelines
-
-        -if role_allows(:feature => 'rss')
-          %li
-            %a{:href=>'/alert/'}RSS
- 
-      -if role_allows(:main_tab => MAIN_TABS[:svc])
-        %li.active
-          %a.dropdown-toggle{:href=>'#', "data-toggle"=>'dropdown'}= h(MAIN_TABS[:svc])
-          %ul.dropdown-menu
-            -if role_allows(:feature => 'service', :any => true)
-              %li
-                %a{:href=>'/service/explorer'}My Services
-  
-            -if role_allows(:feature => 'catalog',:any => true)
-              %li
-                %a{:href=>'/catalog/explorer'}Catalogs
-  
-            -if role_allows(:feature => 'vm_explorer_accords',:any => true)
-              %li
-                %a{:href=>'/vm_or_template/explorer'}Workloads
-  
-            -if role_allows(:feature => 'miq_request_show_list')
-              %li
-                %a{:href=>'/miq_request?typ=vm'}Requests
-  
-      -if role_allows(:main_tab => MAIN_TABS[:clo])
-        %li.active
-          %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:clo])
-          %ul.dropdown-menu
-            -if role_allows(:feature => 'ems_cloud_show_list')
-              %li
-                %a{:href=>'/ems_cloud'}Providers
-  
-            -if role_allows(:feature => 'availability_zone_show_list')
-              %li
-                %a{:href=>'/availability_zone'}Availability Zones
-  
-            -if role_allows(:feature => 'cloud_tenant_show_list')
-              %li
-                %a{:href=>'/cloud_tenant'}Tenants
-  
-            -if role_allows(:feature => 'flavor_show_list')
-              %li
-                %a{:href=>'/flavor'}Flavors
-  
-            -if role_allows(:feature => 'security_group_show_list')
-              %li
-                %a{:href=>'/security_group'}Security Groups
-  
-            -if role_allows(:feature => 'vm_cloud_explorer_accords',:any => true)
-              %li
-                %a{:href=>'/vm_cloud/explorer'}Instances
-  
-      -if role_allows(:main_tab => MAIN_TABS[:inf])
-        %li.active
-          %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:inf])
-          %ul.dropdown-menu
-  
-            -if role_allows(:feature => 'ems_infra_show_list')
-              %li
-                %a{:href=>'/ems_infra'}Providers
-  
-            -if role_allows(:feature => 'ems_cluster_show_list')
-              %li
-                %a{:href=>'/ems_cluster'}Clusters
-  
-            -if role_allows(:feature => 'host_show_list')
-              %li
-                %a{:href=>'/host'}Hosts
-  
-            -if role_allows(:feature => 'vm_infra_explorer_accords',:any => true)
-              %li
-                %a{:href=>'/vm_infra/explorer'}Virtual Machines
-  
-            -if role_allows(:feature => 'resource_pool_show_list')
-              %li
-                %a{:href=>'/resource_pool'}Resource Pools
-  
-            -if role_allows(:feature => 'storage_show_list')
-              %li
-                %a{:href=>'/storage'}= ui_lookup(:tables => 'storages')
-  
-            -if role_allows(:feature => 'repository_show_list')
-              %li
-                %a{:href=>'/repository'}Repositories
-  
-            -if role_allows(:feature => 'pxe', :any => true)
-              %li
-                %a{:href=>'/pxe/explorer'}PXE
-  
-            -if role_allows(:feature => 'miq_request_show_list')
-              %li
-                %a{:href=>"/miq_request?typ=host"}Requests
-  
-      -if get_vmdb_config[:product][:vdi]
-        -if role_allows(:main_tab => MAIN_TABS[:vdi]) 
-          %li.active
-            %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:vdi])
-            %ul.dropdown-menu
-  
-              -if role_allows(:feature => 'vdi_farm_show_list')
-                %li
-                  %a{:href=>'/vdi_farm'}= ui_lookup(:tables => 'vdi_farm')
-  
-              -if role_allows(:feature => 'vdi_controller_show_list')
-                %li
-                  %a{:href=>'/vdi_controller'}= ui_lookup(:tables => 'vdi_controller')
-  
-              -if role_allows(:feature => 'vdi_desktop_pool_show_list')
-                %li
-                  %a{:href=>'/vdi_desktop_pool'}= ui_lookup(:tables => 'vdi_desktop_pool')
-  
-              -if role_allows(:feature => 'vdi_desktop_show_list')
-                %li
-                  %a{:href=>'/vdi_desktop'}= ui_lookup(:tables => 'vdi_desktop')
-  
-              -if role_allows(:feature => 'vdi_endpoint_device_show_list')
-                %li
-                  %a{:href=>'/vdi_endpoint_device'}= ui_lookup(:tables => 'vdi_endpoint_device')
-  
-              -if role_allows(:feature => 'vdi_user_show_list')
-                %li
-                  %a{:href=>'/vdi_user'}= ui_lookup(:tables => 'vdi_user')
-  
-              -if role_allows(:feature => 'vm_vdi_show_list')
-                %li
-                  %a{:href=>'/vm_vdi'}VMs
-  
-      -if get_vmdb_config[:product][:storage]
-        -if role_allows(:main_tab => MAIN_TABS[:sto]) 
-          %li.active
-            %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:sto])
-            %ul.dropdown-menu
-  
-              -if role_allows(:feature => 'ontap_storage_system_show_list')
-                %li
-                  %a{:href=>'/ontap_storage_system'}= ui_lookup(:tables => 'ontap_storage_system')
-              
-              -if role_allows(:feature => 'ontap_logical_disk_show_list') 
-                %li
-                  %a{:href=>'/ontap_logical_disk'}= ui_lookup(:tables => 'ontap_logical_disk')
-  
-              -if role_allows(:feature => 'ontap_storage_volume_show_list') 
-                %li
-                  %a{:href=>'/ontap_storage_volume'}= ui_lookup(:tables => 'ontap_storage_volume')
-              
-              -if role_allows(:feature => 'ontap_file_share_show_list') 
-                %li
-                  %a{:href=>'/ontap_file_share'}= ui_lookup(:tables => 'ontap_file_share')
-  
-              -if false
-                -if role_allows(:feature => 'cim_base_storage_extent_show_list') 
+              %a.dropdown-toggle{:href=>'#', "data-toggle"=>'dropdown'}= h(MAIN_TABS[:svc])
+              %ul.dropdown-menu
+                -if role_allows(:feature => 'service', :any => true)
                   %li
-                    %a{:href=>'/cim_base_storage_extent'}Base Extents
-  
-              -if role_allows(:feature => 'storage_manager_show_list')
-                %li
-                  %a{:href=>'/storage_manager'}Storage Managers
-  
-      -if role_allows(:main_tab => MAIN_TABS[:con])
-        %li.active
-          %a.dropdown-togle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:con])
-          %ul.dropdown-menu
-  
-            -if role_allows(:feature => 'control_explorer_view')
+                    %a{:href=>'/service/explorer'}My Services
+      
+                -if role_allows(:feature => 'catalog',:any => true)
+                  %li
+                    %a{:href=>'/catalog/explorer'}Catalogs
+      
+                -if role_allows(:feature => 'vm_explorer_accords',:any => true)
+                  %li
+                    %a{:href=>'/vm_or_template/explorer'}Workloads
+      
+                -if role_allows(:feature => 'miq_request_show_list')
+                  %li
+                    %a{:href=>'/miq_request?typ=vm'}Requests
+      
+          -if role_allows(:main_tab => MAIN_TABS[:clo])
+            %li
+              %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:clo])
+              %ul.dropdown-menu
+                -if role_allows(:feature => 'ems_cloud_show_list')
+                  %li
+                    %a{:href=>'/ems_cloud'}Providers
+      
+                -if role_allows(:feature => 'availability_zone_show_list')
+                  %li
+                    %a{:href=>'/availability_zone'}Availability Zones
+      
+                -if role_allows(:feature => 'cloud_tenant_show_list')
+                  %li
+                    %a{:href=>'/cloud_tenant'}Tenants
+      
+                -if role_allows(:feature => 'flavor_show_list')
+                  %li
+                    %a{:href=>'/flavor'}Flavors
+      
+                -if role_allows(:feature => 'security_group_show_list')
+                  %li
+                    %a{:href=>'/security_group'}Security Groups
+      
+                -if role_allows(:feature => 'vm_cloud_explorer_accords',:any => true)
+                  %li
+                    %a{:href=>'/vm_cloud/explorer'}Instances
+      
+          -if role_allows(:main_tab => MAIN_TABS[:inf])
+            %li
+              %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:inf])
+              %ul.dropdown-menu
+      
+                -if role_allows(:feature => 'ems_infra_show_list')
+                  %li
+                    %a{:href=>'/ems_infra'}Providers
+      
+                -if role_allows(:feature => 'ems_cluster_show_list')
+                  %li
+                    %a{:href=>'/ems_cluster'}Clusters
+      
+                -if role_allows(:feature => 'host_show_list')
+                  %li
+                    %a{:href=>'/host'}Hosts
+      
+                -if role_allows(:feature => 'vm_infra_explorer_accords',:any => true)
+                  %li
+                    %a{:href=>'/vm_infra/explorer'}Virtual Machines
+      
+                -if role_allows(:feature => 'resource_pool_show_list')
+                  %li
+                    %a{:href=>'/resource_pool'}Resource Pools
+      
+                -if role_allows(:feature => 'storage_show_list')
+                  %li
+                    %a{:href=>'/storage'}= ui_lookup(:tables => 'storages')
+      
+                -if role_allows(:feature => 'repository_show_list')
+                  %li
+                    %a{:href=>'/repository'}Repositories
+      
+                -if role_allows(:feature => 'pxe', :any => true)
+                  %li
+                    %a{:href=>'/pxe/explorer'}PXE
+      
+                -if role_allows(:feature => 'miq_request_show_list')
+                  %li
+                    %a{:href=>"/miq_request?typ=host"}Requests
+      
+          -if get_vmdb_config[:product][:vdi]
+            -if role_allows(:main_tab => MAIN_TABS[:vdi]) 
               %li
-                %a{:href=>'/miq_policy/explorer'}Explorer
+                %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:vdi])
+                %ul.dropdown-menu
+      
+                  -if role_allows(:feature => 'vdi_farm_show_list')
+                    %li
+                      %a{:href=>'/vdi_farm'}= ui_lookup(:tables => 'vdi_farm')
+      
+                  -if role_allows(:feature => 'vdi_controller_show_list')
+                    %li
+                      %a{:href=>'/vdi_controller'}= ui_lookup(:tables => 'vdi_controller')
+      
+                  -if role_allows(:feature => 'vdi_desktop_pool_show_list')
+                    %li
+                      %a{:href=>'/vdi_desktop_pool'}= ui_lookup(:tables => 'vdi_desktop_pool')
   
-            -if role_allows(:feature => 'policy_simulation')
+                  -if role_allows(:feature => 'vdi_desktop_show_list')
+                    %li
+                      %a{:href=>'/vdi_desktop'}= ui_lookup(:tables => 'vdi_desktop')
+      
+                  -if role_allows(:feature => 'vdi_endpoint_device_show_list')
+                    %li
+                      %a{:href=>'/vdi_endpoint_device'}= ui_lookup(:tables => 'vdi_endpoint_device')
+      
+                  -if role_allows(:feature => 'vdi_user_show_list')
+                    %li
+                      %a{:href=>'/vdi_user'}= ui_lookup(:tables => 'vdi_user')
+      
+                  -if role_allows(:feature => 'vm_vdi_show_list')
+                    %li
+                      %a{:href=>'/vm_vdi'}VMs
+      
+          -if get_vmdb_config[:product][:storage]
+            -if role_allows(:main_tab => MAIN_TABS[:sto]) 
               %li
-                %a{:href=>'/miq_policy/rsop'}Simulation
-  
-            -if role_allows(:feature => 'policy_import_export')
-              %li
-                %a{:href=>'/miq_policy/export'}Import / Export
-  
-            -if role_allows(:feature => 'policy_log')
-              %li
-                %a{:href=>"/miq_policy/log"}Log
-  
-      -if role_allows(:main_tab => MAIN_TABS[:aut])
-        %li.active
-          %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:aut])
-          %ul.dropdown-menu
-  
-            -if role_allows(:feature => 'miq_ae_domain_view')
-              %li
-                %a{:href=>'/miq_ae_class/explorer'}Explorer
-  
-            -if role_allows(:feature => 'miq_ae_class_simulation')
-              %li
-                %a{:href=>'/miq_ae_tools/resolve'}Simulation
-  
-            -if role_allows(:feature => 'miq_ae_customization_explorer')
-              %li
-                %a{:href=>'/miq_ae_customization/explorer'}Customization
-  
-            -if role_allows(:feature => 'miq_ae_class_import_export')
-              %li
-                %a{:href=>'/miq_ae_tools/import_export'}Import / Export
-  
-            -if role_allows(:feature => 'miq_ae_class_log')
-              %li
-                %a{:href=>'/miq_ae_tools/log'}Log
-  
-            -if role_allows(:feature => 'miq_request_show_list')
-              %li
-                %a{:href=>"/miq_request?typ=ae"}Requests
-  
-      -if role_allows(:main_tab => MAIN_TABS[:opt])
-        %li.active
-          %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:opt])
-          %ul.dropdown-menu
-  
-            -if role_allows(:feature => 'utilization')
-              %li
-                %a{:href=>'/miq_capacity'}Utilization
-  
-            -if role_allows(:feature => 'planning')
-              %li
-                %a{:href=>'/miq_capacity/planning'}Planning
-  
-            -if role_allows(:feature => 'bottlenecks')
-              %li
-                %a{:href=>'/miq_capacity/bottlenecks'}Bottlenecks
-  
-      -if role_allows(:main_tab => MAIN_TABS[:set])
-        %li.active
-          %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}Configure
-          %ul.dropdown-menu
-            -if role_allows(:feature => 'about') 
-  
-              -if role_allows(:feature => 'my_settings',:any => true)
-                %li
-                  %a{:href=>'/configuration/index?config_tab=ui'}My Settings
-  
-              -if role_allows(:feature => 'tasks',:any => true)
-                %li
-                  %a{:href=>'/miq_proxy/index?jobs_tab=tasks'}Tasks
-  
-              -if role_allows(:feature => 'ops_explorer',:any => "true")
-                %li
-                  %a{:href=>'/ops/explorer'}Configuration
-  
-              -if role_allows(:feature => 'miq_proxy_show_list')
-                %li
-                  %a{:href=>'/miq_proxy'}SmartProxies
-  
-              %li
-                %a{:href=>'/support/index?support_tab=about'}About
+                %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:sto])
+                %ul.dropdown-menu
+      
+                  -if role_allows(:feature => 'ontap_storage_system_show_list')
+                    %li
+                      %a{:href=>'/ontap_storage_system'}= ui_lookup(:tables => 'ontap_storage_system')
+                  
+                  -if role_allows(:feature => 'ontap_logical_disk_show_list') 
+                    %li
+                      %a{:href=>'/ontap_logical_disk'}= ui_lookup(:tables => 'ontap_logical_disk')
+      
+                  -if role_allows(:feature => 'ontap_storage_volume_show_list') 
+                    %li
+                      %a{:href=>'/ontap_storage_volume'}= ui_lookup(:tables => 'ontap_storage_volume')
+                  
+                  -if role_allows(:feature => 'ontap_file_share_show_list') 
+                    %li
+                      %a{:href=>'/ontap_file_share'}= ui_lookup(:tables => 'ontap_file_share')
+      
+                  -if false
+                    -if role_allows(:feature => 'cim_base_storage_extent_show_list') 
+                      %li
+                        %a{:href=>'/cim_base_storage_extent'}Base Extents
+      
+                  -if role_allows(:feature => 'storage_manager_show_list')
+                    %li
+                      %a{:href=>'/storage_manager'}Storage Managers
+      
+          -if role_allows(:main_tab => MAIN_TABS[:con])
+            %li
+              %a.dropdown-togle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:con])
+              %ul.dropdown-menu
+      
+                -if role_allows(:feature => 'control_explorer_view')
+                  %li
+                    %a{:href=>'/miq_policy/explorer'}Explorer
+      
+                -if role_allows(:feature => 'policy_simulation')
+                  %li
+                    %a{:href=>'/miq_policy/rsop'}Simulation
+      
+                -if role_allows(:feature => 'policy_import_export')
+                  %li
+                    %a{:href=>'/miq_policy/export'}Import / Export
+      
+                -if role_allows(:feature => 'policy_log')
+                  %li
+                    %a{:href=>"/miq_policy/log"}Log
+      
+          -if role_allows(:main_tab => MAIN_TABS[:aut])
+            %li
+              %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:aut])
+              %ul.dropdown-menu
+      
+                -if role_allows(:feature => 'miq_ae_domain_view')
+                  %li
+                    %a{:href=>'/miq_ae_class/explorer'}Explorer
+      
+                -if role_allows(:feature => 'miq_ae_class_simulation')
+                  %li
+                    %a{:href=>'/miq_ae_tools/resolve'}Simulation
+      
+                -if role_allows(:feature => 'miq_ae_customization_explorer')
+                  %li
+                    %a{:href=>'/miq_ae_customization/explorer'}Customization
+      
+                -if role_allows(:feature => 'miq_ae_class_import_export')
+                  %li
+                    %a{:href=>'/miq_ae_tools/import_export'}Import / Export
+      
+                -if role_allows(:feature => 'miq_ae_class_log')
+                  %li
+                    %a{:href=>'/miq_ae_tools/log'}Log
+      
+                -if role_allows(:feature => 'miq_request_show_list')
+                  %li
+                    %a{:href=>"/miq_request?typ=ae"}Requests
+      
+          -if role_allows(:main_tab => MAIN_TABS[:opt])
+            %li
+              %a.dropdown-toggle{:href=>'#', "data-toggle"=>"dropdown"}= h(MAIN_TABS[:opt])
+              %ul.dropdown-menu
+      
+                -if role_allows(:feature => 'utilization')
+                  %li
+                    %a{:href=>'/miq_capacity'}Utilization
+      
+                -if role_allows(:feature => 'planning')
+                  %li
+                    %a{:href=>'/miq_capacity/planning'}Planning
+      
+                -if role_allows(:feature => 'bottlenecks')
+                  %li
+                    %a{:href=>'/miq_capacity/bottlenecks'}Bottlenecks
+      
+          -if role_allows(:main_tab => MAIN_TABS[:set])
+            %li
+              %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}Configure
+              %ul.dropdown-menu
+                -if role_allows(:feature => 'about') 
+      
+                  -if role_allows(:feature => 'my_settings',:any => true)
+                    %li
+                      %a{:href=>'/configuration/index?config_tab=ui'}My Settings
+      
+                  -if role_allows(:feature => 'tasks',:any => true)
+                    %li
+                      %a{:href=>'/miq_proxy/index?jobs_tab=tasks'}Tasks
+      
+                  -if role_allows(:feature => 'ops_explorer',:any => "true")
+                    %li
+                      %a{:href=>'/ops/explorer'}Configuration
+      
+                  -if role_allows(:feature => 'miq_proxy_show_list')
+                    %li
+                      %a{:href=>'/miq_proxy'}SmartProxies
+      
+                  %li
+                    %a{:href=>'/support/index?support_tab=about'}About

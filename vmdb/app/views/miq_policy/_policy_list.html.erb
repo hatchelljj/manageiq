@@ -2,7 +2,7 @@
   <% if x_active_tree == :policy_tree && @view %>
     <% if @view.table.data.empty? %>
       <div class="bg-warning">
-        <span class="glyphicon glyphicon-info-sign"></span>
+        <i class="fa fa-info-circle"></i>
         <strong>No <%= ui_lookup(:model=>@sb[:folder]) %> <%= @mode %> Policies are defined<%= @search_text.blank? ? "" : " that match the entered search string" %>.</strong>
       </div>
     <% else %>

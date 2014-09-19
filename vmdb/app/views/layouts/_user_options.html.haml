@@ -1,23 +1,25 @@
 %li.dropdown.bg-info
   %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}
-    %span.glyphicon.glyphicon-user
+    %i.fa.fa-user
     = "#{session[:username]} | #{session[:vmdb_name]}"
     %b.caret
   %ul.dropdown-menu
     %li 
-      Server: #{session[:vmdb_name]}
+      %p{:style=>"color: #000000;"}
+        Server: #{session[:vmdb_name]}
     %li 
-      Group:
-      - if session[:eligible_groups].length > 1
-        = select_tag("to_group",
-                     options_for_select(session[:eligible_groups], session[:group]),
-                     {:multiple=>false,
-                      :title=>"Select to change to another Group",
-                      :onclick => "miqToggleUserOptions(event, 'to_group');",
-                      "data-miq_sparkle_on"=>true,
-                      "data-miq_observe"=>{:url=>"/dashboard/change_group"}.to_json}) 
-      - else
-        = session[:group_description] 
+      %p{:style=>"color: #000000;"}
+        Group:
+        - if session[:eligible_groups].length > 1
+          = select_tag("to_group",
+                       options_for_select(session[:eligible_groups], session[:group]),
+                       {:multiple=>false,
+                        :title=>"Select to change to another Group",
+                        :onclick => "miqToggleUserOptions(event, 'to_group');",
+                        "data-miq_sparkle_on"=>true,
+                        "data-miq_observe"=>{:url=>"/dashboard/change_group"}.to_json}) 
+        - else
+          = session[:group_description] 
     %li.divider
     %li
       %a{:href=>"/dashboard/logout", :onclick=>'return miqCheckForChanges()', :title=>"Click to Logout"}

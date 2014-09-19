@@ -63,11 +63,11 @@
 				<tr>
 					<td></td>
 					<td align="left">
-						<ul id="form_buttons">
-							<div id="buttons_off">
-								<li><%= image_tag("/images/formbuttons/apply.png", :id=>"apply",	:class=>"dimmed formbutton") %></li>
-								<li><%= image_tag("/images/formbuttons/reset.png",	:class=>"dimmed formbutton") %></li>
-								<li>
+						<ul id="form_buttons" class="list-inline">
+							<div class="row" id="buttons_off">
+								<li class="col-xs-4"><%= image_tag("/images/formbuttons/apply.png", :id=>"apply",	:class=>"dimmed formbutton") %></li>
+								<li class="col-xs-4"><%= image_tag("/images/formbuttons/reset.png",	:class=>"dimmed formbutton") %></li>
+								<li class="col-xs-4">
 									<%= link_to(image_tag("/images/formbuttons/default.png", :border=>"0", :class=>"button formbutton",
 																							:id=>"apply",:alt=>"Set filters to default"),
 																		{:action=>"prov_button", :button=>"default"},
@@ -78,8 +78,8 @@
 									%>
 								</li>
 							</div>
-							<div id="buttons_on" style="display:none">
-								<li>
+							<div class="row" id="buttons_on" style="display:none">
+								<li class="col-xs-4">
 									<%= link_to(image_tag("/images/formbuttons/apply.png", :border=>"0", :class=>"button formbutton",
 																								:alt=>"Apply the selected filters"),
 																			{:action=>"prov_button", :button=>"apply"},
@@ -89,7 +89,7 @@
 																			:title=>"Apply the selected filters")
 										%>
 								</li>
-								<li>
+								<li class="col-xs-4">
 									<%= link_to(image_tag("/images/formbuttons/reset.png", :border=>"0", :class=>"button formbutton",
 																							:alt=>"Reset filter changes"),
 																		{:action=>"prov_button", :button=>"reset"},
@@ -99,7 +99,7 @@
 																		:title=>"Reset filter changes")
 									%>
 								</li>
-								<li>
+								<li class="col-xs-4"> 
 									<%= link_to(image_tag("/images/formbuttons/default.png", :border=>"0", :class=>"button formbutton",
 											:alt=>"Set filters to default"),
 																		{:action=>"prov_button", :button=>"default"},

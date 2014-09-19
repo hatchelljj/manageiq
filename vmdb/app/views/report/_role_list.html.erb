@@ -42,7 +42,7 @@
     <%= render(:partial=>"layouts/flash_msg", :locals=>{:div_num=>"_menu_list"}) %>
     <% if @sb[:menu].empty? %>
       <div class="bg-warning">
-        <span class="glyphicon glyphicon-info-sign"></span>
+        <i class="fa fa-info-circle"></i>
         <strong>No Saved Reports available.</strong>
       </div>
     <% else %>
@@ -72,7 +72,7 @@
     <% end %>
   <% else %>
     <div class="bg-warning">
-      <span class="glyphicon glyphicon-info-sign"></span>
+      <i class="fa fa-info-circle"></i>
       <strong>Choose a Role to edit from the left.</strong>
     </div>
   <% end %>

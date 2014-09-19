@@ -17,7 +17,7 @@
 			<td >
 				<ul >
 					<li>
-						<span class="glyphicon glyphicon-plus">
+						<i class="fa fa-plus"></i>
 					</li>
 				</ul>
 			</td>
@@ -30,7 +30,7 @@
 						<td title="Category '<%=cat[:name]%>' cannot be deleted" >
 							<ul >
 								<li>
-									<span class="glyphicon glyphicon-remove"></span>
+									<i class="fa fa-times"></i>
 								</li>
 							</ul>
 						</td>
@@ -38,7 +38,7 @@
 						<td onclick="<%= remote_function(:url=>{:action=>'category_delete', :id=>cat[:id]}, :confirm=>"Are you sure you want to delete category '#{cat[:name]}'?") %>" title="Click to delete this category" >
 							<ul >
 								<li>
-									<span class="glyphicon glyphicon-remove"></span>
+									<i class="fa fa-times"></i>
 								</li>
 							</ul>
 						</td>

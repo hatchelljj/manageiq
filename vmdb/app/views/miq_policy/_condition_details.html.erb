@@ -43,7 +43,7 @@
               <% end %>
             <% else %>
               <div class="bg-warning">
-                <span class="glyphicon glyphicon-info-sign"></span>
+                <i class="fa fa-info-circle"></i>
                 <strong>No scope defined, the scope of this condition includes all elements.</strong>
               </div>
             <% end %>
@@ -64,7 +64,7 @@
               <% end %>
             <% else %>
               <div class="bg-warning">
-                <span class="glyphicon glyphicon-info-sign"></span>
+                <i class="fa fa-info-circle"></i>
                 <strong>A condition must contain a valid expression.</strong>
               </div>  
             <% end %>
@@ -78,7 +78,7 @@
         <p class="lead">Notes</p>
         <% if @condition.notes.blank? %>
           <div class="bg-warning">
-            <span class="glyphicon glyphicon-info-sign"></span>
+            <i class="fa fa-info-circle"></i>
             <strong>No notes have been entered.</strong>
           </div>
         <% else %>
@@ -106,7 +106,7 @@
         <p class="lead">Assigned to Policies</p>
         <% if @condition_policies.empty? %>
           <div class="bg-warning">
-            <span class="glyphicon glyphicon-info-sign"></span>
+            <i class="fa fa-info-circle"></i>
             <strong>This Condition is not assigned to any Policies.</strong>
           </div>
         <% else %>

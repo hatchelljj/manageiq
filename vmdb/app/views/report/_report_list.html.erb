@@ -30,7 +30,7 @@
             (nodes.length == 4 && @sb[:rpt_menu][nodes[1].to_i].present? &&
               @sb[:rpt_menu][nodes[1].to_i][1][nodes[3].to_i][1].blank?) %>
         <div class="bg-warning">
-          <span class="glyphicon glyphicon-info-sign"></span>
+          <i class="fa fa-info-circle"></i>
           <strong>No Reports available.</strong>
         </div>
       <% else %>
@@ -51,13 +51,13 @@
                   onmouseover="this.style.cursor='pointer'" title="Click to view details">
                   <td  nowrap>
                       <% if folder[0]	== @sb[:grp_title] %>
-                        <% img_name = "folder-close-blue" %>
+                        <% img_name = "folder-open" %>
                       <% else %>
-                        <% img_name = "folder-close" %>
+                        <% img_name = "folder" %>
                       <% end %>
                       <ul >
                         <li>
-                          <span class="glyphicon glyphicon-<%=img_name%>"></span>
+                          <i class="fa fa-<%=img_name%>"></i>
                         </li>
                       </ul>
                   </td>
@@ -84,13 +84,13 @@
                   onmouseover="this.style.cursor='pointer'" title="Click to view details">
                   <td  nowrap>
                     <% if @sb[:rpt_menu][nodes[1].to_i][0]	== @sb[:grp_title] %>
-                      <% img_name = "folder-close-blue" %>
+                      <% img_name = "folder-open" %>
                     <% else %>
-                      <% img_name = "folder-close" %>
+                      <% img_name = "folder" %>
                     <% end %>
                       <ul >
                         <li>
-                          <span class="glyphicon glyphicon-<%=img_name%>"></span>
+                          <i class="fa fa-<%=img_name%>"></i>
                         </li>
                       </ul>
                   </td>
@@ -174,7 +174,7 @@
       <%= render(:partial=>"report_status") %>
     <% else %>
       <div class="bg-warning">
-        <span class="glyphicon glyphicon-info-sign"></span>
+        <i class="fa fa-info-circle"></i>
         <strong>Choose a Report to view from the menus on the left.</strong>
       </div>
     <% end %>

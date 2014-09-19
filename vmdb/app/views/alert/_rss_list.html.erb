@@ -1,7 +1,7 @@
 <div id="tab_div">
   <% if @rss_feeds.empty? %>
     <div class="bg-warning">
-      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      <i class="fa fa-exclamation-circle"></i>
       <strong>No RSS Feeds Found</strong>
     </div>
   <% else %>
@@ -31,7 +31,7 @@
           <% for feed in @rss_feeds %>
             <tr>
               <td onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);">
-                <ul>
+                <ul class="list-unstyled">
                   <li>
                     <%= link_to("", feed.link, :title => "Subscribe to this feed", :class => "fa fa-rss") %>
                   </li>

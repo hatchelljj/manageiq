@@ -30,7 +30,7 @@
         <p class="lead">Assigned to Policies</p>
         <% if @event_policies.empty? %>
           <div class="bg-warning">
-            <span class="glyphicon glyphicon-info-sign"></span>
+            <i class="fa fa-info-circle"></i>
             <strong>This Event is not assigned to any Policies.</strong>
           </div>
         <% else %>
@@ -60,7 +60,7 @@
         <% unless @edit %>
           <% if @event_true_actions.empty? %>
             <div class="bg-warning">
-              <span class="glyphicon glyphicon-info-sign"></span>
+              <i class="fa fa-info-circle"></i>
               <strong>This Event has no true Actions.</strong>
             </div>
           <% else %>
@@ -226,7 +226,7 @@
         <% unless @edit %>
           <% if @event_false_actions.empty? %>
             <div class="bg-warning">
-              <span class="glyphicon glyphicon-info-sign"></span>
+              <i class="fa fa-info-circle"></i>
               <strong>This Event has no false Actions.</strong>
             </div>
           <% else %>

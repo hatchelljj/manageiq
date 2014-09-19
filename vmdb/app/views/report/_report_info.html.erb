@@ -63,7 +63,7 @@
   <p class="lead">Schedules</p>
   <% if @temp[:schedules].blank? %>
     <div class="bg-info">
-      <span class=glyphicon glyphicon-info-sign"></span>
+      <i class="fa fa-info-circle"></i>
       <strong>Report is not Scheduled.</strong>
     </div>
   <% else %>
@@ -125,7 +125,7 @@
     <p class="lead">Widgets</p>
     <% if @temp[:widget_nodes].nil? || (@temp[:widget_nodes] && @temp[:widget_nodes].empty?) %>
       <div class="bg-warning">
-        <span class="glyphicon glyphicon-info-sign"></span>
+        <i class="fa fa-info-circle"></i>
         <strong>Report doesn't belong to Widgets.</strong>
       </div>
     <% else %>

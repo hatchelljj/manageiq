@@ -26,17 +26,17 @@
 			<% @flash_array.each do |fl| %>
 				<% if fl[:level] == :error %>
 					<div class="bg-warning">
-						<span class="glyphicon glyphicon-exclamation-sign"></span>
+						<i class="fa fa-exclamation-circle"></i>
 						<strong><%= h(fl[:message]) %></strong>
 					</div>
 				<% elsif fl[:level] == :warning %>
 					<div class="bg-warning">
-						<span class="glyphicon glyphicon-exclamation-sign"></span>
+						<i class="fa fa-exclamation-circle"></i>
 						<strong><%= h(fl[:message]) %></strong>
 					</div>
 				<% else %>
 					<div class="bg-success">
-						<span class="glyphicon glyphicon-ok-circle"></span>
+						<i class="fa fa-check-circle"></i>
 						<strong><%= h(fl[:message]) %></strong>
 					</div>
  				<% end %>
