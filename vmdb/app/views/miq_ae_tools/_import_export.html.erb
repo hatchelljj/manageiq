@@ -4,31 +4,31 @@
 		<p class="lead">Import</p>
 		Import Datastore classes
 		<%= form_tag({:action=>"upload", :typ=>"ae_tag", :db=>"MiqAeClass"}, :multipart => true) do %>
-			<%= file_field("upload", "datastore") %>
-			<%= submit_tag("Upload", :id=>"upload_atags", :class => "upload" ) %>
-
-
+			<ul class="list-inline">
+				<li><%= file_field("upload", "datastore") %></li>
+				<li><%= submit_tag("Upload", :id=>"upload_atags", :class => "btn btn-default" ) %></li>
+			</ul>
 		<% end %>
 	</fieldset>
 
 	<fieldset>
 		<p class="lead">Export</p>
-		<%= link_to(image_tag("/images/toolbars/export.png", :border=>"0",
-									:alt=>"Export all classes and instances"),
+		<%= link_to "Export", 
 									{:action=>'export_datastore'},
-									:title=>"Export all classes and instances")
+									:class=>"btn btn-default",
+									:title=>"Export all classes and instances"
 			%>&nbsp;Export all Datastore classes and instances to a file
 	</fieldset>
 
 	<fieldset>
 		<p class="lead">Reset</p>
-			<%= link_to(image_tag("/images/toolbars/reset.png",
-												:alt=>"Reset all custom classes and instances to default"),
+			<%= link_to "Reset", 
 												{:action=>'reset_datastore'},
+			:class=>"btn btn-default",
                         "data-miq_sparkle_on" => true,
                         :confirm=>"All Datastore customizations will be lost. Are you sure you want to reset all classes and instances to default?",
                         :remote=>true,
-												:title=>"Reset all custom classes and instances to default")
+												:title=>"Reset all custom classes and instances to default"
 			%>&nbsp;Reset all Datastore custom classes and instances to default
 	</fieldset>
 </div>

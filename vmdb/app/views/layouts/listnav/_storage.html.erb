@@ -1,15 +1,17 @@
 <% if @record && @record.name != nil %>
 	<div id="accordion">
-		<div class="panel">
-				<div class="topbar">
-					<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
-														{:action=>'panel_control', :panel=>'icon'},
-                            :remote=>true,
-														:title=>"#{h(@record.name)}") %>
+		<div class="container">
+				<div class="navbar navbar-default">
+					<div class="container">
+						<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
+							{:action=>'panel_control', :panel=>'icon'},
+        				                    :remote=>true,
+							:title=>"#{h(@record.name)}") %>
+					</div>
 				</div>
 
 				<%= hidden_div_if(@panels["icon"] == nil || @panels["icon"] == false, :id=>"icon" ) %>
-					<div class="panecontent">
+					<div class="container">
 
 						<%= render(:partial=>"layouts/quadicon",
 												:locals=>{:mode=>:icon,
@@ -21,12 +23,14 @@
 				</div>
 
 			</div>
-    <div class="topbar">
-				<%= link_to("Properties", {:action=>'panel_control', :panel=>'storage_prop'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to("Properties", {:action=>'panel_control', :panel=>'storage_prop'}, :remote=>true) %>
+				</div>
 			</div>
 
 			<%= hidden_div_if(@panels["storage_prop"] == nil || @panels["storage_prop"] == false, :id=>"storage_prop") %>
-				<div class="panecontent">
+				<div class="container">
                     <%= link_to_with_icon('Summary', {:action=>'show', :id=>@record, :display=>'main'},
                                           :title=>"Show Summary") %>
 						<% if @record.has_perf_data? %>
@@ -39,12 +43,14 @@
 						<% end %>
         </div>
       </div>
-		<div class="topbar">
-		<%= link_to("Relationships", {:action=>'panel_control', :panel=>'storage_rel'}, :remote=>true) %>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<%= link_to("Relationships", {:action=>'panel_control', :panel=>'storage_rel'}, :remote=>true) %>	
+			</div>
 		</div>
 
 		<%= hidden_div_if(@panels["storage_rel"] == nil || @panels["storage_rel"] == false, :id=>"storage_rel") %>
-			<div class="panecontent">
+			<div class="container">
 
 <% if false %>
 			<% if role_allows(:feature=>"ems_infra_show") %>
@@ -84,12 +90,12 @@
 		</div>
 
     <% if get_vmdb_config[:product][:storage] %>
-      <div class="topbar">
-        <%= link_to("Storage Relationships", {:action=>'panel_control', :panel=>'storage_inf_rel'}, :remote=>true) %>
+      <div class="navbar navbar-default">
+	<div class="container"><%= link_to("Storage Relationships", {:action=>'panel_control', :panel=>'storage_inf_rel'}, :remote=>true) %></div>
       </div>
 
       <%= hidden_div_if(@panels["storage_inf_rel"] == nil || @panels["storage_inf_rel"] == false, :id=>"storage_inf_rel") %>
-        <div class="panecontent">
+        <div class="container">
           <% if role_allows(:feature=>"ontap_storage_system_show_list") %>
             <%= link_if_nonzero(
               :count     => @record.storage_systems_size,
@@ -135,12 +141,12 @@
       </div>
     <% end %>
 
-		<div class="topbar">
-			<%= link_to("Content", {:action=>'panel_control', :panel=>'storage_content'}, :remote=>true) %>
+		<div class="navbar navbar-default">
+			<div class="container"><%= link_to("Content", {:action=>'panel_control', :panel=>'storage_content'}, :remote=>true) %></div>
 		</div>
 
 		<%= hidden_div_if(@panels["storage_content"] == nil || @panels["storage_content"] == false, :id=>"storage_content") %>
-			<div class="panecontent">
+			<div class="container">
         <%= link_if_nonzero(
           :count     => @storage.number_of(:files),
           :record_id => @storage.id,

@@ -199,11 +199,11 @@
                   <p>
                 </td>
                 <td width="20" valign="middle">
-                  <%= link_to(image_tag("/images/toolbars/right.png",
-                                        :class => "rollover small", :alt => "Move selected Alerts into this Action"),
+                  <%= link_to "Add to Action", 
                               {:action => 'action_edit', 
                                :button => 'move_right',
                                :id     => "#{@action.id || "new"}"},
+			      :class=>"btn btn-default",
                               "data-miq_sparkle_on"  => true,
                               "data-miq_sparkle_off" => true,
                               "data-submit"          => 'choices_chosen_div',
@@ -211,12 +211,11 @@
                               :title  => "Move selected Alerts into this Action") 
                   %>
 
-                  <%= link_to(image_tag("/images/toolbars/left.png",
-                                        :class => "rollover small", 
-                                        :alt=>"Remove selected Alerts from this Action"),
+                  <%= link_to "Remove from Action",
                               {:action => 'action_edit',
                                :button => 'move_left',
                                :id     => "#{@action.id || "new"}"},
+			      :class=>"btn btn-default",
                               "data-miq_sparkle_on"  => true,
                               "data-miq_sparkle_off" => true,
                               "data-submit"          => 'members_chosen_div',

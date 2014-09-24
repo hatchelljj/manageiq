@@ -11,48 +11,22 @@
 						<% case b %>
 						<% when "save" %>
 							<li>
-								<%= image_tag('/images/formbuttons/save.png', :border=>"0", :class=>"button",
-															:alt=>"Save Changes", :title=>"Save Changes",
-															:onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-																																	:id=>record_id,
-																																	:button=>"save")}');")
-								%>
+								<%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default" %>
 							</li>
 						<% when "submit" %>
-							<li>
-								<%= image_tag('/images/formbuttons/submit.png', :border=>"0", :class=>"button",
-															:alt=>"Submit", :title=>"Submit",
-															:onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-																																	:id=>record_id,
-																																	:button=>"submit")}');")
-								%>
+								<%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default" %>
 							</li>
 						<% when "continue" %>
 							<li>
-								<%= image_tag('/images/formbuttons/continue.png', :border=>"0", :class=>"button",
-															:alt=>"Continue", :title=>"Continue",
-															:onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-																																	:id=>record_id,
-																																	:button=>"continue")}');")
-								%>
+								<%= link_to "Continue", '#{url_for(:action=>action_url, :id=>record_id, :button=>"continue")}', :class=>"btn btn-default" %>
 							</li>
 						<% when "reset" %>
 							<li>
-								<%= image_tag('/images/formbuttons/reset.png', :border=>"0", :class=>"button",
-															:alt=>"Reset Changes", :title=>"Reset Changes",
-															:onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-																																	:id=>record_id,
-																																	:button=>"reset")}');")
-								%>
+								<%= link_to "Reset", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default" %>
 							</li>
 						<% when "cancel" %>
 							<li>
-								<%= image_tag('/images/formbuttons/cancel.png', :border=>"0", :class=>"button",
-															:alt=>"Cancel", :title=>"Cancel",
-															:onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-																																	:id=>record_id,
-																																	:button=>"cancel")}');")
-								%>
+								<%= link_to "Cancel", '#{url_for(:action=>action_url, :id=>record_id, :button=>"cancel")}', :class=>"btn btn-default" %>
 							</li>
 						<% end %>
 					<% end %>
@@ -65,28 +39,23 @@
 						<% case b %>
 						<% when "save" %>
 							<li>
-								<%= image_tag("/images/formbuttons/save.png",	:class=>"dimmed") %>
+								<%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default", :disabled=>"disabled" %>
 							</li>
 						<% when "submit" %>
 							<li>
-								<%= image_tag("/images/formbuttons/submit.png",	:class=>"dimmed") %>
+								<%= link_to "Submit", '#{url_for(:action=>action_url, :id=>record_id, :button=>"submit")}', :class=>"btn btn-default", :disabled=>"disabled" %>
 							</li>
 						<% when "continue" %>
 							<li>
-								<%= image_tag("/images/formbuttons/continue.png",	:class=>"dimmed") %>
+								<%= link_to "Continue", '#{url_for(:action=>action_url, :id=>record_id, :button=>"continue")}', :class=>"btn btn-default", :disabled=>"disabled" %>
 							</li>
 						<% when "reset" %>
 							<li>
-								<%= image_tag("/images/formbuttons/reset.png",	 :class=>"dimmed") %>
+								<%= link_to "Reset", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default", :disabled=>"disabled" %>
 							</li>
 						<% when "cancel" %>
 							<li>
-								<%= image_tag('/images/formbuttons/cancel.png', :border=>"0", :class=>"button",
-															:alt=>"Cancel", :title=>"Cancel",
-															:onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-																																	:id=>record_id,
-																																	:button=>"cancel")}');")
-								%>
+								<%= link_to "Cancel", '#{url_for(:action=>action_url, :id=>record_id, :button=>"cancel")}', :class=>"btn btn-default", :disabled=>"disabled" %>
 							</li>
 						<% end %>
 					<% end %>

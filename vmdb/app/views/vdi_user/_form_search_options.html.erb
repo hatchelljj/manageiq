@@ -53,9 +53,9 @@
   <td align="right">
     <% buttons_show = @edit[:new][:ldap_region_id] && @filterby1 != NOTHING_STRING && !@edit[:new][:filter_value1].blank? %>
     <div id="buttons_on" style="display:<%= buttons_show ? "display" : "none" %>;">
-      <%= link_to(image_tag('/images/formbuttons/search.png',
-                   :style=>"height: 30px; width: 80px; margin-top: 1px", :alt=>"Import",:class=>"button"),
+      <%= link_to "Import", 
                   {:action=>"user_import", :button=>"search",:id=>"import_edit__new"},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on" => true,
                   :remote=>true,
                   :title=>"Search VDI Users to import")

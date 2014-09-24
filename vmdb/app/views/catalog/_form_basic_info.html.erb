@@ -73,16 +73,15 @@
                 <td>
                   <% display = @edit[:new][:fqname] != "" ? "" : "display:none" %>
                   <div id="fqname_div" style="<%=display%>">
-                    <%= link_to(image_tag('/images/toolbars/discard.png',
-                                          :class => "rollover small", 
-                                          :alt   => "Remove this Provisioning Entry Point"),
+                    <%= link_to "Remove", 
                                 {:action => 'ae_tree_select_discard', 
                                  :typ    => "provision"},
+				:class=>"btn btn-default",
                                 "data-miq_sparkle_on"  => true,
                                 "data-miq_sparkle_off" => true,
                                 "data-confirm"         => "Are you sure you want to remove this Provisioning Entry Point?",
                                 :remote                => true,
-                                :title                 => "Remove this Provisioning Entry Point")
+                                :title                 => "Remove this Provisioning Entry Point"
                     %>
                   </div>
                 </td>
@@ -104,15 +103,14 @@
                 <td>
                 <% display = @edit[:new][:reconfigure_fqname] != "" ? "" : "display:none" %>
                 <div id="reconfigure_fqname_div" style="<%=display%>">
-                  <%= link_to(image_tag('/images/toolbars/discard.png',
-                                        :class => "rollover small",
-                                        :alt   => "Remove this Reconfigure Entry Point"),
+                  <%= link_to "Remove",
                               {:action => 'ae_tree_select_discard', :typ => "reconfigure"},
+			      :class=>"btn btn-default",
                               "data-miq_sparkle_on"  => true,
                               "data-miq_sparkle_off" => true,
                               "data-confirm"         => "Are you sure you want to remove this Reconfigure Entry Point?",
                               :remote                => true,
-                              :title                 => "Remove this Reconfigure Entry Point")
+                              :title                 => "Remove this Reconfigure Entry Point"
                   %>
                 </div>
                 </td>
@@ -134,16 +132,15 @@
                 <td>
                   <% display = @edit[:new][:retire_fqname] != "" ? "" : "display:none" %>
                   <div id="retire_fqname_div" style="<%=display%>">
-                    <%= link_to(image_tag('/images/toolbars/discard.png',
-                                          :class => "rollover small", 
-                                          :alt   => "Remove this Retirement Entry Point"),
+                    <%= link_to "Remove", 
                                 {:action => 'ae_tree_select_discard',
                                  :typ    => "retirement"},
+				:class=>"btn btn-default",
                                 "data-miq_sparkle_on"  => true,
                                 "data-miq_sparkle_off" => true,
                                 "data-confirm"         => "Are you sure you want to remove this Retirement Entry Point?",
                                 :remote                => true,
-                                :title                 => "Remove this Retirement Entry Point")
+                                :title                 => "Remove this Retirement Entry Point"
                     %>
                   </div>
                 </td>

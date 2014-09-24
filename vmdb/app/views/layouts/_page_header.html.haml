@@ -7,7 +7,7 @@
         .col-xs-10
           .row
             .col-xs-offset-8.col-xs-4
-              %ul.nav.nav-pills
+              %ul.nav
                 - if session[:userid] 
                   = render :partial => "layouts/user_options" 
                 - else
@@ -26,14 +26,16 @@
   #exception_div{:style=>"display:none"}
 
   .row
-    - if  @layout == "dashboard" && (controller.action_name == "show" || controller.action_name == "change_tab")
-      - if @widgets_menu_xml
-        = render :partial => "dashboard/dropdownbar"
-    - if taskbar_in_header?
-      = render :partial => "layouts/taskbar"
-    - else
-      %li
-    = render :partial => "layouts/lightbox_panel"
+    .col-xs-2
+      - if  @layout == "dashboard" && (controller.action_name == "show" || controller.action_name == "change_tab")
+        - if @widgets_menu_xml
+          = render :partial => "dashboard/dropdownbar"
+    .col-xs-10
+      - if taskbar_in_header?
+        = render :partial => "layouts/taskbar"
+      - else
+        %li.list-unstyled
+      = render :partial => "layouts/lightbox_panel"
 
   %script{:type => "text/javascript"}
     - if @miq_after_onload 

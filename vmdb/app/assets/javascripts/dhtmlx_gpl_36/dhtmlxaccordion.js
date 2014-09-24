@@ -48,7 +48,6 @@ function dhtmlXAccordion(baseId, skin) {
 		
 		this.base = document.createElement("DIV");
 		this.base.className = "dhx_acc_base_"+this.skin;
-		this.base.style.overflow = "hidden";
 		this.base.style.position = "absolute";
 		
 		this._adjustToFullScreen = function() {

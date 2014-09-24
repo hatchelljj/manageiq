@@ -46,15 +46,15 @@
     <td align="right">
       <% buttons_show = @edit[:selected_users] && !@edit[:selected_users].empty? %>
       <div id="import_buttons_on" style="display:<%= buttons_show ? "display" : "none" %>;">
-        <%= link_to(image_tag('/images/formbuttons/import.png',:class=>"button",
-                              :border=>"0", :alt=>"Import"),
+        <%= link_to "Import",
                     {:action=>"user_import", :button=>"import",:id=>"import_edit__new"},
+		    :class=>"btn btn-default",
                     "data-miq_sparkle_on" => true,
                     :title=>"Import selected Users")
         %>
-        <%= link_to(image_tag('/images/formbuttons/cancel.png',
-                              :class=>"button",:border=>"0", :alt=>"Cancel Import",:class=>"button"),
+        <%= link_to "Cancel", 
                     {:action=>"user_import", :button=>"cancel"},
+		    :class=>"btn btn-default",
                     "data-miq_sparkle_on" => true,
                     "data-miq_sparkle_off" => true,
                     :title=>"Cancel Import")
@@ -63,9 +63,9 @@
       <div id="import_buttons_off" style="display:<%= buttons_show ? "none" : "display" %>;">
         <%= image_tag("/images/formbuttons/import.png",	:class=>"dimmed",
                         :title=>"Select Users to import", :alt=>"Select Users to import") %>
-        <%= link_to(image_tag('/images/formbuttons/cancel.png',
-                              :class=>"button",:border=>"0", :alt=>"Cancel Import",:class=>"button"),
+        <%= link_to "Cancel", 
                     {:action=>"user_import", :button=>"cancel"},
+		    :class=>"btn btn-default",
                     "data-miq_sparkle_on" => true,
                     "data-miq_sparkle_off" => true,
                     :title=>"Cancel Import")

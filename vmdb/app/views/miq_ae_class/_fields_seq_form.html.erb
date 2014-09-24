@@ -18,8 +18,9 @@
                 <% if @edit[:new][:fields].length < 2 %>
                   <%= image_tag("/images/toolbars/up.png") %>
                 <% else %>
-                  <%= link_to(image_tag("/images/toolbars/up.png", :alt=>"Move selected fields up"),
+                  <%= link_to "Move Up",
                         {:action=>'fields_seq_field_changed', :button=>'up', :id=>"seq"},
+			:class=>"btn btn-default",
                         "data-miq_sparkle_on" => true,
                         "data-miq_sparkle_off" => true,
                         "data-submit"=>'column_lists',
@@ -31,8 +32,9 @@
                 <% if @edit[:new][:fields].length < 2 %>
                   <%= image_tag("/images/toolbars/down.png") %>
                 <% else %>
-                  <%= link_to(image_tag("/images/toolbars/down.png", :alt=>"Move selected fields down"),
+                  <%= link_to "Move Down", 
                         {:action=>'fields_seq_field_changed', :button=>'down', :id=>"seq"},
+			:class=>"btn btn-default",
                         "data-miq_sparkle_on" => true,
                         "data-miq_sparkle_off" => true,
                         "data-submit"=>'column_lists',

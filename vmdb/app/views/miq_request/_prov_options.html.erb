@@ -65,48 +65,52 @@
 					<td align="left">
 						<ul id="form_buttons" class="list-inline">
 							<div class="row" id="buttons_off">
-								<li class="col-xs-4"><%= image_tag("/images/formbuttons/apply.png", :id=>"apply",	:class=>"dimmed formbutton") %></li>
-								<li class="col-xs-4"><%= image_tag("/images/formbuttons/reset.png",	:class=>"dimmed formbutton") %></li>
 								<li class="col-xs-4">
-									<%= link_to(image_tag("/images/formbuttons/default.png", :border=>"0", :class=>"button formbutton",
-																							:id=>"apply",:alt=>"Set filters to default"),
+									<%= link_to "Apply", '#{url_for(:action=>action_url, :id=>record_id, :button=>"apply")}', :class=>"btn btn-default", :disabled=>"disabled" %>
+								</li>
+								<li class="col-xs-4">
+									<%= link_to "Reset", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default", :disabled=>"disabled" %>
+								</li>
+								<li class="col-xs-4">
+									<%= link_to "Set to Default", 
 																		{:action=>"prov_button", :button=>"default"},
+				    :class=>"btn btn-default",
                                     "data-miq_sparkle_on" => true,
                                     "data-miq_sparkle_off" => true,
                                     :remote=>true,
-																		:title=>"Set filters to default")
+																		:title=>"Set filters to default"
 									%>
 								</li>
 							</div>
 							<div class="row" id="buttons_on" style="display:none">
 								<li class="col-xs-4">
-									<%= link_to(image_tag("/images/formbuttons/apply.png", :border=>"0", :class=>"button formbutton",
-																								:alt=>"Apply the selected filters"),
+									<%= link_to "Apply", 
 																			{:action=>"prov_button", :button=>"apply"},
+				      :class=>"btn btn-default",
                                       "data-miq_sparkle_on" => true,
                                       "data-miq_sparkle_off" => true,
                                       :remote=>true,
-																			:title=>"Apply the selected filters")
+																			:title=>"Apply the selected filters"
 										%>
 								</li>
 								<li class="col-xs-4">
-									<%= link_to(image_tag("/images/formbuttons/reset.png", :border=>"0", :class=>"button formbutton",
-																							:alt=>"Reset filter changes"),
+									<%= link_to "Reset", 
 																		{:action=>"prov_button", :button=>"reset"},
+				    :class=>"btn btn-default",
                                     "data-miq_sparkle_on" => true,
                                     "data-miq_sparkle_off" => true,
                                     :remote=>true,
-																		:title=>"Reset filter changes")
+																		:title=>"Reset filter changes"
 									%>
 								</li>
 								<li class="col-xs-4"> 
-									<%= link_to(image_tag("/images/formbuttons/default.png", :border=>"0", :class=>"button formbutton",
-											:alt=>"Set filters to default"),
+									<%= link_to "Reset to Default", 
 																		{:action=>"prov_button", :button=>"default"},
+				    :class=>"btn btn-default",
                                     "data-miq_sparkle_on" => true,
                                     "data-miq_sparkle_off" => true,
                                     :remote=>true,
-																		:title=>"Set filters to default")
+																		:title=>"Set filters to default"
 									%>
 								</li>
 							</div>

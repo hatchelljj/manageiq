@@ -13,10 +13,10 @@
   <ul id="searchtoolbar">
     <% if @edit[@expkey][:exp_idx] > 0 %>
     <li>
-      <%= link_to(image_tag('/images/toolbars/undo.png',
-                            :alt => 'Undo the previous change'),
+      <%= link_to "Undo", 
                   {:action  => 'exp_button', 
                    :pressed =>'undo'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -30,10 +30,10 @@
     <% end %>
     <% if @edit[@expkey][:exp_idx] < @edit[@expkey][:exp_array].length - 1 %>
     <li>
-      <%= link_to(image_tag('/images/toolbars/redo.png',
-                            :alt => 'Redo the next change'),
+      <%= link_to "Redo", 
                   {:action  => 'exp_button', 
                    :pressed => 'redo'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -62,10 +62,10 @@
   </span>
   <span id='exp_buttons_not' style="display:none">
     <li>
-      <%= link_to(image_tag('/images/toolbars/and.png',
-                            :alt => 'AND with a new expression element'),
+      <%= link_to "AND with a new element", 
                   {:action  => 'exp_button', 
                    :pressed => 'and'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -73,10 +73,10 @@
       %>
     </li>
     <li>
-      <%= link_to(image_tag('/images/toolbars/or.png',
-                            :alt => 'OR with a new expression element'),
+      <%= link_to "OR with a new element", 
                   {:action  => 'exp_button', 
                    :pressed => 'or'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -87,10 +87,10 @@
       <%= image_tag("/images/toolbars/not.png") %>
     </li>
     <li>
-      <%= link_to(image_tag('/images/toolbars/discard.png',
-                            :alt => "Remove this expression element"),
+      <%= link_to "Remove", 
                  {:action  => 'exp_button', 
                   :pressed => 'remove'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -100,10 +100,10 @@
   </span>
   <span id='exp_buttons_on' style="display:none">
     <li>
-      <%= link_to(image_tag('/images/toolbars/and.png',
-                            :alt => 'AND with a new expression element'),
+      <%= link_to "AND with a new element", 
                   {:action  => 'exp_button', 
                    :pressed => 'and'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -111,10 +111,10 @@
       %>
     </li>
     <li>
-      <%= link_to(image_tag('/images/toolbars/or.png',
-                            :alt => 'OR with a new expression element'),
+      <%= link_to "OR with  new element", 
                   {:action  => 'exp_button', 
                    :pressed =>'or'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -122,10 +122,10 @@
       %>
     </li>
     <li>
-      <%= link_to(image_tag('/images/toolbars/not.png',
-                            :alt => 'Wrap this expression element with a NOT'),
+      <%= link_to "Wrap element with a NOT", 
                   {:action  => 'exp_button', 
                    :pressed => 'not'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,
@@ -133,10 +133,10 @@
       %>
     </li>
     <li>
-      <%= link_to(image_tag('/images/toolbars/discard.png',
-                            :alt => "Remove this expression element"),
+      <%= link_to "Remove this element", 
                   {:action  => 'exp_button', 
                    :pressed => 'remove'},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"  => true,
                   "data-miq_sparkle_off" => true,
                   :remote                => true,

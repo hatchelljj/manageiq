@@ -21,39 +21,15 @@
     <div id="buttons">
       <table width="100%">
         <tr>
-          <td align="right">
-            <div id="buttons_on" style="display:<%= @changed ? "display" : "none" %>;">
-              <ul id="form_buttons">
-                <li>
-                  <%= link_to(image_tag('/images/formbuttons/apply.png', :border=>"0",
-                                        :class=>"btn btn-default", :alt=>'Apply'),
-                              {:action=>"ae_tree_select_toggle", :button=>"submit"},
-                              :remote=>true,
-                              :title=>"Apply") %>
-                </li>
-                <li>
-                  <%= link_to(image_tag('/images/formbuttons/cancel.png', :border=>"0",
-                                        :class=>"btn btn-default", :alt=>'Cancel'),
-                              {:action=>"ae_tree_select_toggle", :button=>"cancel"},
-                              :remote=>true,
-                              :title=>"Cancel") %>
-                </li>
+          <td>
+              <ul id="form_buttons" class="list-inline">
+		<li>
+		  <%= link_to "Apply", {:action=>"ae_tree_select_toggle", :button=>"submit", :remote=>true}, :class=>"btn btn-default" %>
+		</li>
+		<li>
+		  <%= link_to "Cancel", {:action=>"ae_tree_select_toggle", :button=>"cancel", :remote=>true}, :class=>"btn btn-default" %>
+		</li>
               </ul>
-            </div>
-            <div id="buttons_off" style="display:<%= @changed ? "none" : "display" %>;">
-              <ul id="form_buttons">
-                <li>
-                  <%= image_tag("/images/formbuttons/apply.png",	:class=>"dimmed", :style=>"width: 80px; height: 30px") %>
-                </li>
-                <li>
-                  <%= link_to(image_tag('/images/formbuttons/cancel.png', :border=>"0",
-                                        :class=>"btn btn-default", :alt=>'Cancel'),
-                              {:action=>"ae_tree_select_toggle", :button=>"cancel"},
-                              :remote=>true,
-                              :title=>"Cancel") %>
-                </li>
-              </ul>
-            </div>
           </td>
         </tr>
       </table>

@@ -1,14 +1,14 @@
 <% if @record.try(:name) %>
 	<div id="accordion">
 		<div class="panel">
-			<div class="topbar">
+			<div class="navbar navbar-default">
 				<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
 													{:action=>'panel_control', :panel=>'icon'},
                           :remote=>true,
 													:title=>"#{h(@record.name)}") %>
 			</div>
 			<%= hidden_div_if(@panels["icon"] == nil || @panels["icon"] == false, :id=>"icon") %>
-				<div class="panecontent">
+				<div class="container">
 					<%= render(:partial=>"layouts/quadicon",
 											:locals=>{:mode=>:icon,
 																:item=>@record,
@@ -17,12 +17,12 @@
 					%>
 				</div>
 			</div>
-      <div class="topbar">
+      <div class="navbar navbar-default">
 				<%= link_to("Properties", {:action=>'panel_control', :panel=>'ems_cluster_prop'}, :remote=>true) %>
 			</div>
 
 			<%= hidden_div_if(@panels["ems_cluster_prop"] == nil || @panels["ems_cluster_prop"] == false, :id=>"ems_cluster_prop") %>
-				<div class="panecontent">
+				<div class="container">
                     <%= link_to_with_icon('Summary',{:action=>'show', :id=>@record, :display=>'main'},
                                           :title=>"Show Summary") %>
           <% unless @cluster_config.nil? || @cluster_config.empty? %>
@@ -55,12 +55,12 @@
           <% end %>
 				</div>
       </div>
-			<div class="topbar">
+			<div class="navbar navbar-default">
 				<%= link_to("Relationships", {:action=>'panel_control', :panel=>'ems_cluster_rel'}, :remote=>true) %>
 			</div>
 
 			<%= hidden_div_if(@panels["ems_cluster_rel"] == nil || @panels["svc_rel"] == false, :id=>"ems_cluster_rel") %>
-				<div class="panecontent">
+				<div class="container">
 					<% if role_allows(:feature=>"host_show_list") %>
 						<% unless @record.total_hosts == 0 %>
                             <%= link_to_with_icon("Hosts (#{@record.total_hosts})",
@@ -141,12 +141,12 @@
 			</div>
 
       <% if get_vmdb_config[:product][:storage] %>
-        <div class="topbar">
+        <div class="navbar navbar-default">
           <%= link_to("Storage Relationships", {:action=>'panel_control', :panel=>'host_inf_rel'}, :remote=>true) %>
         </div>
 
         <%= hidden_div_if(@panels["host_inf_rel"] == nil || @panels["host_inf_rel"] == false, :id=>"host_inf_rel") %>
-          <div class="panecontent">
+          <div class="container">
             <% if role_allows(:feature=>"ontap_storage_system_show_list")  %>
               <%= link_if_nonzero(
                  :count     => @record.storage_systems.count,

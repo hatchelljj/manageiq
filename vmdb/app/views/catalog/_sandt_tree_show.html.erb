@@ -69,12 +69,11 @@
                   %>
                 </td>
                 <td valign="bottom">
-                  <%= link_to(image_tag('/images/toolbars/remove.png',
-                                        :class => "rollover small", 
-                                        :alt   => "Remove this Cutsom Image"),
+                  <%= link_to "Upload Image", 
                               {:action  => 'st_upload_image', 
                                :id      => @record.id, 
                                :pressed =>'remove'},
+			      :class=>"btn btn-default",
                               "data-miq_sparkle_on"  => true,
                               "data-miq_sparkle_off" => true,
                               :remote                => true,

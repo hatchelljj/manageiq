@@ -104,11 +104,11 @@
             <% unless @edit[:fields_to_delete].include?(flds["id"]) %>
               <tr>
                 <td>
-                <%= link_to(image_tag("/images/icons/16/notequal-red.png",
-                                      :alt     => "Click to delete this input field from method"),
+                <%= link_to "Remove",
                             {:action => "field_method_delete",
                              :id     => flds["id"].to_i,
                              :arr_id => i},
+			    :class=>"btn btn-default",
                             "data-miq_sparkle_on"  => true,
                             "data-miq_sparkle_off" => true,
                             :remote                => true,
@@ -160,10 +160,10 @@
           <% else %>
             <tr>
               <td>
-                  <%= link_to(image_tag("/images/icons/16/na.png",
-                                        :alt => "Add this entry"),
+                  <%= link_to "Add",
                                        {:action => "field_method_accept",
                                         :button =>"accept"},
+				       :class=>"btn btn-default",
                                        "data-miq_sparkle_on"  => true,
                                        "data-miq_sparkle_off" => true,
                                        :remote                => true,

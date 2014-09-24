@@ -26,18 +26,9 @@
                   <% d = Dialog.find_by_id(ra.dialog_id.to_i) if ra.action.downcase == "provision" %>
                 <% end %>
                 <% if d.nil? %>
-                  <%= image_tag("/images/formbuttons/order.png",
-                                :alt   => "No Ordering Dialog is available",
-                                :title => "No Ordering Dialog is available",	
-                                :class => "dimmed")
-                  %>
+		  <%= button_tag "Order", :class=>"btn btn-default", :disabled=>"disabled" %>
                 <% else %>
-                  <%= image_tag('/images/formbuttons/order.png', 
-                                :border  => "0", 
-                                :class   => "button",
-                                :alt     => "Order this Service", 
-                                :title   => "Order this Service",
-                                :onclick => "miqAjaxButton('#{url_for(:action => "svc_catalog_provision",
+		  <%= button_tag "Order", :class=>"btn btn-default", :onclick => "miqAjaxButton('#{url_for(:action => "svc_catalog_provision",
                                                                       :id     => @record.id,
                                                                       :button => "order")}');")
                   %>

@@ -96,35 +96,29 @@
                                :class => "rollover small")
           %>
         <% else %>
-          <%= link_to(image_tag("/images/toolbars/right.png", 
-                                :class => "rollover small",
-                                :style => "width: 28px; height: 28px",
-                                :alt   => "Move selected VMs to right"),
+          <%= link_to "Move VMs to right", 
                       {:action => 'form_field_changed', 
                        :button => 'right', 
                        :id     => "#{@record.id || "new"}"},
+		      :class=>"btn btn-default",
                       "data-submit" => 'main_div',
                       :remote       => true,
                       :title        => 'Move selected VMs to right')
           %>
-          <%= link_to(image_tag("/images/toolbars/allright.png", 
-                                :class => "rollover small",
-                                :style => "width: 28px; height: 28px", 
-                                :alt   => "Move all VMs to right"),
+          <%= link_to "Move all VMs to right", 
                       {:action => 'form_field_changed', 
                        :button => 'allright', 
                        :id     => "#{@record.id || "new"}"},
+		      :class=>"btn btn-default",
                       "data-submit" => 'main_div',
                       :remote       => true,
                       :title        => 'Move all VMs to right')
           %>
-          <%= link_to(image_tag("/images/toolbars/left.png",
-                                :class => "rollover small",
-                                :style => "width: 28px; height: 28px",
-                                :alt   => "Move selected VMs to left"),
+          <%= link_to "Move VMs to left", 
                       {:action => 'form_field_changed', 
                        :button => 'left', 
                        :id     => "#{@record.id || "new"}"},
+		      :class=>"btn btn-default",
                       "data-submit" => 'main_div',
                       :remote       => true,
                       :title        => 'Move all selected VMs to left')

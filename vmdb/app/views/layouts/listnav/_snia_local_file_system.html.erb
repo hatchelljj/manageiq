@@ -1,14 +1,16 @@
 <% if @record && @record.evm_display_name != nil %>
 	<div id="accordion">
-		<div class="panel">
-			<div class="topbar">
-				<%= link_to(h(@record.evm_display_name.length < trunc_at ? @record.evm_display_name : @record.evm_display_name[0...trunc_to] + "..."),
-													{:action=>'panel_control', :panel=>'icon'},
-                          :remote=>true,
-													:title=>"#{h(@record.evm_display_name)}") %>
+		<div class="container">
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to(h(@record.evm_display_name.length < trunc_at ? @record.evm_display_name : @record.evm_display_name[0...trunc_to] + "..."),
+						{:action=>'panel_control', :panel=>'icon'},
+        			                  :remote=>true,
+						:title=>"#{h(@record.evm_display_name)}") %>
+				</div>
 			</div>
 			<%= hidden_div_if(@panels["icon"] == nil || @panels["icon"] == false, :id=>"icon") %>
-				<div class="panecontent">
+				<div class="container">
 					<%= render(:partial=>"layouts/quadicon",
 											:locals=>{:mode=>:icon,
 																:item=>@record,
@@ -17,22 +19,22 @@
 					%>
 				</div>
 			</div>
-			<div class="topbar">
-				<%= link_to("Properties", {:action=>'panel_control', :panel=>'snia_lfs_prop'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container"><%= link_to("Properties", {:action=>'panel_control', :panel=>'snia_lfs_prop'}, :remote=>true) %></div>
 			</div>
 			<%= hidden_div_if(@panels["snia_lfs_prop"] == nil || @panels["snia_lfs_prop"] == false, :id=>"snia_lfs_prop") %>
-				<div class="panecontent">
+				<div class="container">
           <%= link_to_with_icon('Summary',
                                 {:action=>'show', :id=>@record, :display=>'main'},
                                 :title=>"Show Summary") %>
 				</div>
       </div>
 
-			<div class="topbar">
-				<%= link_to("Relationships", {:action=>'panel_control', :panel=>'snia_lfs_rel'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container"><%= link_to("Relationships", {:action=>'panel_control', :panel=>'snia_lfs_rel'}, :remote=>true) %></div>
 			</div>
 				<%= hidden_div_if(@panels["snia_lfs_rel"] == nil || @panels["snia_lfs_rel"] == false, :id=>"snia_lfs_rel") %>
-				<div class="panecontent">
+				<div class="container">
 					<% if role_allows(:feature=>"ontap_storage_system_show") %>
                      <%= link_if_condition(
                                   :cond          => !@record.storage_system.nil?,
@@ -81,11 +83,13 @@
 					<% end %>
 				</div>
       </div>
-<div class="topbar">
+<div class="navbar navbar-default">
+			<div class="container">
 				<%= link_to("Infrastructure Relationships", {:action=>'panel_control', :panel=>'cim_cs_inf_rel'}, :remote=>true) %>
 			</div>
+		</div>
 				<%= hidden_div_if(@panels["cim_cs_inf_rel"] == nil || @panels["cim_cs_inf_rel"] == false, :id=>"cim_cs_inf_rel") %>
-				<div class="panecontent">
+				<div class="container">
 					<% if role_allows(:feature=>"vm_show_list") %>
             <%= link_if_nonzero(
               :count     => @record.vms.count,

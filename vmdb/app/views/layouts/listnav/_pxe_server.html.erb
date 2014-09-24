@@ -1,14 +1,16 @@
 <% if @record && @record.name != nil %>
 	<div id="accordion">
-		<div class="panel">
-			<div class="topbar">
+		<div class="container">
+			<div class="navbar navbar-default">
+				<div class="container">
 				<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
-													{:action=>'panel_control', :panel=>'icon'},
-                          :remote=>true,
-													:title=>"#{h(@record.name)}") %>
+					{:action=>'panel_control', :panel=>'icon'},
+        		                  :remote=>true,
+					:title=>"#{h(@record.name)}") %>
+				</div>
 			</div>
 			<%= hidden_div_if(@panels["icon"] == nil || @panels["icon"] == false, :id=>"icon") %>
-				<div class="panecontent">
+				<div class="container">
 					<%= render(:partial=>"layouts/quadicon",
 											:locals=>{:mode=>:icon,
 																:item=>@record,
@@ -17,11 +19,11 @@
 					%>
 				</div>
 			</div>
-			<div class="topbar">
-				<%= link_to("Properties", {:action=>'panel_control', :panel=>'pxe_server_prop'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container"><%= link_to("Properties", {:action=>'panel_control', :panel=>'pxe_server_prop'}, :remote=>true) %></div>
 			</div>
 			<%= hidden_div_if(@panels["pxe_server_prop"] == nil || @panels["pxe_server_prop"] == false, :id=>"pxe_server_prop") %>
-				<div class="panecontent">
+				<div class="container">
                     <%= link_to_with_icon('Summary', {:action=>'show', :id=>@record, :display=>'main'},
                                           :title=>"Show Summary") %>
 				</div>

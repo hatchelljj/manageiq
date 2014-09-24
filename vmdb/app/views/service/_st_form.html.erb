@@ -78,13 +78,12 @@
                 <% groups.sort_by { | g | g[:name].downcase }.each_with_index do |sr,k| %>
                   <tr>
                     <td>
-                      <%= link_to(image_tag("/images/icons/16/notequal-red.png", 
-                                            :border => "0",
-                                            :alt    => "Click to remove this Resource from the Catalog Item"),
+                      <%= link_to "Remove",
                                   {:action => "resource_delete",
                                    :rec_id => sr[:id],
                                    :id     => "#{@edit[:rec_id] || "new"}",
                                    :grp_id => i},
+				  :class=>"btn btn-default",
                                   "data-miq_sparkle_on"  => true,
                                   "data-miq_sparkle_off" => true,
                                   :remote                => true,

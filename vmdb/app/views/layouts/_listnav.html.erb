@@ -1,6 +1,6 @@
 <% trunc_at = 23 %>
 <% trunc_to = 20 %>
-<div id="listnav_div">
+<div> <%# id=listnav_div class=container %>
   <% if @lastaction == "show_list" && !session[:menu_click] &&
               ["vm","miq_template", "offline", "retired", "templates", "host", "service", "repository", "storage",
               "ems_cloud","ems_cluster","resource_pool","ems_infra","vdi_user"].include?(@layout) && !@in_a_form %>

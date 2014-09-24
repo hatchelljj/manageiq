@@ -94,77 +94,68 @@
                                 "data-miq_observe"=>{:url => paging_controls_url(action_url)}.to_json) %>
 						</td>
 						<td nowrap>
+							<ul class="pagination">
 								<!-- first button -->
 								<% if pages[:current] > 1 %>
 									<% if @ajax_paging_buttons %>
 
-											<%= link_to(image_tag('/images/toolbars/first.png', :border=>"0", :class=>"rollover small"),
-                              paging_controls_url(action_url, :page => 1),
-															"data-miq_sparkle_on" => true,
-															"data-miq_sparkle_off" => true,
-															:remote=>true,
-															:title=>"") %>
+										<li><%= link_to "<<", 
+							                              paging_controls_url(action_url, :page => 1),
+											"data-miq_sparkle_on" => true,
+											"data-miq_sparkle_off" => true,
+											:remote=>true,
+											:title=>"") %></li>
 
-											<%= link_to(image_tag('/images/toolbars/previous.png', :border=>"0", :class=>"rollover small"),
-                              paging_controls_url(action_url, :page => pages[:current] - 1),
-															"data-miq_sparkle_on" => true,
-															"data-miq_sparkle_off" => true,
-															:remote=>true,
-															:title=>"") %>
+										<li><%= link_to "<",
+							                             paging_controls_url(action_url, :page => pages[:current] - 1),
+											"data-miq_sparkle_on" => true,
+											"data-miq_sparkle_off" => true,
+											:remote=>true,
+											:title=>"") %></li>
 
 									<% elsif action_id %>
 
-											<%= link_to(image_tag('/images/toolbars/first.png', :border=>"0",:class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => 1)) %>
+										<li><%= link_to "<<", paging_controls_url(action_url, :page => 1)) %></li>
 
-											<%= link_to(image_tag('/images/toolbars/previous.png', :border=>"0", :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => pages[:current] - 1)) %>
+										<li><%= link_to "<", paging_controls_url(action_url, :page => pages[:current] - 1)) %></li>
 
 									<% else %>
-											<%= link_to(image_tag('/images/toolbars/first.png', :border=>"0", :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => 1)) %>
+										<li><%= link_to "<<", paging_controls_url(action_url, :page => 1)) %></li>
 
-											<%= link_to(image_tag('/images/toolbars/previous.png', :border=>"0", :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => pages[:current] - 1)) %>
+										<li><%= link_to "<", paging_controls_url(action_url, :page => pages[:crrent] - 1)) %></li>
 
 									<% end %>
 								<% else %>
-											<%= image_tag('/images/toolbars/first.png',  :class=>"dimmed small") %>
-											<%= image_tag('/images/toolbars/previous.png', :class=>"dimmed small")	%>
+											<li><%= link_to "<<", "#" %></li>
+											<li><%= link_to "<", "#" %></li>
 								<% end %>
 
 								<% if pages[:current] < pages[:total] %>
 									<% if @ajax_paging_buttons %>
-											<%= link_to(image_tag('/images/toolbars/next.png', :class=>"rollover small"),
-                              paging_controls_url(action_url, :page => pages[:current] - 1),
+										<li><%= link_to ">", paging_controls_url(action_url, :page => pages[:current] - 1),
 															"data-miq_sparkle_on" => true,
 															"data-miq_sparkle_off" => true,
 															:remote=>true,
-															:title=>"") %>
+															:title=>"") %></li>
 
-											<%= link_to(image_tag('/images/toolbars/last.png', :class=>"rollover small"),
-                              paging_controls_url(action_url, :page => pages[:total]),
+										<li><%= link_to ">>", paging_controls_url(action_url, :page => pages[:total]),
 															"data-miq_sparkle_on" => true,
 															"data-miq_sparkle_off" => true,
 															:remote=>true,
-															:title=>"") %>
+															:title=>"") %></li>
 									<% elsif action_id %>
-											<%= link_to(image_tag('/images/toolbars/next.png', :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => pages[:current] + 1)) %>
-
-											<%= link_to(image_tag('/images/toolbars/last.png', :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => pages[:total])) %>
+										<li><%= link_to ">", paging_controls_url(action_url, :page => pages[:current] + 1)) %></li>
+										<li><%= link_to ">>", paging_controls_url(action_url, :page => pages[:total])) %></li>
 
 									<% else %>
-											<%= link_to(image_tag('/images/toolbars/next.png', :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => pages[:current] + 1)) %>
-											<%= link_to(image_tag('/images/toolbars/last.png', :class=>"rollover small"),
-                                  paging_controls_url(action_url, :page => pages[:total])) %>
+										<li><%= link_to ">", paging_controls_url(action_url, :page => pages[:current] + 1)) %></li>
+										<li><%= link_to ">>", paging_controls_url(action_url, :page => pages[:total])) %></li>
 									<% end %>
 								<% else %>
-											<%= image_tag('/images/toolbars/next.png', :class=>"dimmed small") %>
-											<%= image_tag('/images/toolbars/last.png', :class=>"dimmed small") %>
+									<li><%= link_to ">", "#" %></li>
+									</li><%= link_to ">>", "#" %></li>
 								<% end %>
+							</ul>
 						</td>
 						<td valign="middle"  style="padding: 4px">
 							<% start_number = (pages[:perpage] * pages[:current]) - pages[:perpage] + 1 %>

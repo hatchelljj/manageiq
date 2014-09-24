@@ -1,13 +1,15 @@
 <% if @tree_type == "timeline" && @rep_tree %>
-  <div id="accordion" class="fixed_width">
-    <div class="panel">
+  <div id="accordion">
+    <div>
       <% @report_groups.each_with_index do |rg, rg_idx| %>
-        <div class="topbar">
-          <%= link_to(h(rg), {:action=>'panel_control', :panel=>"timelines_#{rg_idx}"}, :remote=>true) %>
+        <div class="navbar navbar-default">
+		<div class="container">
+	          <%= link_to(h(rg), {:action=>'panel_control', :panel=>"timelines_#{rg_idx}"}, :remote=>true) %>
+		</div>
           </div>
 
           <%= hidden_div_if(@panels["timelines_#{rg_idx}"] == nil || @panels["timelines_#{rg_idx}"] == false, { :id => "timelines_#{rg_idx}"} ) %>
-            <div class="panecontent">
+            <div class="container">
               <% tree_id = "timeline_treebox" + rg_idx.to_s %>
               <div style="float: left; width: 216px">
               <div id="<%= tree_id%>" style="color:#000; overflow: hidden"></div>

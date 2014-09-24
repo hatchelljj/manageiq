@@ -119,17 +119,13 @@
   <% elsif db == "ChargebackRate" %>
     <img src="/images/icons/new/chargeback_rates.png" valign="middle" border="0" height="20" width="20"  />
   <% elsif db == "MiqProxyBuild" %>
-    <%= link_to(image_tag("/images/toolbars/download.png", 
-                          :class=>"rollover small", 
-                          :type=>"application/txt",
-                          :alt=>"Download SmartProxy Build"),
+    <%= link_to "Download", 
                           {:action=>'fetch_build', :id=>@id},
-                          {:title=>"Download SmartProxy Build"})
+                          {:class=>"btn btn-default", :title=>"Download SmartProxy Build"})
     %>
-    <%= link_to(image_tag("/images/toolbars/delete.png",
-                          :class=>"rollover small",
-                          :alt=>"Click to delete this build"),
+    <%= link_to "Delete", 
                           {:action=>"delete_build", :id=>@id},
+			  :class=>"btn btn-default",
                           "data-miq_sparkle_on" => true,
                           "data-miq_sparkle_off" => true,
                           :confirm=>"Are you sure you want to delete build #{row.build} for #{row.platform.capitalize}?",
@@ -137,9 +133,9 @@
                           :title=>"Click to delete this build")
     %>
   <% elsif db == "ServerBuild" %>
-    <%= link_to(image_tag("/images/toolbars/delete.png", 
-                          :class=>"rollover small", :alt=>"Click to delete this build"),
+    <%= link_to "Delete", 
                           {:action=>"delete_build", :id=>@id},
+			  :class=>"btn btn-default",
                           "data-miq_sparkle_on" => true,
                           "data-miq_sparkle_off" => true,
                           :confirm=>"Are you sure you want to delete build #{row.build}?",

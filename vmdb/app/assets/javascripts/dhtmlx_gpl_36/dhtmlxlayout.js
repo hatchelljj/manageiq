@@ -93,7 +93,7 @@ function dhtmlXLayoutObject(base, view, skin) {
 	}
 	// fulscreen init hide scrolls
 	if (base == document.body && !this.base) {
-		document.body.style.overflow = "hidden";
+		document.body.style.overflow = "auto";
 	}
 	// object init
 	if ((typeof(base) == "object" || base == document.body) && !this.base) {
@@ -133,7 +133,6 @@ function dhtmlXLayoutObject(base, view, skin) {
 		// this.base = contObj.childNodes[0];
 		this.base = document.createElement("DIV");
 		//this.base.id = "dhxLayoutObj_"+this._genStr(12);
-		this.base.style.overflow = "hidden";
 		this.base.style.position = "absolute";
 		// this._sizerML = 1;
 		// this._sizerMT = 1;
@@ -259,6 +258,7 @@ function dhtmlXLayoutObject(base, view, skin) {
 	this.tpl.cellSpacing = 0;
 	this.tpl.cellPadding = 0;
 	var bd = document.createElement("TBODY");
+	bd.className = "allow-overflow;";
 	this.tpl.appendChild(bd);
 	this.tpl.border = 0;
 	//
@@ -414,7 +414,7 @@ function dhtmlXLayoutObject(base, view, skin) {
 							}
 							td._dblClick = cell.getAttribute("dblclick");
 							td._isSep = true;
-							td.innerHTML = '<div style="height:2px;overflow:hidden;">&nbsp;</div>';
+							td.innerHTML = '<div style="height:2px;">&nbsp;</div>';
 						}
 						if (cell.getAttribute("colspan") != null) { td.colSpan = cell.getAttribute("colspan"); }
 						if (cell.getAttribute("rowspan") != null) { td.rowSpan = cell.getAttribute("rowspan"); }
@@ -858,7 +858,6 @@ function dhtmlXLayoutObject(base, view, skin) {
 			nod.style.top = "0px";
 			nod.style.width = this.polyObj[a].style.width;
 			nod.style.height = this.polyObj[a].style.height;
-			nod.style.overflow = "hidden";
 			this.polyObj[a].appendChild(nod);
 			
 			//
@@ -2350,6 +2349,7 @@ dhtmlXLayoutObject.prototype.unload = function(removeParent) {
 	
 	// clear tds/trs
 	var t = this.tpl.childNodes[0]; // tbody
+	t.className += " potato";
 	while (t.childNodes.length > 0) {
 		while (t.childNodes[0].childNodes.length > 0) {
 			var r = t.childNodes[0].childNodes[0]; // sep's td

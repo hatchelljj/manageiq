@@ -2,9 +2,9 @@
 <% if resource == :compare %>
 	<% if view == "compressed" %>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_expanded.png",
-                              :border=>"0", :alt=>"Expanded View"),
+			<%= link_to "Expanded View",
                             {:action=>"view_selected", :resource=>:compare, :view=>"expanded"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Expanded View") %>
 		</li>
@@ -16,9 +16,9 @@
 			<%= image_tag("/images/toolbars/view_expanded.png", :border=>"0", :alt=>"Expanded View", :title=>"Expanded View") %>
 		</li>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_compressed.png",
-                              :border=>"0", :alt=>"Compressed View"),
+			<%= link_to "Compressed View", 
                             {:action=>"view_selected", :resource=>:compare, :view=>"compressed"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Compressed View") %>
 		</li>
@@ -26,9 +26,9 @@
 <% elsif resource == :compare_mode %>
 	<% if view == "exists" %>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_list.png",
-                              :border=>"0", :alt=>"Details View"),
+			<%= link_to "Details View", 
                             {:action=>"view_selected", :resource=>:compare_mode, :view=>"details"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Details Mode") %>
 		</li>
@@ -40,9 +40,9 @@
 			<%= image_tag("/images/toolbars/view_list.png", :border=>"0", :alt=>"Details Mode", :title=>"Details Mode") %>
 		</li>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/exists.png",
-                              :border=>"0", :alt=>"Exists Mode"),
+			<%= link_to "Exists Mode",
                             {:action=>"view_selected", :resource=>:compare_mode, :view=>"exists"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Exists Mode") %>
 		</li>
@@ -50,9 +50,9 @@
 <% elsif resource == :drift %>
 	<% if view == "compressed" %>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_expanded.png",
-                              :border=>"0", :alt=>"Expanded View"),
+			<%= link_to "Expanded View", 
                             {:action=>"view_selected", :resource=>:drift, :view=>"expanded"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Expanded View") %>
 		</li>
@@ -64,9 +64,9 @@
 			<%= image_tag("/images/toolbars/view_expanded.png", :border=>"0", :alt=>"Expanded View", :title=>"Expanded View") %>
 		</li>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_compressed.png",
-                              :border=>"0", :alt=>"Compressed View"),
+			<%= link_to "Compressed View", 
                             {:action=>"view_selected", :resource=>:drift, :view=>"compressed"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Compressed View") %>
 		</li>
@@ -74,9 +74,9 @@
 <% elsif resource == :drift_mode %>
 	<% if view == "exists" %>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_list.png",
-                              :border=>"0", :alt=>"Details Mode"),
+			<%= link_to "Details Mode", 
                             {:action=>"view_selected", :resource=>:drift_mode, :view=>"details"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Details Mode") %>
 		</li>
@@ -88,9 +88,9 @@
 			<%= image_tag("/images/toolbars/view_list.png", :border=>"0", :alt=>"Details Mode", :title=>"Details Mode") %>
 		</li>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/exists.png",
-                              :border=>"0", :alt=>"Exists Mode"),
+			<%= link_to "Exists Mode", 
                             {:action=>"view_selected", :resource=>:drift_mode, :view=>"exists"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Exists Mode") %>
 		</li>
@@ -98,9 +98,9 @@
 <% elsif resource == :dashboards %>
 	<% if view == "textual" %>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_graphical.png",
-                              :border=>"0", :alt=>"Graphical View"),
+			<%= link_to "Graphical View", 
                             {:action=>"view_selected", :resource=>:dashboards, :view=>"graphical"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Graphical View") %>
 		</li>
@@ -114,9 +114,9 @@
 										:alt=>"Graphical View",	:title=>"Graphical View") %>
 		</li>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/view_textual.png",
-                                :border=>"0", :alt=>"Text View"),
+			<%= link_to "Text View", 
                               {:action=>"view_selected", :resource=>:dashboards, :view=>"textual"},
+			      :class=>"btn btn-defualt",
                               :remote=>true,
                               :title=>"Text View") %>
 		</li>
@@ -124,9 +124,9 @@
 <% elsif resource == :treesize %>
 	<% if view.to_i == 20 %>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/tree-large.png",
-                              :border=>"0", :alt=>"Large Trees"),
+			<%= link_to "Large Trees", 
                             {:action=>"view_selected", :resource=>:treesize, :view=>"32"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Large Trees") %>
 		</li>
@@ -138,9 +138,9 @@
 			<%= image_tag("/images/toolbars/tree-large.png", :border=>"0", :alt=>"Large Trees", :title=>"Large Trees") %>
 		</li>
 		<li>
-			<%= link_to(image_tag("/images/toolbars/tree-small.png",
-                              :border=>"0", :alt=>"Small Trees"),
+			<%= link_to "Small Trees", 
                             {:action=>"view_selected", :resource=>:treesize, :view=>"20"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Small Trees") %>
 		</li>
@@ -153,16 +153,16 @@
       </li>
     <% end %>
 		<li>
-		  <%= link_to(image_tag('/images/toolbars/view_tile.png',
-                            :border=>"0", :alt=>"Tile View"),
+		  <%= link_to "Tile View", 
                           {:action=>"view_selected", :resource=>resource, :view=>"tile"},
+			  :class=>"btn btn-default",
                           :remote=>true,
                           :title=>"Tile View") %>
     </li>
 		<li>
-		  <%= link_to(image_tag('/images/toolbars/view_list.png',
-                            :border=>"0", :alt=>"List View"),
+		  <%= link_to "List View",
                           {:action=>"view_selected", :resource=>resource, :view=>"list"},
+			  :class=>"btn btn-default",
                           :remote=>true,
                           :title=>"List View") %>
     </li>
@@ -170,9 +170,9 @@
 	<% elsif view == "tile" %>
     <% if resource != :catalog %>
       <li>
-        <%= link_to(image_tag('/images/toolbars/view_grid.png',
-                              :border=>"0", :alt=>"Grid View"),
+        <%= link_to "Grid View", 
                             {:action=>"view_selected", :resource=>resource, :view=>"grid"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Grid View") %>
       </li>
@@ -181,26 +181,26 @@
 		  <%= image_tag("/images/toolbars/view_tile.png", :border=>"0", :alt=>"Tile View", :title=>"Tile View") %>
     </li>
 		<li>
-		  <%= link_to(image_tag('/images/toolbars/view_list.png',
-                            :border=>"0", :alt=>"List View"),
+		  <%= link_to "List View", 
                           {:action=>"view_selected", :resource=>resource, :view=>"list"},
+			  :class=>"btn btn-default",
                           :remote=>true,
                           :title=>"List View") %></li>
 
 	<% else %>
     <% if resource != :catalog %>
       <li>
-        <%= link_to(image_tag('/images/toolbars/view_grid.png',
-                              :border=>"0", :alt=>"Grid View"),
+        <%= link_to "Grid View", 
                             {:action=>"view_selected", :resource=>resource, :view=>"grid"},
+			    :class=>"btn btn-default",
                             :remote=>true,
                             :title=>"Grid View") %>
       </li>
     <% end %>
 		<li>
-		  <%= link_to(image_tag('/images/toolbars/view_tile.png',
-                            :border=>"0", :alt=>"Tile View"),
+		  <%= link_to "Tile View", 
                           {:action=>"view_selected", :resource=>resource, :view=>"tile"},
+			  :class=>"btn btn-default",
                           :remote=>true,
                           :title=>"Tile View") %>
     </li>

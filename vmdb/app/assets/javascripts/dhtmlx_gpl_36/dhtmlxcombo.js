@@ -1216,7 +1216,7 @@ dhtmlXCombo_defaultOption.prototype.setValue = function(attr){
             this.content=document.createElement("DIV");
         this.content._self = this;
 
-            this.content.style.cssText='width:100%; overflow:hidden;'+this.css;
+            this.content.style.cssText='width:100%; '+this.css;
             if (_isOpera || _isKHTML ) this.content.style.padding="2px 0px 2px 0px";
             this.content.innerHTML=this.text;
             this._ctext=(typeof this.content.textContent!="undefined")?this.content.textContent:this.content.innerText;

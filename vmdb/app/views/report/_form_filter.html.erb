@@ -12,9 +12,9 @@
     <% if @expkey == :record_filter %>
       <%= render(:partial => 'layouts/exp_editor') %>
     <% else %>
-      <%= link_to(image_tag("/images/toolbars/edit.png",
-                            :class=>"rollover small", :alt=>"Edit this Expression"),
+      <%= link_to "Edit", 
                   {:action=>'filter_change', :button=>"record_filter", :id=>"#{@edit[:rpt_id] || "new"}"},
+		  :class=>"btn btn-default",
                   "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                   :remote=>true,
                   :title=>"Edit the Record Filter")
@@ -38,9 +38,9 @@
         <% if @expkey == :display_filter %>
           <%= render(:partial => 'layouts/exp_editor') %>
         <% else %>
-          <%= link_to(image_tag("/images/toolbars/edit.png",
-                                :class=>"rollover small", :alt=>"Edit this Expression"),
+          <%= link_to "Edit", 
                       {:action=>'filter_change', :button=>"display_filter", :id=>"#{@edit[:rpt_id] || "new"}"},
+		      :class=>"btn btn-default",
                       "data-miq_sparkle_on"=>true, "data-miq_sparkle_off"=>true,
                       :remote=>true,
                       :title=>"Edit the Display Filter")

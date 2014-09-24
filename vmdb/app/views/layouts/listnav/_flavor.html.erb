@@ -1,14 +1,16 @@
 <% if @record && @record.name != nil%>
   <div id="accordion">
-    <div class="panel">
-      <div class="topbar">
-        <%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
+    <div class="container">
+      <div class="navbar navbar-default">
+	<div class="container">
+	        <%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
                     {:action=>'panel_control', :panel=>'icon'},
                     :remote=>true,
                     :title=>"#{h(@record.name)}") %>
+	</div>
       </div>
       <div id="icon" style="display:<%= @panels["icon"] ? '' : 'none' %>">
-        <div class="panecontent">
+        <div class="container">
           <%= render(:partial=>"layouts/quadicon",
                      :locals=>{:mode=>:icon,
                                :item=>@record,
@@ -18,23 +20,23 @@
         </div>
       </div>
 
-      <div class="topbar">
-        <%= link_to("Properties", {:action=>'panel_control', :panel=>'ems_prop'}, :remote=>true) %>
+      <div class="navbar navbar-default">
+        <div class="container"><%= link_to("Properties", {:action=>'panel_control', :panel=>'ems_prop'}, :remote=>true) %></div>
       </div>
 
       <div id="ems_prop" style="display:<%= @panels["ems_prop"] ? '' : 'none' %>">
-        <div class="panecontent">
+        <div class="container">
           <%= link_to_with_icon('Summary', {:action=>'show', :id=>@record, :display=>'main'},
                                 :title=>"Show Summary") %>
         </div>
       </div>
 
-      <div class="topbar">
-        <%= link_to("Relationships", {:action=>'panel_control', :panel=>'ems_rel'}, :remote=>true) %>
+      <div class="navbar navbar-default">
+        <div class="container"><%= link_to("Relationships", {:action=>'panel_control', :panel=>'ems_rel'}, :remote=>true) %></div>
       </div>
 
       <div id="ems_rel" style="display:<%= @panels["ems_rel"] ? '' : 'none' %>">
-        <div class="panecontent">
+        <div class="container">
 
           <% if role_allows(:feature=>"ems_cloud_show")  %>
             <% if @record.ext_management_system %>

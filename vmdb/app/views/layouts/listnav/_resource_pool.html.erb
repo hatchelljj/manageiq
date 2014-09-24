@@ -1,14 +1,16 @@
 <% if @record && @record.name != nil %>
 	<div id="accordion">
-		<div class="panel">
-			<div class="topbar">
-				<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
-													{:action=>'panel_control', :panel=>'icon'},
-                          :remote=>true,
-													:title=>"#{h(@record.name)}") %>
+		<div class="container">
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
+						{:action=>'panel_control', :panel=>'icon'},
+        			                 :remote=>true,
+						:title=>"#{h(@record.name)}") %>
+				</div>
 			</div>
 			<%= hidden_div_if(@panels["icon"] == nil || @panels["icon"] == false, :id=>"icon") %>
-				<div class="panecontent">
+				<div class="container">
 					<%= render(:partial=>"layouts/quadicon",
 											:locals=>{:mode=>:icon,
 																:item=>@record,
@@ -17,12 +19,12 @@
 					%>
 				</div>
 			</div>
-      <div class="topbar">
-				<%= link_to("Properties", {:action=>'panel_control', :panel=>'resource_pool_prop'}, :remote=>true) %>
+      <div class="navbar navbar-default">
+				<div class="container"><%= link_to("Properties", {:action=>'panel_control', :panel=>'resource_pool_prop'}, :remote=>true) %></div>
 			</div>
 
 			<%= hidden_div_if(@panels["resource_pool_prop"] == nil || @panels["resource_pool_prop"] == false, :id=>"resource_pool_prop") %>
-				<div class="panecontent">
+				<div class="container">
                     <%= link_to_with_icon('Summary', {:action=>'show', :id=>@record, :display=>'main'},
                                           :title=>'Show Summary') %>
 						<%# unless @rp_config.nil? || @rp_config.empty? %>
@@ -37,12 +39,12 @@
 						<%# end %>
         </div>
       </div>
-			<div class="topbar">
-				<%= link_to("Relationships", {:action=>'panel_control', :panel=>'resource_pool_rel'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container"><%= link_to("Relationships", {:action=>'panel_control', :panel=>'resource_pool_rel'}, :remote=>true) %></div>
 			</div>
 
 			<%= hidden_div_if(@panels["resource_pool_rel"] == nil || @panels["resource_pool_rel"] == false, :id=>"resource_pool_rel") %>
-				<div class="panecontent">
+				<div class="container">
 					<% if role_allows(:feature=>"ems_cluster_show") %>
 						<% unless @record.parent_cluster.nil? %>
                             <%= link_to_with_icon("Parent Cluster: #{@record.parent_cluster.name}",

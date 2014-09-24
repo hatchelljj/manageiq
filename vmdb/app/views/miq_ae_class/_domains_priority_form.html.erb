@@ -17,9 +17,9 @@
             <% if @edit[:new][:domain_order].length < 2 %>
               <%= image_tag("/images/toolbars/up.png", :class=>"dimmed small") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/up.png",
-                                  :alt=>"Move selected fields up"),
+              <%= link_to "Move Up",
                                 {:action=>'priority_form_field_changed', :button=>'up', :id=>"priority__edit"},
+				:class=>"btn btn-default",
                                 "data-submit" =>"domains_list",
                                 :remote=>true,
                                 :title=>'Move selected fields up')
@@ -29,9 +29,9 @@
             <% if @edit[:new][:domain_order].length < 2 %>
               <%= image_tag("/images/toolbars/down.png") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/down.png",
-                                     :alt=>"Move selected fields down"),
+              <%= link_to "Move Down",
                                     {:action=>'priority_form_field_changed', :button=>'down', :id=>"priority__edit"},
+				    :class=>"btn btn-default",
                                     "data-submit" =>"domains_list",
                                     :remote=>true,
                                     :title=>'Move selected fields down')

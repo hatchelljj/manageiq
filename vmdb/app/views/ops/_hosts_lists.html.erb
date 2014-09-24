@@ -11,24 +11,25 @@
 					</td>
 					<td width="30" valign="middle">
 						  <% if @edit[:current][:all_servers].length == 0 %>
-						    <%= image_tag("/images/toolbars/right.png", :class=>"dimmed small") %>
+						    <%= button_tag "Move fields right", :class=>"btn btn-default", :disabled=>"disabled" %>
 						  <% else %>
-						    <%= link_to(image_tag("/images/toolbars/right.png", :class=>"rollover small", :alt=>"Move selected fields right"),
-															{:action=>'settings_form_field_changed', :button=>'right'},
-															"data-submit"=>"hosts_lists",
-															:remote=>true,
-															:title=>'Move selected fields right')
+						    <%= link_to "Move gields right",
+								{:action=>'settings_form_field_changed', :button=>'right'},
+								:class=>"btn btn-default",
+								"data-submit"=>"hosts_lists",
+								:remote=>true,
+								:title=>'Move selected fields right')
 						    %>
 						  <% end %>
 
 						  <% if @edit[:current][:all_servers].length == 0 %>
-						    <%= image_tag("/images/toolbars/left.png", :class=>"dimmed small") %>
+						    <%= button_tag "Move fields left", :class=>"btn btn-default", :disabled=>"disabled" %>
 						  <% else %>
-						    <%= link_to(image_tag("/images/toolbars/left.png", :class=>"rollover small", :alt=>"Move selected fields left"),
-															{:action=>'settings_form_field_changed', :button=>'left'},
-															"data-submit"=>"hosts_lists",
-															:remote=>true,
-															:title=>'Move selected fields left')
+						    <%= link_to "Move fields left",
+							{:action=>'settings_form_field_changed', :button=>'left'},
+							"data-submit"=>"hosts_lists",
+							:remote=>true,
+							:title=>'Move selected fields left')
 						    %>
 						  <% end %>
 					</td>

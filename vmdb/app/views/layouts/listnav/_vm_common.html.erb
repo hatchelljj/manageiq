@@ -3,15 +3,17 @@
 		linuxos = regexosname.match(@record.os_image_name.downcase)
 	%>
 	<div id="accordion">
-		<div class="panel">
-			<div class="topbar">
-				<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
-													{:action=>'panel_control', :panel=>'icon'},
-                          :remote=>true,
-													:title=>"#{h(@record.name)}") %>
+		<div class="container">
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
+						{:action=>'panel_control', :panel=>'icon'},
+        			                  :remote=>true,
+						:title=>"#{h(@record.name)}") %>
+				</div>
 			</div>
 			<%= hidden_div_if(@panels["icon"] == nil || @panels["icon"] == false, :id=>"icon") %>
-				<div class="panecontent">
+				<div class="container">
 
 				<%# Calculate the quadicon div height based on # of lines of text %>
 				<% if @record.product_name != "" && @record.service_pack != "" %>
@@ -36,13 +38,15 @@
 				</div>
 			</div>
 
-			<div class="panel">
-				<div class="topbar">
-					<%= link_to("Properties", {:action=>'panel_control', :panel=>'vm_prop'}, :remote=>true) %>
+			<div class="container">
+				<div class="navbar navbar-default">
+					<div class="container">
+						<%= link_to("Properties", {:action=>'panel_control', :panel=>'vm_prop'}, :remote=>true) %>
+					</div>
 				</div>
 
 				<%= hidden_div_if(@panels["vm_prop"] == nil || @panels["vm_prop"] == false, :id=>"vm_prop") %>
-					<div class="panecontent">
+					<div class="container">
             <%= link_to_with_icon('Summary', {:action=>'show', :id=>@record, :display=>'main'},
                                   :title=>"Show Summary") %>
 
@@ -110,12 +114,14 @@
 					</div>
 				</div>
 
-      <div class="topbar">
-				<%= link_to("Relationships", {:action=>'panel_control', :panel=>'vm_rel'}, :remote=>true) %>
+		      <div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to("Relationships", {:action=>'panel_control', :panel=>'vm_rel'}, :remote=>true) %>
+				</div>
 			</div>
 
 			<%= hidden_div_if(@panels["vm_rel"] == nil || @panels["vm_rel"] == false, :id=>"vm_rel") %>
-				<div class="panecontent">
+				<div class="container">
 					<% if role_allows(:feature=>"ems_infra_show") %>
 					<% if @record.ext_management_system != nil %>
             <%= link_to_with_icon("#{ui_lookup(:table=>"ems_infra")}: #{@record.ext_management_system.name}",
@@ -207,12 +213,14 @@
 		</div>
 	</div>
 
-		<div class="topbar">
-			<%= link_to("Storage Relationships", {:action=>'panel_control', :panel=>'vm_inf_rel'}, :remote=>true) %>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<%= link_to("Storage Relationships", {:action=>'panel_control', :panel=>'vm_inf_rel'}, :remote=>true) %>
+			</div>
 		</div>
 
 		<%= hidden_div_if(@panels["vm_inf_rel"] == nil || @panels["vm_inf_rel"] == false, :id=>"vm_inf_rel") %>
-			<div class="panecontent">
+			<div class="container">
 				<% if role_allows(:feature=>"ontap_storage_system_show_list") %>
           <%= link_if_nonzero(
             :count     => @record.storage_systems_size,
@@ -251,12 +259,14 @@
 			</div>
 		</div>
 
-			<div class="topbar">
-				<%= link_to("Security", {:action=>'panel_control', :panel=>'vm_sec'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to("Security", {:action=>'panel_control', :panel=>'vm_sec'}, :remote=>true) %>
+				</div>
 			</div>
 
 			<%= hidden_div_if(@panels["vm_sec"] == nil || @panels["vm_sec"] == false, :id=>"vm_sec") %>
-				<div class="panecontent">
+				<div class="container">
             <% unless @record.number_of(:users) == 0 %>
               <%= link_to_with_icon("Users (#{@record.number_of(:users)})", {:action=>'users', :id=>@record},
                                     :title=>"Show the users defined on this VM",) %>
@@ -288,12 +298,14 @@
 				</div>
 			</div>
 
-			<div class="topbar">
-				<%= link_to("Configuration", {:action=>'panel_control', :panel=>'vm_config'}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to("Configuration", {:action=>'panel_control', :panel=>'vm_config'}, :remote=>true) %>
+				</div>
 			</div>
 
 			<%= hidden_div_if(@panels["vm_config"] == nil || @panels["vm_config"] == false, :id=>"vm_config") %>
-				<div class="panecontent">
+				<div class="container">
 						<% if linuxos %>
               <% unless @record.number_of(:guest_applications) == 0 %>
                 <%= link_to_with_icon("Packages (#{@record.number_of(:guest_applications)})",
@@ -413,12 +425,14 @@
 			</div>
 		</div>
 
-		<div class="topbar">
-			<%= link_to("Diagnostics", {:action=>'panel_control', :panel=>'vm_diag'}, :remote=>true) %>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<%= link_to("Diagnostics", {:action=>'panel_control', :panel=>'vm_diag'}, :remote=>true) %>
+			</div>
 		</div>
 
 		<%= hidden_div_if(@panels["vm_diag"] == nil || @panels["vm_diag"] == false, :id=>"vm_diag") %>
-			<div class="panecontent">
+			<div class="container">
 				<% if ldate = last_date(:processes) %>
           <%= link_to_with_icon("Running Processes (#{h(time_ago_in_words(ldate.in_time_zone(Time.zone)).titleize)} Ago)",
                                 {:action=>'processes', :id=>@record}, :title=>"Show Running Processes on this VM",) %>

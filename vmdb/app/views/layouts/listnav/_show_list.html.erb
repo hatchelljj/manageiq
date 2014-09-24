@@ -5,13 +5,13 @@
 
 	<ul id="set_default" class="list-unstyled">
 		<li>
-		<%= link_to(image_tag('/images/layout/set-default.png', :border=>"0",
-										:alt=>'Set the current filter as my default'),
+		<%= link_to "Set as Default", 
 					{:action=>"save_default_search", :id=>@edit[:expression][:selected][:id].to_i},
+	  :class=>"btn btn-default",
           "data-miq_sparkle_on" => true,
 					"data-miq_sparkle_off" => true,
           :remote=>true,
-					:title=>"Set the current filter as my default") %>
+					:title=>"Set the current filter as my default" %>
 		</li>
 	</ul>
 	<% else %>
@@ -22,10 +22,12 @@
 	</ul>
 	<% end %>
 	<div id="accordion">
-		<div class="panel">
+		<div class="container">
 			<% if !@def_searches.blank? %>
-				<div class="topbar">
-					<%= link_to("Filters", {:action=>'panel_control', :panel=>"#{@view.db}_def_searches"}, :remote=>true) %>
+				<div class="navbar navbar-default">
+					<div class="container">
+						<%= link_to("Filters", {:action=>'panel_control', :panel=>"#{@view.db}_def_searches"}, :remote=>true) %>
+					</div>
 				</div>
 				<% @panels["#{@view.db}_def_searches"] = true if @panels["#{@view.db}_def_searches"].nil? %>
 				<%= hidden_div_if(@panels["#{@view.db}_def_searches"] == nil || @panels["#{@view.db}_def_searches"] == false, :id=>"#{@view.db}_def_searches") %>
@@ -65,12 +67,14 @@
 		</div>
 
 		<% if !@my_searches.blank? %>
-			<div class="topbar">
-				<%= link_to("My Filters", {:action=>'panel_control', :panel=>"#{@view.db}_my_searches"}, :remote=>true) %>
+			<div class="navbar navbar-default">
+				<div class="container">
+					<%= link_to("My Filters", {:action=>'panel_control', :panel=>"#{@view.db}_my_searches"}, :remote=>true) %>
+				</div>
 			</div>
 			<% @panels["#{@view.db}_my_searches"] = true if @panels["#{@view.db}_my_searches"].nil? %>
 			<%= hidden_div_if(@panels["#{@view.db}_my_searches"] == nil || @panels["#{@view.db}_my_searches"] == false, :id=>"#{@view.db}_my_searches") %>
-			<div class="panecontent">
+			<div class="container">
 				<% @my_searches.each do |search| %>
 						<% if !@default_search.blank? && @default_search.name == search.name %>
 							<% if @edit && @edit[:expression] && ((@edit[:expression][:selected].nil? && @edit[:selected].nil?) || (!@edit[:expression][:selected].nil? && @edit[:expression][:selected][:id] == search.id.to_i && !@edit[:custom_search])) %>

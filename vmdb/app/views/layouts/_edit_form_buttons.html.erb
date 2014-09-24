@@ -19,63 +19,37 @@
           <% if ["miq_proxy","miq_ae_class","pxe","miq_ae_tools"].include?(@layout) || ajax_buttons  %>
             <% if serialize %>
               <li>
-                <%= image_tag('/images/formbuttons/save.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                              :alt=>save_text, :title=>save_text,
-                              :onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-                                                                  :id=>record_id,
-                                                                  :button=>"save")}', true);")
-                %>
+		<%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default" %>
               </li>
             <% else %>
               <% if show_validate_button %>
                 <li>
-                  <%= image_tag('/images/formbuttons/verify.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                                :alt=>"Validate", :title=>"Validate",
-                                :onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-                                                                    :id=>record_id,
-                                                                    :button=>"db_verify")}');")
-                  %>
+		 <%= link_to "Validate", '#{url_for(:action=>action_url, :id=>record_id, :button=>"db_verify")}', :class=>"btn btn-default" %>
                 </li>
               <% end %>
               <li>
                 <% unless save_confirm_text %>
                   <% if continue_button %>
-                    <%= image_tag('/images/formbuttons/continue.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                                  :alt=>"Continue", :title=>"Continue",
-                                  :onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-                                                                      :id=>record_id,
-                                                                      :button=>"continue")}');")
-                    %>
+		    <%= link_to "Continue", '#{url_for(:action=>action_url, :id=>record_id, :button=>"Continue")}', :class=>"btn btn-default" %>
                   <% else %>
-                    <%= image_tag('/images/formbuttons/save.png', :border=>"0", :class=>"button",
-                                  :style=>"width: 80px; height: 30px",
-                                  :alt=>save_text, :title=>save_text,
-                                  :onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-                                                                      :id=>record_id,
-                                                                      :button=>"save")}');")
-                    %>
+		    <%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default" %>
                   <% end %>
                 <% else %><%# Ask for confirmation before saving %>
-                  <%= image_tag('/images/formbuttons/save.png', :border=>"0", :class=>"button",
-                                :style=>"width: 80px; height: 30px",
-                                :alt=>save_text, :title=>save_text,
-                                :onclick=>"if (confirm('#{save_confirm_text}'))
-                                              miqAjaxButton('#{url_for(:action=>action_url,
-                                                                      :id=>record_id,
-                                                                      :button=>"save")}');")
-                  %>
+		  <%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default" %>
                 <% end %>
               </li>
             <% end %>
           <% else %>
             <li>
               <% if continue_button %>
-                <%= link_to(image_tag("/images/formbuttons/continue.png", :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px", :alt=>"Continue"),
-                            {:action => action_url, :button => "continue", :id => record_id},
+                <%= link_to "Continue", 
+                            {:action => action_url, :button => "continue", :id => record_id},	
+			    :class=>"btn btn-default",
                             :title => "Continue", :method => :post) %>
               <% else %>
-                <%= link_to(image_tag("/images/formbuttons/save.png", :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px", :alt=>save_text),
+                <%= link_to "Save", 
                             {:action => action_url, :button => "save", :id => record_id},
+			    :class=>"btn btn-default",
                             :title => save_text, :method => :post) %>
               <% end %>
             </li>
@@ -83,30 +57,14 @@
           <% unless noreset %>
             <li>
               <% if @layout == "report" && @sb[:menu_buttons] %>
-                  <%= image_tag('/images/formbuttons/reset.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                                :alt=>"Reset Changes", :title=>"Reset Changes",
-                                :onclick=>"miqAjaxButton('#{url_for(:action=>"menu_update",
-                                                                    :button=>"reset")}');")
-                  %>
-                  <%= image_tag('/images/formbuttons/default.png', :border=>"0", :class=>"button",
-                                :alt=>"Reset All menus to defaults", :title=>"Reset All menus to defaults",
-                                :onclick=>"miqAjaxButton('#{url_for(:action=>"menu_update",
-                                                                    :button=>"default")}');")
-                  %>
+		  <%= link_to "Reset Changes", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default" %>
+		  <%= link_to "Reset to Defaults", '#{url_for(:action=>action_url, :id=>record_id, :button=>"default")}', :class=>"btn btn-default" %>
               <% else %>
                 <% if @layout == "miq_ae_class" || (ajax_buttons  && params[:action] != "tagging_edit") %>
-                  <%= image_tag('/images/formbuttons/reset.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                                :alt=>"Reset Changes", :title=>"Reset Changes",
-                                :onclick=>"miqAjaxButton('#{url_for(:action=>action_url,
-                                                                    :id=>record_id,
-                                                                    :button=>"reset")}');")
-                  %>
+		  <%= link_to "Reset Changes", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default" %>
                 <% else %>
                   <%# needed non-ajax reset button for tagging screen for the main CI's %>
-                  <%= link_to(image_tag("/images/formbuttons/reset.png", :border => 0, :class => "button", :style => "width: 80px; height: 30px", :alt => "Reset Changes"),
-                            {:action => action_url, :button => "reset", :id => record_id},
-                            :title => "Reset Changes", :method => :post)
-                  %>
+		  <%= link_to "Reset", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default" %>
                 <% end %>
               <% end %>
             </li>
@@ -120,15 +78,11 @@
                     ) %>
             <li>
               <% if @layout == "miq_ae_class" || ajax_buttons %>
-                <%= image_tag('/images/formbuttons/cancel.png', :border => 0, :class => "button", :style => "width: 80px; height: 30px",
-                              :alt => "Cancel Changes", :title => "Cancel Changes",
-                              :onclick => "miqAjaxButton('#{url_for(:action => action_url,
-                                                                    :id     => record_id,
-                                                                    :button => "cancel")}');")
-                %>
+		<%= link_to "Cancel", '#{url_for(:action=>action_url, :id=>record_id, :button=>"cancel")}', :class=>"btn btn-default" %>
               <% else %>
-              <%= link_to(image_tag("/images/formbuttons/cancel.png", :border => 0, :class => "button", :style => "width: 80px; height: 30px", :alt => "Cancel Changes"),
+              <%= link_to "Cancel",
                           {:action => action_url, :button => "cancel", :id => record_id},
+			  :class=>"btn btn-default",
                           :title => "Cancel Changes", :method => :post) %>
               <% end %>
             </li>
@@ -140,25 +94,22 @@
         <ul id="form_buttons">
           <% if show_validate_button %>
             <li>
-              <%= image_tag("/images/formbuttons/verify.png", :class=>"dimmed", :style=>"width: 80px; height: 30px") %>
+	      <%= link_to "Verify", '#{url_for(:action=>action_url, :id=>record_id, :button=>"Verify")}', :class=>"btn btn-default", :disabled=>"disabled" %>
             </li>
           <% end %>
           <li>
             <% if continue_button %>
-              <%= image_tag("/images/formbuttons/continue.png", :class=>"dimmed", :style=>"width: 80px; height: 30px") %>
+	      <%= link_to "Continue", '#{url_for(:action=>action_url, :id=>record_id, :button=>"continue")}', :class=>"btn btn-default", :disabled=>"disabled" %>
             <% else %>
-              <%= image_tag("/images/formbuttons/save.png", :class=>"dimmed", :style=>"width: 80px; height: 30px") %>
+	      <%= link_to "Save", '#{url_for(:action=>action_url, :id=>record_id, :button=>"save")}', :class=>"btn btn-default", :disabled=>"disabled" %>
             <% end %>
           </li>
           <% unless noreset %>
             <li>
-              <%= image_tag("/images/formbuttons/reset.png",   :class=>"dimmed", :style=>"width: 80px; height: 30px") %>
+	      <%= link_to "Reset", '#{url_for(:action=>action_url, :id=>record_id, :button=>"reset")}', :class=>"btn btn-default", :disabled=>"disabled" %>
+
               <% if @layout == "report" && @sb[:menu_buttons] %>
-                <%= image_tag('/images/formbuttons/default.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                              :alt=>"Reset All menus to defaults", :title=>"Reset All menus to defaults",
-                              :onclick=>"miqAjaxButton('#{url_for(:action=>"menu_update",
-                                                                  :button=>"default")}');")
-                %>
+	        <%= link_to "Default", '#{url_for(:action=>action_url, :id=>record_id, :button=>"default")}', :class=>"btn btn-default", :disabled=>"disabled" %>
               <% end %>
             </li>
           <% end %>
@@ -171,15 +122,11 @@
                     ) %>
             <li>
               <% if @layout == "miq_ae_class" || ajax_buttons %>
-                <%= image_tag('/images/formbuttons/cancel.png', :border=>"0", :class=>"button", :style=>"width: 80px; height: 30px",
-                              :alt => "Cancel", :title => "Cancel",
-                              :onclick => "miqAjaxButton('#{url_for(:action => action_url,
-                                                                    :id     => record_id,
-                                                                    :button => "cancel")}');")
+		<%= link_to "Cancel", '#{url_for(:action=>action_url, :id=>record_id, :button=>"cancel")}', :class=>"btn btn-default" %>
                 %>
               <% else %>
-                <%= link_to(image_tag("/images/formbuttons/cancel.png", :border => 0, :class => "button", :style => "width: 80px; height: 30px", :alt => "Cancel"),
-                            {:action => action_url, :button => "cancel", :id => record_id}, :title => "Cancel", :method => :post) %>
+                <%= link_to "Cancel", 
+                            {:action => action_url, :button => "cancel", :id => record_id}, :class=>"btn btn-default", :title => "Cancel", :method => :post) %>
               <% end %>
             </li>
           <% end %>

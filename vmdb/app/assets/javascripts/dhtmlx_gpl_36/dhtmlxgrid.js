@@ -141,7 +141,7 @@ function dhtmlXGridObject(id){
 		var t=document.createElement("TABLE");
 		t.cellSpacing=t.cellPadding=0;
 		t.style.cssText='width:100%;table-layout:fixed;';
-		t.className=name.substr(2);
+		t.className = "table table-striped";
 		return t;
 	}
 	this.obj=t_creator("c_obj");
@@ -161,7 +161,6 @@ function dhtmlXGridObject(id){
 	this.hdrBox=document.createElement("DIV");
 	this.hdrBox.style.width="100%"
 	this.hdrBox.style.height="25px";
-	this.hdrBox.style.overflow="hidden";
 	this.hdrBox.className="xhdr";
 	
 
@@ -574,7 +573,6 @@ function dhtmlXGridObject(id){
 				}
 				if (this._delta_y && !this._realfake){
 					this.globalBox.style.height = this._delta_y;
-					this.entBox.style.overflow = this._fake.entBox.style.overflow="hidden";
 					this.entBox.style.height = this._fake.entBox.style.height=this.globalBox.clientHeight+(quirks?splitOuterBorder*2:0)+"px";
 				}
 			} else {
@@ -3229,7 +3227,7 @@ dhtmlXGridObject.prototype={
 		this._ahgrF=convertStringToBoolean(countFullHeight);
 		this._ahgrM=maxHeight||null;
 		if (arguments.length == 1){
-			this.objBox.style.overflowY=mode?"hidden":"auto";
+			this.objBox.style.overflowY="auto";
 		}
 		if (maxHeight == "auto"){
 			this._ahgrM=null;
@@ -3782,6 +3780,7 @@ dhtmlXGridObject.prototype={
 			z.className="c_ftr".substr(2);
 			this.entBox.appendChild(z);
 			var t = document.createElement("TABLE");
+			t.className = "table table-striped";
 			t.cellPadding=t.cellSpacing=0;
 	
 			if (!_isIE || _isIE == 8){
@@ -3931,7 +3930,7 @@ dhtmlXGridObject.prototype={
 			parseInt(min_limit||0)
 		];
 		if (arguments.length == 1)
-			this.objBox.style.overflowX=mode?"hidden":"auto";
+			this.objBox.style.overflowX="auto";
 	},
 //#update_from_xml:06042008{	
 	/**

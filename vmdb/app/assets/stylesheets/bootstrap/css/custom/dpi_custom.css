@@ -7,3 +7,8 @@
   background-repeat: no-repeat;
   color: #fff;
 }
+
+.allow-overflow {
+  overflow: hidden;
+  overflow-y: scroll;
+}

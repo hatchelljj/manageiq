@@ -4,9 +4,9 @@
   <div id="amazon_verify_button_on" style="display:none">
 <% end %>
   <%#= image_submit_tag("/images/formbuttons/verify.png", :width=>"80", :height=>"35", :id=> "amazon_verify", :name=>"amazon_verify", :alt=>"Validate", :title=>"Validate the Amazon Settings", :class=>"button") %>
-  <%= link_to(image_tag('/images/formbuttons/verify.png',
-                        :border=>"0", :class=>"formbutton",:alt=>"Validate the Amazon Settings"),
+  <%= link_to "Validate Settings", 
                       {:action=>"settings_update", :button=>"amazon_verify", :id=>id},
+			:class=>"btn btn-default",
                         "data-miq_sparkle_on" => true,
                         "data-miq_sparkle_off" => true,
                         :remote=>true,

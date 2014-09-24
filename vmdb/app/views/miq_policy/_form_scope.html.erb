@@ -5,12 +5,11 @@
     <hr>
   <% else %>
     <p class="lead">Scope (Press the "Edit" button to edit the scope)</p>
-    <%= link_to(image_tag("/images/toolbars/edit.png",
-                          :border => "0", 
-                          :alt    => "Edit this Scope"),
+    <%= link_to "Edit",
                 {:action => 'condition_edit', 
                  :button => "applies_to_exp", 
                  :id     => "#{@condition.id || "new"}"},
+		:class=>"btn btn-default",
                 "data-miq_sparkle_on"  => true,
                 "data-miq_sparkle_off" => true,
                 :remote => true,

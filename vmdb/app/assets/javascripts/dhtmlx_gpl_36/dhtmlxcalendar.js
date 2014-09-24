@@ -2352,7 +2352,7 @@ dhtmlXCalendarObject.prototype.enableIframe = function(mode) {
 			this._ifr.onload = function(){
 				this.onload = null;
 				this.contentWindow.document.open("text/html", "replace");
-				this.contentWindow.document.write("<html><head><style>html,body{width:100%;height:100%;overflow:hidden;margin:0px;}</style></head><body</body></html>");
+				this.contentWindow.document.write("<html><head><style>html,body{width:100%;height:100%;margin:0px;}</style></head><body</body></html>");
 			}
 			this.base.parentNode.insertBefore(this._ifr, this.base);
 			this._ifrSize();

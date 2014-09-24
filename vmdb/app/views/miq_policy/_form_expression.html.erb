@@ -4,11 +4,10 @@
     <%= render(:partial => 'layouts/exp_editor') %>
   <% else %>
     <p class="lead">Expression (Press the "Edit" button to edit the expression)</p>
-    <%= link_to(image_tag("/images/toolbars/edit.png",
-                          :border => "0", 
-                          :alt    => "Edit this Expression"),
+    <%= link_to "Edit", 
                 {:action => 'condition_edit', 
                  :button => "expression"},
+		:class=>"btn btn-default",
                 "data-miq_sparkle_on"  => true,
                 "data-miq_sparkle_off" => true,
                 :remote => true,

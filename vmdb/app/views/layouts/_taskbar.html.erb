@@ -57,9 +57,10 @@
        !@in_a_form %>
   <% squash_state = @edit && @edit[:adv_search_open] && @edit[:adv_search_open] == true ? "false" : "true" %>
   <div class="pull-left">
-    <%= link_to(image_tag("/images/toolbars/squashed-#{squash_state}.png", :id=>"adv_search_img", :style=>"z-index:50", :alt=>"Advanced Search", :title=>"Advanced Search"),
+    <%= link_to "Advanced Search", 
                         {:action=>'adv_search_toggle'},
+			:class=>"btn btn-default",
                         :remote=>true,
-                        :id=>"adv_search") %>
+                        :id=>"adv_search" %>
   </div>
 <% end %>

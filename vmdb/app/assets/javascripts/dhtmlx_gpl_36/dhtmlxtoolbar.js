@@ -355,10 +355,10 @@ function dhtmlXToolbarObject(baseId, skin) {
 			item.obj.className = "btn btn-default btn-xs";
 			item.obj.renderAs = "btn btn-default btn-xs";
 		} else {
-			item.obj.className = "btn btn-default btn-xs def";
+			item.obj.className = "btn btn-default btn-xs";
 			item.obj.renderAs = item.obj.className;
 		}
-		if (item.arw) item.arw.className = String(item.obj.className).replace("btn","arw");
+//		if (item.arw) item.arw.className = String(item.obj.className).replace("btn","arw");
 		var imgObj = this._getObj(item.obj, "img");
 		if (item.imgEn != "") {
 			if (imgObj == null) imgObj = this._addImgObj(item.obj);
@@ -372,7 +372,7 @@ function dhtmlXToolbarObject(baseId, skin) {
 		item.state = false;
 		item.obj.className = "btn btn-default btn-xs ";
 		item.obj.renderAs = "btn btn-default btn-xs";
-		if (item.arw) item.arw.className = String(item.obj.className).replace("btn","arw");
+//		if (item.arw) item.arw.className = String(item.obj.className).replace("btn","arw");
 		var imgObj = this._getObj(item.obj, "img");
 		if (item.imgDis != "") {
 			if (imgObj == null) imgObj = this._addImgObj(item.obj);
@@ -416,7 +416,7 @@ function dhtmlXToolbarObject(baseId, skin) {
 					} else if (item.polygon.style.display != "none") {
 						item.obj.renderAs = "btn btn-default btn-xs";
 						item.obj.className = item.obj.renderAs;
-						item.arw.className = String(item.obj.renderAs).replace("btn","arw");
+//						item.arw.className = String(item.obj.renderAs).replace("btn","arw");
 						main_self.anyUsed = "none";
 						item.polygon.style.display = "none";
 						if (item.polygon._ie6cover) item.polygon._ie6cover.style.display = "none";
@@ -1569,7 +1569,7 @@ dhtmlXToolbarObject.prototype._buttonObject = function(that, id, data) {
 	this.obj.title = (data.title||"");
 	this.obj.pressed = false;
 	//
-	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img src='"+that.imagePath+this.img+"'>":""), (data.text!=null?"<div>"+data.text+"</div>":""));
+	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img height='24' width='24' src='"+that.imagePath+this.img+"'>":""), (data.text!=null?"<div>"+data.text+"</div>":""));
 	
 	var obj = this;
 	
@@ -1741,15 +1741,15 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 	
 	
 	
-	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img src='"+that.imagePath+this.img+"'>":""),(data.text!=null?"<div>"+data.text+"</div>":""));
+	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img height='24' width='24' src='"+that.imagePath+this.img+"'>":""),(data.text!=null?"<div>"+data.text+"</div>":""));
 	
 	// add object
 	that.base.appendChild(this.obj);
 	
-	this.arw = document.createElement("DIV");
-	this.arw.className = "dhx_toolbar_arw "+(this.state?"def":"dis");;
+	this.arw = document.createElement("span");
+//	this.arw.className = "btn btn-default btn-xs";
 	this.arw.style.display = this.obj.style.display;
-	this.arw.innerHTML = "<div class='arwimg'>&nbsp;</div>";
+//	this.arw.innerHTML = "&nbsp;<i class='fa fa-caret-down'></i>&nbsp;";
 	
 	this.arw.title = this.obj.title;
 	this.arw.onselectstart = function(e) { e = e||event; e.returnValue = false; }
@@ -1757,6 +1757,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 	
 	var self = this;
 	
+        /*
 	this.obj.onmouseover = function(e) {
 		e = e||event;
 		if (that.anyUsed != "none") return;
@@ -1765,6 +1766,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 		self.obj.className = self.obj.renderAs;
 		self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 	}
+      
 	this.obj.onmouseout = function() {
 		self.obj.allowClick = false;
 		if (that.anyUsed != "none") return;
@@ -1777,6 +1779,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 	this.arw.onmouseover = this.obj.onmouseover;
 	this.arw.onmouseout = this.obj.onmouseout;
 	
+        */
 	if (this.openAll == true) {
 		
 	} else {
@@ -1796,8 +1799,8 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 			if (that.anyUsed != "none") return;
 			if (!self.state) return;
 			self.obj.allowClick = true;
-			self.obj.className = "btn btn-default btn-xs";
-			self.arw.className = "dhx_toolbar_arw pres";
+//			self.obj.className = "btn btn-default btn-xs";
+//			self.arw.className = "btn btn-default btn-xs";
 			self.callEvent = true;
 		}
 		this.obj[that._isIPad?"ontouchend":"onmouseup"] = function(e) {
@@ -1806,7 +1809,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 			if (that.anyUsed != "none") return;
 			if (!self.state) return;
 			self.obj.className = self.obj.renderAs;
-			self.arw.className = String(self.obj.renderAs).replace("btn","arw");
+	//		self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 			if (that._isIPad && self.callEvent) {
 				var id = self.obj.idd.replace(that.idPrefix,"");
 				that.callEvent("onClick", [id]);
@@ -1831,7 +1834,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 		if (that.anyUsed == self.obj.idd) {
 			// hide
 			self.obj.className = self.obj.renderAs;
-			self.arw.className = String(self.obj.renderAs).replace("btn","arw");
+//			self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 			that.anyUsed = "none";
 			self.polygon.style.display = "none";
 			if (self.polygon._ie6cover) self.polygon._ie6cover.style.display = "none";
@@ -1844,7 +1847,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 					if (item.polygon.style.display != "none") {
 						item.obj.renderAs = "btn btn-default btn-xs";
 						item.obj.className = item.obj.renderAs;
-						item.arw.className = String(self.obj.renderAs).replace("btn","arw");
+//						item.arw.className = String(self.obj.renderAs).replace("btn","arw");
 						item.polygon.style.display = "none";
 						if (item.polygon._ie6cover) item.polygon._ie6cover.style.display = "none";
 						// fix border
@@ -1853,7 +1856,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 				}
 			}
 			self.obj.className = "btn btn-default btn-xs";
-			self.arw.className = "dhx_toolbar_arw pres";
+//			self.arw.className = "btn btn-default btn-xs";
 			that.anyUsed = self.obj.idd;
 			// show
 			self.polygon.style.top = "0px";
@@ -2005,7 +2008,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 		
 		// image
 		if (data.img != null) {
-			this.obj.td_a.innerHTML = "<img class='btn_sel_img' src='"+that.imagePath+data.img+"' border='0'>";
+			this.obj.td_a.innerHTML = "<img height='24' width='24' class='btn_sel_img' src='"+that.imagePath+data.img+"' border='0'>";
 			this.obj.tr._img = data.img;
 		}
 		
@@ -2043,7 +2046,7 @@ dhtmlXToolbarObject.prototype._buttonSelectObject = function(that, id, data) {
 			//
 			self.obj.renderAs = "btn btn-default btn-xs";
 			self.obj.className = self.obj.renderAs;
-			self.arw.className = String(self.obj.renderAs).replace("btn","arw");
+//			self.arw.className = String(self.obj.renderAs).replace("btn","arw");
 			self.polygon.style.display = "none";
 			if (self.polygon._ie6cover) self.polygon._ie6cover.style.display = "none";
 			// fix border
@@ -2459,7 +2462,7 @@ dhtmlXToolbarObject.prototype._buttonTwoStateObject = function(that, id, data) {
 	this.obj.title = (data.title||"");
 	if (this.obj.pressed) { this.obj.renderAs = "btn btn-default btn-xs"; }
 	
-	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img src='"+that.imagePath+this.img+"'>":""),(data.text!=null?"<div>"+data.text+"</div>":""));
+	this.obj.innerHTML = that._rtlParseBtn((this.img!=""?"<img height='24' width='24' src='"+that.imagePath+this.img+"'>":""),(data.text!=null?"<div>"+data.text+"</div>":""));
 	
 	// add object
 	that.base.appendChild(this.obj);
@@ -2496,7 +2499,7 @@ dhtmlXToolbarObject.prototype._buttonTwoStateObject = function(that, id, data) {
 		if (obj.state == false) return;
 		if (that.anyUsed != "none") return;
 		this.pressed = !this.pressed;
-		this.className = (this.pressed?"btn btn-default btn-xs";
+		this.className = (this.pressed?"btn btn-default btn-xs":this.renderAs);
 		
 		// event
 		var id = this.idd.replace(that.idPrefix, "");

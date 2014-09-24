@@ -19,9 +19,9 @@
             <% if @edit[:available_reports].length == 0 %>
               <%= image_tag("/images/toolbars/left.png", :class=>"rollover small", :border=>"0") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/left.png",
-                              :border=>"0", :class=>"rollover small", :alt=>"Move selected reports right"),
+              <%= link_to ">",
                             {:action=>'menu_field_changed', :button=>'left'},
+			    :class=>"btn btn-default",
                             "data-submit"=>"column_lists",
                             :remote=>true,
                             :title=>'Move selected reports left')
@@ -31,9 +31,9 @@
             <% if @edit[:selected_reports].length == 0 %>
               <%= image_tag("/images/toolbars/right.png", :class=>"rollover small", :border=>"0") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/right.png",
-                              :border=>"0", :class=>"rollover small", :alt=>"Move selected reports left"),
+              <%= link_to "<",
                             {:action=>'menu_field_changed', :button=>'right'},
+			    :class=>"btn btn-default",
                             "data-submit"=>"column_lists",
                             :remote=>true,
                             :title=>'Move selected reports right')
@@ -43,9 +43,9 @@
             <% if @edit[:selected_reports].length < 2 %>
               <%= image_tag("/images/toolbars/top.png", :class=>"rollover small", :border=>"0") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/top.png",
-                              :border=>"0", :class=>"rollover small", :alt=>"Move selected reports to top"),
+              <%= link_to "Move to Top",
                             {:action=>'menu_field_changed', :button=>'top'},
+			    :class=>"btn btn-default",
                             "data-submit"=>"column_lists",
                             :remote=>true,
                             :title=>'Move selected reports to top')
@@ -55,9 +55,9 @@
             <% if @edit[:selected_reports].length < 2 %>
               <%= image_tag("/images/toolbars/up.png", :class=>"rollover small", :border=>"0") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/up.png",
-                              :border=>"0",:class=>"rollover small", :alt=>"Move selected reports up"),
+              <%= link_to "Move Up", 
                             {:action=>'menu_field_changed', :button=>'up'},
+			    :class=>"btn btn-default",
                             "data-submit"=>"column_lists",
                             :remote=>true,
                             :title=>'Move selected reports up')
@@ -67,9 +67,9 @@
             <% if @edit[:selected_reports].length < 2 %>
               <%= image_tag("/images/toolbars/down.png", :class=>"rollover small", :border=>"0") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/down.png",
-                              :border=>"0",:class=>"rollover small", :alt=>"Move selected reports down"),
+              <%= link_to "Move Down", 
                             {:action=>'menu_field_changed', :button=>'down'},
+			    :class=>"btn btn-default",
                             "data-submit"=>"column_lists",
                             :remote=>true,
                             :title=>'Move selected reports down')
@@ -79,9 +79,9 @@
             <% if @edit[:selected_reports].length < 2 %>
               <%= image_tag("/images/toolbars/bottom.png", :class=>"rollover small", :border=>"0") %>
             <% else %>
-              <%= link_to(image_tag("/images/toolbars/bottom.png",
-                              :border=>"0", :class=>"rollover small", :alt=>"Move selected reports to bottom"),
+              <%= link_to "Move to Bottom",
                             {:action=>'menu_field_changed', :button=>'bottom'},
+			    :class=>"btn btn-default",
                             "data-submit"=>"column_lists",
                             :remote=>true,
                             :title=>'Move selected reports to bottom')
@@ -96,18 +96,18 @@
           <td colspan="3" class="text-right">
             <div style="width: 67px; float: right; margin-bottom: 2px">
 
-                  <%= link_to(image_tag('/images/toolbars/commit.png',
-                                              :class=>"rollover small", :alt=>'Commit report management changes'),
+                  <%= link_to "Commit Changes",
                                             {:action=>'menu_field_changed', :pressed=>'commit'},
+					    :class=>"btn btn-default",
                                             "data-miq_sparkle_on" => true,
                                             "data-miq_sparkle_off" => true,
                                             :remote=>true,
                                             :title=>'Commit report management changes')
                   %>
 
-                  <%= link_to(image_tag('/images/toolbars/discard.png',
-                                              :class=>"rollover small", :alt=>"Discard report management changes"),
+                  <%= link_to "Discard Changes", 
                                             {:action=>'discard_changes', :pressed =>'discard_reports'},
+					    :class=>"btn btn-default",
                                             "data-miq_sparkle_on" => true,
                                             "data-miq_sparkle_off" => true,
                                             :remote=>true,

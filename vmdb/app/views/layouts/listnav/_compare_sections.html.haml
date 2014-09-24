@@ -5,7 +5,7 @@
 #accordion{:class => "#{klass}", :style => "#{style}"}
 
   - if @lastaction == "drift"
-    .panel
+    .container
       .topbarDHTMLX
         = link_to(h(@drift_obj.name.length < trunc_at ? @drift_obj.name : @drift_obj.name[0...trunc_to] + "..."),
                   {:action => 'panel_control', 
@@ -15,7 +15,7 @@
       = hidden_div_if(!@panels["icon"], 
                       :id    => "icon", 
                       :style => "overflow: visible;")
-      .panecontent
+      .container
         - if @sb[:compare_db] != "EmsCluster"
           - if @drift_obj.product_name != "" && @drift_obj.service_pack != ""
             - height = "100px"
@@ -96,7 +96,7 @@
               %br
               = @drift_obj.service_pack
 
-  .panel
+  .container
     %div{:class => "#{@explorer ? "topbarDHTMLX" : "topbar"}"}
       - if @lastaction == "drift"
         = link_to("Drift Sections", {:action => 'panel_control',
@@ -107,7 +107,7 @@
                                           :panel  => 'sections'}, 
                   :remote => true)
       = hidden_div_if(@panels["sections"] == nil || @panels["sections"] == false, :id => "sections")
-      .panecontent{:style => "color:#000;"}
+      .container{:style => "color:#000;"}
         - tree_id = "#{session[:tree_name]}box"
         %div{:id => "#{tree_id}", :style => "position:relative;width:100%;height:100%;color:#000; overflow: hidden"}
           = render(:partial => "layouts/dynatree",

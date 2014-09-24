@@ -71,14 +71,11 @@
 					<div>
 						<ul id="form_buttons">
 							<li>
-								<%= image_tag('/images/formbuttons/submit.png', :border=>"0", :class=>"button",
-														:alt=>"Submit this reconfigure request", :title=>"Submit this reconfigure request",
-														:onclick=>"miqAjaxButton('#{url_for(:action=>'reconfigure_update',
-																																:id=>"new",
-																																:button=>"submit")}');")
-								%>
+								<%= link_to "Submit", '#{url_for(:action=>"reconfigure_update", :id=>"new", :button=>"submit")}', :class=>"btn btn-default" %>
 							</li>
 							<li>
+								<%= link_to "Cancel", '#{url_for(:action=>reconfigure_update, :id=>new, :button=>"cancel")}', :class=>"btn btn-default" %>
+
 								<%= image_tag('/images/formbuttons/cancel.png', :border=>"0", :class=>"button",
 												:alt=>"Cancel Changes", :title=>"Cancel Changes",
 												:onclick=>"miqAjaxButton('#{url_for(:action=>"reconfigure_update",

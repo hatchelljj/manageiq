@@ -24,8 +24,9 @@
 				<% if @edit[:new][:model].nil? || MiqExpression.reporting_available_fields(@edit[:new][:model], @edit[:new][:perf_interval]).length == 0 %>
 					<%= image_tag("/images/toolbars/down.png", :class=>"dimmed rollover small-nofloat") %>
 				<% else %>
-					<%= link_to(image_tag("/images/toolbars/down.png", :class=>"rollover small-nofloat", :style=>"width: 28px; height: 28px", :alt=>"Move selected fields down"),
+					<%= link_to "Move Down",
 											{:action=>'form_field_changed', :button=>'right', :id=>"#{@edit[:rpt_id] || "new"}"},
+											:class=>"btn btn-default",
 											"data-submit"=>'column_lists',
 											:remote=>true,
 											:title=>'Move selected fields down')
@@ -35,8 +36,9 @@
 				<% if @edit[:new][:fields].length == 0 %>
 					<%= image_tag("/images/toolbars/up.png", :class=>"dimmed rollover small-nofloat", :style=>"width: 28px; height: 28px") %>
 				<% else %>
-					<%= link_to(image_tag("/images/toolbars/up.png", :class=>"rollover small-nofloat", :style=>"width: 28px; height: 28px", :alt=>"Move selected fields up"),
+					<%= link_to "Move Up",
 											{:action=>'form_field_changed', :button=>'left', :id=>"#{@edit[:rpt_id] || "new"}"},
+											:class=>"btn btn-default",
 											"data-submit"=>'column_lists',
 											:remote=>true,
 											:title=>'Move selected fields up')
@@ -62,8 +64,9 @@
 				<% if @edit[:new][:fields].length < 2 %>
 					<%= image_tag("/images/toolbars/top.png", :class=>"dimmed rollover small") %>
 				<% else %>
-					<%= link_to(image_tag("/images/toolbars/top.png", :class=>"rollover small", :style=>"width: 28px; height: 28px", :alt=>"Move selected fields to top"),
+					<%= link_to "Move to Top",
 											{:action=>'form_field_changed', :button=>'top', :id=>"#{@edit[:rpt_id] || "new"}"},
+											:class=>"btn btn-default",
 											"data-submit"=>'column_lists',
 											:remote=>true,
 											:title=>'Move selected fields to top')
@@ -73,8 +76,9 @@
 				<% if @edit[:new][:fields].length < 2 %>
 					<%= image_tag("/images/toolbars/up.png", :class=>"dimmed rollover small") %>
 				<% else %>
-					<%= link_to(image_tag("/images/toolbars/up.png", :class=>"rollover small", :style=>"width: 28px; height: 28px", :alt=>"Move selected fields up"),
+					<%= link_to "Move Up",
 											{:action=>'form_field_changed', :button=>'up', :id=>"#{@edit[:rpt_id] || "new"}"},
+											:class=>"btn btn-default",	
 											"data-submit"=>'column_lists',
 											:remote=>true,
 											:title=>'Move selected fields up')
@@ -84,8 +88,9 @@
 				<% if @edit[:new][:fields].length < 2 %>
 					<%= image_tag("/images/toolbars/down.png", :class=>"dimmed rollover small") %>
 				<% else %>
-					<%= link_to(image_tag("/images/toolbars/down.png",:class=>"rollover small", :style=>"width: 28px; height: 28px", :alt=>"Move selected fields down"),
+					<%= link_to "Move Down", 
 											{:action=>'form_field_changed', :button=>'down', :id=>"#{@edit[:rpt_id] || "new"}"},
+											:class=>"btn btn-default",
 											"data-submit"=>'column_lists',
 											:remote=>true,
 											:title=>'Move selected fields down')
@@ -95,8 +100,9 @@
 				<% if @edit[:new][:fields].length < 2 %>
 					<%= image_tag("/images/toolbars/bottom.png", :class=>"dimmed rollover small") %>
 				<% else %>
-					<%= link_to(image_tag("/images/toolbars/bottom.png", :class=>"rollover small", :style=>"width: 28px; height: 28px", :alt=>"Move selected fields to bottom"),
+					<%= link_to "Move to Bottom", 
 											{:action=>'form_field_changed', :button=>'bottom', :id=>"#{@edit[:rpt_id] || "new"}"},
+											:class=>"btn btn-default",
 											"data-submit"=>'column_lists',
 											:remote=>true,
 											:title=>'Move selected fields to bottom')

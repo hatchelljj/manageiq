@@ -1,22 +1,24 @@
 - if @record && @record.name != nil
   #accordion
-    .panel
-      .topbar
-        = link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
-          {:action=>'panel_control', :panel=>'icon'},
-          :remote=>true,
-          :title=>"#{h(@record.name)}")
+    .container
+      .navbar.navbar-default
+        .container
+          = link_to(h(@record.name.length < trunc_at ? @record.name : @record.name[0...trunc_to] + "..."),
+            {:action=>'panel_control', :panel=>'icon'},
+            :remote=>true,
+            :title=>"#{h(@record.name)}")
       #icon{:style => "display:#{@panels["icon"] ? '' : 'none'}"}
-        .panecontent
+        .container
           = render(:partial=>"layouts/quadicon",
             :locals=>{:mode=>:icon,
             :item=>@record,
             :size=>72,
             :typ=>:listnav} )
-      .topbar
-        = link_to("Properties", {:action=>'panel_control', :panel=>'ems_prop'}, :remote=>true)
+      .navbar.navbar-default
+        .container
+          = link_to("Properties", {:action=>'panel_control', :panel=>'ems_prop'}, :remote=>true)
       #ems_prop{:style => "display:#{@panels["ems_prop"] ? '' : 'none'}"}
-        .panecontent
+        .container
           = link_to_with_icon('Summary', {:action=>'show', :id=>@record, :display=>'main'},
             :title=>"Show Summary")
           - if @record.has_events? || @record.has_events?(:policy_events)
@@ -30,10 +32,11 @@
             %img{:src => "/images/icons/16/link_none.gif", :title => "Timelines Not Available"}/
             Timelines
             %br/
-      .topbar
-        = link_to("Relationships", {:action=>'panel_control', :panel=>'ems_rel'}, :remote=>true)
+      .navbar.navbar-default
+        .container
+          = link_to("Relationships", {:action=>'panel_control', :panel=>'ems_rel'}, :remote=>true)
       #ems_rel{:style => "display:#{@panels["ems_rel"] ? '' : 'none'}"}
-        .panecontent
+        .container
           - if role_allows(:feature=>"availability_zone_show_list")
             = link_if_nonzero(:count     => @record.number_of(:availability_zones),
                               :record_id => @record.id,

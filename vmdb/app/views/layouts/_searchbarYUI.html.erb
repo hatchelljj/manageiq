@@ -28,8 +28,9 @@
 			"ontap_file_share","snia_local_file_system","ontap_logical_disk","cim_base_storage_extent","storage_manager",
 			"vd_controller","vdi_desktop","vdi_dektop_pool","vdi_endpoint_device","vdi_farm","vdi_user","vm_vdi"].include?(@layout) && !@in_a_form %>
 	<% squash_state = @edit[:adv_search_open] && @edit[:adv_search_open] == true ? "false" : "true" %>
-	<%= link_to(image_tag("/images/toolbars/squashed-#{squash_state}.png", :class=>"rollover small", :id=>"adv_search_img", :style=>"z-index:50", :alt=>"Advanced Search", :title=>"Advanced Search"),
+	<%= link_to "Advanced Search",
 											{:action=>'adv_search_toggle'},
+											:class=>"btn btn-default",
 											:remote=>true,
 											:id=>"adv_search") %>
 <% end %>

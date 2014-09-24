@@ -12,9 +12,9 @@
     <fieldset style="width:auto; padding-left: 6px; padding-top: 6px">
 		<ul id="searchtoolbar">
 			<li>
-			    <%= link_to(image_tag('/images/toolbars/commit.png',
-		                              :alt=>'Commit expression element changes'),
+			    <%= link_to "Commit", 
 		                    {:action=>'exp_button', :pressed=>'commit'},
+				    :class=>"btn btn-default",
 		                    "data-miq_sparkle_on" => true,
 		                    "data-miq_sparkle_off" => true,
 		                    :remote=>true,
@@ -22,9 +22,9 @@
 		        %>
 			</li>
 			<li>
-		        <%= link_to(image_tag('/images/toolbars/discard.png',
-		                              :alt=>"Discard expression element changes"),
+		        <%= link_to "Discard Changes", 
 		                    {:action=>'exp_button', :pressed => 'discard'},
+				    :class=>"btn btn-default",
 		                    "data-miq_sparkle_on" => true,
 		                    "data-miq_sparkle_off" => true,
 		                    :remote=>true,

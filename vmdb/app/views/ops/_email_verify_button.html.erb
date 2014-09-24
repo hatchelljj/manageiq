@@ -4,9 +4,9 @@
 	<div id="email_verify_button_on" style="display:none">
 <% end %>
     <%#= image_submit_tag("/images/formbuttons/test_email.png", :id=> "email_verify", :name=>"email_verify", :width=>"80", :height=>"35", :alt=>"Validate", :title=>"Send test email", :class=>"button") %>
-    <%= link_to(image_tag('/images/toolbars/approve.png', :style=>"width: 20px;height: 20px", :class=>"rollover",
-                    :alt=>"Send test email"),
+    <%= link_to "Send test email", 
                     {:action=>"settings_update", :button=>"email_verify", :id=>id},
+		    :class=>"btn btn-default",
                     "data-miq_sparkle_on" => true,
                     "data-miq_sparkle_off" => true,
                     :remote=>true,

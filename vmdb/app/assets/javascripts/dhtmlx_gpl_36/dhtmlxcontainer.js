@@ -23,7 +23,6 @@ function dhtmlXContainer(obj) {
 	this.st.style.width = "100px";
 	this.st.style.height = "1px";
 	this.st.style.visibility = "hidden";
-	this.st.style.overflow = "hidden";
 	document.body.insertBefore(this.st, document.body.childNodes[0]);
 	
 	this.obj._getSt = function() {
@@ -49,7 +48,6 @@ function dhtmlXContainer(obj) {
 			mainCont.style.left = "0px";
 			mainCont.style.width = "200px";
 			mainCont.style.height = "200px";
-			mainCont.style.overflow = "hidden";
 			mainCont.style.visibility = "";
 			that.st.appendChild(mainCont);
 			
@@ -138,7 +136,7 @@ function dhtmlXContainer(obj) {
 	
 	this.obj._init = function() {
 		
-		this.vs[this.av].dhxcont.innerHTML = "<div ida='dhxMainCont' style='position: relative; left: 0px; top: 0px; overflow: hidden;'></div>"+
+		this.vs[this.av].dhxcont.innerHTML = "<div ida='dhxMainCont' style='position: relative; left: 0px; top: 0px;'></div>"+
 							"<div class='dhxcont_content_blocker' style='display: none;'></div>";
 		
 		this.vs[this.av].dhxcont.mainCont = {};
@@ -626,7 +624,6 @@ function dhtmlXContainer(obj) {
 		
 		var menuObj = document.createElement("DIV");
 		menuObj.style.position = "relative";
-		menuObj.style.overflow = "hidden";
 		menuObj.id = "dhxmenu_"+this._genStr(12);
 		
 		if (this.cv == this.av) this.vs[this.av].dhxcont.insertBefore(menuObj, this.vs[this.av].dhxcont.childNodes[0]); else that.st.appendChild(menuObj);
@@ -671,7 +668,6 @@ function dhtmlXContainer(obj) {
 		
 		var toolbarObj = document.createElement("DIV");
 		toolbarObj.style.position = "relative";
-		toolbarObj.style.overflow = "hidden";
 		toolbarObj.id = "dhxtoolbar_"+this._genStr(12);
 		
 		if (this.cv == this.av) this.vs[this.av].dhxcont.insertBefore(toolbarObj, this.vs[this.av].dhxcont.childNodes[(this.vs[this.av].menu!=null?1:0)]); else that.st.appendChild(toolbarObj);
@@ -834,7 +830,6 @@ function dhtmlXContainer(obj) {
 		obj.id = "dhxTabbarObj_"+this._genStr(12);
 		obj.style.width = "100%";
 		obj.style.height = "100%";
-		obj.style.overflow = "hidden";
 		obj.cmp = "tabbar";
 		if (!this._isWindow) obj._hideBorders = true;
 		document.body.appendChild(obj);
@@ -874,7 +869,6 @@ function dhtmlXContainer(obj) {
 		obj.id = "dhxFoldersObj_"+this._genStr(12);
 		obj.style.width = "100%";
 		obj.style.height = "100%";
-		obj.style.overflow = "hidden";
 		obj.cmp = "folders";
 		document.body.appendChild(obj);
 		this.attachObject(obj.id, false, true, false);
@@ -954,7 +948,6 @@ function dhtmlXContainer(obj) {
 		
 		var obj = document.createElement("DIV");
 		obj.id = "dhxLayoutObj_"+this._genStr(12);
-		obj.style.overflow = "hidden";
 		obj.style.position = "absolute";
 		
 		obj.style.left = "0px";
@@ -1014,7 +1007,6 @@ function dhtmlXContainer(obj) {
 		obj.id = "dhxEditorObj_"+this._genStr(12);
 		obj.style.position = "relative";
 		obj.style.display = "none";
-		obj.style.overflow = "hidden";
 		obj.style.width = "100%";
 		obj.style.height = "100%";
 		obj.cmp = "editor";
@@ -1046,7 +1038,6 @@ function dhtmlXContainer(obj) {
 		obj.id = "GMapsObj_"+this._genStr(12);
 		obj.style.position = "relative";
 		obj.style.display = "none";
-		obj.style.overflow = "hidden";
 		obj.style.width = "100%";
 		obj.style.height = "100%";
 		obj.cmp = "gmaps";
@@ -1367,9 +1358,8 @@ function dhtmlXContainer(obj) {
 			}
 			this.vs[this.av].dhxcont._frame = null;
 			this.vs[this.av].dhxcont.mainCont[this.av].appendChild(obj);
-			// this._engineGetWindowContent(win).style.overflow = (append===true?"auto":"hidden");
+			// this._engineGetWindowContent(win).style.overflow = "auto";
 			// win._content.childNodes[2].appendChild(obj);
-			this.vs[this.av].dhxcont.mainCont[this.av].style.overflow = (append===true?"auto":"hidden");
 			obj.style.display = "";
 			
 		} else if (type == "str") {

@@ -18,10 +18,9 @@
 											:alt=>"Search by Name within results",
 											:title=>"Search by Name within results") %>
 		<%= javascript_tag("$j('#search_text').focus();") %>
-		<%= link_to(image_tag('/images/layout/search.gif',
-													:id=>"searchicon", :name=>"search_button",
-													:alt=>"Search by Name within results",
+		<%= link_to "Search",
 								{:action=>"x_search_by_name", :button=>"search_button"},
+								:class=>"btn btn-default",
 								"data-miq_sparkle_on" => true,
 								"data-submit"=>'searchbox',
 								:remote=>true,
@@ -32,10 +31,9 @@
 	<% unless nameonly %>
 		<%# Button to toggle adv search box on/off %>
 		<% squash_state = @edit && @edit[:adv_search_open] && @edit[:adv_search_open] == true ? "false" : "true" %>
-		<%= link_to(image_tag("/images/toolbars/squashed-#{squash_state}.png",
-                          :id=>"adv_search_img", :style=>"z-index:50",
-                          :alt=>"Advanced Search", :title=>"Advanced Search"),
+		<%= link_to "Advanced Search", 
                 {:action=>'adv_search_toggle'},
+		:class=>"btn btn-default",
                 :remote=>true,
                 :id=>"adv_search") %>
 

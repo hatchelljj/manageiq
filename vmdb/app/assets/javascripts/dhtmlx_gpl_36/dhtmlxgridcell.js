@@ -1326,7 +1326,7 @@ eXcell_dyn.prototype.setValue=function(val){
 		var color = "red";
 		var img = "dyn_down.gif";
 	}
-	this.setCValue("<div style='position:relative;padding-right:2px; width:100%;overflow:hidden; white-space:nowrap;'><img src='"+this.grid.imgURL+""+img
+	this.setCValue("<div style='position:relative;padding-right:2px; width:100%; white-space:nowrap;'><img src='"+this.grid.imgURL+""+img
 		+"' height='15' style='position:absolute;top:0px;left:0px;'><span style=' padding-left:20px; width:100%;color:"+color+";'>"+val
 		+"</span></div>",
 		val);
